@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>com.adoptapp</groupId>
+<artifactId>adoptapp</artifactId>
+<version>1.0.0</version>
+
+<packaging>pom</packaging>
+
+<modules>
+    <module>adoption-service</module>
+    <module>donation-service</module>
+    <module>followup-service</module>
+    <module>health-service</module>
+    <module>notification-service</module>
+    <module>pet-service</module>
+    <module>shelter-service</module>
+    <module>staff-service</module>
+    <module>supply-service</module>
+    <module>user-service</module>
+</modules>
+
+<properties>
+    <java.version>21</java.version>
+</properties>
+
+</project>

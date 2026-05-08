@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/DataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/AuditServiceClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/AuditServiceClientFallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/NotificationClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/AdoptionDataInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/AdoptionRestClientConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/controller/AdoptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/controller/AdoptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/exception/AdoptionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "camilaosorio123"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/RayFullstack/AdoptAPP.git",
+    "accountId": "e5994531-2bf3-4816-a273-020feed737f9"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3DRg702mfSUIiWgVSPUASRKsuj2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.SupplyServiceApplication">
+    <configuration name="DonationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="donation-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.donationservice.DonationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FollowupServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="followup-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.followupservice.FollowupServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StaffServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="staff-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.staffservice.StaffServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SupplyServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="supply-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.supplyservice.SupplyServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="" />
+      <created>1778250126136</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778250126136</updated>
+      <workItem from="1778250127458" duration="9000" />
+      <workItem from="1778250158310" duration="380000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

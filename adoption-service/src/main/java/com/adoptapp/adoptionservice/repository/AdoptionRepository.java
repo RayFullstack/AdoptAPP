@@ -1,4 +1,14 @@
 package com.adoptapp.adoptionservice.repository;
 
-public class AdoptionRepository {
+import com.adoptapp.adoptionservice.model.Adoption;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface AdoptionRepository extends JpaRepository<Adoption, Long> {
+    boolean existsByNameIgnoreCase(String name);
+
+    List<Adoption> findByStatusIgnoreCase(String status);
+
+    List<Adoption> findAllByOrderByCreatedAtAsc();
 }
