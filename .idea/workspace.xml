@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/DataInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/service/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/pet-service" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -98,6 +87,7 @@
           <value>
             <map>
               <entry key="PetServiceApplication" value="STOPPED" />
+              <entry key="UserServiceApplication" value="STOPPED" />
             </map>
           </value>
         </entry>
@@ -197,7 +187,7 @@
       <workItem from="1778250158310" duration="6693000" />
       <workItem from="1778260388678" duration="740000" />
       <workItem from="1778261142032" duration="13244000" />
-      <workItem from="1778351909119" duration="13198000" />
+      <workItem from="1778351909119" duration="13510000" />
     </task>
     <servers />
   </component>

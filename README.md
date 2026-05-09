@@ -1,23 +1,23 @@
 # AdoptApp - Plataforma de Adopción de Mascotas
 
-Una plataforma de adopción de mascotas basada en microservicios, construida con **Spring Boot 3** y **Java 21**, diseñada para gestionar todo el ciclo de vida de las adopciones en refugios, incluyendo personal, usuarios y más.
+Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 3** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
 
 ## Arquitectura
 
-Este proyecto sigue una **arquitectura de microservicios** con 10 servicios desplegables de forma independiente, gestionados bajo un POM padre multi-módulo de Maven.
+Proyecto multi-módulo Maven con 10 microservicios desplegables de forma independiente:
 
 ```
 adoptapp/
-├── user-service/          # Gestión de usuarios (ACTIVO + PROBADO)
-├── pet-service/           # Catálogo de mascotas (ACTIVO + PROBADO)
-├── adoption-service/      # Proceso de adopción (EN DESARROLLO - CON BUGS)
-├── donation-service/      # Donaciones (ESQUELETO)
-├── shelter-service/       # Gestión de refugios (ESQUELETO)
-├── staff-service/         # Gestión de personal (ESQUELETO)
-├── health-service/        # Registros de salud de mascotas (ESQUELETO)
-├── notification-service/  # Notificaciones (ESQUELETO)
-├── supply-service/        # Insumos de refugio (ESQUELETO)
-├── followup-service/      # Seguimiento post-adopción (ESQUELETO)
+├── user-service/          # Gestión de usuarios
+├── pet-service/           # Catálogo de mascotas
+├── adoption-service/      # Proceso de adopción
+├── donation-service/      # Donaciones (esqueleto)
+├── shelter-service/       # Gestión de refugios (esqueleto)
+├── staff-service/         # Gestión de personal (esqueleto)
+├── health-service/        # Registros de salud (esqueleto)
+├── notification-service/  # Notificaciones (esqueleto)
+├── supply-service/        # Insumos de refugio (esqueleto)
+├── followup-service/      # Seguimiento post-adopción (esqueleto)
 └── pom.xml                # POM Padre
 ```
 
@@ -25,19 +25,19 @@ adoptapp/
 
 | Tecnología | Uso |
 |---|---|
-| **Java 21** | Runtime (shelter-service usa Java 17) |
-| **Spring Boot 3.x** | Framework de la aplicación |
-| **Spring Data JPA** | Acceso a base de datos |
+| **Java 21** | Runtime |
+| **Spring Boot 3.x** | Framework |
+| **Spring Data JPA** | Acceso a datos con relaciones |
 | **PostgreSQL** | Base de datos relacional (una BD por servicio) |
-| **Lombok** | Reducción de código repetitivo en entidades |
+| **Lombok** | Reducción de código repetitivo |
 | **Bean Validation** | Validación de DTOs de entrada |
-| **Maven** | Gestión de dependencias y compilación |
+| **Maven** | Gestión de dependencias |
 
-## Qué se ha implementado hasta ahora
+## Avances Realizados
 
-### user-service (Puerto 8081) - COMPLETAMENTE IMPLEMENTADO
+### user-service (Puerto 8081) - COMPLETO CON RELACIONES JPA
 
-API CRUD completa para gestionar usuarios (adoptantes, personal, etc.).
+API CRUD para gestionar usuarios (adoptantes). Refactorizado con relaciones JPA reales.
 
 **Base de datos**: PostgreSQL `user_db`
 
@@ -45,24 +45,28 @@ API CRUD completa para gestionar usuarios (adoptantes, personal, etc.).
 
 | Método | Ruta | Descripción |
 |---|---|---|
-| `GET` | `/users` | Listar todos los usuarios (filtro opcional `?status=`) |
-| `GET` | `/users/by-id/{id}` | Obtener usuario por ID |
-| `POST` | `/users` | Crear un nuevo usuario |
-| `PUT` | `/users/by-id/{id}` | Actualizar usuario por ID |
-| `DELETE` | `/users/by-id/{id}` | Eliminar usuario por ID |
+| `GET` | `/users` | Listar todos (filtro `?status=`) |
+| `GET` | `/users/by-id/{id}` | Obtener por ID |
+| `POST` | `/users` | Crear usuario |
+| `PUT` | `/users/by-id/{id}` | Actualizar usuario |
+| `DELETE` | `/users/by-id/{id}` | Eliminar usuario |
 
-**Entidad - User**:
-- `id`, `name`, `surname`, `username` (único), `email` (único), `phone`, `address`, `status`, `createdAt`
+**Modelo de datos normalizado**:
+- `User` → `@OneToOne` → `UserPhone` (tabla `phone_numbers`)
+- `User` → `@OneToMany` → `UserAddress` (tabla `user_addresses`)
+- `User.status` → `@Enumerated(EnumType.STRING)` → `UserStatus {ACTIVE, INACTIVE, SUSPENDED}`
 
-**Patrones utilizados**:
-- Patrón DTO de 4 capas: `Request` (validado) -> `Command` -> `Result` -> `Response`
-- Inyección por constructor en todas partes
-- Java records para todos los DTOs
-- Siembra de datos al iniciar (3 usuarios de ejemplo de la familia Simpson)
+**DTOs** con campos de dirección: `country`, `city`, `street`, `homeNumber`, `postalCode`, `type`
 
-### pet-service (Puerto 8082) - COMPLETAMENTE IMPLEMENTADO
+**Validaciones** en `UserRequest`: `@NotBlank`, `@Email`, `@Size`, `@NotNull`
 
-API CRUD completa para gestionar mascotas disponibles para adopción.
+**Patrón**: Request → Command → Result → Response. Java records en todos los DTOs.
+
+**Siembra de datos**: 3 usuarios de ejemplo con teléfono y dirección.
+
+### pet-service (Puerto 8082) - COMPLETO CON RELACIONES JPA
+
+API CRUD para gestionar mascotas. Refactorizado con entidades relacionadas.
 
 **Base de datos**: PostgreSQL `pet_db`
 
@@ -70,64 +74,87 @@ API CRUD completa para gestionar mascotas disponibles para adopción.
 
 | Método | Ruta | Descripción |
 |---|---|---|
-| `GET` | `/pets` | Listar todas las mascotas (filtro opcional `?status=`) |
-| `GET` | `/pets/by-id/{id}` | Obtener mascota por ID |
-| `POST` | `/pets` | Crear una nueva mascota |
-| `PUT` | `/pets/by-id/{id}` | Actualizar mascota por ID |
-| `DELETE` | `/pets/by-id/{id}` | Eliminar mascota por ID |
+| `GET` | `/pets` | Listar todas (filtro `?status=`) |
+| `GET` | `/pets/by-id/{id}` | Obtener por ID |
+| `POST` | `/pets` | Crear mascota |
+| `PUT` | `/pets/by-id/{id}` | Actualizar mascota |
+| `DELETE` | `/pets/by-id/{id}` | Eliminar mascota |
 
-**Entidad - Pet**:
-- `id`, `name`, `species`, `race`, `color`, `age`, `size`, `health`, `personality`, `status`, `createdAt`, `fosterId`
+**Modelo de datos normalizado**:
+- `Pet` → `@ManyToOne` → `PetStatus` (tabla `pet_status` - catálogo de estados)
+- `Pet` → `@OneToOne(cascade=ALL)` → `PetHealth` (tabla `pet_health` - vacunado, esterilizado, enfermedades)
+- Nuevos repositorios: `StatusRepository`, `HealthRepository`
 
-**Datos sembrados al iniciar**:
-- "Yoni" - Doberman, 7 años, grande, arisco
-- "Loki" - Gato doméstico pelo largo, 4 años, negro, mediano
-- "Oso" - Cocker, 2 años, crema, mediano, con problemas cardíacos
+**DTOs** incluyen datos de salud: `vaccinated`, `sterilized`, `diseases`, `status` (String)
 
-### adoption-service - EN DESARROLLO (CONTIENE BUGS)
+**Validaciones** en `PetRequest`: `@NotBlank`, `@Size`, `@Min`, `@NotNull`
 
-Estructurado con el mismo patrón que los otros servicios pero **no compila**. El código fue parcialmente copiado desde pet-service y nunca se adaptó correctamente. Problemas conocidos:
+**Siembra de datos**: 3 mascotas ("Yoni", "Loki", "Oso") con su estado y salud.
 
-- `AdoptionService` referencia la clase `Pet` y campos específicos de mascota que no existen en la entidad `Adoption`
-- `AdoptionController` tiene errores de sintaxis: falta `orElse()`, código inalcanzable, firmas de métodos incompletas, faltan mapeos de variables de ruta
-- `AdoptionRepository` tiene `existsByNameIgnoreCase()` pero `Adoption` no tiene un campo `name`
-- `DataInitializer` referencia una variable `command` que no está definida
-- Falta configuración de base de datos en `application.yaml`
-- Falta el driver de PostgreSQL en el `pom.xml`
+### adoption-service - EN DESARROLLO (CON BUGS)
 
-**Entidad - Adoption** (definida pero el servicio está roto):
-- `id`, `userId`, `petId`, `status`, `createdAt`
+Estructura base creada pero no compila. Problemas conocidos:
+- `AdoptionService` referencia `Pet` y campos que no existen en `Adoption`
+- `AdoptionController` con errores de sintaxis, rutas incompletas, código inalcanzable
+- `AdoptionRepository` con `existsByNameIgnoreCase()` pero `Adoption` no tiene campo `name`
+- `DataInitializer` con variable `command` no definida
+- Falta configuración de BD y driver PostgreSQL en `pom.xml`
+
+**Entidad Adoption**: `id`, `userId`, `petId`, `status`, `createdAt`
 
 ### Servicios Restantes - SOLO ESQUELETO
-
-Los siguientes 7 servicios contienen solo la clase de aplicación Spring Boot y una clase de prueba vacía:
 
 | Servicio | Propósito |
 |---|---|
 | `donation-service` | Gestionar donaciones monetarias y en especie |
 | `shelter-service` | Gestionar ubicaciones y capacidad de refugios |
-| `staff-service` | Gestionar personal y voluntarios del refugio |
+| `staff-service` | Gestionar personal y voluntarios |
 | `health-service` | Seguimiento de vacunas, tratamientos y registros médicos |
-| `notification-service` | Notificaciones por email/SMS para eventos de adopción |
-| `supply-service` | Control de insumos del refugio (comida, juguetes, medicinas) |
-| `followup-service` | Seguimiento y retroalimentación post-adopción |
+| `notification-service` | Notificaciones por email/SMS |
+| `supply-service` | Control de insumos (comida, juguetes, medicinas) |
+| `followup-service` | Seguimiento post-adopción |
+
+## Patrones del Proyecto
+
+### Capas de DTO (4 capas)
+
+```
+Request (validación) → Command (servicio) → Result (servicio) → Response (API)
+```
+
+### Relaciones JPA implementadas
+
+- `@OneToOne` para teléfono de usuario y salud de mascota
+- `@OneToMany` para direcciones de usuario
+- `@ManyToOne` para estado de mascota (catálogo)
+- `@Enumerated(EnumType.STRING)` para estado de usuario
+- `CascadeType.ALL` para operaciones en cascada
+
+### Repositorios Spring Data JPA
+
+```java
+findByStatus_NameIgnoreCase(String name);
+findByStatusIgnoreCase(String status);
+existsByUsernameIgnoreCase(String username);
+existsByEmailIgnoreCase(String email);
+```
+
+### Inicialización de Datos
+
+Cada servicio incluye un `CommandLineRunner` que siembra datos si la tabla está vacía.
 
 ## Empezando
 
 ### Prerrequisitos
 
-- Java 21 (Java 17 como mínimo para shelter-service)
+- Java 21
 - Maven 3.8+
 - PostgreSQL corriendo localmente
 
-### Configuración
+### Configuración de Bases de Datos
 
-Dos servicios están configurados para conectarse a PostgreSQL:
-
-**user-service** (`user-service/src/main/resources/application.yaml`):
+**user-service** (puerto 8081, BD: `user_db`):
 ```yaml
-server:
-  port: 8081
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/user_db
@@ -139,10 +166,8 @@ spring:
     open-in-view: false
 ```
 
-**pet-service** (`pet-service/src/main/resources/application.yaml`):
+**pet-service** (puerto 8082, BD: `pet_db`):
 ```yaml
-server:
-  port: 8082
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/pet_db
@@ -157,26 +182,21 @@ spring:
 ### Ejecutar un Servicio
 
 ```bash
-# Ejecutar user-service
 cd user-service
-./mvnw spring-boot:run
-
-# Ejecutar pet-service
-cd pet-service
 ./mvnw spring-boot:run
 ```
 
-### Compilar Todos los Servicios
+### Compilar Todos
 
 ```bash
 mvn clean install
 ```
 
-> Nota: `adoption-service` fallará al compilar debido a los bugs conocidos.
+> Nota: `adoption-service` fallará al compilar.
 
-## Ejemplos de Uso de la API
+## Ejemplos de Uso
 
-### Crear un Usuario
+### Crear Usuario
 
 ```bash
 curl -X POST http://localhost:8081/users \
@@ -187,65 +207,61 @@ curl -X POST http://localhost:8081/users \
     "surname": "Doe",
     "email": "john@example.com",
     "phone": "1234567890",
-    "address": "123 Main St"
+    "country": "Chile",
+    "city": "Santiago",
+    "street": "Av. Siempre Viva",
+    "homeNumber": "742",
+    "postalCode": "8320000",
+    "type": "HOME"
   }'
 ```
 
-### Listar Mascotas Disponibles
+### Crear Mascota
 
 ```bash
-curl http://localhost:8082/pets?status=AVAILABLE
+curl -X POST http://localhost:8082/pets \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Rex",
+    "species": "Perro",
+    "race": "Pastor Alemán",
+    "age": 3,
+    "size": "Grande",
+    "color": "Negro",
+    "personality": "Amigable",
+    "fosterId": 1,
+    "vaccinated": true,
+    "sterilized": false,
+    "diseases": "Ninguna",
+    "status": "AVAILABLE"
+  }'
 ```
 
-### Obtener Mascota por ID
+### Listar por Estado
 
 ```bash
-curl http://localhost:8082/pets/by-id/1
+curl "http://localhost:8081/users?status=ACTIVE"
+curl "http://localhost:8082/pets?status=AVAILABLE"
 ```
-
-## Patrones del Proyecto
-
-### Capas de DTO (usado en user-service y pet-service)
-
-```
-UserRequest  --entrada validada-->  UserController
-UserCommand  --capa de servicio-->  UserService
-UserResult   --salida de servicio-->  UserService
-UserResponse --salida API-->      Cliente
-```
-
-### Patrón de Repositorio
-
-Repositorios Spring Data JPA con métodos de consulta derivados:
-```java
-List<User> findByStatusIgnoreCase(String status);
-List<User> findAllByOrderByCreatedAtAsc();
-boolean existsByUsernameIgnoreCase(String username);
-```
-
-### Inicialización de Datos
-
-Cada servicio implementado incluye un `CommandLineRunner` que siembra datos iniciales al arrancar si la tabla está vacía.
 
 ## Qué Falta / Trabajo Futuro
 
-- **Comunicación entre servicios**: Sin clientes Feign, templates REST ni brokers de mensajes
-- **API Gateway**: Sin Spring Cloud Gateway ni capa de ruteo
-- **Descubrimiento de servicios**: Sin Eureka ni Consul
-- **Autenticación/Autorización**: Sin Spring Security
-- **Manejo global de excepciones**: Sin `@RestControllerAdvice`
-- **Paginación**: Todos los endpoints de lista devuelven colecciones completas
-- **Docker/Contenedores**: Sin Dockerfiles ni docker-compose
-- **CI/CD**: Sin configuración de pipeline
-- **Migraciones de base de datos**: Sin Flyway ni Liquibase
-- **adoption-service**: Necesita ser arreglado y completado
-- **7 servicios restantes**: Necesitan implementación completa
+- **adoption-service**: Reparar bugs y completar implementación
+- **7 servicios restantes**: Implementar CRUD y lógica de negocio
+- **Comunicación entre servicios**: Feign, REST template o message broker
+- **API Gateway**: Spring Cloud Gateway para ruteo
+- **Descubrimiento**: Eureka o Consul
+- **Seguridad**: Spring Security con autenticación JWT
+- **Manejo global de excepciones**: `@RestControllerAdvice`
+- **Paginación**: Endpoints con paginación Spring Data
+- **Contenedores**: Dockerfiles y docker-compose
+- **CI/CD**: Pipeline de integración y despliegue
+- **Migraciones**: Flyway o Liquibase para control de esquema
 
 ## Problemas Conocidos
 
-1. `adoption-service` no compila - ver bugs listados arriba
-2. `shelter-service` usa Java 17 mientras que los demás usan Java 21
-3. `Pet.fosterId` es un `Long` simple sin relación JPA definida
-4. `User.phone` y `User.address` tienen `@Column(length=50)` que es restrictivo
-5. Las credenciales por defecto de PostgreSQL (`postgres`/`1234`) deben cambiarse para producción
-6. No hay `.gitignore` en el nivel raíz
+1. `adoption-service` no compila
+2. `Pet.fosterId` es `Long` simple sin relación JPA
+3. Credenciales PostgreSQL por defecto (`postgres`/`1234`)
+4. No hay `.gitignore` en raíz
+5. Los 7 servicios esqueleto no tienen lógica de negocio
