@@ -5,58 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/DataInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/AuditServiceClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/AuditServiceClientFallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/NotificationClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/AdoptionDataInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/AdoptionRestClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/controller/AdoptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/controller/AdoptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/exception/AdoptionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "camilaosorio123"
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/pet-service" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;camilaosorio123&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/RayFullstack/AdoptAPP.git",
-    "accountId": "e5994531-2bf3-4816-a273-020feed737f9"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RayFullstack/AdoptAPP.git&quot;,
+    &quot;accountId&quot;: &quot;e5994531-2bf3-4816-a273-020feed737f9&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="3DRg702mfSUIiWgVSPUASRKsuj2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -65,16 +55,51 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.PetServiceApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.SupplyServiceApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="PetServiceApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PetServiceApplication">
+    <configuration name="AdoptionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="adoption-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.adoptionservice.AdoptionServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DonationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="donation-service" />
@@ -87,6 +112,38 @@
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="followup-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.followupservice.FollowupServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="health-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.healthservice.HealthServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="notification-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.notificationservice.NotificationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="pet-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.petservice.PetServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShelterServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="shelter-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.shelterservice.ShelterServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,6 +164,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,7 +181,9 @@
       <option name="presentableId" value="Default" />
       <updated>1778250126136</updated>
       <workItem from="1778250127458" duration="9000" />
-      <workItem from="1778250158310" duration="380000" />
+      <workItem from="1778250158310" duration="6693000" />
+      <workItem from="1778260388678" duration="740000" />
+      <workItem from="1778261142032" duration="12922000" />
     </task>
     <servers />
   </component>

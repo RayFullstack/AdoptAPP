@@ -108,9 +108,11 @@ public class PetController {
                 request.age(),
                 request.size(),
                 request.color(),
-                request.health(),
                 request.personality(),
                 request.fosterId(),
+                request.vaccinated(),
+                request.sterilized(),
+                request.diseases(),
                 request.status()
         );
     }
@@ -124,7 +126,10 @@ public class PetController {
                 result.age(),
                 result.size(),
                 result.color(),
-                result.health(),
+                result.status(),
+                result.vaccinated(),
+                result.sterilized(),
+                result.diseases(),
                 result.personality(),
                 result.fosterId()
         );

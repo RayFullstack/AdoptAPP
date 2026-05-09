@@ -2,37 +2,56 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+      </profile>
+      <profile name="Annotation profile for adoptapp" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/4.0.0/spring-boot-configuration-processor-4.0.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
         <module name="supply-service" />
-        <module name="pet-service" />
         <module name="health-service" />
         <module name="shelter-service" />
         <module name="staff-service" />
         <module name="user-service" />
         <module name="adoption-service" />
         <module name="followup-service" />
+        <module name="donation-service" />
+        <module name="notification-service" />
       </profile>
-      <profile name="Annotation profile for donation-service" enabled="true">
+      <profile name="Annotation profile for pet-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/4.0.6/spring-boot-configuration-processor-4.0.6.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/4.0.0/spring-boot-configuration-processor-4.0.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/4.0.0/spring-boot-configuration-processor-4.0.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
-        <module name="donation-service" />
+        <module name="pet-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="adoption-service" options="-parameters" />
       <module name="donation-service" options="-parameters" />
-      <module name="followup-service" options="" />
-      <module name="staff-service" options="" />
-      <module name="supply-service" options="" />
+      <module name="followup-service" options="-parameters" />
+      <module name="health-service" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
+      <module name="pet-service" options="-parameters" />
+      <module name="shelter-service" options="-parameters" />
+      <module name="staff-service" options="-parameters" />
+      <module name="supply-service" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>

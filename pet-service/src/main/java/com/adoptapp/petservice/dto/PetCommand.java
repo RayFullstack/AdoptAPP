@@ -7,9 +7,11 @@ public record PetCommand (
         Integer age,
         String size,
         String color,
-        String health,
         String personality,
         Long fosterId,
+        boolean vaccinated,
+        boolean sterilized,
+        String diseases,
         String status
 ){
 }

@@ -8,7 +8,10 @@ public record PetResult(
         int age,
         String size,
         String color,
-        String health,
+        String status,
+        Boolean vaccinated,
+        Boolean sterilized,
+        String diseases,
         String personality,
         Long fosterId
 ) {

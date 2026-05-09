@@ -1,6 +1,5 @@
 package com.adoptapp.petservice.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+
 @Entity
 @Table(name= "pets")
 @Getter
@@ -39,26 +39,25 @@ public class Pet {
     private String size;
 
     @Column(nullable = false, length = 50)
-    private String health;
-
-    @Column(nullable = false, length = 50)
     private String personality;
 
-    /*MEJORAR STATUS PARA QUE SE INICIALICE SOLO
-    SEGUN CHATGPT :
-     @PrePersist
+    @PrePersist
     public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-        this.status = "AVAILABLE";
+        createdAt = LocalDateTime.now();
     }
-     */
-    @Column(nullable = false, length = 20)
-    private String status;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
     private Long fosterId;
+
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    private PetStatus status;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "health_id")
+    private PetHealth health;
 
 }
