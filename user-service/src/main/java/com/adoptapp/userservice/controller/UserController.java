@@ -4,6 +4,7 @@ import com.adoptapp.userservice.dto.UserCommand;
 import com.adoptapp.userservice.dto.UserRequest;
 import com.adoptapp.userservice.dto.UserResponse;
 import com.adoptapp.userservice.dto.UserResult;
+import com.adoptapp.userservice.model.UserStatus;
 import com.adoptapp.userservice.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -108,9 +109,13 @@ public class UserController {
                 request.surname(),
                 request.email(),
                 request.phone(),
-                request.address(),
+                request.country(),
+                request.city(),
+                request.street(),
+                request.homeNumber(),
+                request.postalCode(),
+                request.type(),
                 request.status()
-
         );
     }
 
@@ -122,9 +127,13 @@ public class UserController {
                 result.surname(),
                 result.email(),
                 result.phone(),
-                result.address(),
-                result.status(),
-                result.createdAt()
+                result.country(),
+                result.city(),
+                result.street(),
+                result.homeNumber(),
+                result.postalCode(),
+                result.type(),
+                result.status()
         );
     }
 }

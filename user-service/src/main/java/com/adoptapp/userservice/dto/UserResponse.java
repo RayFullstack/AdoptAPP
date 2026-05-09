@@ -1,5 +1,7 @@
 package com.adoptapp.userservice.dto;
 
+import com.adoptapp.userservice.model.UserStatus;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -10,7 +12,13 @@ public record UserResponse (
         String surname,
         String email,
         String phone,
-        String address,
-        String status,
-        LocalDateTime createdAt){
+        String country,
+        String city,
+        String street,
+        String homeNumber,
+        String postalCode,
+        String type,
+
+        UserStatus status
+){
 }

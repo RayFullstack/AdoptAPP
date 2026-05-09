@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -33,25 +33,26 @@ public class User {
     @Column(nullable = false, unique = true, length = 50)
     private String email;
 
-    @Column(nullable = false, length = 50)
-    private String phone;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private UserPhone phone;
 
-    @Column(nullable = false, length = 50)
-    private String address;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserAddress> addresses;
 
-    /*MEJORAR STATUS PARA QUE SE INICIALICE SOLO
-    SEGUN CHATGPT :
-     @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-        this.status = UserStatus.ACTIVE;
-    }
-     */
-    @Column(nullable = false, length = 20)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserStatus status;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+
+        if(status == null){
+            status = UserStatus.ACTIVE;
+        }
+    }
 }
 
