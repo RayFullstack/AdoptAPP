@@ -1,6 +1,6 @@
 # AdoptApp - Plataforma de Adopción de Mascotas
 
-Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 3** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
+Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 4.0.0** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
 
 ## Arquitectura
 
@@ -26,7 +26,7 @@ adoptapp/
 | Tecnología | Uso |
 |---|---|
 | **Java 21** | Runtime |
-| **Spring Boot 3.x** | Framework |
+| **Spring Boot 4.0.0** | Framework |
 | **Spring Data JPA** | Acceso a datos con relaciones |
 | **PostgreSQL** | Base de datos relacional (una BD por servicio) |
 | **Lombok** | Reducción de código repetitivo |
@@ -37,9 +37,9 @@ adoptapp/
 
 ### user-service (Puerto 8081) - COMPLETO CON RELACIONES JPA
 
-API CRUD para gestionar usuarios (adoptantes). Refactorizado con relaciones JPA reales.
+API CRUD para gestionar usuarios (adoptantes). Refactorizado con relaciones JPA reales. Migraciones Flyway aplicadas automáticamente al iniciar.
 
-**Base de datos**: PostgreSQL `user_db`
+**Base de datos**: PostgreSQL `users_db`
 
 **Endpoints** (`/users`):
 
@@ -153,7 +153,7 @@ Cada servicio incluye un `CommandLineRunner` que siembra datos si la tabla está
 
 ### Configuración de Bases de Datos
 
-**user-service** (puerto 8081, BD: `user_db`):
+**user-service** (puerto 8081, BD: `users_db`):
 ```yaml
 spring:
   datasource:
@@ -256,7 +256,28 @@ curl "http://localhost:8082/pets?status=AVAILABLE"
 - **Paginación**: Endpoints con paginación Spring Data
 - **Contenedores**: Dockerfiles y docker-compose
 - **CI/CD**: Pipeline de integración y despliegue
-- **Migraciones**: Flyway o Liquibase para control de esquema
+## Cambios Realizados
+
+### POM Padre - Gestión Centralizada de Dependencias
+
+Se agregó `<dependencyManagement>` al `pom.xml` raíz con versiones centralizadas para facilitar la configuración en todos los microservicios:
+
+| Dependencia | Versión |
+|---|---|
+| `flyway-core` | 10.21.0 |
+| `flyway-database-postgresql` | 10.21.0 |
+| `postgresql` | 42.7.5 |
+| `h2` | 2.3.232 |
+
+### user-service - Correcciones y Flyway
+
+| Cambio | Detalle |
+|---|---|
+| `spring-boot-starter-webmvc` | Corregido a `spring-boot-starter-web` |
+| `spring-boot-starter-webmvc-test` | Corregido a `spring-boot-starter-test` |
+| `flyway-core` con version hardcodeada 9.22.3 | Eliminada la versión, ahora la gestiona el POM padre |
+| `flyway-core` → `spring-boot-starter-flyway` | Cambio requerido porque Spring Boot 4.0.0 movió la auto-configuración de Flyway fuera de `spring-boot-autoconfigure` |
+| Migraciones Flyway | V1 (crear tablas) y V2 (insertar datos iniciales) se ejecutan automáticamente al iniciar |
 
 ## Problemas Conocidos
 
@@ -265,3 +286,5 @@ curl "http://localhost:8082/pets?status=AVAILABLE"
 3. Credenciales PostgreSQL por defecto (`postgres`/`1234`)
 4. No hay `.gitignore` en raíz
 5. Los 7 servicios esqueleto no tienen lógica de negocio
+6. `application-postgres.yml` apunta a `classpath:db/migration/postgresql` pero los migrations están en `classpath:db/migration/`
+7. `application-h2.yml` no configura Flyway correctamente (usa propiedad inválida `flyway.console.enabled`)

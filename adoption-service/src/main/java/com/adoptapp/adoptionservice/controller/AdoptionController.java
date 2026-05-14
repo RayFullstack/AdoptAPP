@@ -56,7 +56,7 @@ public class AdoptionController {
                     .body(new ErrorResponse(e.getMessage()),
                             HttpStatus.CONFLICT.value(),
                             LocalDateTime.now()
-                    ));
+                    );
         }catch(IllegalArgumentException e){
           return ResponseEntity.status(HttpStatus.CONFLICT)
                   .body(new ErrorResponse(e.getMessage(),
@@ -86,8 +86,10 @@ public class AdoptionController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Object> deleteAdoptionById(@PathVariable Long id){}
+    public ResponseEntity<Object> deleteAdoptionById(@PathVariable Long id){
+        return null;
+    }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ErrorResponse> handleIllegalArgumentException()
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(){return null;}
 }

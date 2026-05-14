@@ -1,6 +1,7 @@
 package com.adoptapp.userservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +34,7 @@ public class UserAddress {
     private String postalCode;
 
     @Column(nullable = false)
+    @NotNull(message = "Debe indicar si es dirección principal")
     private Boolean primaryAddress;
 
     @Column(nullable = false, length = 100)

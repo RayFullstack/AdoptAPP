@@ -82,10 +82,11 @@ public class UserService {
         userAddress.setType(command.type());
         userAddress.setPostalCode(command.postalCode());
 
+        userAddress.setPrimaryAddress(true);
+
         userAddress.setUser(user);
 
         user.setAddresses(List.of(userAddress));
-
         User saved = this.userRepository.save(user);
 
         return toResult(saved);
@@ -156,6 +157,7 @@ public class UserService {
         address.setHomeNumber(command.homeNumber());
         address.setPostalCode(command.postalCode());
         address.setType(command.type());
+        address.setPrimaryAddress(true);
 
         User saved = this.userRepository.save(toUpdate);
 
@@ -164,7 +166,11 @@ public class UserService {
 
     private UserResult toResult(User user) {
 
-        UserAddress address = user.getAddresses().get(0);
+        UserAddress address = null;
+
+        if (user.getAddresses() != null && !user.getAddresses().isEmpty()) {
+            address = user.getAddresses().get(0);
+        }
 
         return new UserResult(
                 user.getId(),
@@ -172,13 +178,18 @@ public class UserService {
                 user.getName(),
                 user.getSurname(),
                 user.getEmail(),
-                user.getPhone().getNumber(),
-                address.getCountry(),
-                address.getCity(),
-                address.getStreet(),
-                address.getHomeNumber(),
-                address.getPostalCode(),
-                address.getType(),
+
+                user.getPhone() != null
+                        ? user.getPhone().getNumber()
+                        : null,
+
+                address != null ? address.getCountry() : null,
+                address != null ? address.getCity() : null,
+                address != null ? address.getStreet() : null,
+                address != null ? address.getHomeNumber() : null,
+                address != null ? address.getPostalCode() : null,
+                address != null ? address.getType() : null,
+
                 user.getStatus()
         );
     }
