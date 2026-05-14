@@ -286,5 +286,4 @@ Se agregó `<dependencyManagement>` al `pom.xml` raíz con versiones centralizad
 3. Credenciales PostgreSQL por defecto (`postgres`/`1234`)
 4. No hay `.gitignore` en raíz
 5. Los 7 servicios esqueleto no tienen lógica de negocio
-6. `application-postgres.yml` apunta a `classpath:db/migration/postgresql` pero los migrations están en `classpath:db/migration/`
-7. `application-h2.yml` no configura Flyway correctamente (usa propiedad inválida `flyway.console.enabled`)
+6. `application-h2.yml` no configura Flyway correctamente (usa propiedad inválida `flyway.console.enabled`)
