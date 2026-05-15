@@ -7,7 +7,6 @@ import com.adoptapp.petservice.model.PetHealth;
 import com.adoptapp.petservice.model.PetStatus;
 import com.adoptapp.petservice.repository.HealthRepository;
 import com.adoptapp.petservice.repository.PetRepository;
-import com.adoptapp.petservice.repository.StatusRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,14 +16,11 @@ import java.util.Optional;
 public class PetService {
 
     private final PetRepository petRepository;
-    private final StatusRepository statusRepository;
     private final HealthRepository healthRepository;
 
     public PetService(PetRepository petRepository,
-                      StatusRepository statusRepository,
                       HealthRepository healthRepository) {
         this.petRepository = petRepository;
-        this.statusRepository = statusRepository;
         this.healthRepository = healthRepository;
     }
 
@@ -38,8 +34,9 @@ public class PetService {
         if (statusFilter == null || statusFilter.isBlank()) {
             return getPets();
         }
+        PetStatus petStatus = PetStatus.valueOf(statusFilter.toUpperCase());
         return this.petRepository
-                .findByStatus_NameIgnoreCase(statusFilter)
+                .findByStatusIgnoreCase(petStatus)
                 .stream()
                 .map(this::toResult)
                 .toList();
@@ -47,12 +44,7 @@ public class PetService {
 
     public PetResult create(PetCommand command) {
 
-        PetStatus petStatus = statusRepository
-                .findByNameIgnoreCase(command.status())
-                .orElseThrow(() ->
-                        new IllegalArgumentException(
-                                "Estado no válido: " + command.status()
-                        ));
+        PetStatus petStatus = PetStatus.valueOf(command.status().toUpperCase());
 
         PetHealth petHealth = new PetHealth();
         petHealth.setVaccinated(command.vaccinated());
@@ -113,12 +105,7 @@ public class PetService {
         toUpdate.setHealth(updateHealth);
 
         if (command.status() != null && !command.status().isBlank()) {
-            PetStatus petStatus = statusRepository
-                    .findByNameIgnoreCase(command.status())
-                    .orElseThrow(() ->
-                            new IllegalArgumentException(
-                                    "Estado no válido: " + command.status()
-                            ));
+            PetStatus petStatus = PetStatus.valueOf(command.status().toUpperCase());
             toUpdate.setStatus(petStatus);
         }
         Pet saved = this.petRepository.save(toUpdate);
@@ -126,6 +113,7 @@ public class PetService {
     }
 
     private PetResult toResult(Pet pet) {
+        PetHealth health = pet.getHealth();
         return new PetResult(
                 pet.getId(),
                 pet.getName(),
@@ -134,10 +122,10 @@ public class PetService {
                 pet.getAge(),
                 pet.getSize(),
                 pet.getColor(),
-                pet.getStatus().getName(),
-                pet.getHealth().getVaccinated(),
-                pet.getHealth().getSterilized(),
-                pet.getHealth().getDiseases(),
+                pet.getStatus().name(),
+                health != null ? health.getVaccinated() : null,
+                health != null ? health.getSterilized() : null,
+                health != null ? health.getDiseases() : null,
                 pet.getPersonality(),
                 pet.getFosterId()
         );

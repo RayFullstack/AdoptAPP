@@ -24,7 +24,6 @@ public class PetHealth {
 
     private String diseases;
 
-    @OneToOne
-    @JoinColumn(name = "pet_id")
+    @OneToOne(mappedBy = "health")
     private Pet pet;
 }

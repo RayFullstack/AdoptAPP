@@ -52,8 +52,8 @@ public class Pet {
     @Column(nullable = false)
     private Long fosterId;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id")
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private PetStatus status;
 
     @OneToOne(cascade = CascadeType.ALL)
