@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import com.adoptapp.userservice.model.UserStatus;
+import com.adoptapp.userservice.model.User;
 import jakarta.validation.constraints.NotNull;
 
 public record UserRequest(
@@ -23,6 +24,10 @@ public record UserRequest(
         @NotBlank(message = "El email es requerido")
         @Email(message = "El email no es válido")
         String email,
+
+        @NotBlank(message = "La contraseña es requerida")
+        @Size(min = 6, max = 100)
+        String password,
 
         @NotBlank(message = "El teléfono es requerido")
         String phone,
@@ -46,6 +51,10 @@ public record UserRequest(
         String type,
 
         @NotNull(message = "El status es requerido")
-        UserStatus status
+        UserStatus status,
+
+        User.Role role,
+
+        boolean active
 ) {
 }

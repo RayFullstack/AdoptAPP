@@ -1,15 +1,12 @@
 package com.adoptapp.userservice.controller;
 
-import com.adoptapp.userservice.dto.UserCommand;
-import com.adoptapp.userservice.dto.UserRequest;
-import com.adoptapp.userservice.dto.UserResponse;
-import com.adoptapp.userservice.dto.UserResult;
+import com.adoptapp.userservice.dto.*;
 import com.adoptapp.userservice.model.UserStatus;
 import com.adoptapp.userservice.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import com.adoptapp.userservice.dto.ErrorResponse;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,7 +46,15 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/by-id/{id}/history")
+    public ResponseEntity<List<UserHistoryResult>> getHistory(@PathVariable Long id) {
+        return service.getHistory(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER', 'ADMIN')")
     public ResponseEntity<Object> create(@Valid @RequestBody UserRequest request) {
         try {
             UserCommand command = toCommand(request);
@@ -66,6 +71,7 @@ public class UserController {
     }
 
     @PutMapping("/by-id/{id}")
+    @PreAuthorize("@userSecurity.canEdit(#id, authentication)")
     public ResponseEntity<Object> updateUserById(
             @PathVariable Long id,
             @Valid @RequestBody UserRequest request) {
@@ -85,6 +91,7 @@ public class UserController {
     }
 
     @DeleteMapping("/by-id/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         if (!this.service.deleteById(id)) {
             return ResponseEntity.notFound().build();
@@ -108,6 +115,7 @@ public class UserController {
                 request.name(),
                 request.surname(),
                 request.email(),
+                request.password(),
                 request.phone(),
                 request.country(),
                 request.city(),
@@ -115,7 +123,9 @@ public class UserController {
                 request.homeNumber(),
                 request.postalCode(),
                 request.type(),
-                request.status()
+                request.status(),
+                request.role(),
+                request.active()
         );
     }
 
@@ -133,7 +143,9 @@ public class UserController {
                 result.homeNumber(),
                 result.postalCode(),
                 result.type(),
-                result.status()
+                result.status(),
+                result.role(),
+                result.active()
         );
     }
 }

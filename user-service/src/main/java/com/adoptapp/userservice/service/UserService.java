@@ -1,33 +1,42 @@
 package com.adoptapp.userservice.service;
 
 import com.adoptapp.userservice.dto.UserCommand;
+import com.adoptapp.userservice.dto.UserHistoryResult;
 import com.adoptapp.userservice.dto.UserResult;
-import com.adoptapp.userservice.model.UserAddress;
-import com.adoptapp.userservice.model.UserPhone;
-import com.adoptapp.userservice.model.UserStatus;
+import com.adoptapp.userservice.model.*;
 import com.adoptapp.userservice.repository.AddressRepository;
 import com.adoptapp.userservice.repository.PhoneRepository;
+import com.adoptapp.userservice.repository.UserHistoryRepository;
 import com.adoptapp.userservice.repository.UserRepository;
-import com.adoptapp.userservice.model.User;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
     private final PhoneRepository phoneRepository;
     private final AddressRepository addressRepository;
+    private final UserHistoryRepository userHistoryRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository,
                        PhoneRepository phoneRepository,
-                       AddressRepository addressRepository) {
+                       AddressRepository addressRepository,
+                       UserHistoryRepository userHistoryRepository,
+                       PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.phoneRepository = phoneRepository;
         this.addressRepository = addressRepository;
+        this.userHistoryRepository = userHistoryRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<UserResult> getUsers() {
@@ -57,7 +66,7 @@ public class UserService {
         }
         if (existsByEmail) {
             throw new IllegalArgumentException(
-                "El email ya está en uso: \"" + command.email() + "\"");
+                    "El email ya está en uso: \"" + command.email() + "\"");
         }
 
         User user = new User();
@@ -66,7 +75,10 @@ public class UserService {
         user.setName(command.name());
         user.setSurname(command.surname());
         user.setEmail(command.email());
-        user.setStatus(UserStatus.ACTIVE);
+        user.setPassword(passwordEncoder.encode(command.password()));
+        user.setStatus(command.status() != null ? command.status() : UserStatus.ACTIVE);
+        user.setRole(command.role() != null ? command.role() : User.Role.ADOPTER);
+        user.setActive(command.active());
 
         UserPhone userPhone = new UserPhone();
         userPhone.setNumber(command.phone());
@@ -104,6 +116,18 @@ public class UserService {
         return false;
     }
 
+    public Optional<List<UserHistoryResult>> getHistory(Long userId) {
+        if (!userRepository.existsById(userId)) {
+            return Optional.empty();
+        }
+        List<UserHistoryResult> historial = userHistoryRepository
+                .findByUserIdOrderByChangedAtDesc(userId)
+                .stream()
+                .map(this::toHistoryResult)
+                .toList();
+        return Optional.of(historial);
+    }
+
     public Optional<UserResult> updateById(Long id, UserCommand command) {
 
         Optional<User> found = this.userRepository.findById(id);
@@ -113,6 +137,15 @@ public class UserService {
         }
 
         User toUpdate = found.get();
+
+        String oldName = toUpdate.getName();
+        String oldSurname = toUpdate.getSurname();
+        String oldUsername = toUpdate.getUsername();
+        String oldEmail = toUpdate.getEmail();
+        String oldPhone = toUpdate.getPhone() != null ? toUpdate.getPhone().getNumber() : null;
+        String oldStatus = toUpdate.getStatus() != null ? toUpdate.getStatus().name() : null;
+        String oldRole = toUpdate.getRole() != null ? toUpdate.getRole().name() : null;
+        boolean oldActive = toUpdate.isActive();
 
         // DATOS BÁSICOS
         toUpdate.setUsername(command.username());
@@ -124,6 +157,14 @@ public class UserService {
         if (command.status() != null) {
             toUpdate.setStatus(command.status());
         }
+
+        // ROLE
+        if (command.role() != null) {
+            toUpdate.setRole(command.role());
+        }
+
+        // ACTIVE
+        toUpdate.setActive(command.active());
 
         // PHONE
         UserPhone phone = toUpdate.getPhone();
@@ -144,7 +185,8 @@ public class UserService {
             address = new UserAddress();
             address.setUser(toUpdate);
 
-            toUpdate.setAddresses(List.of(address));
+            toUpdate.setAddresses(new ArrayList<>(List.of(address)));
+
 
         } else {
 
@@ -160,6 +202,20 @@ public class UserService {
         address.setPrimaryAddress(true);
 
         User saved = this.userRepository.save(toUpdate);
+
+        recordChange(
+                saved.getId(),
+                oldName, command.name(),
+                oldSurname, command.surname(),
+                oldUsername, command.username(),
+                oldEmail, command.email(),
+                oldPhone, command.phone(),
+                oldStatus, command.status() != null ? command.status().name() : null,
+                oldRole, command.role() != null ? command.role().name() : null,
+                oldActive, command.active(),
+                LocalDateTime.now(),
+                "Usuario actualizado"
+        );
 
         return Optional.of(toResult(saved));
     }
@@ -190,8 +246,94 @@ public class UserService {
                 address != null ? address.getPostalCode() : null,
                 address != null ? address.getType() : null,
 
-                user.getStatus()
+                user.getStatus(),
+
+                user.getRole(),
+
+                user.isActive()
         );
     }
-}
+
+    private UserHistoryResult toHistoryResult(UserHistory h) {
+        return new UserHistoryResult(
+                h.getId(),
+                h.getUser() != null ? h.getUser().getId() : null,
+                h.getPreviousName(),
+                h.getNewName(),
+                h.getPreviousSurname(),
+                h.getNewSurname(),
+                h.getPreviousUsername(),
+                h.getNewUsername(),
+                h.getPreviousEmail(),
+                h.getNewEmail(),
+                h.getPreviousPhone(),
+                h.getNewPhone(),
+                h.getPreviousStatus(),
+                h.getNewStatus(),
+                h.getPreviousRole(),
+                h.getNewRole(),
+                h.getPreviousActive(),
+                h.getNewActive(),
+                h.getChangedAt(),
+                h.getComment()
+        );
+    }
+
+    private void recordChange(Long userId,
+                              String previousName,
+                              String newName,
+                              String previousSurname,
+                              String newSurname,
+                              String previousUsername,
+                              String newUsername,
+                              String previousEmail,
+                              String newEmail,
+                              String previousPhone,
+                              String newPhone,
+                              String previousStatus,
+                              String newStatus,
+                              String previousRole,
+                              String newRole,
+                              boolean previousActive,
+                              boolean newActive,
+                              LocalDateTime changedAt,
+                              String comment) {
+        boolean statusChanged = newStatus != null
+                && !newStatus.equalsIgnoreCase(previousStatus == null ? "" : previousStatus);
+        boolean emailChanged = !java.util.Objects.equals(previousEmail, newEmail);
+        boolean nameChanged = !java.util.Objects.equals(previousName, newName);
+        boolean surnameChanged = !java.util.Objects.equals(previousSurname, newSurname);
+        boolean usernameChanged = !java.util.Objects.equals(previousUsername, newUsername);
+        boolean phoneChanged = !java.util.Objects.equals(previousPhone, newPhone);
+        boolean roleChanged = !java.util.Objects.equals(previousRole, newRole);
+        boolean activeChanged = previousActive != newActive;
+
+        if (!statusChanged && !emailChanged && !nameChanged && !surnameChanged && !usernameChanged && !phoneChanged && !roleChanged && !activeChanged) return;
+
+
+        UserHistory entry = new UserHistory();
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) return;
+        entry.setUser(user);
+        entry.setPreviousName(nameChanged ? previousName : null);
+        entry.setNewName(nameChanged ? newName : null);
+        entry.setPreviousSurname(surnameChanged ? previousSurname : null);
+        entry.setNewSurname(surnameChanged ? newSurname : null);
+        entry.setPreviousUsername(usernameChanged ? previousUsername : null);
+        entry.setNewUsername(usernameChanged ? newUsername : null);
+        entry.setPreviousPhone(phoneChanged ? previousPhone : null);
+        entry.setNewPhone(phoneChanged ? newPhone : null);
+        entry.setPreviousStatus(statusChanged ? previousStatus : null);
+        entry.setNewStatus(statusChanged ? newStatus : null);
+        entry.setPreviousEmail(emailChanged ? previousEmail : null);
+        entry.setNewEmail(emailChanged ? newEmail : null);
+        entry.setPreviousRole(roleChanged ? previousRole : null);
+        entry.setNewRole(roleChanged ? newRole : null);
+        entry.setPreviousActive(activeChanged ? previousActive : null);
+        entry.setNewActive(activeChanged ? newActive : null);
+        entry.setChangedAt(LocalDateTime.now());
+        entry.setComment(comment);
+        userHistoryRepository.save(entry);
+    }
+    }
 

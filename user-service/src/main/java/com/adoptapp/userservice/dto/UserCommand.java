@@ -1,14 +1,15 @@
 package com.adoptapp.userservice.dto;
 
+import com.adoptapp.userservice.model.User;
 import com.adoptapp.userservice.model.UserStatus;
-
-import java.time.LocalDateTime;
 
 public record UserCommand(
         String username,
         String name,
         String surname,
         String email,
+
+        String password,
 
         String phone,
 
@@ -19,6 +20,10 @@ public record UserCommand(
         String postalCode,
         String type,
 
-        UserStatus status
+        UserStatus status,
+
+        User.Role role,
+
+        boolean active
 ) {
 }

@@ -51,3 +51,7 @@ logging:
     org.springframework.web: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+        console: "%d{HH:mm:ss.SSS} [%-5level] %logger{0} - %msg%n"
+  file:
+        name: logs/users.log
