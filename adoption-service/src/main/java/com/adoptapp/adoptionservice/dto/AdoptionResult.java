@@ -1,11 +1,10 @@
 package com.adoptapp.adoptionservice.dto;
 
-import java.time.LocalDateTime;
-
 public record AdoptionResult(
         Long id,
-        Long petId,
-        Long userId,
-        String status,
-        LocalDateTime createdAt) {
+        String petName,
+        String adopterName,
+        String status
+        // Si aquí tienes un quinto campo, el Service fallará.
+) {
 }

@@ -6,11 +6,13 @@ import com.adoptapp.adoptionservice.model.Adoption;
 import com.adoptapp.adoptionservice.repository.AdoptionRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class AdoptionService {
+
     private final AdoptionRepository repository;
 
     public AdoptionService(AdoptionRepository repository) {
@@ -18,92 +20,74 @@ public class AdoptionService {
     }
 
     public List<AdoptionResult> getAdoptions() {
-        return this.repository.findAllByOrderByCreatedAtAsc().stream()
+        return this.repository.findAll().stream()
                 .map(this::toResult)
                 .toList();
     }
 
-    public List<AdoptionResult> getAdoptions(String statusFilter) {
-        if (statusFilter == null || statusFilter.isBlank()) {
-            return getAdoptions();
-        }
-        return this.repository.findByStatusIgnoreCase(statusFilter).stream()
+    public List<AdoptionResult> getAdoptions(String status) {
+        return this.repository.findAll().stream()
+                .filter(adoption ->
+                        adoption.getStatus() != null &&
+                                adoption.getStatus().equalsIgnoreCase(status))
                 .map(this::toResult)
                 .toList();
     }
 
     public AdoptionResult create(AdoptionCommand command) {
-        boolean exists = this.repository.existsByNameIgnoreCase(command.name());
-        if (exists) {
-            throw new IllegalArgumentException(
-                    "El nombre ya está en uso: \"" + command.name() + "\"");
-        }
+        Adoption adoption = new Adoption();
 
-        Pet pet = new Pet();
-        pet.setName(command.name());
-        pet.setSpecies(command.species());
-        pet.setRace(command.race());
-        pet.setAge(command.age());
-        pet.setSize(command.size());
-        pet.setColor(command.color());
-        pet.setHealth(command.health());
-        pet.setPersonality(command.personality());
-        pet.setFosterId(command.fosterId());
-        pet.setStatus(command.status());
-        Pet saved = this.repository.save(pet);
+        adoption.setPetName(command.petName());
+        adoption.setAdopterName(command.adopterName());
+        adoption.setStatus(command.status());
+        adoption.setPetId(command.petId());
+        adoption.setUserId(command.userId());
+        adoption.setCreatedAt(LocalDateTime.now());
+
+        Adoption saved = this.repository.save(adoption);
+
         return toResult(saved);
     }
 
     public Optional<AdoptionResult> getById(Long id) {
-        return this.repository.findById(id).map(this::toResult);
+        return this.repository.findById(id)
+                .map(this::toResult);
     }
 
     public boolean deleteById(Long id) {
-        if (this.repository.existsById(id)) {
-            this.repository.deleteById(id);
-            return true;
+        if (!this.repository.existsById(id)) {
+            return false;
         }
-        return false;
+        this.repository.deleteById(id);
+        return true;
     }
 
     public Optional<AdoptionResult> updateById(Long id, AdoptionCommand command) {
         Optional<Adoption> found = this.repository.findById(id);
+
         if (found.isEmpty()) {
             return Optional.empty();
         }
 
-        Adoption toUpdate = found.get();
+        Adoption adoption = found.get();
 
-        toUpdate.setName(command.name());
-        toUpdate.setSpecies(command.species());
-        toUpdate.setRace(command.race());
-        toUpdate.setAge(command.age());
-        toUpdate.setSize(command.size());
-        toUpdate.setColor(command.color());
-        toUpdate.setHealth(command.health());
-        toUpdate.setPersonality(command.personality());
-        toUpdate.setFosterId(command.fosterId());
+        adoption.setPetName(command.petName());
+        adoption.setAdopterName(command.adopterName());
+        adoption.setStatus(command.status());
+        adoption.setPetId(command.petId());
+        adoption.setUserId(command.userId());
 
-        if (command.status() != null && !command.status().isBlank()) {
-            toUpdate.setStatus(command.status());
-        }
-        Adoption saved = this.repository.save(toUpdate);
-        return Optional.of(toResult(saved));
+        Adoption updated = this.repository.save(adoption);
+
+        return Optional.of(toResult(updated));
     }
 
     private AdoptionResult toResult(Adoption adoption) {
         return new AdoptionResult(
                 adoption.getId(),
-                adoption.getName(),
-                adoption.getSpecies(),
-                adoption.getRace(),
-                adoption.getAge(),
-                adoption.getSize(),
-                adoption.getColor(),
-                adoption.getHealth(),
-                adoption.getPersonality(),
-                adoption.getFosterId()
+                adoption.getPetName(),
+                adoption.getAdopterName(),
+                adoption.getStatus()
         );
     }
 }
-

@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,24 +13,23 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Adoption {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+
+    private Long userId;
+    private Long petId;
 
     @Column(nullable = false, length = 50)
-    Long userId;
+    private String petName; // Añadido para que el Service no de error
 
     @Column(nullable = false, length = 50)
-    Long petId;
+    private String adopterName; // Añadido para que el Service no de error
 
     @Column(nullable = false, length = 50)
-    String status; // PENDING, APPROVED, REJECTED
+    private String status; // PENDING, APPROVED, REJECTED
 
     @Column(name = "created_at")
-    LocalDateTime createdAt;
-
-
-
+    private LocalDateTime createdAt;
 }
