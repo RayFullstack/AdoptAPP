@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="followup-service" />
       </profile>
       <profile name="Annotation profile for adoptapp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -23,7 +24,6 @@
         <module name="staff-service" />
         <module name="user-service" />
         <module name="adoption-service" />
-        <module name="followup-service" />
         <module name="donation-service" />
         <module name="notification-service" />
       </profile>
