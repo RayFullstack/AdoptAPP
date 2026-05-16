@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public record AdoptionResponse(
         Long id,
-        Long petId,
         Long userId,
+        Long petId,
         String status,
         LocalDateTime createdAt) {
                 }

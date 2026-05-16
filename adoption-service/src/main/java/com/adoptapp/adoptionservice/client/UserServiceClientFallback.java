@@ -1,0 +1,17 @@
+package com.adoptapp.adoptionservice.client;
+
+import com.adoptapp.adoptionservice.dto.UserResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
+@Component
+@Slf4j
+public class UserServiceClientFallback implements UserServiceClient {
+
+    @Override
+    public ResponseEntity<UserResponse> getUserById(Long id) {
+        log.warn("User-service no disponible para userId {}", id);
+        return ResponseEntity.notFound().build();
+    }
+}

@@ -57,14 +57,18 @@ public class UserService {
     }
 
     public UserResult create(UserCommand command) {
+        log.info("Creando usuario: '{}'", command.username());
+
         boolean existsByUsername = this.userRepository.existsByUsernameIgnoreCase(command.username());
         boolean existsByEmail = this.userRepository.existsByEmailIgnoreCase(command.email());
 
         if (existsByUsername) {
+            log.warn("Nombre de usuario duplicado: '{}'", command.username());
             throw new IllegalArgumentException(
                     "El nombre de usuario ya está en uso: \"" + command.username() + "\"");
         }
         if (existsByEmail) {
+            log.warn("Email duplicado: '{}'", command.email());
             throw new IllegalArgumentException(
                     "El email ya está en uso: \"" + command.email() + "\"");
         }
@@ -99,9 +103,15 @@ public class UserService {
         userAddress.setUser(user);
 
         user.setAddresses(List.of(userAddress));
-        User saved = this.userRepository.save(user);
 
-        return toResult(saved);
+        try {
+            User saved = this.userRepository.save(user);
+            log.info("Usuario creado exitosamente: ID={}", saved.getId());
+            return toResult(saved);
+        } catch (Exception e) {
+            log.error("Error al crear usuario", e);
+            throw e;
+        }
     }
 
     public Optional<UserResult> getById(Long id) {
@@ -109,11 +119,20 @@ public class UserService {
     }
 
     public boolean deleteById(Long id) {
-        if (this.userRepository.existsById(id)) {
-            this.userRepository.deleteById(id);
-            return true;
+        log.info("Eliminando usuario: ID={}", id);
+
+        try {
+            if (this.userRepository.existsById(id)) {
+                this.userRepository.deleteById(id);
+                log.info("Usuario eliminado exitosamente: ID={}", id);
+                return true;
+            }
+            log.warn("Usuario a eliminar no encontrado: ID={}", id);
+            return false;
+        } catch (Exception e) {
+            log.error("Error al eliminar usuario: ID={}", id, e);
+            throw e;
         }
-        return false;
     }
 
     public Optional<List<UserHistoryResult>> getHistory(Long userId) {
@@ -129,10 +148,12 @@ public class UserService {
     }
 
     public Optional<UserResult> updateById(Long id, UserCommand command) {
+        log.info("Actualizando usuario: ID={}", id);
 
         Optional<User> found = this.userRepository.findById(id);
 
         if (found.isEmpty()) {
+            log.warn("Usuario no encontrado: ID={}", id);
             return Optional.empty();
         }
 
@@ -201,7 +222,15 @@ public class UserService {
         address.setType(command.type());
         address.setPrimaryAddress(true);
 
-        User saved = this.userRepository.save(toUpdate);
+        User saved;
+        try {
+            saved = this.userRepository.save(toUpdate);
+        } catch (Exception e) {
+            log.error("Error al actualizar usuario: ID={}", id, e);
+            throw e;
+        }
+
+        log.info("Usuario actualizado exitosamente: ID={}", id);
 
         recordChange(
                 saved.getId(),

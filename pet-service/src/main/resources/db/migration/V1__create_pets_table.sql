@@ -7,7 +7,7 @@ CREATE TABLE pet_health (
 
 CREATE TABLE pets (
     id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(20) NOT NULL,
     species VARCHAR(50) NOT NULL,
     race VARCHAR(50) NOT NULL,
     color VARCHAR(50) NOT NULL,

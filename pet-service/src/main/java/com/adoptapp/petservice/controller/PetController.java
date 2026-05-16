@@ -8,14 +8,12 @@ import com.adoptapp.petservice.service.PetService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import com.adoptapp.petservice.dto.ErrorResponse;
+import com.adoptapp.petservice.dto.PetHistoryResult;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/pets")
 
@@ -39,6 +37,14 @@ public class PetController {
         return ResponseEntity.ok(responses);
     }
 
+    @GetMapping("/by-id/{id}/history")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<PetHistoryResult>> getHistory(@PathVariable Long id) {
+        return service.getHistory(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/by-id/{id}")
     public ResponseEntity<PetResponse> getPetById(@PathVariable Long id) {
         return this.service.getById(id)
@@ -48,56 +54,23 @@ public class PetController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> create(@Valid @RequestBody PetRequest request) {
-        try {
-            PetCommand command = toCommand(request);
-            PetResult result = this.service.create(command);
-            PetResponse response = toResponse(result);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse(e.getMessage(),
-                            HttpStatus.CONFLICT.value(),
-                            LocalDateTime.now()
-                    ));
-        }
+    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER', 'ADMIN')")
+    public ResponseEntity<PetResponse> create(@Valid @RequestBody PetRequest request) {
+        PetCommand command = toCommand(request);
+        PetResult result = this.service.create(command);
+        return ResponseEntity.status(HttpStatus.CREATED).body(toResponse(result));
     }
 
     @PutMapping("/by-id/{id}")
-    public ResponseEntity<Object> updatePetById(
+    @PreAuthorize("hasAnyRole('SHELTER', 'ADMIN')")
+    public ResponseEntity<PetResponse> updatePetById(
             @PathVariable Long id,
             @Valid @RequestBody PetRequest request) {
-        try {
-            PetCommand command = toCommand(request);
-            Optional<PetResult> result = this.service.updateById(id, command);
-            if (result.isPresent()) {
-                return ResponseEntity.ok(toResponse(result.get()));
-            }
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(e.getMessage(),
-                    HttpStatus.CONFLICT.value(),
-                    LocalDateTime.now()
-            ));
-        }
-    }
-
-    @DeleteMapping("/by-id/{id}")
-    public ResponseEntity<Void> deletePetById(@PathVariable Long id) {
-        if (!this.service.deleteById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.noContent().build();
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidationErrors(MethodArgumentNotValidException e) {
-        String message = e.getBindingResult().getFieldErrors().stream()
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
-                .collect(Collectors.joining(", "));
-        return ResponseEntity.badRequest().body(new ErrorResponse(message, HttpStatus.BAD_REQUEST.value(),
-                LocalDateTime.now()
-        ));
+        PetCommand command = toCommand(request);
+        return this.service.updateById(id, command)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     private PetCommand toCommand(PetRequest request) {

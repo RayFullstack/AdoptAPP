@@ -7,13 +7,10 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -55,39 +52,22 @@ public class UserController {
 
     @PostMapping
     @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER', 'ADMIN')")
-    public ResponseEntity<Object> create(@Valid @RequestBody UserRequest request) {
-        try {
-            UserCommand command = toCommand(request);
-            UserResult result = this.service.create(command);
-            UserResponse response = toResponse(result);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse(e.getMessage(),
-                    HttpStatus.CONFLICT.value(),
-                    LocalDateTime.now()
-            ));
-        }
+    public ResponseEntity<UserResponse> create(@Valid @RequestBody UserRequest request) {
+        UserCommand command = toCommand(request);
+        UserResult result = this.service.create(command);
+        return ResponseEntity.status(HttpStatus.CREATED).body(toResponse(result));
     }
 
     @PutMapping("/by-id/{id}")
     @PreAuthorize("@userSecurity.canEdit(#id, authentication)")
-    public ResponseEntity<Object> updateUserById(
+    public ResponseEntity<UserResponse> updateUserById(
             @PathVariable Long id,
             @Valid @RequestBody UserRequest request) {
-        try {
-            UserCommand command = toCommand(request);
-            Optional<UserResult> result = this.service.updateById(id, command);
-            if (result.isPresent()) {
-                return ResponseEntity.ok(toResponse(result.get()));
-            }
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(e.getMessage(),
-                    HttpStatus.CONFLICT.value(),
-                    LocalDateTime.now()
-            ));
-        }
+        UserCommand command = toCommand(request);
+        return this.service.updateById(id, command)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/by-id/{id}")
@@ -97,16 +77,6 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.noContent().build();
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidationErrors(MethodArgumentNotValidException e) {
-        String message = e.getBindingResult().getFieldErrors().stream()
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
-                .collect(Collectors.joining(", "));
-        return ResponseEntity.badRequest().body(new ErrorResponse(message, HttpStatus.BAD_REQUEST.value(),
-                LocalDateTime.now()
-        ));
     }
 
     private UserCommand toCommand(UserRequest request) {
