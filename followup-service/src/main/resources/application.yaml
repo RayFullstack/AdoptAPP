@@ -1,3 +1,18 @@
 spring:
-  application:
-    name: followup-service
+  datasource:
+    url: jdbc:h2:mem:followupdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8086

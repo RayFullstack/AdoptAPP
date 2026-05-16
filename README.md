@@ -74,7 +74,9 @@ API CRUD para gestionar mascotas.
 
 API para gestionar adopciones. Verifica existencia de usuario y mascota vía Feign antes de crear.
 
-**Base de datos**: H2 en memoria (no requiere PostgreSQL)
+**Base de datos**: PostgreSQL `adoption_db` (o H2 con perfil `h2`)
+
+**Flyway migrations**: `V1__create_adoptions_table.sql`, `V2__create_adoption_history.sql`, `V3__insert_initial_data.sql`
 
 **Endpoints** (`/adoptions`):
 
