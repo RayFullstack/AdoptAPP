@@ -8,16 +8,16 @@ Proyecto multi-módulo Maven con 10 microservicios desplegables de forma indepen
 
 ```
 adoptapp/
-├── user-service/          # Gestión de usuarios (puerto 8081)
-├── pet-service/           # Catálogo de mascotas (puerto 8082)
-├── adoption-service/      # Proceso de adopción (puerto 8083)
-├── donation-service/      # Donaciones (esqueleto)
-├── shelter-service/       # Gestión de refugios (esqueleto)
-├── staff-service/         # Gestión de personal (esqueleto)
-├── health-service/        # Registros de salud (esqueleto)
-├── notification-service/  # Notificaciones (esqueleto)
-├── supply-service/        # Insumos de refugio (esqueleto)
-├── followup-service/      # Seguimiento post-adopción (esqueleto)
+├── user-service/          # Gestión de usuarios (puerto 8081, /user-app)
+├── pet-service/           # Catálogo de mascotas (puerto 8082, /pet-app)
+├── adoption-service/      # Proceso de adopción (puerto 8083, /adoption-app)
+├── notification-service/  # Notificaciones (puerto 8084, /notification-app)
+├── health-service/        # Registros de salud
+├── donation-service/      # Donaciones
+├── shelter-service/       # Gestión de refugios
+├── staff-service/         # Gestión de personal
+├── supply-service/        # Insumos de refugio
+├── followup-service/      # Seguimiento post-adopción
 └── pom.xml                # POM Padre
 ```
 
@@ -31,30 +31,47 @@ adoptapp/
 | **Spring Data JPA** | Acceso a datos con relaciones |
 | **PostgreSQL / H2** | Bases de datos (prod / dev) |
 | **OpenFeign** | Comunicación sincrónica entre servicios |
+| **Flyway** | Migraciones de base de datos |
 | **Lombok** | Reducción de código repetitivo |
 | **Bean Validation** | Validación de DTOs de entrada |
 | **SLF4J + Logback** | Logging con archivos por servicio |
+| **spring-dotenv** | Carga de variables de entorno desde `.env` |
 | **Maven** | Gestión de dependencias |
+
+## Roles del Sistema
+
+| Rol | Permisos |
+|---|---|
+| **ADOPTER** | Editar su propio perfil. Crear mascotas y adopciones. |
+| **SHELTER_ADMIN** | Hereda todos los permisos de SHELTER. Editar su propio perfil y los perfiles de VOLUNTEER. Gestionar mascotas y adopciones. |
+| **VOLUNTEER** | Editar su propio perfil. Crear y editar perfiles de mascotas (excepto ficha médica). |
+| **VET** | Editar su propio perfil y la ficha médica de animales (health-service). |
+| **ADMIN** | Acceso completo a todas las operaciones. |
 
 ## Servicios Activos
 
-### user-service (Puerto 8081) — COMPLETO
+### user-service (Puerto 8081, `/user-app`) — COMPLETO
 
-API CRUD para gestionar usuarios (adoptantes).
+API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER, VET, ADMIN.
 
 **Base de datos**: PostgreSQL `users_db` (o H2 con perfil `h2`)
 
 **Endpoints** (`/users`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/users` | Listar todos (filtro `?status=`) |
-| `GET` | `/users/by-id/{id}` | Obtener por ID |
-| `POST` | `/users` | Crear usuario |
-| `PUT` | `/users/by-id/{id}` | Actualizar usuario |
-| `DELETE` | `/users/by-id/{id}` | Eliminar usuario |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/users` | Listar todos (filtro `?status=`) | Público |
+| `GET` | `/users/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/users/by-email/{email}` | Obtener por email | Público |
+| `GET` | `/users/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/users` | Crear usuario | Cualquier rol autenticado |
+| `PUT` | `/users/by-id/{id}` | Actualizar usuario | Propio perfil + SHELTER_ADMIN edita VOLUNTEER |
+| `DELETE` | `/users/by-id/{id}` | Eliminar usuario | ADMIN |
 
-### pet-service (Puerto 8082) — COMPLETO
+**Comunicación saliente:**
+- → notification-service (`POST /notifications`): `USER_CREATED`, `USER_UPDATED`, `USER_DELETED`
+
+### pet-service (Puerto 8082, `/pet-app`) — COMPLETO
 
 API CRUD para gestionar mascotas.
 
@@ -62,57 +79,126 @@ API CRUD para gestionar mascotas.
 
 **Endpoints** (`/pets`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/pets` | Listar todas (filtro `?status=`) |
-| `GET` | `/pets/by-id/{id}` | Obtener por ID |
-| `POST` | `/pets` | Crear mascota |
-| `PUT` | `/pets/by-id/{id}` | Actualizar mascota |
-| `DELETE` | `/pets/by-id/{id}` | Eliminar mascota |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/pets` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/pets/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/pets/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/pets` | Crear mascota | ADOPTER, SHELTER_ADMIN, VOLUNTEER, ADMIN |
+| `PUT` | `/pets/by-id/{id}` | Actualizar mascota | SHELTER_ADMIN, VOLUNTEER, ADMIN |
+| `DELETE` | `/pets/by-id/{id}` | Eliminar mascota | ADMIN |
 
-### adoption-service (Puerto 8083) — COMPLETO
+### adoption-service (Puerto 8083, `/adoption-app`) — COMPLETO
 
 API para gestionar adopciones. Verifica existencia de usuario y mascota vía Feign antes de crear.
 
 **Base de datos**: PostgreSQL `adoption_db` (o H2 con perfil `h2`)
 
-**Flyway migrations**: `V1__create_adoptions_table.sql`, `V2__create_adoption_history.sql`, `V3__insert_initial_data.sql`
-
 **Endpoints** (`/adoptions`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/adoptions` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/adoptions/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/adoptions/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/adoptions` | Crear adopción (valida user + pet) | ADOPTER, SHELTER_ADMIN, ADMIN |
+| `PUT` | `/adoptions/{id}` | Actualizar adopción | ADOPTER, SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/adoptions/{id}` | Eliminar adopción | ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → pet-service (`GET /pets/by-id/{id}`): verifica mascota
+- → notification-service (`POST /notifications`): `ADOPTION_CREATED`, `ADOPTION_UPDATED`, `ADOPTION_DELETED`, `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`
+
+### notification-service (Puerto 8084, `/notification-app`) — COMPLETO
+
+API para gestionar notificaciones. Almacena notificaciones con tipos categorizados vía `@ManyToOne(NotificationType)`.
+
+**Base de datos**: PostgreSQL `notif_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/notifications`):
 
 | Método | Ruta | Descripción |
 |---|---|---|
-| `GET` | `/adoptions` | Listar todas (filtro `?status=`) |
-| `GET` | `/adoptions/by-id/{id}` | Obtener por ID |
-| `GET` | `/adoptions/{id}/history` | Historial de cambios |
-| `POST` | `/adoptions` | Crear adopción (valida user + pet) |
-| `PUT` | `/adoptions/{id}` | Actualizar adopción |
-| `DELETE` | `/adoptions/{id}` | Eliminar adopción |
+| `GET` | `/notifications` | Listar todas (filtro `?status=`) |
+| `GET` | `/notifications/by-id/{id}` | Obtener por ID |
+| `POST` | `/notifications` | Crear notificación |
+| `PUT` | `/notifications/by-id/{id}` | Actualizar notificación |
+| `DELETE` | `/notifications/by-id/{id}` | Eliminar notificación |
 
-## Cambios Realizados
+**Tipos de notificación disponibles (vía Flyway V2 + V3):**
 
-### Comunicación entre servicios con Feign
+| Servicio | Tipos |
+|---|---|
+| adoption | `ADOPTION_CREATED`, `ADOPTION_UPDATED`, `ADOPTION_DELETED` |
+| pet | `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`, `PET_STATUS_CHANGED` |
+| user | `USER_CREATED`, `USER_UPDATED`, `USER_DELETED` |
+| donation | `DONATION_RECEIVED`, `DONATION_UPDATED`, `DONATION_CANCELLED` |
+| followup | `FOLLOWUP_SCHEDULED`, `FOLLOWUP_COMPLETED`, `FOLLOWUP_CANCELLED` |
+| health | `HEALTH_CHECK_CREATED`, `HEALTH_CHECK_UPDATED`, `HEALTH_ALERT` |
+| shelter | `SHELTER_CREATED`, `SHELTER_UPDATED`, `SHELTER_DELETED` |
+| staff | `STAFF_ADDED`, `STAFF_REMOVED` |
+| supply | `SUPPLY_LOW_STOCK`, `SUPPLY_ORDERED`, `SUPPLY_RECEIVED` |
 
-- **Spring Cloud 2025.1.0 (Oakwood)** — versión compatible con Spring Boot 4.0.0
-- `UserServiceClient`, `PetServiceClient`, `PetNotificationClient`, `UserNotificationClient` como interfaces Feign
-- Fallbacks implementados para tolerancia a fallos
-- URLs configuradas via `application.yml` (`services.user-service.url`, `services.pet-service.url`)
+## Comunicación entre servicios
 
-### Logging
+```
+user-service ──(Feign)──→ notification-service (POST /notifications)
 
-- **SLF4J + `@Slf4j`** agregado en servicios que no lo tenían (`PetService`)
-- `log.info()`, `log.warn()`, `log.error()` en métodos `create()`, `updateById()`, `deleteById()` de los 3 servicios
-- Archivos de log por servicio:
-  - `logs/adoptions.log`
-  - `logs/users.log`
-  - `logs/pets.log`
-- Perfiles `dev` (DEBUG) y `prod` (INFO) para logging
+pet-service  ──(Feign)──→ user-service (GET /users/by-id/{id}) — unused
+pet-service  ──(Feign)──→ health-service (CRUD /api/health) — unused
+pet-service  ──(Feign)──→ notification-service (POST /notifications) — unused
 
-### Manejo Global de Excepciones
+adoption-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+adoption-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
+adoption-service ──(Feign)──→ notification-service (POST /notifications)
 
-- `GlobalExceptionHandler` con `@RestControllerAdvice` en cada servicio
-- Maneja: `IllegalArgumentException` → 409, `MethodArgumentNotValidException` → 400, `Exception` → 500
-- Controladores simplificados: eliminados `try-catch` y `@ExceptionHandler` locales
+notification-service ──(no outbound calls)
+```
+
+## Cómo ejecutar
+
+Cada servicio necesita su propia terminal:
+
+```bash
+# Perfil H2 (desarrollo rápido, sin PostgreSQL)
+cd notification-service
+mvn spring-boot:run -Dspring-boot.run.profiles=h2
+
+cd user-service
+mvn spring-boot:run -Dspring-boot.run.profiles=h2
+
+cd pet-service
+mvn spring-boot:run -Dspring-boot.run.profiles=h2
+
+cd adoption-service
+mvn spring-boot:run
+```
+
+**Orden recomendado:** notification → user → pet → adoption
+
+## Perfiles de base de datos
+
+| Perfil | Base de datos | Flyway | Uso |
+|---|---|---|---|
+| `default` | PostgreSQL | habilitado | Producción |
+| `h2` | H2 en memoria | deshabilitado (`ddl-auto=create-drop`) | Desarrollo |
+| `postgres` | PostgreSQL (override) | habilitado | Desarrollo con PostgreSQL |
+
+Variables de entorno requeridas (vía `.env`):
+```env
+DB_USER=postgres
+DB_PASSWORD=1234
+```
+
+## Seguridad
+
+- HTTP Basic con `InMemoryUserDetailsManager` (adoption, pet)
+- HTTP Basic con `CustomUserDetailsService` desde BD (user)
+- Roles: `ADOPTER`, `SHELTER_ADMIN`, `VOLUNTEER`, `VET`, `ADMIN`
+- `@PreAuthorize` en endpoints sensibles
+- `UserSecurity.canEdit()`: ADMIN edita cualquiera; SHELTER_ADMIN edita VOLUNTEER; cada rol edita su propio perfil
+- `PetSecurity.canEdit()`: ADMIN, SHELTER_ADMIN, VOLUNTEER pueden editar mascotas
 
 ## Patrones del Proyecto
 
@@ -122,12 +208,38 @@ API para gestionar adopciones. Verifica existencia de usuario y mascota vía Fei
 Request (validación) → Command (servicio) → Result (servicio) → Response (API)
 ```
 
-### Relaciones JPA implementadas
+### Logging
+- Archivos de log por servicio: `logs/{service}.log`
+- Perfiles `dev` (DEBUG) y `prod` (INFO)
 
-- `@OneToOne` para teléfono de usuario y salud de mascota
-- `@OneToMany` para direcciones de usuario
-- `@ManyToOne` para estado de mascota (catálogo)
-- `@Enumerated(EnumType.STRING)` para estado de usuario
-- `CascadeType.ALL` para operaciones en cascada
+### Manejo Global de Excepciones
+- `GlobalExceptionHandler` con `@RestControllerAdvice` en cada servicio
+- `IllegalArgumentException` → 409 Conflict
+- `MethodArgumentNotValidException` → 400 Bad Request
+- `Exception` → 500 Internal Server Error
 
+## Historial de Cambios
 
+### Roles y Permisos
+- `SHELTER` renombrado a `SHELTER_ADMIN`
+- SHELTER_ADMIN mantiene permisos anteriores + puede editar perfiles de VOLUNTEER
+- Agregado rol `VOLUNTEER`: edita su perfil y mascotas (excepto ficha médica)
+- Agregado rol `VET`: edita su perfil y fichas médicas en health-service
+- `ADOPTER` y `ADMIN` se mantienen sin cambios
+- Flyway V10 migra datos existentes: `SHELTER` → `SHELTER_ADMIN`
+
+### Notificaciones
+- Sistema de tipos de notificación vía `notification_types` (entidad `NotificationType`)
+- Tipos para todos los microservicios (Flyway V2 + V3)
+- Notification-service en puerto 8084, context-path `/notification-app`
+- User-service envía notificaciones al crear/actualizar/eliminar usuarios
+- DTOs alineados entre clientes y servidor (`userId`, `recipient`, `message`, `typeName`, `status`)
+
+### Correcciones y Mejoras
+- `@EnableFeignClients` y OpenFeign agregados a pet-service y user-service
+- Endpoint `DELETE /pets/by-id/{id}` en pet-service
+- URLs de datasource estandarizadas con `${DB_HOST:localhost}:${DB_PORT:5432}`
+- Eliminados DTOs y Feign clients no utilizados en adoption-service
+- Eliminados archivos que anulaban auto-configuración Spring Boot
+- Agregados campos: `updatedAt` en Adoption, `shelterId` en Pet
+- Migración de `NotificationResponce.java` → `NotificationResponse.java`

@@ -109,7 +109,7 @@ public class DataInitializer implements CommandLineRunner {
             u3.setEmail("fakemail123@mail.com");
             u3.setStatus(UserStatus.ACTIVE);
             u3.setPassword(passwordEncoder.encode("password123"));
-            u3.setRole(User.Role.SHELTER);
+            u3.setRole(User.Role.SHELTER_ADMIN);
             u3.setActive(true);
             u3.setCreatedAt(now);
 
@@ -135,6 +135,66 @@ public class DataInitializer implements CommandLineRunner {
             u3.setAddresses(List.of(address3));
 
             userRepository.save(u3);
+
+            User volunteer = new User();
+
+            volunteer.setUsername("volunteer1");
+            volunteer.setName("Ned");
+            volunteer.setSurname("Flanders");
+            volunteer.setEmail("ned.flanders@mail.com");
+            volunteer.setStatus(UserStatus.ACTIVE);
+            volunteer.setPassword(passwordEncoder.encode("password123"));
+            volunteer.setRole(User.Role.VOLUNTEER);
+            volunteer.setActive(true);
+            volunteer.setCreatedAt(now);
+
+            UserPhone phoneV = new UserPhone();
+            phoneV.setNumber("111222333");
+            phoneV.setUser(volunteer);
+            volunteer.setPhone(phoneV);
+
+            UserAddress addressV = new UserAddress();
+            addressV.setCountry("Chile");
+            addressV.setCity("Santiago");
+            addressV.setStreet("Av. Evergreen");
+            addressV.setHomeNumber("742");
+            addressV.setPostalCode("123456");
+            addressV.setType("HOME");
+            addressV.setPrimaryAddress(true);
+            addressV.setUser(volunteer);
+            volunteer.setAddresses(List.of(addressV));
+
+            userRepository.save(volunteer);
+
+            User vet = new User();
+
+            vet.setUsername("dr.hibbert");
+            vet.setName("Julius");
+            vet.setSurname("Hibbert");
+            vet.setEmail("dr.hibbert@mail.com");
+            vet.setStatus(UserStatus.ACTIVE);
+            vet.setPassword(passwordEncoder.encode("password123"));
+            vet.setRole(User.Role.VET);
+            vet.setActive(true);
+            vet.setCreatedAt(now);
+
+            UserPhone phoneVet = new UserPhone();
+            phoneVet.setNumber("444555666");
+            phoneVet.setUser(vet);
+            vet.setPhone(phoneVet);
+
+            UserAddress addressVet = new UserAddress();
+            addressVet.setCountry("Chile");
+            addressVet.setCity("Santiago");
+            addressVet.setStreet("Av. Medical");
+            addressVet.setHomeNumber("100");
+            addressVet.setPostalCode("654321");
+            addressVet.setType("WORK");
+            addressVet.setPrimaryAddress(true);
+            addressVet.setUser(vet);
+            vet.setAddresses(List.of(addressVet));
+
+            userRepository.save(vet);
 
             User admin = new User();
 

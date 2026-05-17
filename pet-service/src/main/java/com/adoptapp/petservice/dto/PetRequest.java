@@ -46,6 +46,8 @@ public record PetRequest (
 
         @NotBlank(message = "El estado es requerido")
         @Size(max = 50)
-        String status
+        String status,
+
+        Long shelterId
 ) {
 }

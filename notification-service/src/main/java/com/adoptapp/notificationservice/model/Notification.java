@@ -1,73 +1,43 @@
 package com.adoptapp.notificationservice.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "notifications")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_id")
+    private Long userId;
+
+    @Column(nullable = false, length = 255)
     private String recipient;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
 
-    private String type;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_id", nullable = false)
+    private NotificationType type;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
     private NotificationStatus status;
 
-    public Notification() {
-    }
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-    public Notification(Long id,
-                        String recipient,
-                        String message,
-                        String type,
-                        NotificationStatus status) {
-
-        this.id = id;
-        this.recipient = recipient;
-        this.message = message;
-        this.type = type;
-        this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public NotificationStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(NotificationStatus status) {
-        this.status = status;
-    }
 }

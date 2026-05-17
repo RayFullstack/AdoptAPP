@@ -12,7 +12,7 @@ public class UserNotificationClientFallback implements UserNotificationClient {
 
     @Override
     public ResponseEntity<Void> sendNotification(UserNotificationRequest request) {
-        log.warn("User-notification no disponible para '{}': {}", request.recipient(), request.title());
+        log.warn("User-notification no disponible para '{}': {}", request.recipient(), request.message());
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
     }
 }

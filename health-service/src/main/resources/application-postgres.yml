@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:health_db}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    out-of-order: false
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate:
+        format_sql: true

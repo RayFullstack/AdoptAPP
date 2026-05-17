@@ -1,3 +1,10 @@
+server:
+  port: 8084
+  servlet:
+    context-path: "/notification-app"
+
 spring:
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: notification-service

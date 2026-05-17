@@ -27,7 +27,7 @@ public class PetSecurity {
             return false;
         }
 
-        return hasRole(authentication, "ROLE_SHELTER");
+        return hasRole(authentication, "ROLE_SHELTER_ADMIN") || hasRole(authentication, "ROLE_VOLUNTEER");
     }
 
     private boolean hasRole(Authentication authentication, String role) {

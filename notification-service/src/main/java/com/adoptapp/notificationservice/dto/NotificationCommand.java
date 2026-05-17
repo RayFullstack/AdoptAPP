@@ -4,9 +4,10 @@ import com.adoptapp.notificationservice.model.NotificationStatus;
 
 public record NotificationCommand(
 
+        Long userId,
         String recipient,
         String message,
-        String type,
+        String typeName,
         NotificationStatus status
 ) {
 }

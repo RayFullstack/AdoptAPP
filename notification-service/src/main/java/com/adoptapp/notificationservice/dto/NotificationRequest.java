@@ -7,14 +7,16 @@ import jakarta.validation.constraints.NotNull;
 
 public record NotificationRequest(
 
+        Long userId,
+
         @NotBlank(message = "Recipient is required")
         String recipient,
 
         @NotBlank(message = "Message is required")
         String message,
 
-        @NotBlank(message = "Type is required")
-        String type,
+        @NotBlank(message = "Type name is required")
+        String typeName,
 
         @NotNull(message = "Status is required")
         NotificationStatus status

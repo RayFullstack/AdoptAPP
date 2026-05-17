@@ -7,6 +7,7 @@ public record AdoptionResult(
         Long userId,
         Long petId,
         String status,
-        LocalDateTime createdAt
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 }

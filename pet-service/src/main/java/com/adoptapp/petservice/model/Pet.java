@@ -47,6 +47,9 @@ public class Pet {
     @Column(nullable = false)
     private Long fosterId;
 
+    @Column(name = "shelter_id")
+    private Long shelterId;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PetStatus status;

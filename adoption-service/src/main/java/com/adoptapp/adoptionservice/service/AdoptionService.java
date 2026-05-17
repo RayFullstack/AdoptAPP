@@ -85,8 +85,8 @@ public class AdoptionService {
                     "Adopción creada: mascota " + command.petId() + " por usuario " + command.userId());
 
             String email = userResponse.getBody().email();
-            sendUserNotification("Adopción creada", "Se ha creado la adopción de la mascota " + command.petId(), "INFO", email);
-            sendPetNotification("Adopción creada", "La mascota " + command.petId() + " ha sido adoptada por el usuario " + command.userId(), "INFO", command.petId());
+            sendUserNotification(command.userId(), "Se ha creado la adopción de la mascota " + command.petId(), "ADOPTION_CREATED", email);
+            sendPetNotification(command.userId(), "La mascota " + command.petId() + " ha sido adoptada por el usuario " + command.userId(), "PET_CREATED", command.petId());
 
             log.info("Adopción creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
@@ -127,9 +127,9 @@ public class AdoptionService {
                 "Adopción eliminada: mascota " + adoption.getPetId() + ", usuario " + adoption.getUserId());
 
         if (email != null) {
-            sendUserNotification("Adopción eliminada", "La adopción " + id + " ha sido eliminada", "WARN", email);
+            sendUserNotification(adoption.getUserId(), "La adopción " + id + " ha sido eliminada", "ADOPTION_DELETED", email);
         }
-        sendPetNotification("Adopción eliminada", "La adopción " + id + " de la mascota " + adoption.getPetId() + " ha sido eliminada", "WARN", adoption.getPetId());
+        sendPetNotification(adoption.getUserId(), "La adopción " + id + " de la mascota " + adoption.getPetId() + " ha sido eliminada", "PET_DELETED", adoption.getPetId());
 
         try {
             this.repository.deleteById(id);
@@ -175,8 +175,8 @@ public class AdoptionService {
                             + ", estado " + command.status());
 
             String email = userResponse.getBody().email();
-            sendUserNotification("Adopción actualizada", "La adopción " + id + " ha sido actualizada a estado " + command.status(), "INFO", email);
-            sendPetNotification("Adopción actualizada", "La adopción " + id + " de la mascota " + command.petId() + " ha sido actualizada a estado " + command.status(), "INFO", command.petId());
+            sendUserNotification(command.userId(), "La adopción " + id + " ha sido actualizada a estado " + command.status(), "ADOPTION_UPDATED", email);
+            sendPetNotification(command.userId(), "La adopción " + id + " de la mascota " + command.petId() + " ha sido actualizada a estado " + command.status(), "PET_UPDATED", command.petId());
 
             log.info("Adopción actualizada exitosamente: ID={}", id);
             return Optional.of(toResult(updated));
@@ -201,18 +201,18 @@ public class AdoptionService {
         historyRepository.save(history);
     }
 
-    private void sendUserNotification(String title, String message, String type, String email) {
+    private void sendUserNotification(Long userId, String message, String typeName, String email) {
         try {
-            UserNotificationRequest request = new UserNotificationRequest(title, message, type, email);
+            UserNotificationRequest request = new UserNotificationRequest(userId, email, message, typeName, "SENT");
             userNotificationClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion a {}: {}", email, e.getMessage());
         }
     }
 
-    private void sendPetNotification(String title, String message, String type, Long petId) {
+    private void sendPetNotification(Long userId, String message, String typeName, Long petId) {
         try {
-            PetNotificationRequest request = new PetNotificationRequest(title, message, type, petId.toString());
+            PetNotificationRequest request = new PetNotificationRequest(userId, petId.toString(), message, typeName, "SENT");
             petNotificationClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion a mascota {}: {}", petId, e.getMessage());
@@ -225,7 +225,8 @@ public class AdoptionService {
                 adoption.getUserId(),
                 adoption.getPetId(),
                 adoption.getStatus(),
-                adoption.getCreatedAt()
+                adoption.getCreatedAt(),
+                adoption.getUpdatedAt()
         );
     }
 

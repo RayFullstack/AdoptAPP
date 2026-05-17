@@ -13,6 +13,7 @@ public record PetResult(
         Boolean sterilized,
         String diseases,
         String personality,
-        Long fosterId
+        Long fosterId,
+        Long shelterId
 ) {
 }

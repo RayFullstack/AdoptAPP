@@ -43,6 +43,14 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/by-email/{email}")
+    public ResponseEntity<UserResponse> getUserByEmail(@PathVariable String email) {
+        return this.service.getByEmail(email)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/by-id/{id}/history")
     public ResponseEntity<List<UserHistoryResult>> getHistory(@PathVariable Long id) {
         return service.getHistory(id)
@@ -51,7 +59,7 @@ public class UserController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'VOLUNTEER', 'VET', 'ADMIN')")
     public ResponseEntity<UserResponse> create(@Valid @RequestBody UserRequest request) {
         UserCommand command = toCommand(request);
         UserResult result = this.service.create(command);

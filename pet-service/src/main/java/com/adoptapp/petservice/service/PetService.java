@@ -79,6 +79,7 @@ public class PetService {
         pet.setColor(command.color());
         pet.setPersonality(command.personality());
         pet.setFosterId(command.fosterId());
+        pet.setShelterId(command.shelterId());
 
         pet.setStatus(petStatus);
         pet.setHealth(petHealth);
@@ -180,7 +181,8 @@ public class PetService {
                 health != null ? health.getSterilized() : null,
                 health != null ? health.getDiseases() : null,
                 pet.getPersonality(),
-                pet.getFosterId()
+                pet.getFosterId(),
+                pet.getShelterId()
         );
     }
 

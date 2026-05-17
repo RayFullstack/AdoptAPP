@@ -28,6 +28,10 @@ public class UserSecurity {
             return false;
         }
 
+        if (hasRole(authentication, "ROLE_SHELTER_ADMIN") && target.getRole() == User.Role.VOLUNTEER) {
+            return true;
+        }
+
         String email = authentication.getName();
 
         return target.getEmail().equalsIgnoreCase(email);

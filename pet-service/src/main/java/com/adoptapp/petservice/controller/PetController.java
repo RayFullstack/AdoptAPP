@@ -54,7 +54,7 @@ public class PetController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'VOLUNTEER', 'ADMIN')")
     public ResponseEntity<PetResponse> create(@Valid @RequestBody PetRequest request) {
         PetCommand command = toCommand(request);
         PetResult result = this.service.create(command);
@@ -62,7 +62,7 @@ public class PetController {
     }
 
     @PutMapping("/by-id/{id}")
-    @PreAuthorize("hasAnyRole('SHELTER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'VOLUNTEER', 'ADMIN')")
     public ResponseEntity<PetResponse> updatePetById(
             @PathVariable Long id,
             @Valid @RequestBody PetRequest request) {
@@ -71,6 +71,15 @@ public class PetController {
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/by-id/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Void> deletePetById(@PathVariable Long id) {
+        boolean deleted = this.service.deleteById(id);
+        return deleted
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
     }
 
     private PetCommand toCommand(PetRequest request) {
@@ -86,7 +95,8 @@ public class PetController {
                 request.vaccinated(),
                 request.sterilized(),
                 request.diseases(),
-                request.status()
+                request.status(),
+                request.shelterId()
         );
     }
 
@@ -104,7 +114,8 @@ public class PetController {
                 result.sterilized(),
                 result.diseases(),
                 result.personality(),
-                result.fosterId()
+                result.fosterId(),
+                result.shelterId()
         );
     }
 }

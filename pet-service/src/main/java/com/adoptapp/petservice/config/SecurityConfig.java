@@ -28,8 +28,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/pets", "/pets/by-id/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/pets/by-id/{id}/history").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/pets").hasAnyRole("ADOPTER", "SHELTER", "ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/pets/by-id/**").hasAnyRole("ADOPTER", "SHELTER", "ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/pets").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/pets/by-id/**").hasAnyRole("SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/pets/by-id/**").hasRole("ADMIN")
                         .requestMatchers("/pets/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
@@ -50,14 +50,22 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("admin123"))
                 .roles("ADMIN")
                 .build();
-        var shelter = User.withUsername("carlos.lopez@empresa.com")
+        var shelterAdmin = User.withUsername("carlos.lopez@empresa.com")
                 .password(passwordEncoder().encode("admin123"))
-                .roles("SHELTER")
+                .roles("SHELTER_ADMIN")
                 .build();
         var adopter = User.withUsername("ana.garcia@empresa.com")
                 .password(passwordEncoder().encode("admin123"))
                 .roles("ADOPTER")
                 .build();
-        return new InMemoryUserDetailsManager(admin, shelter, adopter);
+        var volunteer = User.withUsername("ned.flanders@mail.com")
+                .password(passwordEncoder().encode("admin123"))
+                .roles("VOLUNTEER")
+                .build();
+        var vet = User.withUsername("dr.hibbert@mail.com")
+                .password(passwordEncoder().encode("admin123"))
+                .roles("VET")
+                .build();
+        return new InMemoryUserDetailsManager(admin, shelterAdmin, adopter, volunteer, vet);
     }
 }

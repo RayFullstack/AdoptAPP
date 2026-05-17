@@ -4,6 +4,8 @@ server:
     context-path: "/user-app"
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: user-service
 
@@ -43,6 +45,10 @@ spring:
             connect-timeout: 5000
             read-timeout: 5000
             logger-level: BASIC
+
+services:
+  notification-service:
+    url: http://localhost:8084/notification-app
 
 logging:
   level:

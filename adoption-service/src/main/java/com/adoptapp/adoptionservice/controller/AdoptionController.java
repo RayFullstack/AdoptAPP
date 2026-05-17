@@ -106,7 +106,8 @@ public class AdoptionController {
                 result.userId(),
                 result.petId(),
                 result.status(),
-                result.createdAt()
+                result.createdAt(),
+                result.updatedAt()
         );
     }
 }

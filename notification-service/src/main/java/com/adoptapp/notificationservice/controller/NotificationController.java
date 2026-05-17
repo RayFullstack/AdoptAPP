@@ -137,9 +137,10 @@ public class NotificationController {
     private NotificationCommand toCommand(NotificationRequest request) {
 
         return new NotificationCommand(
+                request.userId(),
                 request.recipient(),
                 request.message(),
-                request.type(),
+                request.typeName(),
                 request.status()
         );
     }
@@ -148,10 +149,13 @@ public class NotificationController {
 
         return new NotificationResponse(
                 result.id(),
+                result.userId(),
                 result.recipient(),
                 result.message(),
-                result.type(),
-                result.status()
+                result.typeId(),
+                result.typeName(),
+                result.status(),
+                result.createdAt()
         );
     }
 }

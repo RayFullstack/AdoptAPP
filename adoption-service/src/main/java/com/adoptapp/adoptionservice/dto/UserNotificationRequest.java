@@ -1,9 +1,10 @@
 package com.adoptapp.adoptionservice.dto;
 
 public record UserNotificationRequest (
-        String title,
+        Long userId,
+        String recipient,
         String message,
-        String type,
-        String recipient
+        String typeName,
+        String status
 ){
 }

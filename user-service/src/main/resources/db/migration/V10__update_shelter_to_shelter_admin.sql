@@ -1,0 +1,1 @@
+UPDATE users SET role = 'SHELTER_ADMIN' WHERE role = 'SHELTER';

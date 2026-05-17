@@ -4,10 +4,13 @@ import com.adoptapp.notificationservice.dto.NotificationCommand;
 import com.adoptapp.notificationservice.dto.NotificationResult;
 import com.adoptapp.notificationservice.model.Notification;
 import com.adoptapp.notificationservice.model.NotificationStatus;
+import com.adoptapp.notificationservice.model.NotificationType;
 import com.adoptapp.notificationservice.repository.NotificationRepository;
+import com.adoptapp.notificationservice.repository.NotificationTypeRepository;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,9 +18,12 @@ import java.util.Optional;
 public class NotificationService {
 
     private final NotificationRepository repository;
+    private final NotificationTypeRepository typeRepository;
 
-    public NotificationService(NotificationRepository repository) {
+    public NotificationService(NotificationRepository repository,
+                               NotificationTypeRepository typeRepository) {
         this.repository = repository;
+        this.typeRepository = typeRepository;
     }
 
     public List<NotificationResult> getNotifications() {
@@ -47,13 +53,17 @@ public class NotificationService {
 
     public NotificationResult create(NotificationCommand command) {
 
-        Notification notification = new Notification(
-                null,
-                command.recipient(),
-                command.message(),
-                command.type(),
-                command.status()
-        );
+        NotificationType type = typeRepository.findByName(command.typeName())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Tipo de notificación no encontrado: " + command.typeName()));
+
+        Notification notification = new Notification();
+        notification.setUserId(command.userId());
+        notification.setRecipient(command.recipient());
+        notification.setMessage(command.message());
+        notification.setType(type);
+        notification.setStatus(command.status());
+        notification.setCreatedAt(LocalDateTime.now());
 
         Notification saved = repository.save(notification);
 
@@ -69,7 +79,14 @@ public class NotificationService {
 
                     existing.setRecipient(command.recipient());
                     existing.setMessage(command.message());
-                    existing.setType(command.type());
+
+                    if (command.typeName() != null) {
+                        NotificationType type = typeRepository.findByName(command.typeName())
+                                .orElseThrow(() -> new IllegalArgumentException(
+                                        "Tipo de notificación no encontrado: " + command.typeName()));
+                        existing.setType(type);
+                    }
+
                     existing.setStatus(command.status());
 
                     Notification updated = repository.save(existing);
@@ -93,10 +110,13 @@ public class NotificationService {
 
         return new NotificationResult(
                 notification.getId(),
+                notification.getUserId(),
                 notification.getRecipient(),
                 notification.getMessage(),
-                notification.getType(),
-                notification.getStatus()
+                notification.getType().getId(),
+                notification.getType().getName(),
+                notification.getStatus(),
+                notification.getCreatedAt()
         );
     }
 }

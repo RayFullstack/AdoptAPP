@@ -12,7 +12,7 @@ public class PetNotificationClientFallback implements PetNotificationClient {
 
     @Override
     public ResponseEntity<Void> sendNotification(PetNotificationRequest request) {
-        log.warn("Pet-notification no disponible para '{}': {}", request.recipient(), request.title());
+        log.warn("Pet-notification no disponible para '{}': {}", request.recipient(), request.message());
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
     }
 }

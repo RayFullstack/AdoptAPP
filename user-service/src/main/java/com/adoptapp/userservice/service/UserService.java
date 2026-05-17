@@ -1,7 +1,9 @@
 package com.adoptapp.userservice.service;
 
+import com.adoptapp.userservice.client.UserNotificationClient;
 import com.adoptapp.userservice.dto.UserCommand;
 import com.adoptapp.userservice.dto.UserHistoryResult;
+import com.adoptapp.userservice.dto.UserNotificationRequest;
 import com.adoptapp.userservice.dto.UserResult;
 import com.adoptapp.userservice.model.*;
 import com.adoptapp.userservice.repository.AddressRepository;
@@ -26,17 +28,20 @@ public class UserService {
     private final AddressRepository addressRepository;
     private final UserHistoryRepository userHistoryRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserNotificationClient notificationClient;
 
     public UserService(UserRepository userRepository,
                        PhoneRepository phoneRepository,
                        AddressRepository addressRepository,
                        UserHistoryRepository userHistoryRepository,
-                       PasswordEncoder passwordEncoder) {
+                       PasswordEncoder passwordEncoder,
+                       UserNotificationClient notificationClient) {
         this.userRepository = userRepository;
         this.phoneRepository = phoneRepository;
         this.addressRepository = addressRepository;
         this.userHistoryRepository = userHistoryRepository;
         this.passwordEncoder = passwordEncoder;
+        this.notificationClient = notificationClient;
     }
 
     public List<UserResult> getUsers() {
@@ -106,6 +111,7 @@ public class UserService {
 
         try {
             User saved = this.userRepository.save(user);
+            sendNotification(saved.getId(), saved.getEmail(), "Usuario creado: " + saved.getName(), "USER_CREATED");
             log.info("Usuario creado exitosamente: ID={}", saved.getId());
             return toResult(saved);
         } catch (Exception e) {
@@ -118,12 +124,19 @@ public class UserService {
         return this.userRepository.findById(id).map(this::toResult);
     }
 
+    public Optional<UserResult> getByEmail(String email) {
+        return this.userRepository.findByEmail(email).map(this::toResult);
+    }
+
     public boolean deleteById(Long id) {
         log.info("Eliminando usuario: ID={}", id);
 
         try {
-            if (this.userRepository.existsById(id)) {
+            Optional<User> found = this.userRepository.findById(id);
+            if (found.isPresent()) {
+                User user = found.get();
                 this.userRepository.deleteById(id);
+                sendNotification(id, user.getEmail(), "Usuario eliminado: " + user.getName(), "USER_DELETED");
                 log.info("Usuario eliminado exitosamente: ID={}", id);
                 return true;
             }
@@ -232,6 +245,8 @@ public class UserService {
 
         log.info("Usuario actualizado exitosamente: ID={}", id);
 
+        sendNotification(saved.getId(), saved.getEmail(), "Usuario actualizado: " + saved.getName(), "USER_UPDATED");
+
         recordChange(
                 saved.getId(),
                 oldName, command.name(),
@@ -306,6 +321,15 @@ public class UserService {
                 h.getChangedAt(),
                 h.getComment()
         );
+    }
+
+    private void sendNotification(Long userId, String email, String message, String typeName) {
+        try {
+            UserNotificationRequest request = new UserNotificationRequest(userId, email, message, typeName, "SENT");
+            notificationClient.sendNotification(request);
+        } catch (Exception e) {
+            log.warn("Error enviando notificacion a {}: {}", email, e.getMessage());
+        }
     }
 
     private void recordChange(Long userId,

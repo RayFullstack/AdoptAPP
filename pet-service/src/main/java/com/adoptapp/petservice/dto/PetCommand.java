@@ -12,6 +12,7 @@ public record PetCommand (
         Boolean vaccinated,
         Boolean sterilized,
         String diseases,
-        String status
+        String status,
+        Long shelterId
 ){
 }

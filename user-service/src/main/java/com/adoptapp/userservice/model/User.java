@@ -79,7 +79,9 @@ public class User {
 
     public enum Role {
         ADOPTER,
-        SHELTER,
+        SHELTER_ADMIN,
+        VOLUNTEER,
+        VET,
         ADMIN,
     }
 }
