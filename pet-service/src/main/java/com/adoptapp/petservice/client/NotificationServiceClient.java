@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "notification-service", url = "${services.notification-service.url}", fallback = NotificationServiceClientFallback.class)
 public interface NotificationServiceClient {
 
-    @PostMapping("/api/notifications")
+    @PostMapping("/notifications")
     ResponseEntity<Void> sendNotification(@RequestBody NotificationRequest request);
 }

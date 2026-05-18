@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(name = "health-service", url = "${services.health-service.url}", fallback = HealthServiceClientFallback.class)
 public interface HealthServiceClient {
 
-    @PostMapping("/api/health")
+    @PostMapping("/health")
     ResponseEntity<HealthResult> createHealth(@RequestBody HealthRequest request);
 
-    @GetMapping("/api/health/{id}")
+    @GetMapping("/health/by-id/{id}")
     ResponseEntity<HealthResult> getHealth(@PathVariable("id") Long id);
 
-    @PutMapping("/api/health/{id}")
+    @PutMapping("/health/{id}")
     ResponseEntity<HealthResult> updateHealth(@PathVariable("id") Long id, @RequestBody HealthRequest request);
 
-    @DeleteMapping("/api/health/{id}")
+    @DeleteMapping("/health/{id}")
     ResponseEntity<Void> deleteHealth(@PathVariable("id") Long id);
 }

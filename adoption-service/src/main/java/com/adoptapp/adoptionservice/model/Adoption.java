@@ -21,8 +21,9 @@ public class Adoption {
     private Long userId;
     private Long petId;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 50)
-    private String status;
+    private AdoptionStatus status;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

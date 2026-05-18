@@ -13,7 +13,7 @@ public class HealthServiceClientFallback implements HealthServiceClient {
 
     @Override
     public ResponseEntity<HealthResult> createHealth(HealthRequest request) {
-        log.warn("Health-service no disponible para crear salud: vacunado={}, esterilizado={}", request.vaccinated(), request.sterilized());
+        log.warn("Health-service no disponible para crear salud de mascota {}", request.petId());
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
     }
 

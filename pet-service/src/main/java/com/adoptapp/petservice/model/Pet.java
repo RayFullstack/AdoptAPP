@@ -54,8 +54,13 @@ public class Pet {
     @Column(nullable = false)
     private PetStatus status;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "health_id")
-    private PetHealth health;
+    private Boolean vaccinated;
+
+    private Boolean sterilized;
+
+    private String diseases;
+
+    @Column(name = "health_service_id")
+    private Long healthServiceId;
 
 }

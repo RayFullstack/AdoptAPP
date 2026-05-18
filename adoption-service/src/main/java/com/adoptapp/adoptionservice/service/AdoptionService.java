@@ -4,14 +4,10 @@ import com.adoptapp.adoptionservice.client.PetNotificationClient;
 import com.adoptapp.adoptionservice.client.PetServiceClient;
 import com.adoptapp.adoptionservice.client.UserNotificationClient;
 import com.adoptapp.adoptionservice.client.UserServiceClient;
-import com.adoptapp.adoptionservice.dto.AdoptionCommand;
-import com.adoptapp.adoptionservice.dto.AdoptionHistoryResponse;
-import com.adoptapp.adoptionservice.dto.AdoptionResult;
-import com.adoptapp.adoptionservice.dto.PetNotificationRequest;
-import com.adoptapp.adoptionservice.dto.UserNotificationRequest;
-import com.adoptapp.adoptionservice.dto.UserResponse;
+import com.adoptapp.adoptionservice.dto.*;
 import com.adoptapp.adoptionservice.model.Adoption;
 import com.adoptapp.adoptionservice.model.AdoptionHistory;
+import com.adoptapp.adoptionservice.model.AdoptionStatus;
 import com.adoptapp.adoptionservice.repository.AdoptionHistoryRepository;
 import com.adoptapp.adoptionservice.repository.AdoptionRepository;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +48,8 @@ public class AdoptionService {
     }
 
     public List<AdoptionResult> getAdoptions(String status) {
-        return this.repository.findByStatusIgnoreCase(status).stream()
+        AdoptionStatus adoptionStatus = AdoptionStatus.valueOf(status.toUpperCase());
+        return this.repository.findByStatus(adoptionStatus).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -67,7 +64,7 @@ public class AdoptionService {
             throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
         }
 
-        ResponseEntity<Void> petResponse = petServiceClient.getPetById(command.petId());
+        ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
         if (!petResponse.getStatusCode().is2xxSuccessful()) {
             log.warn("Mascota no encontrada: ID={}", command.petId());
             throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
@@ -157,7 +154,7 @@ public class AdoptionService {
             throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
         }
 
-        ResponseEntity<Void> petResponse = petServiceClient.getPetById(command.petId());
+        ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
         if (!petResponse.getStatusCode().is2xxSuccessful()) {
             log.warn("Mascota no encontrada: ID={}", command.petId());
             throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");

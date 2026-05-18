@@ -8,11 +8,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -42,30 +39,5 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        var admin = User.withUsername("admin@empresa.com")
-                .password(passwordEncoder().encode("admin123"))
-                .roles("ADMIN")
-                .build();
-        var shelterAdmin = User.withUsername("carlos.lopez@empresa.com")
-                .password(passwordEncoder().encode("admin123"))
-                .roles("SHELTER_ADMIN")
-                .build();
-        var adopter = User.withUsername("ana.garcia@empresa.com")
-                .password(passwordEncoder().encode("admin123"))
-                .roles("ADOPTER")
-                .build();
-        var volunteer = User.withUsername("ned.flanders@mail.com")
-                .password(passwordEncoder().encode("admin123"))
-                .roles("VOLUNTEER")
-                .build();
-        var vet = User.withUsername("dr.hibbert@mail.com")
-                .password(passwordEncoder().encode("admin123"))
-                .roles("VET")
-                .build();
-        return new InMemoryUserDetailsManager(admin, shelterAdmin, adopter, volunteer, vet);
     }
 }

@@ -1,5 +1,6 @@
 package com.adoptapp.petservice.client;
 
+import com.adoptapp.petservice.dto.UserAuthResponse;
 import com.adoptapp.petservice.dto.UserResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,12 @@ public class UserServiceClientFallback implements UserServiceClient {
     @Override
     public ResponseEntity<UserResponse> getUserByEmail(String email) {
         log.warn("User-service no disponible para email {}", email);
+        return ResponseEntity.notFound().build();
+    }
+
+    @Override
+    public ResponseEntity<UserAuthResponse> getUserAuthByEmail(String email) {
+        log.warn("User-service no disponible para auth {}", email);
         return ResponseEntity.notFound().build();
     }
 }

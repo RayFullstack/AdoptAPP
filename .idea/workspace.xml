@@ -5,28 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/controller/FollowUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/model/FollowUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/model/FollowUpStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/repository/FollowUpRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/service/FollowUpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HeathResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/service/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/adoptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/adoptions.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java" afterDir="false" />
@@ -34,7 +46,17 @@
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/StatusRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V10__update_shelter_to_shelter_admin.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V1__create_users_table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V2__insert_initial_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V3__create_history_table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V4__add_password_to_users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V5__add_role_and_active_to_users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V6__seed_users_with_auth.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V7__add_unique_constraint_to_user_phones.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V8__add_role_and_active_to_user_history.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V9__add_passwords_to_v2_users.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,37 +101,48 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AdoptionServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PetServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;camila-dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.AdoptionServiceApplication.executor": "Run",
+    "Spring Boot.NotificationServiceApplication.executor": "Run",
+    "Spring Boot.PetServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "camila-dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/camil/Documents/fullstack1/adoptapp/health-service/src/main/java/com/adoptapp/healthservice/client",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.adoptapp.healthservice.dto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\health-service\src\main\java\com\adoptapp\healthservice\client" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources\db" />
       <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources\db\migration" />
       <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources\db\migration\postgresql" />
       <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.adoptapp.healthservice.client" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -127,6 +160,7 @@
           <value>
             <map>
               <entry key="AdoptionServiceApplication" value="STOPPED" />
+              <entry key="NotificationServiceApplication" value="STOPPED" />
               <entry key="PetServiceApplication" value="STOPPED" />
               <entry key="UserServiceApplication" value="STOPPED" />
             </map>
@@ -135,7 +169,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AdoptionServiceApplication">
+  <component name="RunManager" selected="Spring Boot.PetServiceApplication">
     <configuration name="AdoptionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="adoption-service" />
@@ -236,12 +270,19 @@
       <workItem from="1778821213707" duration="106000" />
       <workItem from="1778821658879" duration="2690000" />
       <workItem from="1778852536602" duration="9345000" />
-      <workItem from="1778936844147" duration="1189000" />
+      <workItem from="1778936844147" duration="19777000" />
+      <workItem from="1778961900540" duration="9079000" />
+      <workItem from="1778971281893" duration="2212000" />
+      <workItem from="1778983830357" duration="467000" />
+      <workItem from="1779024235826" duration="28214000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

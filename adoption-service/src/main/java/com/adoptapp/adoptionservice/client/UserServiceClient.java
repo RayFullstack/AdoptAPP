@@ -1,5 +1,6 @@
 package com.adoptapp.adoptionservice.client;
 
+import com.adoptapp.adoptionservice.dto.UserAuthResponse;
 import com.adoptapp.adoptionservice.dto.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -11,4 +12,7 @@ public interface UserServiceClient {
 
     @GetMapping("/users/by-id/{id}")
     ResponseEntity<UserResponse> getUserById(@PathVariable("id") Long id);
+
+    @GetMapping("/users/by-email/{email}/auth")
+    ResponseEntity<UserAuthResponse> getUserAuthByEmail(@PathVariable("email") String email);
 }

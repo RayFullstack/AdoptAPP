@@ -1,6 +1,6 @@
 # AdoptApp - Plataforma de Adopción de Mascotas
 
-Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 4.0.0** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
+Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 4.0.0** y **Java 26**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
 
 ## Arquitectura
 
@@ -12,12 +12,12 @@ adoptapp/
 ├── pet-service/           # Catálogo de mascotas (puerto 8082, /pet-app)
 ├── adoption-service/      # Proceso de adopción (puerto 8083, /adoption-app)
 ├── notification-service/  # Notificaciones (puerto 8084, /notification-app)
-├── health-service/        # Registros de salud
-├── donation-service/      # Donaciones
+├── health-service/        # Registros de salud (puerto 8085, /health-app)
+├── donation-service/      # Donaciones (puerto 8090)
+├── followup-service/      # Seguimiento post-adopción (puerto 8086)
 ├── shelter-service/       # Gestión de refugios
 ├── staff-service/         # Gestión de personal
 ├── supply-service/        # Insumos de refugio
-├── followup-service/      # Seguimiento post-adopción
 └── pom.xml                # POM Padre
 ```
 
@@ -73,7 +73,7 @@ API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER,
 
 ### pet-service (Puerto 8082, `/pet-app`) — COMPLETO
 
-API CRUD para gestionar mascotas.
+API CRUD para gestionar mascotas. La información de salud (vacunación, esterilización, enfermedades) se almacena localmente y se replica en health-service para trazabilidad histórica.
 
 **Base de datos**: PostgreSQL `pet_db` (o H2 con perfil `h2`)
 
@@ -87,6 +87,11 @@ API CRUD para gestionar mascotas.
 | `POST` | `/pets` | Crear mascota | ADOPTER, SHELTER_ADMIN, VOLUNTEER, ADMIN |
 | `PUT` | `/pets/by-id/{id}` | Actualizar mascota | SHELTER_ADMIN, VOLUNTEER, ADMIN |
 | `DELETE` | `/pets/by-id/{id}` | Eliminar mascota | ADMIN |
+
+**Comunicación saliente:**
+- → health-service (`POST /health`, `PUT /health/{id}`, `DELETE /health/{id}`): delega registros clínicos
+- → user-service (`GET /users/by-id/{id}`): obtiene email para notificaciones
+- → notification-service (`POST /notifications`): `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`
 
 ### adoption-service (Puerto 8083, `/adoption-app`) — COMPLETO
 
@@ -140,18 +145,76 @@ API para gestionar notificaciones. Almacena notificaciones con tipos categorizad
 | staff | `STAFF_ADDED`, `STAFF_REMOVED` |
 | supply | `SUPPLY_LOW_STOCK`, `SUPPLY_ORDERED`, `SUPPLY_RECEIVED` |
 
+### health-service (Puerto 8085, `/health-app`) — COMPLETO
+
+API para gestionar registros clínicos de mascotas con historial de cambios. VET, SHELTER_ADMIN, ADMIN tienen acceso de escritura.
+
+**Base de datos**: PostgreSQL `health_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/health`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/health` | Listar todos (filtro `?vaccinationStatus=`, `?sterilizationStatus=`) | Público |
+| `GET` | `/health/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/health/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/health` | Crear registro clínico | VET, SHELTER_ADMIN, ADMIN |
+| `PUT` | `/health/{id}` | Actualizar registro clínico | VET, SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/health/{id}` | Eliminar registro clínico | ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): obtiene userId del creador
+- → pet-service (`GET /pets/by-id/{id}`): verifica mascota
+- → notification-service (`POST /notifications`): `HEALTH_CHECK_CREATED`, `HEALTH_CHECK_UPDATED`, `HEALTH_ALERT`
+
+### donation-service (Puerto 8090)
+
+API para gestionar donaciones.
+
+**Base de datos**: PostgreSQL `donation_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/donations`):
+
+| Método | Ruta | Descripción |
+|---|---|---|
+| `GET` | `/donations` | Listar todas (filtro `?status=`) |
+| `GET` | `/donations/by-id/{id}` | Obtener por ID |
+| `POST` | `/donations` | Crear donación |
+| `PUT` | `/donations/by-id/{id}` | Actualizar donación |
+| `DELETE` | `/donations/by-id/{id}` | Eliminar donación |
+
+### followup-service (Puerto 8086)
+
+API para gestionar seguimientos post-adopción.
+
+**Base de datos**: PostgreSQL `followup_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/followups`):
+
+| Método | Ruta | Descripción |
+|---|---|---|
+| `GET` | `/followups` | Listar todos (filtro `?status=`) |
+| `GET` | `/followups/by-id/{id}` | Obtener por ID |
+| `POST` | `/followups` | Crear seguimiento |
+| `PUT` | `/followups/by-id/{id}` | Actualizar seguimiento |
+| `DELETE` | `/followups/by-id/{id}` | Eliminar seguimiento |
+
 ## Comunicación entre servicios
 
 ```
 user-service ──(Feign)──→ notification-service (POST /notifications)
 
-pet-service  ──(Feign)──→ user-service (GET /users/by-id/{id}) — unused
-pet-service  ──(Feign)──→ health-service (CRUD /api/health) — unused
-pet-service  ──(Feign)──→ notification-service (POST /notifications) — unused
+pet-service  ──(Feign)──→ user-service (GET /users/by-id/{id})
+pet-service  ──(Feign)──→ health-service (CRUD /health)
+pet-service  ──(Feign)──→ notification-service (POST /notifications)
 
 adoption-service ──(Feign)──→ user-service (GET /users/by-id/{id})
 adoption-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
 adoption-service ──(Feign)──→ notification-service (POST /notifications)
+
+health-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+health-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
+health-service ──(Feign)──→ notification-service (POST /notifications)
 
 notification-service ──(no outbound calls)
 ```
@@ -175,7 +238,7 @@ cd adoption-service
 mvn spring-boot:run
 ```
 
-**Orden recomendado:** notification → user → pet → adoption
+**Orden recomendado:** notification → user → health → pet → adoption → donation → followup
 
 ## Perfiles de base de datos
 
@@ -193,8 +256,11 @@ DB_PASSWORD=1234
 
 ## Seguridad
 
-- HTTP Basic con `InMemoryUserDetailsManager` (adoption, pet)
-- HTTP Basic con `CustomUserDetailsService` desde BD (user)
+- HTTP Basic delegado a **user-service** via `CustomUserDetailsService` + Feign en todos los servicios
+- user-service: `CustomUserDetailsService` desde BD
+- adoption-service: `CustomUserDetailsService` → user-service
+- pet-service: `CustomUserDetailsService` → user-service
+- health-service: `CustomUserDetailsService` → user-service
 - Roles: `ADOPTER`, `SHELTER_ADMIN`, `VOLUNTEER`, `VET`, `ADMIN`
 - `@PreAuthorize` en endpoints sensibles
 - `UserSecurity.canEdit()`: ADMIN edita cualquiera; SHELTER_ADMIN edita VOLUNTEER; cada rol edita su propio perfil

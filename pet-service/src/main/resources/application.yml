@@ -50,7 +50,7 @@ services:
   notification-service:
     url: http://localhost:8084/notification-app
   health-service:
-    url: http://localhost:8085
+    url: http://localhost:8085/health-app
   user-service:
     url: http://localhost:8081/user-app
 

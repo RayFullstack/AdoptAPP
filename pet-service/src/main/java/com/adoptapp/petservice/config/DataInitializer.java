@@ -1,42 +1,25 @@
 package com.adoptapp.petservice.config;
 
 import com.adoptapp.petservice.model.Pet;
-import com.adoptapp.petservice.model.PetHealth;
 import com.adoptapp.petservice.model.PetStatus;
-import com.adoptapp.petservice.repository.HealthRepository;
 import com.adoptapp.petservice.repository.PetRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 @Component
 @Profile("h2")
 public class DataInitializer implements CommandLineRunner {
 
     private final PetRepository petRepository;
-    private final HealthRepository healthRepository;
 
-    public DataInitializer(PetRepository petRepository,
-                           HealthRepository healthRepository) {
+    public DataInitializer(PetRepository petRepository) {
         this.petRepository = petRepository;
-        this.healthRepository = healthRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         if (petRepository.count() == 0) {
-            PetHealth healthy = new PetHealth();
-            healthy.setVaccinated(true);
-            healthy.setSterilized(false);
-            healthy.setDiseases("Ninguna");
-
-            PetHealth notHealthy = new PetHealth();
-            notHealthy.setVaccinated(false);
-            notHealthy.setSterilized(false);
-            notHealthy.setDiseases("NO SANO");
-
             Pet p1 = new Pet();
             p1.setName("Yoni");
             p1.setAge(7);
@@ -47,7 +30,9 @@ public class DataInitializer implements CommandLineRunner {
             p1.setSize("Grande");
             p1.setRace("Doberman");
             p1.setStatus(PetStatus.AVAILABLE);
-            p1.setHealth(healthy);
+            p1.setVaccinated(true);
+            p1.setSterilized(false);
+            p1.setDiseases("Ninguna");
             petRepository.save(p1);
 
             Pet p2 = new Pet();
@@ -60,13 +45,10 @@ public class DataInitializer implements CommandLineRunner {
             p2.setSize("Mediano");
             p2.setRace("Domestico pelo largo");
             p2.setStatus(PetStatus.AVAILABLE);
-            p2.setHealth(notHealthy);
+            p2.setVaccinated(false);
+            p2.setSterilized(false);
+            p2.setDiseases("NO SANO");
             petRepository.save(p2);
-
-            PetHealth healthy2 = new PetHealth();
-            healthy2.setVaccinated(true);
-            healthy2.setSterilized(false);
-            healthy2.setDiseases("Ninguna");
 
             Pet p3 = new Pet();
             p3.setName("Oso");
@@ -78,9 +60,10 @@ public class DataInitializer implements CommandLineRunner {
             p3.setSize("Mediano");
             p3.setRace("Cocker");
             p3.setStatus(PetStatus.NOT_AVAILABLE);
-            p3.setHealth(healthy2);
+            p3.setVaccinated(true);
+            p3.setSterilized(false);
+            p3.setDiseases("Ninguna");
             petRepository.save(p3);
         }
     }
 }
-

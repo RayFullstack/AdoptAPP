@@ -51,6 +51,13 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/by-email/{email}/auth")
+    public ResponseEntity<UserAuthResponse> getUserAuthByEmail(@PathVariable String email) {
+        return this.service.getAuthByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/by-id/{id}/history")
     public ResponseEntity<List<UserHistoryResult>> getHistory(@PathVariable Long id) {
         return service.getHistory(id)

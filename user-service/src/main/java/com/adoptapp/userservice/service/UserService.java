@@ -1,10 +1,7 @@
 package com.adoptapp.userservice.service;
 
 import com.adoptapp.userservice.client.UserNotificationClient;
-import com.adoptapp.userservice.dto.UserCommand;
-import com.adoptapp.userservice.dto.UserHistoryResult;
-import com.adoptapp.userservice.dto.UserNotificationRequest;
-import com.adoptapp.userservice.dto.UserResult;
+import com.adoptapp.userservice.dto.*;
 import com.adoptapp.userservice.model.*;
 import com.adoptapp.userservice.repository.AddressRepository;
 import com.adoptapp.userservice.repository.PhoneRepository;
@@ -126,6 +123,11 @@ public class UserService {
 
     public Optional<UserResult> getByEmail(String email) {
         return this.userRepository.findByEmail(email).map(this::toResult);
+    }
+
+    public Optional<UserAuthResponse> getAuthByEmail(String email) {
+        return this.userRepository.findByEmail(email)
+                .map(user -> new UserAuthResponse(user.getEmail(), user.getPassword(), user.getRole()));
     }
 
     public boolean deleteById(Long id) {

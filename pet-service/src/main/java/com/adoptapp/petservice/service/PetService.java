@@ -1,13 +1,18 @@
 package com.adoptapp.petservice.service;
 
+import com.adoptapp.petservice.client.HealthServiceClient;
+import com.adoptapp.petservice.client.NotificationServiceClient;
+import com.adoptapp.petservice.client.UserServiceClient;
+import com.adoptapp.petservice.dto.HealthRequest;
+import com.adoptapp.petservice.dto.NotificationRequest;
 import com.adoptapp.petservice.dto.PetCommand;
 import com.adoptapp.petservice.dto.PetHistoryResult;
 import com.adoptapp.petservice.dto.PetResult;
 import com.adoptapp.petservice.model.Pet;
-import com.adoptapp.petservice.model.PetHealth;
 import com.adoptapp.petservice.model.PetHistory;
 import com.adoptapp.petservice.model.PetStatus;
-import com.adoptapp.petservice.repository.HealthRepository;
+import com.adoptapp.petservice.model.SterilizationStatus;
+import com.adoptapp.petservice.model.VaccinationStatus;
 import com.adoptapp.petservice.repository.PetHistoryRepository;
 import com.adoptapp.petservice.repository.PetRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -21,15 +26,21 @@ import java.util.Optional;
 public class PetService {
 
     private final PetRepository petRepository;
-    private final HealthRepository healthRepository;
     private final PetHistoryRepository petHistoryRepository;
+    private final NotificationServiceClient notificationClient;
+    private final UserServiceClient userClient;
+    private final HealthServiceClient healthClient;
 
     public PetService(PetRepository petRepository,
-                      HealthRepository healthRepository,
-                      PetHistoryRepository petHistoryRepository) {
+                      PetHistoryRepository petHistoryRepository,
+                      NotificationServiceClient notificationClient,
+                      UserServiceClient userClient,
+                      HealthServiceClient healthClient) {
         this.petRepository = petRepository;
-        this.healthRepository = healthRepository;
         this.petHistoryRepository = petHistoryRepository;
+        this.notificationClient = notificationClient;
+        this.userClient = userClient;
+        this.healthClient = healthClient;
     }
 
     public List<PetResult> getPets() {
@@ -65,11 +76,6 @@ public class PetService {
             throw e;
         }
 
-        PetHealth petHealth = new PetHealth();
-        petHealth.setVaccinated(command.vaccinated());
-        petHealth.setSterilized(command.sterilized());
-        petHealth.setDiseases(command.diseases());
-
         Pet pet = new Pet();
         pet.setName(command.name());
         pet.setSpecies(command.species());
@@ -80,15 +86,36 @@ public class PetService {
         pet.setPersonality(command.personality());
         pet.setFosterId(command.fosterId());
         pet.setShelterId(command.shelterId());
-
         pet.setStatus(petStatus);
-        pet.setHealth(petHealth);
+        pet.setVaccinated(command.vaccinated());
+        pet.setSterilized(command.sterilized());
+        pet.setDiseases(command.diseases());
 
         try {
             Pet saved = this.petRepository.save(pet);
+
+            VaccinationStatus vax = Boolean.TRUE.equals(command.vaccinated())
+                    ? VaccinationStatus.VACCINATED : VaccinationStatus.NOT_VACCINATED;
+            SterilizationStatus ster = Boolean.TRUE.equals(command.sterilized())
+                    ? SterilizationStatus.STERILIZED : SterilizationStatus.NOT_STERILIZED;
+
+            try {
+                var healthResponse = healthClient.createHealth(new HealthRequest(
+                        saved.getFosterId(), saved.getId(), vax, ster, command.diseases()
+                ));
+                if (healthResponse.getBody() != null) {
+                    saved.setHealthServiceId(healthResponse.getBody().id());
+                    this.petRepository.save(saved);
+                }
+            } catch (Exception e) {
+                log.warn("No se pudo crear registro de salud en health-service: {}", e.getMessage());
+            }
+
             recordChange(saved.getId(), null, null, saved.getName(),
                     null, saved.getStatus().name(),
                     null, saved.getFosterId(), "Mascota creada");
+            sendNotification(saved.getFosterId(), saved.getName(), "PET_CREATED",
+                    "La mascota " + saved.getName() + " ha sido registrada");
             log.info("Mascota creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
         } catch (Exception e) {
@@ -106,7 +133,18 @@ public class PetService {
 
         try {
             if (this.petRepository.existsById(id)) {
+                Pet pet = this.petRepository.findById(id).orElse(null);
+                if (pet != null && pet.getHealthServiceId() != null) {
+                    try {
+                        healthClient.deleteHealth(pet.getHealthServiceId());
+                    } catch (Exception e) {
+                        log.warn("No se pudo eliminar salud en health-service: {}", e.getMessage());
+                    }
+                }
+                String name = pet != null ? pet.getName() : "Desconocida";
                 this.petRepository.deleteById(id);
+                sendNotification(null, name, "PET_DELETED",
+                        "La mascota " + name + " ha sido eliminada");
                 log.info("Mascota eliminada exitosamente: ID={}", id);
                 return true;
             }
@@ -140,13 +178,9 @@ public class PetService {
         toUpdate.setColor(command.color());
         toUpdate.setPersonality(command.personality());
         toUpdate.setFosterId(command.fosterId());
-
-        PetHealth updateHealth = new PetHealth();
-        updateHealth.setVaccinated(command.vaccinated());
-        updateHealth.setSterilized(command.sterilized());
-        updateHealth.setDiseases(command.diseases());
-
-        toUpdate.setHealth(updateHealth);
+        toUpdate.setVaccinated(command.vaccinated());
+        toUpdate.setSterilized(command.sterilized());
+        toUpdate.setDiseases(command.diseases());
 
         if (command.status() != null && !command.status().isBlank()) {
             PetStatus petStatus = PetStatus.valueOf(command.status().toUpperCase());
@@ -155,9 +189,26 @@ public class PetService {
 
         try {
             Pet saved = this.petRepository.save(toUpdate);
+
+            if (saved.getHealthServiceId() != null) {
+                try {
+                    VaccinationStatus vax = Boolean.TRUE.equals(command.vaccinated())
+                            ? VaccinationStatus.VACCINATED : VaccinationStatus.NOT_VACCINATED;
+                    SterilizationStatus ster = Boolean.TRUE.equals(command.sterilized())
+                            ? SterilizationStatus.STERILIZED : SterilizationStatus.NOT_STERILIZED;
+                    healthClient.updateHealth(saved.getHealthServiceId(), new HealthRequest(
+                            saved.getFosterId(), saved.getId(), vax, ster, command.diseases()
+                    ));
+                } catch (Exception e) {
+                    log.warn("No se pudo actualizar salud en health-service: {}", e.getMessage());
+                }
+            }
+
             recordChange(id, null, previousName, saved.getName(),
                     previousStatus, saved.getStatus().name(),
                     previousFosterId, saved.getFosterId(), null);
+            sendNotification(saved.getFosterId(), saved.getName(), "PET_UPDATED",
+                    "Los datos de " + saved.getName() + " han sido actualizados");
             log.info("Mascota actualizada exitosamente: ID={}", id);
             return Optional.of(toResult(saved));
         } catch (Exception e) {
@@ -167,7 +218,6 @@ public class PetService {
     }
 
     private PetResult toResult(Pet pet) {
-        PetHealth health = pet.getHealth();
         return new PetResult(
                 pet.getId(),
                 pet.getName(),
@@ -177,9 +227,9 @@ public class PetService {
                 pet.getSize(),
                 pet.getColor(),
                 pet.getStatus().name(),
-                health != null ? health.getVaccinated() : null,
-                health != null ? health.getSterilized() : null,
-                health != null ? health.getDiseases() : null,
+                pet.getVaccinated(),
+                pet.getSterilized(),
+                pet.getDiseases(),
                 pet.getPersonality(),
                 pet.getFosterId(),
                 pet.getShelterId()
@@ -238,5 +288,27 @@ public class PetService {
         entry.setNewFosterId(!java.util.Objects.equals(previousFosterId, newFosterId) ? newFosterId : null);
         entry.setComment(comment);
         petHistoryRepository.save(entry);
+    }
+
+    private void sendNotification(Long fosterId, String petName, String typeName, String message) {
+        try {
+            String recipient = "sistema@adoptapp.com";
+            if (fosterId != null) {
+                var userResponse = userClient.getUserById(fosterId);
+                if (userResponse.getBody() != null) {
+                    recipient = userResponse.getBody().email();
+                }
+            }
+            NotificationRequest request = new NotificationRequest(
+                    fosterId,
+                    recipient,
+                    message,
+                    typeName,
+                    "SENT"
+            );
+            notificationClient.sendNotification(request);
+        } catch (Exception e) {
+            log.warn("No se pudo enviar notificacion para '{}': {}", petName, e.getMessage());
+        }
     }
 }

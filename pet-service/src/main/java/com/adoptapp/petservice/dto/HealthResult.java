@@ -1,9 +1,18 @@
 package com.adoptapp.petservice.dto;
 
+import com.adoptapp.petservice.model.SterilizationStatus;
+import com.adoptapp.petservice.model.VaccinationStatus;
+
+import java.time.LocalDateTime;
+
 public record HealthResult(
         Long id,
-        Boolean vaccinated,
-        Boolean sterilized,
-        String diseases
+        Long userId,
+        Long petId,
+        VaccinationStatus vaccinationStatus,
+        SterilizationStatus sterilizationStatus,
+        String diseases,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 }

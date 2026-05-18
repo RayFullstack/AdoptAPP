@@ -1,5 +1,6 @@
 package com.adoptapp.petservice.client;
 
+import com.adoptapp.petservice.dto.UserAuthResponse;
 import com.adoptapp.petservice.dto.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -14,4 +15,7 @@ public interface UserServiceClient {
 
     @GetMapping("/users/by-email/{email}")
     ResponseEntity<UserResponse> getUserByEmail(@PathVariable("email") String email);
+
+    @GetMapping("/users/by-email/{email}/auth")
+    ResponseEntity<UserAuthResponse> getUserAuthByEmail(@PathVariable("email") String email);
 }
