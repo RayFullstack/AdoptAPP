@@ -7,8 +7,10 @@ import com.adoptapp.donationservice.repository.DonationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
+@Profile("h2")
 public class DataInitializer {
 
     @Bean
@@ -21,7 +23,11 @@ public class DataInitializer {
                     "Jacqueline Perez",
                     50000.0,
                     "Donación de alimentos",
-                    DonationStatus.COMPLETED
+                    DonationStatus.COMPLETED,
+                    1L,
+                    1L,
+                    null,
+                    null
             ));
 
             repository.save(new Donation(
@@ -29,7 +35,11 @@ public class DataInitializer {
                     "Carlos Soto",
                     25000.0,
                     "Medicamentos para mascotas",
-                    DonationStatus.PENDING
+                    DonationStatus.PENDING,
+                    2L,
+                    1L,
+                    null,
+                    null
             ));
 
             repository.save(new Donation(
@@ -37,7 +47,11 @@ public class DataInitializer {
                     "María López",
                     10000.0,
                     "Ayuda voluntaria",
-                    DonationStatus.CANCELLED
+                    DonationStatus.CANCELLED,
+                    3L,
+                    2L,
+                    null,
+                    null
             ));
         };
     }

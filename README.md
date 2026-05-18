@@ -1,6 +1,6 @@
 # AdoptApp - Plataforma de Adopción de Mascotas
 
-Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 4.0.0** y **Java 26**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
+Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 4.0.0** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
 
 ## Arquitectura
 
@@ -13,7 +13,7 @@ adoptapp/
 ├── adoption-service/      # Proceso de adopción (puerto 8083, /adoption-app)
 ├── notification-service/  # Notificaciones (puerto 8084, /notification-app)
 ├── health-service/        # Registros de salud (puerto 8085, /health-app)
-├── donation-service/      # Donaciones (puerto 8090)
+├── donation-service/      # Donaciones (puerto 8090, /donation-app)
 ├── followup-service/      # Seguimiento post-adopción (puerto 8086)
 ├── shelter-service/       # Gestión de refugios
 ├── staff-service/         # Gestión de personal
@@ -84,12 +84,12 @@ API CRUD para gestionar mascotas. La información de salud (vacunación, esteril
 | `GET` | `/pets` | Listar todas (filtro `?status=`) | Público |
 | `GET` | `/pets/by-id/{id}` | Obtener por ID | Público |
 | `GET` | `/pets/by-id/{id}/history` | Historial de cambios | ADMIN |
-| `POST` | `/pets` | Crear mascota | ADOPTER, SHELTER_ADMIN, VOLUNTEER, ADMIN |
+| `POST` | `/pets` | Crear mascota | SHELTER_ADMIN, VOLUNTEER, ADMIN |
 | `PUT` | `/pets/by-id/{id}` | Actualizar mascota | SHELTER_ADMIN, VOLUNTEER, ADMIN |
 | `DELETE` | `/pets/by-id/{id}` | Eliminar mascota | ADMIN |
 
 **Comunicación saliente:**
-- → health-service (`POST /health`, `PUT /health/{id}`, `DELETE /health/{id}`): delega registros clínicos
+- → health-service (`POST /health`, `PUT /health/by-id/{id}`, `DELETE /health/by-id/{id}`): delega registros clínicos
 - → user-service (`GET /users/by-id/{id}`): obtiene email para notificaciones
 - → notification-service (`POST /notifications`): `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`
 
@@ -105,10 +105,10 @@ API para gestionar adopciones. Verifica existencia de usuario y mascota vía Fei
 |---|---|---|---|
 | `GET` | `/adoptions` | Listar todas (filtro `?status=`) | Público |
 | `GET` | `/adoptions/by-id/{id}` | Obtener por ID | Público |
-| `GET` | `/adoptions/{id}/history` | Historial de cambios | ADMIN |
-| `POST` | `/adoptions` | Crear adopción (valida user + pet) | ADOPTER, SHELTER_ADMIN, ADMIN |
-| `PUT` | `/adoptions/{id}` | Actualizar adopción | ADOPTER, SHELTER_ADMIN, ADMIN |
-| `DELETE` | `/adoptions/{id}` | Eliminar adopción | ADMIN |
+| `GET` | `/adoptions/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/adoptions` | Crear adopción (valida user + pet) | SHELTER_ADMIN, ADMIN |
+| `PUT` | `/adoptions/by-id/{id}` | Actualizar adopción | SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/adoptions/by-id/{id}` | Eliminar adopción | ADMIN |
 
 **Comunicación saliente:**
 - → user-service (`GET /users/by-id/{id}`): verifica usuario
@@ -157,33 +157,39 @@ API para gestionar registros clínicos de mascotas con historial de cambios. VET
 |---|---|---|---|
 | `GET` | `/health` | Listar todos (filtro `?vaccinationStatus=`, `?sterilizationStatus=`) | Público |
 | `GET` | `/health/by-id/{id}` | Obtener por ID | Público |
-| `GET` | `/health/{id}/history` | Historial de cambios | ADMIN |
+| `GET` | `/health/by-id/{id}/history` | Historial de cambios | ADMIN |
 | `POST` | `/health` | Crear registro clínico | VET, SHELTER_ADMIN, ADMIN |
-| `PUT` | `/health/{id}` | Actualizar registro clínico | VET, SHELTER_ADMIN, ADMIN |
-| `DELETE` | `/health/{id}` | Eliminar registro clínico | ADMIN |
+| `PUT` | `/health/by-id/{id}` | Actualizar registro clínico | VET, SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/health/by-id/{id}` | Eliminar registro clínico | ADMIN |
 
 **Comunicación saliente:**
 - → user-service (`GET /users/by-id/{id}`): obtiene userId del creador
 - → pet-service (`GET /pets/by-id/{id}`): verifica mascota
 - → notification-service (`POST /notifications`): `HEALTH_CHECK_CREATED`, `HEALTH_CHECK_UPDATED`, `HEALTH_ALERT`
 
-### donation-service (Puerto 8090)
+### donation-service (Puerto 8090, `/donation-app`)
 
-API para gestionar donaciones.
+API para gestionar donaciones. Verifica existencia de usuario y refugio vía Feign antes de crear.
 
 **Base de datos**: PostgreSQL `donation_db` (o H2 con perfil `h2`)
 
 **Endpoints** (`/donations`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/donations` | Listar todas (filtro `?status=`) |
-| `GET` | `/donations/by-id/{id}` | Obtener por ID |
-| `POST` | `/donations` | Crear donación |
-| `PUT` | `/donations/by-id/{id}` | Actualizar donación |
-| `DELETE` | `/donations/by-id/{id}` | Eliminar donación |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/donations` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/donations/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/donations/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/donations` | Crear donación | ADMIN |
+| `PUT` | `/donations/by-id/{id}` | Actualizar donación | ADMIN |
+| `DELETE` | `/donations/by-id/{id}` | Eliminar donación | ADMIN |
 
-### followup-service (Puerto 8086)
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → notification-service (`POST /notifications`): `CREATED`, `DONATION_UPDATED`, `DELETED`
+- → shelter-service (`GET /shelters/by-id/{id}`): verifica refugio
+
+### followup-service (Puerto 8086, sin context-path)
 
 API para gestionar seguimientos post-adopción.
 
@@ -216,6 +222,11 @@ health-service ──(Feign)──→ user-service (GET /users/by-id/{id})
 health-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
 health-service ──(Feign)──→ notification-service (POST /notifications)
 
+donation-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+donation-service ──(Feign)──→ notification-service (POST /notifications)
+donation-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+
+followup-service ──(no outbound calls)
 notification-service ──(no outbound calls)
 ```
 
@@ -264,7 +275,7 @@ DB_PASSWORD=1234
 - Roles: `ADOPTER`, `SHELTER_ADMIN`, `VOLUNTEER`, `VET`, `ADMIN`
 - `@PreAuthorize` en endpoints sensibles
 - `UserSecurity.canEdit()`: ADMIN edita cualquiera; SHELTER_ADMIN edita VOLUNTEER; cada rol edita su propio perfil
-- `PetSecurity.canEdit()`: ADMIN, SHELTER_ADMIN, VOLUNTEER pueden editar mascotas
+
 
 ## Patrones del Proyecto
 

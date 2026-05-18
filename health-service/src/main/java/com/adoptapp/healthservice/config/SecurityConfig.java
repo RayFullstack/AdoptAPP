@@ -24,10 +24,10 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/health", "/health/by-id/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/health/{id}/history").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/health/by-id/*/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/health").hasAnyRole("SHELTER_ADMIN", "ADMIN", "VET")
-                        .requestMatchers(HttpMethod.PUT, "/health/{id}").hasAnyRole("SHELTER_ADMIN", "ADMIN", "VET")
-                        .requestMatchers(HttpMethod.DELETE, "/health/{id}").hasAnyRole("ADMIN", "SHELTER_ADMIN", "VET")
+                        .requestMatchers(HttpMethod.PUT, "/health/by-id/*").hasAnyRole("SHELTER_ADMIN", "ADMIN", "VET")
+                        .requestMatchers(HttpMethod.DELETE, "/health/by-id/*").hasAnyRole("ADMIN", "SHELTER_ADMIN", "VET")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());

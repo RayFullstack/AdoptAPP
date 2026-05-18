@@ -15,9 +15,9 @@ public interface HealthServiceClient {
     @GetMapping("/health/by-id/{id}")
     ResponseEntity<HealthResult> getHealth(@PathVariable("id") Long id);
 
-    @PutMapping("/health/{id}")
+    @PutMapping("/health/by-id/{id}")
     ResponseEntity<HealthResult> updateHealth(@PathVariable("id") Long id, @RequestBody HealthRequest request);
 
-    @DeleteMapping("/health/{id}")
+    @DeleteMapping("/health/by-id/{id}")
     ResponseEntity<Void> deleteHealth(@PathVariable("id") Long id);
 }

@@ -1,4 +1,4 @@
-package com.adoptapp.adoptionservice.config;
+package com.adoptapp.donationservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -24,11 +23,11 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/adoptions", "/adoptions/by-id/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/adoptions/by-id/*/history").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/adoptions").hasAnyRole("SHELTER_ADMIN", "ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/adoptions/by-id/*").hasAnyRole("SHELTER_ADMIN", "ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/adoptions/by-id/*").hasAnyRole("SHELTER_ADMIN", "ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/donations", "/donations/by-id/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/donations/by-id/*/history").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/donations").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/donations/by-id/*").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/donations/by-id/*").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
@@ -40,4 +39,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }

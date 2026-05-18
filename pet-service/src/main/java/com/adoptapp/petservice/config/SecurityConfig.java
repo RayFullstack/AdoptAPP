@@ -25,10 +25,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/pets", "/pets/by-id/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/pets/by-id/{id}/history").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/pets").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/pets").hasAnyRole("SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/pets/by-id/**").hasAnyRole("SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/pets/by-id/**").hasRole("ADMIN")
-                        .requestMatchers("/pets/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());

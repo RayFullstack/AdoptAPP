@@ -47,12 +47,12 @@ spring:
             logger-level: BASIC
 
 services:
-  notification-service:
-    url: http://localhost:8084/notification-app
-  pet-service:
-    url: http://localhost:8082/pet-app
   user-service:
     url: http://localhost:8081/user-app
+  pet-service:
+    url: http://localhost:8082/pet-app
+  notification-service:
+    url: http://localhost:8084/notification-app
 
 logging:
   level:

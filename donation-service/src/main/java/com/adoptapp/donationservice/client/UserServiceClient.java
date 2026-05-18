@@ -1,7 +1,6 @@
-package com.adoptapp.healthservice.client;
+package com.adoptapp.donationservice.client;
 
-import com.adoptapp.healthservice.dto.UserAuthResponse;
-import com.adoptapp.healthservice.dto.UserResponse;
+import com.adoptapp.donationservice.dto.UserAuthResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserServiceClient {
 
     @GetMapping("/users/by-id/{id}")
-    ResponseEntity<UserResponse> getUserById(@PathVariable("id") Long id);
+    ResponseEntity<com.adoptapp.donationservice.dto.UserResponse> getUserById(@PathVariable("id") Long id);
 
     @GetMapping("/users/by-email/{email}/auth")
     ResponseEntity<UserAuthResponse> getUserAuthByEmail(@PathVariable("email") String email);

@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,13 +52,14 @@ public class AdoptionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}/history")
+    @GetMapping("/by-id/{id}/history")
     public ResponseEntity<List<AdoptionHistoryResponse>> getHistory(@PathVariable Long id) {
         List<AdoptionHistoryResponse> history = this.service.getHistory(id);
         return ResponseEntity.ok(history);
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<AdoptionResponse> createAdoption(
             @Valid @RequestBody AdoptionRequest request) {
 
@@ -68,7 +70,8 @@ public class AdoptionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/by-id/{id}")
+    @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<AdoptionResponse> updateAdoptionById(
             @PathVariable Long id,
             @Valid @RequestBody AdoptionRequest request) {
@@ -81,7 +84,8 @@ public class AdoptionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/by-id/{id}")
+    @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<Void> deleteAdoptionById(
             @PathVariable Long id) {
 

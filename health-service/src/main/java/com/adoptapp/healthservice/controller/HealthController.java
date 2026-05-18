@@ -5,6 +5,7 @@ import com.adoptapp.healthservice.service.HealthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/health")
 public class HealthController {
+
     private final HealthService service;
 
     public HealthController(HealthService service) {
@@ -48,13 +50,14 @@ public class HealthController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}/history")
+    @GetMapping("/by-id/{id}/history")
     public ResponseEntity<List<HealthHistoryResponse>> getHistory(@PathVariable Long id) {
         List<HealthHistoryResponse> history = this.service.getHistory(id);
         return ResponseEntity.ok(history);
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<HealthResponse> createForm(
             @Valid @RequestBody HealthRequest request) {
 
@@ -65,7 +68,8 @@ public class HealthController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/by-id/{id}")
+    @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<HealthResponse> updateFormById(
             @PathVariable Long id,
             @Valid @RequestBody HealthRequest request) {
@@ -78,7 +82,8 @@ public class HealthController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/by-id/{id}")
+    @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<Void> deleteFormById(
             @PathVariable Long id) {
 

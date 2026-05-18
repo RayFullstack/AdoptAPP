@@ -7,13 +7,11 @@ import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/donations")
@@ -50,64 +48,42 @@ public class DonationController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/by-id/{id}/history")
+    public ResponseEntity<List<DonationHistoryResponse>> getHistory(
+            @PathVariable Long id) {
+        List<DonationHistoryResponse> history = this.service.getHistory(id);
+        return ResponseEntity.ok(history);
+    }
+
     @PostMapping
-    public ResponseEntity<Object> create(
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<DonationResponse> create(
             @Valid @RequestBody DonationRequest request) {
 
-        try {
+        DonationCommand command = toCommand(request);
 
-            DonationCommand command = toCommand(request);
+        DonationResult result = this.service.create(command);
+        DonationResponse response = toResponse(result);
 
-            DonationResult result = this.service.create(command);
-
-            DonationResponse response = toResponse(result);
-
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(response);
-
-        } catch (IllegalArgumentException e) {
-
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse(
-                            e.getMessage(),
-                            HttpStatus.CONFLICT.value(),
-                            LocalDateTime.now()
-                    ));
-        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PutMapping("/by-id/{id}")
-    public ResponseEntity<Object> updateDonationById(
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<DonationResponse> updateDonationById(
             @PathVariable Long id,
             @Valid @RequestBody DonationRequest request) {
 
-        try {
+        DonationCommand command = toCommand(request);
 
-            DonationCommand command = toCommand(request);
-
-            Optional<DonationResult> result =
-                    this.service.updateById(id, command);
-
-            if (result.isPresent()) {
-                return ResponseEntity.ok(
-                        toResponse(result.get())
-                );
-            }
-
-            return ResponseEntity.notFound().build();
-
-        } catch (IllegalArgumentException e) {
-
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse(
-                            e.getMessage(),
-                            HttpStatus.CONFLICT.value(),
-                            LocalDateTime.now()
-                    ));
-        }
+        return this.service.updateById(id, command)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/by-id/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteDonationById(
             @PathVariable Long id) {
 
@@ -118,29 +94,15 @@ public class DonationController {
         return ResponseEntity.noContent().build();
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidationErrors(
-            MethodArgumentNotValidException e) {
-
-        String message = e.getBindingResult().getFieldErrors().stream()
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
-                .collect(Collectors.joining(", "));
-
-        return ResponseEntity.badRequest()
-                .body(new ErrorResponse(
-                        message,
-                        HttpStatus.BAD_REQUEST.value(),
-                        LocalDateTime.now()
-                ));
-    }
-
     private DonationCommand toCommand(DonationRequest request) {
 
         return new DonationCommand(
                 request.donorName(),
                 request.amount(),
                 request.description(),
-                request.status()
+                request.status(),
+                request.userId(),
+                request.shelterId()
         );
     }
 
@@ -151,7 +113,11 @@ public class DonationController {
                 result.donorName(),
                 result.amount(),
                 result.description(),
-                result.status()
+                result.status(),
+                result.userId(),
+                result.shelterId(),
+                result.createdAt(),
+                result.updatedAt()
         );
     }
 }
