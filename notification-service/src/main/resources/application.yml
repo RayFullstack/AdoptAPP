@@ -37,6 +37,19 @@ spring:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
 
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 5000
+            logger-level: BASIC
+
+services:
+  user-service:
+    url: http://localhost:8081/user-app
+
 logging:
   level:
     root: INFO

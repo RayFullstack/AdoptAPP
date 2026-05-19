@@ -10,6 +10,7 @@ public record AdoptionRequest(
         @NotNull(message = "El userId es requerido")
         Long userId,
 
+        @NotNull(message = "El estado es requerido")
         AdoptionStatus status
 ){
 }

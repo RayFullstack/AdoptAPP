@@ -4,15 +4,16 @@ server:
     context-path: "/adoption-app"
 
 spring:
-
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: adoption-service
 
   datasource:
     url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:adoption_db}
     driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: 1234
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 
   flyway:
     enabled: true
@@ -36,6 +37,15 @@ spring:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
 
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
+            logger-level: BASIC
+
 services:
   user-service:
     url: http://localhost:8081/user-app
@@ -43,6 +53,10 @@ services:
     url: http://localhost:8082/pet-app
   notification-service:
     url: http://localhost:8084/notification-app
+  shelter-service:
+    url: http://localhost:8095/shelter-app
+  followup-service:
+    url: http://localhost:8086/followup-app
 
 logging:
   level:

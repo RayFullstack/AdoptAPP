@@ -1,9 +1,19 @@
 package com.adoptapp.donationservice.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "donations")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Donation {
 
     @Id
@@ -19,55 +29,25 @@ public class Donation {
     @Enumerated(EnumType.STRING)
     private DonationStatus status;
 
-    public Donation() {
+    @Column(name = "user_id")
+    private Long userId;
+
+    @Column(name = "shelter_id")
+    private Long shelterId;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
     }
 
-    public Donation(Long id,
-                    String donorName,
-                    Double amount,
-                    String description,
-                    DonationStatus status) {
-
-        this.id = id;
-        this.donorName = donorName;
-        this.amount = amount;
-        this.description = description;
-        this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getDonorName() {
-        return donorName;
-    }
-
-    public void setDonorName(String donorName) {
-        this.donorName = donorName;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public DonationStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(DonationStatus status) {
-        this.status = status;
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
     }
 }

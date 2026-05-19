@@ -2,6 +2,7 @@ package com.adoptapp.petservice.service;
 
 import com.adoptapp.petservice.client.HealthServiceClient;
 import com.adoptapp.petservice.client.NotificationServiceClient;
+import com.adoptapp.petservice.client.ShelterServiceClient;
 import com.adoptapp.petservice.client.UserServiceClient;
 import com.adoptapp.petservice.dto.HealthRequest;
 import com.adoptapp.petservice.dto.NotificationRequest;
@@ -17,6 +18,7 @@ import com.adoptapp.petservice.repository.PetHistoryRepository;
 import com.adoptapp.petservice.repository.PetRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,17 +32,20 @@ public class PetService {
     private final NotificationServiceClient notificationClient;
     private final UserServiceClient userClient;
     private final HealthServiceClient healthClient;
+    private final ShelterServiceClient shelterClient;
 
     public PetService(PetRepository petRepository,
                       PetHistoryRepository petHistoryRepository,
                       NotificationServiceClient notificationClient,
                       UserServiceClient userClient,
-                      HealthServiceClient healthClient) {
+                      HealthServiceClient healthClient,
+                      ShelterServiceClient shelterClient) {
         this.petRepository = petRepository;
         this.petHistoryRepository = petHistoryRepository;
         this.notificationClient = notificationClient;
         this.userClient = userClient;
         this.healthClient = healthClient;
+        this.shelterClient = shelterClient;
     }
 
     public List<PetResult> getPets() {
@@ -65,8 +70,23 @@ public class PetService {
         }
     }
 
+    @Transactional
     public PetResult create(PetCommand command) {
         log.info("Creando mascota: '{}'", command.name());
+
+        if (command.shelterId() != null) {
+            try {
+                var shelterResponse = shelterClient.getShelterById(command.shelterId());
+                if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
+                    log.warn("Refugio no encontrado: ID={}", command.shelterId());
+                    throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
+                }
+            } catch (IllegalArgumentException e) {
+                throw e;
+            } catch (Exception e) {
+                log.warn("No se pudo validar refugio: shelterId={}", command.shelterId());
+            }
+        }
 
         PetStatus petStatus;
         try {
@@ -87,9 +107,6 @@ public class PetService {
         pet.setFosterId(command.fosterId());
         pet.setShelterId(command.shelterId());
         pet.setStatus(petStatus);
-        pet.setVaccinated(command.vaccinated());
-        pet.setSterilized(command.sterilized());
-        pet.setDiseases(command.diseases());
 
         try {
             Pet saved = this.petRepository.save(pet);
@@ -128,6 +145,26 @@ public class PetService {
         return this.petRepository.findById(id).map(this::toResult);
     }
 
+    public Optional<HealthResult> getHealthInfo(Long petId) {
+        return this.petRepository.findById(petId)
+                .map(Pet::getHealthServiceId)
+                .filter(healthId -> healthId != null)
+                .flatMap(healthId -> {
+                    try {
+                        ResponseEntity<HealthResult> response = healthClient.getHealth(healthId);
+                        if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                            return Optional.of(response.getBody());
+                        }
+                        log.warn("Health-service no retornó datos para healthServiceId={}", healthId);
+                        return Optional.empty();
+                    } catch (Exception e) {
+                        log.error("Error obteniendo salud desde health-service para petId={}: {}", petId, e.getMessage());
+                        return Optional.empty();
+                    }
+                });
+    }
+
+    @Transactional
     public boolean deleteById(Long id) {
         log.info("Eliminando mascota: ID={}", id);
 
@@ -156,6 +193,7 @@ public class PetService {
         }
     }
 
+    @Transactional
     public Optional<PetResult> updateById(Long id, PetCommand command) {
         log.info("Actualizando mascota: ID={}", id);
 
@@ -178,9 +216,6 @@ public class PetService {
         toUpdate.setColor(command.color());
         toUpdate.setPersonality(command.personality());
         toUpdate.setFosterId(command.fosterId());
-        toUpdate.setVaccinated(command.vaccinated());
-        toUpdate.setSterilized(command.sterilized());
-        toUpdate.setDiseases(command.diseases());
 
         if (command.status() != null && !command.status().isBlank()) {
             PetStatus petStatus = PetStatus.valueOf(command.status().toUpperCase());
@@ -227,9 +262,6 @@ public class PetService {
                 pet.getSize(),
                 pet.getColor(),
                 pet.getStatus().name(),
-                pet.getVaccinated(),
-                pet.getSterilized(),
-                pet.getDiseases(),
                 pet.getPersonality(),
                 pet.getFosterId(),
                 pet.getShelterId()

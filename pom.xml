@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-                <version>4.0.0</version>
+                <version>3.4.5</version>
         <relativePath/> </parent>
 <groupId>com.adoptapp</groupId>
 <artifactId>adoptapp</artifactId>
@@ -17,6 +17,7 @@
 <packaging>pom</packaging>
 
 <modules>
+    <module>shared-kernel</module>
     <module>adoption-service</module>
     <module>donation-service</module>
     <module>followup-service</module>

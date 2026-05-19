@@ -101,7 +101,7 @@ public class DonationService {
             String email = userResponse.getBody().email();
             sendNotification(command.userId(), email,
                     "La donacion al refugio " + command.shelterId()
-                            + " ha sido creada por el usuario " + command.userId(), "CREATED");
+                            + " ha sido creada por el usuario " + command.userId(), "DONATION_RECEIVED");
 
             log.info("Donación creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
@@ -196,7 +196,7 @@ public class DonationService {
 
         if (email != null) {
             sendNotification(donation.getUserId(), email,
-                    "La donación " + id + " ha sido eliminada", "DELETED");
+                    "La donación " + id + " ha sido eliminada", "DONATION_CANCELLED");
         }
 
         try {
@@ -213,7 +213,7 @@ public class DonationService {
                                 String prevStatus, String newStatus,
                                 Double prevAmount, Double newAmount) {
         DonationHistory history = new DonationHistory();
-        history.setDonationId(donationId);
+        repository.findById(donationId).ifPresent(history::setDonation);
         history.setAction(action);
         history.setComment(comment);
         history.setChangedByUserId(changedByUserId);
@@ -227,7 +227,7 @@ public class DonationService {
 
     private DonationHistoryResponse toHistoryResponse(DonationHistory history) {
         return new DonationHistoryResponse(
-                history.getDonationId(),
+                history.getDonation().getId(),
                 history.getAction(),
                 history.getPreviousStatus(),
                 history.getNewStatus(),

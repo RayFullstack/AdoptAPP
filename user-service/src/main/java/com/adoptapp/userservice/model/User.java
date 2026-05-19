@@ -56,6 +56,9 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<UserHistory> history = new ArrayList<>();
 
@@ -75,6 +78,11 @@ public class User {
         if (status == null) {
             status = UserStatus.ACTIVE;
         }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
     }
 
     public enum Role {

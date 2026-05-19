@@ -1,92 +1,52 @@
 package com.adoptapp.donationservice.exception;
 
-import com.adoptapp.donationservice.dto.ErrorResponse;
-
-import feign.FeignException;
-
+import com.adoptapp.sharedkernel.dto.ErrorResponse;
+import com.adoptapp.sharedkernel.exception.RemoteServiceException;
+import com.adoptapp.sharedkernel.exception.ResourceNotFoundException;
+import com.adoptapp.sharedkernel.util.ErrorResponseFactory;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.time.LocalDateTime;
-import java.util.stream.Collectors;
+import java.util.List;
 
-@RestControllerAdvice
+@ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidationErrors(
-            MethodArgumentNotValidException e) {
-
-        String message = e.getBindingResult().getFieldErrors().stream()
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
-                .collect(Collectors.joining(", "));
-
-        ErrorResponse error = new ErrorResponse(
-                message,
-                HttpStatus.BAD_REQUEST.value(),
-                LocalDateTime.now()
-        );
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(error);
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ErrorResponseFactory.notFound(ex.getMessage(), request.getRequestURI()));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ErrorResponse> handleIllegalArgument(
-            IllegalArgumentException e) {
-
-        ErrorResponse error = new ErrorResponse(
-                e.getMessage(),
-                HttpStatus.CONFLICT.value(),
-                LocalDateTime.now()
-        );
-
-        return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(error);
+    public ResponseEntity<ErrorResponse> handleIllegalArgument(IllegalArgumentException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponseFactory.badRequest(ex.getMessage(), request.getRequestURI()));
     }
 
-    @ExceptionHandler(DonationNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleDonationNotFound(
-            DonationNotFoundException e) {
-
-        ErrorResponse error = new ErrorResponse(
-                e.getMessage(),
-                HttpStatus.NOT_FOUND.value(),
-                LocalDateTime.now()
-        );
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(error);
-    }
-
-    @ExceptionHandler(FeignException.class)
-    public ResponseEntity<ErrorResponse> handleFeignException(
-            FeignException e) {
-
-        ErrorResponse error = new ErrorResponse(
-                "Servicio no disponible: " + e.getMessage(),
-                HttpStatus.SERVICE_UNAVAILABLE.value(),
-                LocalDateTime.now()
-        );
-
+    @ExceptionHandler(RemoteServiceException.class)
+    public ResponseEntity<ErrorResponse> handleRemoteService(RemoteServiceException ex, HttpServletRequest request) {
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
-                .body(error);
+                .body(ErrorResponseFactory.serviceUnavailable(ex.getServiceName(), request.getRequestURI()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex, HttpServletRequest request) {
+        List<String> errors = ex.getBindingResult().getFieldErrors().stream()
+                .map(FieldError::getDefaultMessage)
+                .toList();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponseFactory.badRequest(errors, request.getRequestURI()));
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGeneralException(
-            Exception e) {
-
-        ErrorResponse error = new ErrorResponse(
-                e.getMessage(),
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                LocalDateTime.now()
-        );
-
+    public ResponseEntity<ErrorResponse> handleGeneric(Exception ex, HttpServletRequest request) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(error);
+                .body(ErrorResponseFactory.internalServerError(ex.getMessage(), request.getRequestURI()));
     }
 }

@@ -42,8 +42,8 @@ spring:
       client:
         config:
           default:
-            connect-timeout: 5000
-            read-timeout: 5000
+            connect-timeout: 2000
+            read-timeout: 3000
             logger-level: BASIC
 
 services:
@@ -53,6 +53,8 @@ services:
     url: http://localhost:8085/health-app
   user-service:
     url: http://localhost:8081/user-app
+  shelter-service:
+    url: http://localhost:8095/shelter-app
 
 logging:
   level:

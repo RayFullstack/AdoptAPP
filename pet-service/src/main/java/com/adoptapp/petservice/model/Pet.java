@@ -1,6 +1,7 @@
 package com.adoptapp.petservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +34,8 @@ public class Pet {
     private String color;
 
     @Column(nullable = false)
-    private int age;
+    @Min(0)
+    private Integer age;
 
     @Column(nullable = false, length = 50)
     private String size;
@@ -41,8 +43,11 @@ public class Pet {
     @Column(nullable = false, length = 50)
     private String personality;
 
-    @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     @Column(nullable = false)
     private Long fosterId;
@@ -54,13 +59,16 @@ public class Pet {
     @Column(nullable = false)
     private PetStatus status;
 
-    private Boolean vaccinated;
-
-    private Boolean sterilized;
-
-    private String diseases;
-
     @Column(name = "health_service_id")
     private Long healthServiceId;
 
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

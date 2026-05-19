@@ -2,13 +2,19 @@ package com.adoptapp.followupservice.dto;
 
 import com.adoptapp.followupservice.model.FollowUpStatus;
 
-public record FollowUpResult(
+import java.time.LocalDateTime;
 
+public record FollowUpResult(
         Long id,
         String adopterName,
         String petName,
-        String visitDate,
+        Long userId,
+        Long petId,
+        Long adoptionId,
+        LocalDateTime visitDate,
         String comments,
-        FollowUpStatus status
+        FollowUpStatus status,
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 }

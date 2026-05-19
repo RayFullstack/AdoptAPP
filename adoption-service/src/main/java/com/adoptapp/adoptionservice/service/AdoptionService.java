@@ -1,7 +1,9 @@
 package com.adoptapp.adoptionservice.service;
 
+import com.adoptapp.adoptionservice.client.FollowUpServiceClient;
 import com.adoptapp.adoptionservice.client.PetNotificationClient;
 import com.adoptapp.adoptionservice.client.PetServiceClient;
+import com.adoptapp.adoptionservice.client.ShelterServiceClient;
 import com.adoptapp.adoptionservice.client.UserNotificationClient;
 import com.adoptapp.adoptionservice.client.UserServiceClient;
 import com.adoptapp.adoptionservice.dto.*;
@@ -27,16 +29,22 @@ public class AdoptionService {
     private final AdoptionHistoryRepository historyRepository;
     private final UserServiceClient userServiceClient;
     private final PetServiceClient petServiceClient;
+    private final ShelterServiceClient shelterServiceClient;
+    private final FollowUpServiceClient followUpServiceClient;
     private final UserNotificationClient userNotificationClient;
     private final PetNotificationClient petNotificationClient;
 
     public AdoptionService(AdoptionRepository repository, AdoptionHistoryRepository historyRepository,
                            UserServiceClient userServiceClient, PetServiceClient petServiceClient,
+                           ShelterServiceClient shelterServiceClient,
+                           FollowUpServiceClient followUpServiceClient,
                            UserNotificationClient userNotificationClient, PetNotificationClient petNotificationClient) {
         this.repository = repository;
         this.historyRepository = historyRepository;
         this.userServiceClient = userServiceClient;
         this.petServiceClient = petServiceClient;
+        this.shelterServiceClient = shelterServiceClient;
+        this.followUpServiceClient = followUpServiceClient;
         this.userNotificationClient = userNotificationClient;
         this.petNotificationClient = petNotificationClient;
     }
@@ -70,20 +78,31 @@ public class AdoptionService {
             throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
         }
 
+        PetResponse pet = petResponse.getBody();
+        if (pet != null && pet.shelterId() != null) {
+            ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(pet.shelterId());
+            if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Refugio no encontrado: ID={}", pet.shelterId());
+                throw new IllegalArgumentException("El refugio con ID " + pet.shelterId() + " no existe");
+            }
+        }
+
         Adoption adoption = new Adoption();
         adoption.setUserId(command.userId());
         adoption.setPetId(command.petId());
         adoption.setStatus(command.status());
-        adoption.setCreatedAt(LocalDateTime.now());
-
         try {
             Adoption saved = this.repository.save(adoption);
-            recordHistory(saved.getId(), "CREATED",
+            recordHistory(saved, "CREATED",
                     "Adopción creada: mascota " + command.petId() + " por usuario " + command.userId());
 
             String email = userResponse.getBody().email();
             sendUserNotification(command.userId(), "Se ha creado la adopción de la mascota " + command.petId(), "ADOPTION_CREATED", email);
             sendPetNotification(command.userId(), "La mascota " + command.petId() + " ha sido adoptada por el usuario " + command.userId(), "PET_CREATED", command.petId());
+
+            if (pet != null) {
+                sendFollowUp(pet.name(), command.userId(), command.petId(), saved.getId());
+            }
 
             log.info("Adopción creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
@@ -120,7 +139,7 @@ public class AdoptionService {
             log.warn("No se pudo obtener email del usuario {} para notificación", adoption.getUserId());
         }
 
-        recordHistory(id, "DELETED",
+        recordHistory(adoption, "DELETED",
                 "Adopción eliminada: mascota " + adoption.getPetId() + ", usuario " + adoption.getUserId());
 
         if (email != null) {
@@ -167,7 +186,7 @@ public class AdoptionService {
 
         try {
             Adoption updated = this.repository.save(adoption);
-            recordHistory(id, "UPDATED",
+            recordHistory(updated, "UPDATED",
                     "Adopción modificada: mascota " + command.petId() + ", usuario " + command.userId()
                             + ", estado " + command.status());
 
@@ -189,9 +208,9 @@ public class AdoptionService {
                 .toList();
     }
 
-    private void recordHistory(Long adoptionId, String action, String description) {
+    private void recordHistory(Adoption adoption, String action, String description) {
         AdoptionHistory history = new AdoptionHistory();
-        history.setAdoptionId(adoptionId);
+        history.setAdoption(adoption);
         history.setAction(action);
         history.setDescription(description);
         history.setCreatedAt(LocalDateTime.now());
@@ -204,6 +223,25 @@ public class AdoptionService {
             userNotificationClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion a {}: {}", email, e.getMessage());
+        }
+    }
+
+    private void sendFollowUp(String petName, Long userId, Long petId, Long adoptionId) {
+        try {
+            FollowUpRequest request = new FollowUpRequest(
+                    "Usuario " + userId,
+                    petName,
+                    userId,
+                    petId,
+                    adoptionId,
+                    LocalDateTime.now().plusDays(30),
+                    "Seguimiento post-adopción para mascota " + petId,
+                    "PENDING"
+            );
+            followUpServiceClient.createFollowUp(request);
+            log.info("Seguimiento creado para adopción: mascota={}, userId={}, adoptionId={}", petName, userId, adoptionId);
+        } catch (Exception e) {
+            log.warn("No se pudo crear seguimiento en followup-service: {}", e.getMessage());
         }
     }
 
@@ -230,7 +268,7 @@ public class AdoptionService {
     private AdoptionHistoryResponse toHistoryResponse(AdoptionHistory history) {
         return new AdoptionHistoryResponse(
                 history.getId(),
-                history.getAdoptionId(),
+                history.getAdoption().getId(),
                 history.getAction(),
                 history.getDescription(),
                 history.getCreatedAt()

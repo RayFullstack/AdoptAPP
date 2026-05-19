@@ -89,8 +89,10 @@ public class AdoptionController {
     public ResponseEntity<Void> deleteAdoptionById(
             @PathVariable Long id) {
 
-        service.deleteById(id);
-
+        boolean deleted = service.deleteById(id);
+        if (!deleted) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.noContent().build();
     }
 

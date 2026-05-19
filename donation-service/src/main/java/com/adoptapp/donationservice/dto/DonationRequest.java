@@ -17,6 +17,12 @@ public record DonationRequest(
         @NotBlank(message = "Description is required")
         String description,
 
-        DonationStatus status
+        DonationStatus status,
+
+        @NotNull(message = "User ID is required")
+        Long userId,
+
+        @NotNull(message = "Shelter ID is required")
+        Long shelterId
 ) {
 }

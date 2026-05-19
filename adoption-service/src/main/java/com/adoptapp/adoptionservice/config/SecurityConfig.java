@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/adoptions", "/adoptions/by-id/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/adoptions", "/adoptions/by-id/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
                         .requestMatchers(HttpMethod.GET, "/adoptions/by-id/*/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/adoptions").hasAnyRole("SHELTER_ADMIN", "ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/adoptions/by-id/*").hasAnyRole("SHELTER_ADMIN", "ADMIN")

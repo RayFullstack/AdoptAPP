@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -76,7 +77,7 @@ public class HealthService {
         ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
         if (!userResponse.getStatusCode().is2xxSuccessful()) {
             log.warn("Usuario no encontrad@: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.petId() + " no existe");
+            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
         }
 
         Health health = new Health();
@@ -178,7 +179,7 @@ public class HealthService {
                 delDiseases, null);
 
         if (email != null) {
-            sendNotification(health.getUserId(), email, "La ficha " + id + " ha sido eliminada", "DELETED");
+            sendNotification(health.getUserId(), email, "La ficha " + id + " ha sido eliminada", "HEALTH_ALERT");
         }
 
         try {
@@ -228,11 +229,11 @@ public class HealthService {
             Health updated = this.healthRepository.save(toUpdate);
 
             String cambios = "";
-            if (!prevVax.equals(updated.getVaccinationStatus()))
+            if (!Objects.equals(prevVax, updated.getVaccinationStatus()))
                 cambios += "vacunación: " + prevVax + "→" + updated.getVaccinationStatus() + ", ";
-            if (!prevSter.equals(updated.getSterilizationStatus()))
+            if (!Objects.equals(prevSter, updated.getSterilizationStatus()))
                 cambios += "esterilización: " + prevSter + "→" + updated.getSterilizationStatus() + ", ";
-            if (!prevDiseases.equals(updated.getDiseases()))
+            if (!Objects.equals(prevDiseases, updated.getDiseases()))
                 cambios += "enfermedades actualizadas, ";
 
             recordHistory(id, "UPDATED",
@@ -245,7 +246,7 @@ public class HealthService {
 
             String email = userResponse.getBody().email();
             sendNotification(command.userId(), email,
-                    "Ficha " + id + " actualizada: " + cambios, "HEALTH_UPDATED");
+                    "Ficha " + id + " actualizada: " + cambios, "HEALTH_CHECK_UPDATED");
 
             log.info("Ficha clínica actualizada exitosamente: ID={}", id);
             return Optional.of(toResult(updated));

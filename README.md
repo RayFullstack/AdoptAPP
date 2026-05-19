@@ -1,6 +1,6 @@
 # AdoptApp - Plataforma de Adopción de Mascotas
 
-Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 4.0.0** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
+Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 3.4.5** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
 
 ## Arquitectura
 
@@ -14,10 +14,10 @@ adoptapp/
 ├── notification-service/  # Notificaciones (puerto 8084, /notification-app)
 ├── health-service/        # Registros de salud (puerto 8085, /health-app)
 ├── donation-service/      # Donaciones (puerto 8090, /donation-app)
-├── followup-service/      # Seguimiento post-adopción (puerto 8086)
-├── shelter-service/       # Gestión de refugios
-├── staff-service/         # Gestión de personal
-├── supply-service/        # Insumos de refugio
+├── followup-service/      # Seguimiento post-adopción (puerto 8086, /followup-app)
+├── shelter-service/       # Gestión de refugios (puerto 8095, /shelter-app)
+├── staff-service/         # Gestión de personal (puerto 8091, /staff-app)
+├── supply-service/        # Insumos de refugio (puerto 8092, /supply-app)
 └── pom.xml                # POM Padre
 ```
 
@@ -26,7 +26,7 @@ adoptapp/
 | Tecnología | Uso |
 |---|---|
 | **Java 21** | Runtime |
-| **Spring Boot 4.0.0** | Framework |
+| **Spring Boot 3.4.5** | Framework |
 | **Spring Cloud 2025.1.0 (Oakwood)** | Feign clients entre servicios |
 | **Spring Data JPA** | Acceso a datos con relaciones |
 | **PostgreSQL / H2** | Bases de datos (prod / dev) |
@@ -123,13 +123,13 @@ API para gestionar notificaciones. Almacena notificaciones con tipos categorizad
 
 **Endpoints** (`/notifications`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/notifications` | Listar todas (filtro `?status=`) |
-| `GET` | `/notifications/by-id/{id}` | Obtener por ID |
-| `POST` | `/notifications` | Crear notificación |
-| `PUT` | `/notifications/by-id/{id}` | Actualizar notificación |
-| `DELETE` | `/notifications/by-id/{id}` | Eliminar notificación |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/notifications` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/notifications/by-id/{id}` | Obtener por ID | Público |
+| `POST` | `/notifications` | Crear notificación | Autenticado |
+| `PUT` | `/notifications/by-id/{id}` | Actualizar notificación | Autenticado |
+| `DELETE` | `/notifications/by-id/{id}` | Eliminar notificación | ADMIN |
 
 **Tipos de notificación disponibles (vía Flyway V2 + V3):**
 
@@ -189,7 +189,7 @@ API para gestionar donaciones. Verifica existencia de usuario y refugio vía Fei
 - → notification-service (`POST /notifications`): `CREATED`, `DONATION_UPDATED`, `DELETED`
 - → shelter-service (`GET /shelters/by-id/{id}`): verifica refugio
 
-### followup-service (Puerto 8086, sin context-path)
+### followup-service (Puerto 8086, `/followup-app`)
 
 API para gestionar seguimientos post-adopción.
 
@@ -197,37 +197,55 @@ API para gestionar seguimientos post-adopción.
 
 **Endpoints** (`/followups`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/followups` | Listar todos (filtro `?status=`) |
-| `GET` | `/followups/by-id/{id}` | Obtener por ID |
-| `POST` | `/followups` | Crear seguimiento |
-| `PUT` | `/followups/by-id/{id}` | Actualizar seguimiento |
-| `DELETE` | `/followups/by-id/{id}` | Eliminar seguimiento |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/followups` | Listar todos (filtro `?status=`) | Público |
+| `GET` | `/followups/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/followups/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/followups` | Crear seguimiento | ADMIN |
+| `PUT` | `/followups/by-id/{id}` | Actualizar seguimiento | ADMIN |
+| `DELETE` | `/followups/by-id/{id}` | Eliminar seguimiento | ADMIN |
 
 ## Comunicación entre servicios
 
 ```
 user-service ──(Feign)──→ notification-service (POST /notifications)
 
-pet-service  ──(Feign)──→ user-service (GET /users/by-id/{id})
+pet-service  ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
 pet-service  ──(Feign)──→ health-service (CRUD /health)
 pet-service  ──(Feign)──→ notification-service (POST /notifications)
+pet-service  ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
 
 adoption-service ──(Feign)──→ user-service (GET /users/by-id/{id})
 adoption-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
 adoption-service ──(Feign)──→ notification-service (POST /notifications)
+adoption-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+adoption-service ──(Feign)──→ followup-service (POST /followups)
 
-health-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+health-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
 health-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
 health-service ──(Feign)──→ notification-service (POST /notifications)
 
-donation-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+donation-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
 donation-service ──(Feign)──→ notification-service (POST /notifications)
 donation-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
 
-followup-service ──(no outbound calls)
-notification-service ──(no outbound calls)
+followup-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
+followup-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
+followup-service ──(Feign)──→ notification-service (POST /notifications)
+
+notification-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
+
+shelter-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
+shelter-service ──(Feign)──→ notification-service (POST /notifications)
+
+staff-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
+staff-service ──(Feign)──→ notification-service (POST /notifications)
+staff-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+
+supply-service ──(Feign)──→ user-service (GET /users/by-email/{email}/auth)
+supply-service ──(Feign)──→ notification-service (POST /notifications)
+supply-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
 ```
 
 ## Cómo ejecutar
@@ -256,7 +274,7 @@ mvn spring-boot:run
 | Perfil | Base de datos | Flyway | Uso |
 |---|---|---|---|
 | `default` | PostgreSQL | habilitado | Producción |
-| `h2` | H2 en memoria | deshabilitado (`ddl-auto=create-drop`) | Desarrollo |
+| `h2` | H2 en memoria | deshabilitado | Desarrollo (solo user, pet, notification) |
 | `postgres` | PostgreSQL (override) | habilitado | Desarrollo con PostgreSQL |
 
 Variables de entorno requeridas (vía `.env`):
@@ -291,7 +309,7 @@ Request (validación) → Command (servicio) → Result (servicio) → Response 
 
 ### Manejo Global de Excepciones
 - `GlobalExceptionHandler` con `@RestControllerAdvice` en cada servicio
-- `IllegalArgumentException` → 409 Conflict
+- `IllegalArgumentException` → 400 Bad Request (409 es para conflictos de concurrencia; corregir pendiente)
 - `MethodArgumentNotValidException` → 400 Bad Request
 - `Exception` → 500 Internal Server Error
 
@@ -320,3 +338,22 @@ Request (validación) → Command (servicio) → Result (servicio) → Response 
 - Eliminados archivos que anulaban auto-configuración Spring Boot
 - Agregados campos: `updatedAt` en Adoption, `shelterId` en Pet
 - Migración de `NotificationResponce.java` → `NotificationResponse.java`
+
+## Notas y Limitaciones Conocidas
+
+### Problemas identificados (pendientes de corrección)
+- **pet-service**: `DataInitializer.java` referencia métodos que no existen en `Pet.java` (`setVaccinated`, `setSterilized`, `setDiseases`). El servicio puede no arrancar con perfil `h2`.
+- **health-service**: La tabla se llama `health` (palabra reservada en algunos motores SQL). Funciona en PostgreSQL pero puede fallar en MySQL.
+- **donation-service**: Usa `Double` para montos monetarios en lugar de `BigDecimal` (precisión floating-point).
+- **shelter-service**: Soft delete implementado pero `GET /shelters` retorna registros eliminados.
+- **followup-service**: Notificaciones enviadas a email hardcodeado `sistema@adoptapp.com`.
+- **UserAuthResponse**: 3 firmas diferentes entre servicios (inconsistencia de DTOs de autenticación).
+- **Sin paginación**: Los endpoints `GET /resource` retornan listas completas sin paginación.
+- **Rutas no RESTful**: Se usa `/resource/by-id/{id}` en lugar del estándar REST `/resource/{id}`.
+- **HTTP Basic Auth**: Sin JWT/OAuth2. Credenciales enviadas en Base64 en cada request.
+
+### Decisiones de diseño
+- **Database-per-service**: Cada microservicio tiene su propia base de datos PostgreSQL.
+- **Feign síncrono**: Comunicación entre servicios vía OpenFeign con fallbacks.
+- **Sin API Gateway**: Cada servicio se expone directamente en su propio puerto.
+- **Sin CI/CD**: No hay pipelines de GitHub Actions configurados.

@@ -10,6 +10,7 @@ import com.adoptapp.userservice.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -58,6 +59,7 @@ public class UserService {
                 .toList();
     }
 
+    @Transactional
     public UserResult create(UserCommand command) {
         log.info("Creando usuario: '{}'", command.username());
 
@@ -83,6 +85,7 @@ public class UserService {
         user.setEmail(command.email());
         user.setPassword(passwordEncoder.encode(command.password()));
         user.setStatus(command.status() != null ? command.status() : UserStatus.ACTIVE);
+        validateRoleAssignment(command.role());
         user.setRole(command.role() != null ? command.role() : User.Role.ADOPTER);
         user.setActive(command.active());
 
@@ -130,6 +133,7 @@ public class UserService {
                 .map(user -> new UserAuthResponse(user.getEmail(), user.getPassword(), user.getRole()));
     }
 
+    @Transactional
     public boolean deleteById(Long id) {
         log.info("Eliminando usuario: ID={}", id);
 
@@ -162,6 +166,7 @@ public class UserService {
         return Optional.of(historial);
     }
 
+    @Transactional
     public Optional<UserResult> updateById(Long id, UserCommand command) {
         log.info("Actualizando usuario: ID={}", id);
 
@@ -390,5 +395,12 @@ public class UserService {
         entry.setComment(comment);
         userHistoryRepository.save(entry);
     }
+
+    private void validateRoleAssignment(User.Role role) {
+        if (role == User.Role.ADMIN) {
+            throw new IllegalArgumentException(
+                    "No se permite la creación directa de usuarios con rol ADMIN");
+        }
     }
+}
 

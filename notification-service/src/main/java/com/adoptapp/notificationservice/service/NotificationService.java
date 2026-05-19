@@ -9,11 +9,14 @@ import com.adoptapp.notificationservice.repository.NotificationRepository;
 import com.adoptapp.notificationservice.repository.NotificationTypeRepository;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class NotificationService {
 
@@ -51,6 +54,7 @@ public class NotificationService {
                 .map(this::toResult);
     }
 
+    @Transactional
     public NotificationResult create(NotificationCommand command) {
 
         NotificationType type = typeRepository.findByName(command.typeName())
@@ -63,13 +67,13 @@ public class NotificationService {
         notification.setMessage(command.message());
         notification.setType(type);
         notification.setStatus(command.status());
-        notification.setCreatedAt(LocalDateTime.now());
 
         Notification saved = repository.save(notification);
 
         return toResult(saved);
     }
 
+    @Transactional
     public Optional<NotificationResult> updateById(
             Long id,
             NotificationCommand command) {
@@ -95,6 +99,7 @@ public class NotificationService {
                 });
     }
 
+    @Transactional
     public boolean deleteById(Long id) {
 
         if (!repository.existsById(id)) {

@@ -40,7 +40,7 @@ public class Health {
     @Column(nullable = false)
     private VaccinationStatus vaccinationStatus;
 
-    @Column(length = 500, nullable = false, columnDefinition = "TEXT DEFAULT 'Ninguna'")
+    @Column(length = 500, nullable = false)
     private String diseases;
 
     @Column(name = "created_at")
@@ -49,13 +49,16 @@ public class Health {
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
+        if (diseases == null) {
+            diseases = "Ninguna";
+        }
     }
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @PreUpdate
-    public void prePersistUpdate() {
+    public void preUpdate() {
             updatedAt = LocalDateTime.now();
     }
 }

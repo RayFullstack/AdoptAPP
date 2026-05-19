@@ -26,9 +26,13 @@ INSERT INTO notification_types (name, template, channel) VALUES
 
     -- Staff Service
     ('STAFF_ADDED', 'El usuario {userName} ha sido añadido al staff de {shelterName}', 'EMAIL'),
+    ('STAFF_UPDATED', 'Los datos del staff {staffId} han sido actualizados', 'EMAIL'),
     ('STAFF_REMOVED', 'El usuario {userName} ha sido removido del staff de {shelterName}', 'EMAIL'),
 
     -- Supply Service
+    ('SUPPLY_CREATED', 'El insumo {supplyName} ha sido registrado en el refugio {shelterName}', 'PUSH'),
+    ('SUPPLY_UPDATED', 'El insumo {supplyName} ha sido actualizado en el refugio {shelterName}', 'PUSH'),
     ('SUPPLY_LOW_STOCK', 'El insumo {supplyName} tiene stock bajo: {quantity}', 'PUSH'),
     ('SUPPLY_ORDERED', 'Se ha solicitado {supplyName} para el refugio {shelterName}', 'EMAIL'),
-    ('SUPPLY_RECEIVED', 'Se ha recibido {supplyName} en el refugio {shelterName}', 'EMAIL');
+    ('SUPPLY_RECEIVED', 'Se ha recibido {supplyName} en el refugio {shelterName}', 'EMAIL'),
+    ('SUPPLY_DELETED', 'El insumo {supplyName} ha sido eliminado del refugio {shelterName}', 'PUSH');

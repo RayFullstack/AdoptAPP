@@ -1,5 +1,7 @@
 server:
   port: 8086
+  servlet:
+    context-path: "/followup-app"
 
 spring:
   config:
@@ -40,9 +42,17 @@ spring:
       client:
         config:
           default:
-            connect-timeout: 5000
-            read-timeout: 5000
+            connect-timeout: 2000
+            read-timeout: 3000
             logger-level: BASIC
+
+services:
+  notification-service:
+    url: http://localhost:8084/notification-app
+  user-service:
+    url: http://localhost:8081/user-app
+  pet-service:
+    url: http://localhost:8082/pet-app
 
 logging:
   level:

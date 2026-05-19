@@ -110,12 +110,16 @@ public class PetController {
                 result.size(),
                 result.color(),
                 result.status(),
-                result.vaccinated(),
-                result.sterilized(),
-                result.diseases(),
                 result.personality(),
                 result.fosterId(),
                 result.shelterId()
         );
+    }
+
+    @GetMapping("/by-id/{id}/health")
+    public ResponseEntity<com.adoptapp.petservice.dto.HealthResult> getPetHealth(@PathVariable Long id) {
+        return service.getHealthInfo(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }

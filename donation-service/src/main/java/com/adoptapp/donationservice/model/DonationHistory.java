@@ -20,8 +20,9 @@ public class DonationHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "donation_id", nullable = false)
-    private Long donationId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "donation_id", nullable = false)
+    private Donation donation;
 
     @Column(nullable = false, length = 50)
     private String action;

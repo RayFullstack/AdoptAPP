@@ -7,6 +7,8 @@ public record DonationCommand(
         String donorName,
         Double amount,
         String description,
-        DonationStatus status
+        DonationStatus status,
+        Long userId,
+        Long shelterId
 ) {
 }
