@@ -2,8 +2,10 @@ package com.adoptapp.donationservice.dto;
 
 import com.adoptapp.donationservice.model.DonationStatus;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+
+import java.math.BigDecimal;
 
 public record DonationRequest(
 
@@ -11,8 +13,8 @@ public record DonationRequest(
         String donorName,
 
         @NotNull(message = "Amount is required")
-        @Positive(message = "Amount must be greater than 0")
-        Double amount,
+        @DecimalMin(value = "0.01", message = "Amount must be greater than 0")
+        BigDecimal amount,
 
         @NotBlank(message = "Description is required")
         String description,

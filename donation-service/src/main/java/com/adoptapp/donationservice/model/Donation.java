@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,7 +23,8 @@ public class Donation {
 
     private String donorName;
 
-    private Double amount;
+    @Column(columnDefinition = "DECIMAL(12,2)")
+    private BigDecimal amount;
 
     private String description;
 

@@ -1,6 +1,7 @@
 package com.adoptapp.userservice.repository;
 
 import com.adoptapp.userservice.model.User;
+import com.adoptapp.userservice.model.UserStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByEmailIgnoreCase(String email);
 
-    List<User> findByStatusIgnoreCase(String status);
+    List<User> findByStatus(UserStatus status);
 
     List<User> findByUsernameIgnoreCase(String username);
 

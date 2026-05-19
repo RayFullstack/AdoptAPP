@@ -53,7 +53,7 @@ public class UserService {
             return getUsers();
         }
         return this.userRepository
-                .findByStatusIgnoreCase(statusFilter)
+                .findByStatus(com.adoptapp.userservice.model.UserStatus.valueOf(statusFilter.toUpperCase()))
                 .stream()
                 .map(this::toResult)
                 .toList();

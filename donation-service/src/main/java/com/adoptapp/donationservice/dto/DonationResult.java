@@ -2,13 +2,14 @@ package com.adoptapp.donationservice.dto;
 
 import com.adoptapp.donationservice.model.DonationStatus;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record DonationResult(
 
         Long id,
         String donorName,
-        Double amount,
+        BigDecimal amount,
         String description,
         DonationStatus status,
         Long userId,

@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -129,7 +130,7 @@ public class DonationService {
 
         Donation toUpdate = found.get();
         DonationStatus prevStatus = toUpdate.getStatus();
-        Double prevAmount = toUpdate.getAmount();
+        BigDecimal prevAmount = toUpdate.getAmount();
 
         toUpdate.setDonorName(command.donorName());
         toUpdate.setAmount(command.amount());
@@ -187,7 +188,7 @@ public class DonationService {
         }
 
         String delStatus = donation.getStatus() != null ? donation.getStatus().name() : null;
-        Double delAmount = donation.getAmount();
+        BigDecimal delAmount = donation.getAmount();
         recordHistory(id, "DELETED",
                 "Donación eliminada: " + donation.getDonorName() + " - $" + donation.getAmount(),
                 donation.getUserId(),
@@ -210,8 +211,8 @@ public class DonationService {
     }
 
     private void recordHistory(Long donationId, String action, String comment, Long changedByUserId,
-                                String prevStatus, String newStatus,
-                                Double prevAmount, Double newAmount) {
+                                 String prevStatus, String newStatus,
+                                 BigDecimal prevAmount, BigDecimal newAmount) {
         DonationHistory history = new DonationHistory();
         repository.findById(donationId).ifPresent(history::setDonation);
         history.setAction(action);

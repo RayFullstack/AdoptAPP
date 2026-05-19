@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.math.BigDecimal;
+
 @Configuration
 @Profile("h2")
 public class DataInitializer {
@@ -21,7 +23,7 @@ public class DataInitializer {
             repository.save(new Donation(
                     null,
                     "Jacqueline Perez",
-                    50000.0,
+                    new BigDecimal("50000.00"),
                     "Donación de alimentos",
                     DonationStatus.COMPLETED,
                     1L,
@@ -33,7 +35,7 @@ public class DataInitializer {
             repository.save(new Donation(
                     null,
                     "Carlos Soto",
-                    25000.0,
+                    new BigDecimal("25000.00"),
                     "Medicamentos para mascotas",
                     DonationStatus.PENDING,
                     2L,
@@ -45,7 +47,7 @@ public class DataInitializer {
             repository.save(new Donation(
                     null,
                     "María López",
-                    10000.0,
+                    new BigDecimal("10000.00"),
                     "Ayuda voluntaria",
                     DonationStatus.CANCELLED,
                     3L,

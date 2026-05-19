@@ -1,5 +1,6 @@
 package com.adoptapp.donationservice.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record DonationHistoryResponse(
@@ -12,9 +13,9 @@ public record DonationHistoryResponse(
 
         String newStatus,
 
-        Double previousAmount,
+        BigDecimal previousAmount,
 
-        Double newAmount,
+        BigDecimal newAmount,
 
         String comment,
 

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -33,11 +34,11 @@ public class DonationHistory {
     @Column(name = "new_status", length = 20)
     private String newStatus;
 
-    @Column(name = "previous_amount")
-    private Double previousAmount;
+    @Column(name = "previous_amount", columnDefinition = "DECIMAL(12,2)")
+    private BigDecimal previousAmount;
 
-    @Column(name = "new_amount")
-    private Double newAmount;
+    @Column(name = "new_amount", columnDefinition = "DECIMAL(12,2)")
+    private BigDecimal newAmount;
 
     @Column(length = 255)
     private String comment;
