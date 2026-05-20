@@ -317,42 +317,6 @@ supply-service ──(Feign)──→ user-service (GET /users/by-id/{id})
 supply-service ──(Feign)──→ notification-service (POST /notifications)
 supply-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
 ```
-
-## Cómo ejecutar
-
-### Build del proyecto completo
-
-```bash
-# Desde la raiz del proyecto
-.\mvnw.cmd clean install -DskipTests
-```
-
-### Ejecutar con Maven Wrapper
-
-Cada servicio necesita su propia terminal:
-
-```bash
-# Perfil PostgreSQL (default)
-cd donation-service
-.\mvnw.cmd spring-boot:run
-
-cd user-service
-.\mvnw.cmd spring-boot:run
-
-# Perfil H2 (desarrollo rapido, sin PostgreSQL)
-cd donation-service
-.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=h2
-```
-
-### Ejecutar desde IntelliJ IDEA
-
-1. Abrir el proyecto como proyecto Maven
-2. Hacer clic derecho en `pom.xml` → **Maven** → **Reload project**
-3. Ir a **Run** → **Edit Configurations** → agregar configuracion para cada servicio
-4. En **VM options** agregar `--spring.profiles.active=h2` para usar H2
-
-**Orden recomendado:** notification → user → shelter → health → pet → adoption → donation → followup → staff → supply
-
 ## Perfiles de base de datos
 
 | Perfil | Base de datos | Flyway | Uso |
@@ -363,9 +327,6 @@ cd donation-service
 
 Variables de entorno requeridas (via `.env`):
 ```env
-DB_USER=postgres
-DB_PASSWORD=1234
-```
 
 ## Seguridad
 
@@ -442,51 +403,8 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - User-service envia notificaciones al crear/actualizar/eliminar usuarios
 - DTOs alineados entre clientes y servidor (`userId`, `recipient`, `message`, `typeName`, `status`)
 
-### Correcciones y Mejoras
-- Flyway actualizado a 11.7.2 con soporte PostgreSQL 18 (`flyway-database-postgresql`)
-- `@EnableFeignClients` y OpenFeign agregados a pet-service y user-service
-- Endpoint `DELETE /pets/by-id/{id}` en pet-service
-- URLs de datasource estandarizadas con `${DB_HOST:localhost}:${DB_PORT:5432}`
-- Eliminados DTOs y Feign clients no utilizados en adoption-service
-- Eliminados archivos que anulaban auto-configuracion Spring Boot
-- Agregados campos: `updatedAt` en Adoption, `shelterId` en Pet
-- Migracion de `NotificationResponce.java` → `NotificationResponse.java`
-- donation-service: campos monetarios migrados de `Double` a `BigDecimal`
-- user-service: corregido `findByStatusIgnoreCase` en repositorio (enum no soporta IgnoreCase)
-- user-service: agregada migracion V3 para columna `updated_at`
-- health-service: agregado driver PostgreSQL al pom.xml
-- Todos los servicios: agregado `flyway-database-postgresql` dependency
-
-### Auditoria Tecnica y Mejoras Criticas (2026-05)
-- **Resilience4j**: Circuit breaker agregado a 9 servicios (config: slidingWindowSize=10, failureRateThreshold=50%, waitDuration=30s)
-- **Feign Fallbacks**: supply-service y notification-service ahora retornan `ResponseEntity.status(503)` en lugar de `null`
-- **Feign Auth Propagation**: `FeignAuthInterceptor` como `@Component` en 9 servicios para propagar `Authorization` headers
-- **Exception Handling**: `UnauthorizedException`, `ForbiddenException`, `ValidationException`, `BusinessException` manejados en los 10 servicios
-- **Secure Catch-All**: Exception handler genérico retorna mensaje sin stack trace, log interno con detalles completos
-- **Structured Logging**: Todos los métodos de notification-service incluyen logging con campos estructurados
-- **Enum Validation**: 12 llamadas `Enum.valueOf()` protegidas con try/catch en todos los servicios
-- **Shared DTO**: `UserAuthResponse` movido a shared-kernel; 9 servicios actualizados para usar DTO centralizado
-- **HikariCP Pool**: `maximum-pool-size: 5` en todos los servicios para evitar agotamiento de conexiones PostgreSQL
-- **Database Fixes**: 
-  - `V3__add_foreign_keys_to_donations.sql` en donation-service
-  - `V3__add_unique_constraint_pet_id.sql` en health-service
-  - Corrección de entity↔migration mismatches (`User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields)
-  - Corrección de DB name en notification-service: `notif_db` (era `notification_db`)
-- **Security**: GET endpoints restringidos por roles en health, staff, donation, followup services
-- **Supply Service**: Refactorizado mapeo DTO con helper `applyCommandToEntity()`
-- **CI/CD**: Pipeline GitHub Actions `.github/workflows/build.yml` para build automático y tests
-- **Dead Code**: Eliminados 4 archivos `UserRole.java` no utilizados (adoption, donation, health, pet)
-- **Role Mapping**: user-service retorna `user.getRole().name()` para compatibilidad con shared-kernel `UserAuthResponse`
 
 ## Notas y Limitaciones Conocidas
-
-### Problemas identificados (pendientes de correccion)
-- **health-service**: La tabla se llama `health` (palabra reservada en algunos motores SQL). Funciona en PostgreSQL pero puede fallar en MySQL.
-- **shelter-service**: Soft delete implementado pero `GET /shelters` retorna registros eliminados.
-- **followup-service**: Notificaciones enviadas a email hardcodeado `sistema@adoptapp.com`.
-- **Sin paginacion**: Los endpoints `GET /resource` retornan listas completas sin paginacion.
-- **Rutas no RESTful**: Se usa `/resource/by-id/{id}` en lugar del estandar REST `/resource/{id}`.
-- **HTTP Basic Auth**: Sin JWT/OAuth2. Credenciales enviadas en Base64 en cada request.
 
 ### Decisiones de diseno
 - **Database-per-service**: Cada microservicio tiene su propia base de datos PostgreSQL.
@@ -494,7 +412,3 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Sin API Gateway**: Cada servicio se expone directamente en su propio puerto.
 - **Shared Kernel**: `UserAuthResponse` centralizado para evitar duplicación de DTOs de autenticación.
 - **HikariCP pool**: 5 conexiones por servicio para mantener 50 conexiones totales < PostgreSQL `max_connections=100`.
-
-## Testing
-
-Ver `test-commands.txt` en la raiz del proyecto para comandos curl de prueba de todos los servicios, organizados por perfil (PostgreSQL y H2).
