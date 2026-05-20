@@ -13,6 +13,7 @@ spring:
     out-of-order: false
     schemas: ${DB_SCHEMA:pet_schema}
     create-schemas: true
+    repair-on-migrate: true
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
