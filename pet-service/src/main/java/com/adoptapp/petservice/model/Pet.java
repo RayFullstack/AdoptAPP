@@ -1,6 +1,7 @@
 package com.adoptapp.petservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 20)
     private String name;
 
     @Column(nullable = false, length = 50)
@@ -33,7 +34,8 @@ public class Pet {
     private String color;
 
     @Column(nullable = false)
-    private int age;
+    @Min(0)
+    private Integer age;
 
     @Column(nullable = false, length = 50)
     private String size;
@@ -41,23 +43,32 @@ public class Pet {
     @Column(nullable = false, length = 50)
     private String personality;
 
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(nullable = false)
+    private Long fosterId;
+
+    @Column(name = "shelter_id")
+    private Long shelterId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PetStatus status;
+
+    @Column(name = "health_service_id")
+    private Long healthServiceId;
+
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
     }
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
-    @Column(nullable = false)
-    private Long fosterId;
-
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private PetStatus status;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "health_id")
-    private PetHealth health;
-
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

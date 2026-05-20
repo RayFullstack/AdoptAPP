@@ -1,22 +1,17 @@
 package com.adoptapp.userservice.controller;
 
-import com.adoptapp.userservice.dto.UserCommand;
-import com.adoptapp.userservice.dto.UserRequest;
-import com.adoptapp.userservice.dto.UserResponse;
-import com.adoptapp.userservice.dto.UserResult;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
+import com.adoptapp.userservice.dto.*;
 import com.adoptapp.userservice.model.UserStatus;
 import com.adoptapp.userservice.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import com.adoptapp.userservice.dto.ErrorResponse;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -49,57 +44,55 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/by-email/{email}")
+    public ResponseEntity<UserResponse> getUserByEmail(@PathVariable String email) {
+        return this.service.getByEmail(email)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/by-email/{email}/auth")
+    public ResponseEntity<UserAuthResponse> getUserAuthByEmail(@PathVariable String email) {
+        return this.service.getAuthByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/by-id/{id}/history")
+    public ResponseEntity<List<UserHistoryResult>> getHistory(@PathVariable Long id) {
+        return service.getHistory(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
-    public ResponseEntity<Object> create(@Valid @RequestBody UserRequest request) {
-        try {
-            UserCommand command = toCommand(request);
-            UserResult result = this.service.create(command);
-            UserResponse response = toResponse(result);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse(e.getMessage(),
-                    HttpStatus.CONFLICT.value(),
-                    LocalDateTime.now()
-            ));
-        }
+    @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'VOLUNTEER', 'VET', 'ADMIN')")
+    public ResponseEntity<UserResponse> create(@Valid @RequestBody UserRequest request) {
+        UserCommand command = toCommand(request);
+        UserResult result = this.service.create(command);
+        return ResponseEntity.status(HttpStatus.CREATED).body(toResponse(result));
     }
 
     @PutMapping("/by-id/{id}")
-    public ResponseEntity<Object> updateUserById(
+    @PreAuthorize("@userSecurity.canEdit(#id, authentication)")
+    public ResponseEntity<UserResponse> updateUserById(
             @PathVariable Long id,
             @Valid @RequestBody UserRequest request) {
-        try {
-            UserCommand command = toCommand(request);
-            Optional<UserResult> result = this.service.updateById(id, command);
-            if (result.isPresent()) {
-                return ResponseEntity.ok(toResponse(result.get()));
-            }
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(e.getMessage(),
-                    HttpStatus.CONFLICT.value(),
-                    LocalDateTime.now()
-            ));
-        }
+        UserCommand command = toCommand(request);
+        return this.service.updateById(id, command)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/by-id/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         if (!this.service.deleteById(id)) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.noContent().build();
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidationErrors(MethodArgumentNotValidException e) {
-        String message = e.getBindingResult().getFieldErrors().stream()
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
-                .collect(Collectors.joining(", "));
-        return ResponseEntity.badRequest().body(new ErrorResponse(message, HttpStatus.BAD_REQUEST.value(),
-                LocalDateTime.now()
-        ));
     }
 
     private UserCommand toCommand(UserRequest request) {
@@ -108,6 +101,7 @@ public class UserController {
                 request.name(),
                 request.surname(),
                 request.email(),
+                request.password(),
                 request.phone(),
                 request.country(),
                 request.city(),
@@ -115,7 +109,9 @@ public class UserController {
                 request.homeNumber(),
                 request.postalCode(),
                 request.type(),
-                request.status()
+                request.status(),
+                request.role(),
+                request.active()
         );
     }
 
@@ -133,7 +129,9 @@ public class UserController {
                 result.homeNumber(),
                 result.postalCode(),
                 result.type(),
-                result.status()
+                result.status(),
+                result.role(),
+                result.active()
         );
     }
 }

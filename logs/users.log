@@ -1,0 +1,3608 @@
+2026-05-17T09:29:53.621-04:00  INFO 25840 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 26 with PID 25840 (C:\Users\camil\Documents\fullstack1\adoptapp\user-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:29:53.626-04:00 DEBUG 25840 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:29:53.626-04:00  INFO 25840 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:29:53.670-04:00  INFO 25840 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:29:53.671-04:00  INFO 25840 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:29:54.238-04:00  INFO 25840 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:29:54.284-04:00  INFO 25840 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 4 JPA repository interfaces.
+2026-05-17T09:29:54.426-04:00  INFO 25840 --- [user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e575fdb1-7950-32dd-badf-d1234f3dd1ff
+2026-05-17T09:29:54.784-04:00  INFO 25840 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-05-17T09:29:54.793-04:00  INFO 25840 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:29:54.793-04:00  INFO 25840 --- [user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:29:54.831-04:00  INFO 25840 --- [user-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1160 ms
+2026-05-17T09:29:55.105-04:00  INFO 25840 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:29:55.260-04:00  INFO 25840 --- [user-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@68d91172
+2026-05-17T09:29:55.262-04:00  INFO 25840 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:29:55.281-04:00  INFO 25840 --- [user-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/users_db (PostgreSQL 18.3)
+2026-05-17T09:29:55.290-04:00  WARN 25840 --- [user-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:29:55.338-04:00  WARN 25840 --- [user-service] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -1404245700
+-> Resolved locally    : -1756288706
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : 133697450
+-> Resolved locally    : 1370363924
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+2026-05-17T09:29:55.339-04:00  INFO 25840 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T09:29:55.341-04:00  INFO 25840 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-17T09:29:55.344-04:00  INFO 25840 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-05-17T09:29:55.351-04:00  INFO 25840 --- [user-service] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-17T09:29:55.364-04:00 ERROR 25840 --- [user-service] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -1404245700
+-> Resolved locally    : -1756288706
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : 133697450
+-> Resolved locally    : 1370363924
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:966) ~[spring-context-7.0.1.jar:7.0.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:620) ~[spring-context-7.0.1.jar:7.0.1]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.0.jar:4.0.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:765) ~[spring-boot-4.0.0.jar:4.0.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:454) ~[spring-boot-4.0.0.jar:4.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.0.jar:4.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1374) ~[spring-boot-4.0.0.jar:4.0.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-4.0.0.jar:4.0.0]
+	at com.adoptapp.userservice.UserServiceApplication.main(UserServiceApplication.java:12) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.0.jar:4.0.0]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -1404245700
+-> Resolved locally    : -1756288706
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : 133697450
+-> Resolved locally    : 1370363924
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1817) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.1.jar:7.0.1]
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -1404245700
+-> Resolved locally    : -1756288706
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : 133697450
+-> Resolved locally    : 1370363924
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$1(Flyway.java:190) ~[flyway-core-10.21.0.jar:na]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213) ~[flyway-core-10.21.0.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:177) ~[flyway-core-10.21.0.jar:na]
+	at org.springframework.boot.flyway.autoconfigure.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:67) ~[spring-boot-flyway-4.0.0.jar:4.0.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.1.jar:7.0.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.1.jar:7.0.1]
+	... 20 common frames omitted
+
+2026-05-17T09:30:37.394-04:00  INFO 22356 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 26 with PID 22356 (C:\Users\camil\Documents\fullstack1\adoptapp\user-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:30:37.396-04:00 DEBUG 22356 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:30:37.397-04:00  INFO 22356 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:30:37.433-04:00  INFO 22356 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:30:37.434-04:00  INFO 22356 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:30:38.035-04:00  INFO 22356 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:30:38.080-04:00  INFO 22356 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 4 JPA repository interfaces.
+2026-05-17T09:30:38.229-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e575fdb1-7950-32dd-badf-d1234f3dd1ff
+2026-05-17T09:30:38.581-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-05-17T09:30:38.591-04:00  INFO 22356 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:30:38.592-04:00  INFO 22356 --- [user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:30:38.632-04:00  INFO 22356 --- [user-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1198 ms
+2026-05-17T09:30:38.911-04:00  INFO 22356 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:30:39.080-04:00  INFO 22356 --- [user-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@336db6b4
+2026-05-17T09:30:39.081-04:00  INFO 22356 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:30:39.100-04:00  INFO 22356 --- [user-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/users_db (PostgreSQL 18.3)
+2026-05-17T09:30:39.108-04:00  WARN 22356 --- [user-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:30:39.133-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-05-17T09:30:39.136-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 10 migrations (execution time 00:00.018s)
+2026-05-17T09:30:39.148-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-05-17T09:30:39.266-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-05-17T09:30:39.274-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create users table"
+2026-05-17T09:30:39.317-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - insert initial data"
+2026-05-17T09:30:39.334-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - create history table"
+2026-05-17T09:30:39.355-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - add password to users"
+2026-05-17T09:30:39.363-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "5 - add role and active to users"
+2026-05-17T09:30:39.371-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - seed users with auth"
+2026-05-17T09:30:39.379-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - add unique constraint to user phones"
+2026-05-17T09:30:39.389-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "8 - add role and active to user history"
+2026-05-17T09:30:39.397-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "9 - add passwords to v2 users"
+2026-05-17T09:30:39.403-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "10 - update shelter to shelter admin"
+2026-05-17T09:30:39.411-04:00  INFO 22356 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 10 migrations to schema "public", now at version v10 (execution time 00:00.070s)
+2026-05-17T09:30:39.478-04:00  INFO 22356 --- [user-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T09:30:39.518-04:00  INFO 22356 --- [user-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T09:30:39.905-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T09:30:39.955-04:00  WARN 22356 --- [user-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T09:30:39.970-04:00  INFO 22356 --- [user-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/users_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: users_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T09:30:40.785-04:00  INFO 22356 --- [user-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T09:30:40.819-04:00  INFO 22356 --- [user-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:30:40.893-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T09:30:41.150-04:00  WARN 22356 --- [user-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T09:30:41.321-04:00  INFO 22356 --- [user-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-05-17T09:30:41.510-04:00 DEBUG 22356 --- [user-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2026-05-17T09:30:41.536-04:00 DEBUG 22356 --- [user-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T09:30:41.555-04:00 DEBUG 22356 --- [user-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T09:30:41.592-04:00 DEBUG 22356 --- [user-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T09:30:42.670-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:30:42.725-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/user-app'
+2026-05-17T09:30:43.731-04:00  INFO 22356 --- [user-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:30:43.737-04:00  INFO 22356 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Started UserServiceApplication in 7.753 seconds (process running for 8.629)
+2026-05-17T09:47:29.108-04:00  INFO 22356 --- [user-service] [http-nio-8081-exec-2] o.a.c.c.C.[.[localhost].[/user-app]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-17T09:47:29.109-04:00  INFO 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-17T09:47:29.109-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-05-17T09:47:29.109-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-05-17T09:47:29.109-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59fa1ebd
+2026-05-17T09:47:29.109-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6a4f1952
+2026-05-17T09:47:29.109-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-05-17T09:47:29.109-04:00  INFO 22356 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-05-17T09:47:29.793-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T09:47:29.841-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T09:54:09.191-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T09:54:09.198-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T09:57:54.783-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T09:57:54.785-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:01:42.226-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:01:42.236-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:04:02.744-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:04:02.759-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:06:48.988-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:06:48.988-04:00 DEBUG 22356 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:15:26.195-04:00  INFO 22356 --- [user-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T10:15:26.204-04:00  INFO 22356 --- [user-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T10:15:26.215-04:00  INFO 22356 --- [user-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T10:15:26.221-04:00  INFO 22356 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T10:15:26.223-04:00  INFO 22356 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-17T10:22:34.356-04:00  INFO 23096 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 26 with PID 23096 (C:\Users\camil\Documents\fullstack1\adoptapp\user-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T10:22:34.358-04:00 DEBUG 23096 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T10:22:34.358-04:00  INFO 23096 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T10:22:34.396-04:00  INFO 23096 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T10:22:34.396-04:00  INFO 23096 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T10:22:35.001-04:00  INFO 23096 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T10:22:35.057-04:00  INFO 23096 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 4 JPA repository interfaces.
+2026-05-17T10:22:35.201-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e575fdb1-7950-32dd-badf-d1234f3dd1ff
+2026-05-17T10:22:35.606-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-05-17T10:22:35.619-04:00  INFO 23096 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T10:22:35.619-04:00  INFO 23096 --- [user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T10:22:35.661-04:00  INFO 23096 --- [user-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1265 ms
+2026-05-17T10:22:35.926-04:00  INFO 23096 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T10:22:36.100-04:00  INFO 23096 --- [user-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e445750
+2026-05-17T10:22:36.101-04:00  INFO 23096 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T10:22:36.118-04:00  INFO 23096 --- [user-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/users_db (PostgreSQL 18.3)
+2026-05-17T10:22:36.128-04:00  WARN 23096 --- [user-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T10:22:36.149-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-05-17T10:22:36.152-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.015s)
+2026-05-17T10:22:36.166-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-05-17T10:22:36.276-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-05-17T10:22:36.287-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create tables"
+2026-05-17T10:22:36.343-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - seed data"
+2026-05-17T10:22:36.364-04:00  INFO 23096 --- [user-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.056s)
+2026-05-17T10:22:36.445-04:00  INFO 23096 --- [user-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T10:22:36.509-04:00  INFO 23096 --- [user-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T10:22:36.995-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T10:22:37.062-04:00  WARN 23096 --- [user-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T10:22:37.081-04:00  INFO 23096 --- [user-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/users_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: users_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T10:22:38.049-04:00  INFO 23096 --- [user-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T10:22:38.091-04:00  INFO 23096 --- [user-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T10:22:38.163-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T10:22:38.423-04:00  WARN 23096 --- [user-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T10:22:38.588-04:00  INFO 23096 --- [user-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-05-17T10:22:38.779-04:00 DEBUG 23096 --- [user-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2026-05-17T10:22:38.811-04:00 DEBUG 23096 --- [user-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T10:22:38.831-04:00 DEBUG 23096 --- [user-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T10:22:38.871-04:00 DEBUG 23096 --- [user-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T10:22:39.948-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T10:22:40.008-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/user-app'
+2026-05-17T10:22:41.013-04:00  INFO 23096 --- [user-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T10:22:41.018-04:00  INFO 23096 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Started UserServiceApplication in 8.114 seconds (process running for 9.098)
+2026-05-17T10:22:56.243-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-2] o.a.c.c.C.[.[localhost].[/user-app]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-17T10:22:56.243-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-17T10:22:56.243-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-05-17T10:22:56.243-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-05-17T10:22:56.243-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@10dcfe7b
+2026-05-17T10:22:56.243-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@35c504db
+2026-05-17T10:22:56.243-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-05-17T10:22:56.247-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-05-17T10:22:56.828-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:22:56.860-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:56.995-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users", parameters={}
+2026-05-17T10:22:57.011-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getAllUsers(String)
+2026-05-17T10:22:57.045-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    order by
+        u1_0.created_at
+2026-05-17T10:22:57.045-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.045-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.045-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.045-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.059-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.061-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.061-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.061-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.061-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:22:57.061-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.078-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.080-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.081-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.081-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.081-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.081-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.081-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.081-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:22:57.096-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:22:57.112-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[UserResponse[id=1, username=LisaS, name=Lisa, surname=Simpson, email=lsimpson@mail.com, phone=12345 (truncated)...]
+2026-05-17T10:22:57.179-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:27:48.403-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:27:48.406-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:27:48.510-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/user-app/users", parameters={}
+2026-05-17T10:27:48.510-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#create(UserRequest)
+2026-05-17T10:27:48.576-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserRequest[username=jdoe, name=John, surname=Doe, email=john.doe@example.com, password=secret123, p (truncated)...]
+2026-05-17T10:27:48.693-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-8] c.a.userservice.service.UserService      : Creando usuario: 'jdoe'
+2026-05-17T10:27:48.733-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:27:48.734-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:27:48.894-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (active, created_at, email, name, password, role, status, surname, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:27:48.910-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_addresses
+        (city, country, home_number, postal_code, primary_address, street, type, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:27:48.910-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_phones
+        (number, user_id) 
+    values
+        (?, ?)
+2026-05-17T10:27:48.925-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 0, SQLState: 23505
+2026-05-17T10:27:48.925-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.orm.jdbc.error             : ERROR: duplicate key value violates unique constraint "uq_user_phones_number"
+  Detail: Key (number)=(123456789) already exists.
+2026-05-17T10:27:48.930-04:00 ERROR 23096 --- [user-service] [http-nio-8081-exec-8] c.a.userservice.service.UserService      : Error al crear usuario
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: duplicate key value violates unique constraint "uq_user_phones_number"
+  Detail: Key (number)=(123456789) already exists.] [insert into user_phones (number,user_id) values (?,?)]; SQL [insert into user_phones (number,user_id) values (?,?)]; constraint [uq_user_phones_number]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:169) ~[spring-orm-7.0.1.jar:7.0.1]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131) ~[spring-orm-7.0.1.jar:7.0.1]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105) ~[spring-orm-7.0.1.jar:7.0.1]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:199) ~[spring-orm-7.0.1.jar:7.0.1]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:556) ~[spring-orm-7.0.1.jar:7.0.1]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-7.0.1.jar:7.0.1]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346) ~[spring-tx-7.0.1.jar:7.0.1]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157) ~[spring-tx-7.0.1.jar:7.0.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166) ~[spring-data-jpa-4.0.0.jar:4.0.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.1.jar:7.0.1]
+	at jdk.proxy4/jdk.proxy4.$Proxy157.save(Unknown Source) ~[na:na]
+	at com.adoptapp.userservice.service.UserService.create(UserService.java:113) ~[classes/:na]
+	at com.adoptapp.userservice.controller.UserController.create(UserController.java:65) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:271) ~[spring-security-core-7.0.0.jar:7.0.0]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:266) ~[spring-security-core-7.0.0.jar:7.0.0]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:197) ~[spring-security-core-7.0.0.jar:7.0.0]
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44) ~[spring-security-config-7.0.0.jar:7.0.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.1.jar:7.0.1]
+	at com.adoptapp.userservice.controller.UserController$$SpringCGLIB$$0.create(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.14.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.1.jar:7.0.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.14.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.14.jar:11.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:235) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:371) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:132) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:247) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.0.jar:7.0.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.0.jar:7.0.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.1.jar:7.0.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.14.jar:11.0.14]
+	at java.base/java.lang.Thread.run(Thread.java:1516) ~[na:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [ERROR: duplicate key value violates unique constraint "uq_user_phones_number"
+  Detail: Key (number)=(123456789) already exists.] [insert into user_phones (number,user_id) values (?,?)]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:73) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:193) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:103) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:45) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:66) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:191) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:129) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:92) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:90) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:684) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:376) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:290) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:220) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:138) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:148) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:92) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:76) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:151) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:733) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:682) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:295) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.spi.CascadingActions$6.cascade(CascadingActions.java:282) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeToOne(Cascade.java:538) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeAssociation(Cascade.java:446) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascadeProperty(Cascade.java:222) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:163) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.cascadeAfterSave(AbstractSaveEventListener.java:503) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:302) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:220) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:138) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:148) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:92) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:76) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:52) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:140) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:692) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:676) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-7.0.1.jar:7.0.1]
+	at jdk.proxy4/jdk.proxy4.$Proxy152.persist(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:317) ~[spring-orm-7.0.1.jar:7.0.1]
+	at jdk.proxy4/jdk.proxy4.$Proxy152.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:663) ~[spring-data-jpa-4.0.0.jar:4.0.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:708) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.0.0.jar:4.0.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:370) ~[spring-tx-7.0.1.jar:7.0.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118) ~[spring-tx-7.0.1.jar:7.0.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.1.jar:7.0.1]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.1.jar:7.0.1]
+	... 108 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "uq_user_phones_number"
+  Detail: Key (number)=(123456789) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:155) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:190) ~[hibernate-core-7.1.8.Final.jar:7.1.8.Final]
+	... 175 common frames omitted
+
+2026-05-17T10:27:48.957-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.userservice.exception.GlobalExceptionHandler#handleGeneral(Exception)
+2026-05-17T10:27:48.959-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:27:48.961-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[message=Error interno del servidor, status=500, timestamp=2026-05-17T10:27:48.95886330 (truncated)...]
+2026-05-17T10:27:48.962-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: duplicate key value violates unique constraint "uq_user_phones_number"<EOL>  Detail: Key (number)=(123456789) already exists.] [insert into user_phones (number,user_id) values (?,?)]; SQL [insert into user_phones (number,user_id) values (?,?)]; constraint [uq_user_phones_number]]
+2026-05-17T10:27:48.962-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-05-17T10:32:01.934-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:32:01.935-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:02.036-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/user-app/users", parameters={}
+2026-05-17T10:32:02.036-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#create(UserRequest)
+2026-05-17T10:32:02.036-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserRequest[username=jdoe, name=John, surname=Doe, email=john.doe@example.com, password=secret123, p (truncated)...]
+2026-05-17T10:32:02.036-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-7] c.a.userservice.service.UserService      : Creando usuario: 'jdoe'
+2026-05-17T10:32:02.049-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:32:02.052-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:32:02.169-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (active, created_at, email, name, password, role, status, surname, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:32:02.170-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_addresses
+        (city, country, home_number, postal_code, primary_address, street, type, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:32:02.170-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_phones
+        (number, user_id) 
+    values
+        (?, ?)
+2026-05-17T10:32:02.204-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] ---> POST http://localhost:8084/notification-app/notifications HTTP/1.1
+2026-05-17T10:32:02.218-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] <--- ERROR ConnectException: Connection refused: getsockopt (10ms)
+2026-05-17T10:32:02.220-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-7] c.a.userservice.service.UserService      : Error enviando notificacion a john.doe@example.com: Connection refused: getsockopt executing POST http://localhost:8084/notification-app/notifications
+2026-05-17T10:32:02.220-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-7] c.a.userservice.service.UserService      : Usuario creado exitosamente: ID=11
+2026-05-17T10:32:02.220-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:32:02.220-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponse[id=11, username=jdoe, name=John, surname=Doe, email=john.doe@example.com, phone=1123456 (truncated)...]
+2026-05-17T10:32:02.220-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-05-17T10:32:17.381-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:32:17.381-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users", parameters={}
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getAllUsers(String)
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    order by
+        u1_0.created_at
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.492-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.505-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:17.506-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[UserResponse[id=1, username=LisaS, name=Lisa, surname=Simpson, email=lsimpson@mail.com, phone=12345 (truncated)...]
+2026-05-17T10:32:17.508-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:32:54.018-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:32:54.018-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:32:54.131-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : DELETE "/user-app/users/by-id/11", parameters={}
+2026-05-17T10:32:54.131-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#deleteUserById(Long)
+2026-05-17T10:32:54.131-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-9] c.a.userservice.service.UserService      : Eliminando usuario: ID=11
+2026-05-17T10:32:54.146-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        p1_0.id,
+        p1_0.number,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    left join
+        user_phones p1_0 
+            on u1_0.id=p1_0.user_id 
+    where
+        u1_0.id=?
+2026-05-17T10:32:54.146-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:32:54.146-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        h1_0.user_id,
+        h1_0.id,
+        h1_0.changed_at,
+        h1_0.comment,
+        h1_0.new_active,
+        h1_0.new_email,
+        h1_0.new_name,
+        h1_0.new_phone,
+        h1_0.new_role,
+        h1_0.new_status,
+        h1_0.new_surname,
+        h1_0.new_username,
+        h1_0.previous_active,
+        h1_0.previous_email,
+        h1_0.previous_name,
+        h1_0.previous_phone,
+        h1_0.previous_role,
+        h1_0.previous_status,
+        h1_0.previous_surname,
+        h1_0.previous_username 
+    from
+        user_history h1_0 
+    where
+        h1_0.user_id=?
+2026-05-17T10:32:54.162-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_addresses 
+    where
+        id=?
+2026-05-17T10:32:54.162-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_phones 
+    where
+        id=?
+2026-05-17T10:32:54.162-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    delete 
+    from
+        users 
+    where
+        id=?
+2026-05-17T10:32:54.162-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] ---> POST http://localhost:8084/notification-app/notifications HTTP/1.1
+2026-05-17T10:32:54.179-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] <--- ERROR ConnectException: Connection refused: getsockopt (9ms)
+2026-05-17T10:32:54.179-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-9] c.a.userservice.service.UserService      : Error enviando notificacion a john.doe@example.com: Connection refused: getsockopt executing POST http://localhost:8084/notification-app/notifications
+2026-05-17T10:32:54.179-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-9] c.a.userservice.service.UserService      : Usuario eliminado exitosamente: ID=11
+2026-05-17T10:32:54.179-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:32:54.180-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-05-17T10:32:54.180-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+2026-05-17T10:33:10.614-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:33:10.614-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:10.721-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users/by-id/11", parameters={}
+2026-05-17T10:33:10.721-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getUserById(Long)
+2026-05-17T10:33:10.721-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        p1_0.id,
+        p1_0.number,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    left join
+        user_phones p1_0 
+            on u1_0.id=p1_0.user_id 
+    where
+        u1_0.id=?
+2026-05-17T10:33:10.733-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:33:10.733-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-05-17T10:33:10.733-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-05-17T10:33:16.576-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:33:16.578-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:16.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users/by-id/10", parameters={}
+2026-05-17T10:33:16.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getUserById(Long)
+2026-05-17T10:33:16.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        p1_0.id,
+        p1_0.number,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    left join
+        user_phones p1_0 
+            on u1_0.id=p1_0.user_id 
+    where
+        u1_0.id=?
+2026-05-17T10:33:16.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:33:16.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-05-17T10:33:16.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-05-17T10:33:21.376-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:33:21.376-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users/by-id/9", parameters={}
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getUserById(Long)
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        p1_0.id,
+        p1_0.number,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    left join
+        user_phones p1_0 
+            on u1_0.id=p1_0.user_id 
+    where
+        u1_0.id=?
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponse[id=9, username=admin2, name=Admin, surname=AdoptApp, email=admin@adoptapp.com, phone=nu (truncated)...]
+2026-05-17T10:33:21.486-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:33:27.524-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:33:27.525-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:27.630-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users/", parameters={}
+2026-05-17T10:33:27.630-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-05-17T10:33:27.643-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2026-05-17T10:33:27.645-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.userservice.exception.GlobalExceptionHandler#handleGeneral(Exception)
+2026-05-17T10:33:27.645-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:33:27.645-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[message=Error interno del servidor, status=500, timestamp=2026-05-17T10:33:27.64531270 (truncated)...]
+2026-05-17T10:33:27.646-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource users for request '/user-app/users/'.]
+2026-05-17T10:33:27.646-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-05-17T10:33:39.055-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:33:39.055-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:39.164-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users/", parameters={}
+2026-05-17T10:33:39.164-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-05-17T10:33:39.164-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2026-05-17T10:33:39.164-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.userservice.exception.GlobalExceptionHandler#handleGeneral(Exception)
+2026-05-17T10:33:39.164-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:33:39.164-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[message=Error interno del servidor, status=500, timestamp=2026-05-17T10:33:39.16471240 (truncated)...]
+2026-05-17T10:33:39.176-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource users for request '/user-app/users/'.]
+2026-05-17T10:33:39.176-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-05-17T10:33:53.956-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:33:53.956-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.052-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users", parameters={}
+2026-05-17T10:33:54.052-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getAllUsers(String)
+2026-05-17T10:33:54.065-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    order by
+        u1_0.created_at
+2026-05-17T10:33:54.066-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:33:54.068-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[UserResponse[id=1, username=LisaS, name=Lisa, surname=Simpson, email=lsimpson@mail.com, phone=12345 (truncated)...]
+2026-05-17T10:33:54.082-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:34:24.994-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:34:24.994-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:25.113-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/user-app/users", parameters={}
+2026-05-17T10:34:25.114-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#create(UserRequest)
+2026-05-17T10:34:25.114-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserRequest[username=jdoe, name=John, surname=Doe, email=john.doe@example.com, password=secret123, p (truncated)...]
+2026-05-17T10:34:25.114-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-5] c.a.userservice.service.UserService      : Creando usuario: 'jdoe'
+2026-05-17T10:34:25.114-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:34:25.114-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:34:25.229-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (active, created_at, email, name, password, role, status, surname, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:34:25.231-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_addresses
+        (city, country, home_number, postal_code, primary_address, street, type, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:34:25.232-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_phones
+        (number, user_id) 
+    values
+        (?, ?)
+2026-05-17T10:34:25.232-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] ---> POST http://localhost:8084/notification-app/notifications HTTP/1.1
+2026-05-17T10:34:25.247-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] <--- ERROR ConnectException: Connection refused: getsockopt (9ms)
+2026-05-17T10:34:25.247-04:00  WARN 23096 --- [user-service] [http-nio-8081-exec-5] c.a.userservice.service.UserService      : Error enviando notificacion a john.doe@example.com: Connection refused: getsockopt executing POST http://localhost:8084/notification-app/notifications
+2026-05-17T10:34:25.247-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-5] c.a.userservice.service.UserService      : Usuario creado exitosamente: ID=12
+2026-05-17T10:34:25.248-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:34:25.248-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponse[id=12, username=jdoe, name=John, surname=Doe, email=john.doe@example.com, phone=1123456 (truncated)...]
+2026-05-17T10:34:25.249-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-05-17T10:34:49.392-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:34:49.393-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users", parameters={}
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getAllUsers(String)
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    order by
+        u1_0.created_at
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.500-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.511-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:34:49.513-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.513-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.514-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.515-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.515-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.516-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.516-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.516-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.516-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.516-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:34:49.518-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:34:49.519-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[UserResponse[id=1, username=LisaS, name=Lisa, surname=Simpson, email=lsimpson@mail.com, phone=12345 (truncated)...]
+2026-05-17T10:34:49.519-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:36:36.435-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:36:36.436-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : DELETE "/user-app/users/by-id/12", parameters={}
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#deleteUserById(Long)
+2026-05-17T10:36:36.545-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-2] c.a.userservice.service.UserService      : Eliminando usuario: ID=12
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        p1_0.id,
+        p1_0.number,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    left join
+        user_phones p1_0 
+            on u1_0.id=p1_0.user_id 
+    where
+        u1_0.id=?
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    select
+        h1_0.user_id,
+        h1_0.id,
+        h1_0.changed_at,
+        h1_0.comment,
+        h1_0.new_active,
+        h1_0.new_email,
+        h1_0.new_name,
+        h1_0.new_phone,
+        h1_0.new_role,
+        h1_0.new_status,
+        h1_0.new_surname,
+        h1_0.new_username,
+        h1_0.previous_active,
+        h1_0.previous_email,
+        h1_0.previous_name,
+        h1_0.previous_phone,
+        h1_0.previous_role,
+        h1_0.previous_status,
+        h1_0.previous_surname,
+        h1_0.previous_username 
+    from
+        user_history h1_0 
+    where
+        h1_0.user_id=?
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_addresses 
+    where
+        id=?
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    delete 
+    from
+        user_phones 
+    where
+        id=?
+2026-05-17T10:36:36.545-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] org.hibernate.SQL                        : 
+    delete 
+    from
+        users 
+    where
+        id=?
+2026-05-17T10:36:36.557-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] ---> POST http://localhost:8084/notification-app/notifications HTTP/1.1
+2026-05-17T10:36:36.956-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] <--- HTTP/1.1 201 (399ms)
+2026-05-17T10:36:36.959-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.c.HttpMessageConverterExtractor    : Reading to [java.lang.Void]
+2026-05-17T10:36:36.959-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-2] c.a.userservice.service.UserService      : Usuario eliminado exitosamente: ID=12
+2026-05-17T10:36:36.959-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:36:36.959-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-05-17T10:36:36.959-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+2026-05-17T10:36:47.558-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:36:47.558-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:47.672-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users/by-id/12", parameters={}
+2026-05-17T10:36:47.672-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getUserById(Long)
+2026-05-17T10:36:47.672-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        p1_0.id,
+        p1_0.number,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    left join
+        user_phones p1_0 
+            on u1_0.id=p1_0.user_id 
+    where
+        u1_0.id=?
+2026-05-17T10:36:47.672-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:36:47.672-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-05-17T10:36:47.672-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-05-17T10:36:55.679-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:36:55.680-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.787-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users", parameters={}
+2026-05-17T10:36:55.787-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getAllUsers(String)
+2026-05-17T10:36:55.788-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    order by
+        u1_0.created_at
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.789-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.801-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] org.hibernate.SQL                        : 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.city,
+        a1_0.country,
+        a1_0.home_number,
+        a1_0.postal_code,
+        a1_0.primary_address,
+        a1_0.street,
+        a1_0.type 
+    from
+        user_addresses a1_0 
+    where
+        a1_0.user_id=?
+2026-05-17T10:36:55.802-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:36:55.802-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[UserResponse[id=1, username=LisaS, name=Lisa, surname=Simpson, email=lsimpson@mail.com, phone=12345 (truncated)...]
+2026-05-17T10:36:55.803-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:37:24.409-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-05-17T10:37:24.411-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        up1_0.id,
+        up1_0.number,
+        u1_0.id,
+        u1_0.active,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.status,
+        u1_0.surname,
+        u1_0.username 
+    from
+        user_phones up1_0 
+    left join
+        users u1_0 
+            on u1_0.id=up1_0.user_id 
+    where
+        up1_0.user_id=?
+2026-05-17T10:37:24.513-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/user-app/users", parameters={}
+2026-05-17T10:37:24.513-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#create(UserRequest)
+2026-05-17T10:37:24.513-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserRequest[username=jdoe, name=John, surname=Doe, email=john.doe@example.com, password=secret123, p (truncated)...]
+2026-05-17T10:37:24.513-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-8] c.a.userservice.service.UserService      : Creando usuario: 'jdoe'
+2026-05-17T10:37:24.513-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.username)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:37:24.527-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        upper(u1_0.email)=upper(?) 
+    fetch
+        first ? rows only
+2026-05-17T10:37:24.630-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (active, created_at, email, name, password, role, status, surname, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:37:24.630-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_addresses
+        (city, country, home_number, postal_code, primary_address, street, type, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-17T10:37:24.630-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_phones
+        (number, user_id) 
+    values
+        (?, ?)
+2026-05-17T10:37:24.630-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] ---> POST http://localhost:8084/notification-app/notifications HTTP/1.1
+2026-05-17T10:37:24.647-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] c.a.u.client.UserNotificationClient      : [UserNotificationClient#sendNotification] <--- HTTP/1.1 201 (12ms)
+2026-05-17T10:37:24.647-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.c.HttpMessageConverterExtractor    : Reading to [java.lang.Void]
+2026-05-17T10:37:24.647-04:00  INFO 23096 --- [user-service] [http-nio-8081-exec-8] c.a.userservice.service.UserService      : Usuario creado exitosamente: ID=13
+2026-05-17T10:37:24.647-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:37:24.647-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponse[id=13, username=jdoe, name=John, surname=Doe, email=john.doe@example.com, phone=1123456 (truncated)...]
+2026-05-17T10:37:24.647-04:00 DEBUG 23096 --- [user-service] [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-05-17T11:50:14.808-04:00  INFO 23096 --- [user-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T11:50:14.816-04:00  INFO 23096 --- [user-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T11:50:14.823-04:00  INFO 23096 --- [user-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T11:50:14.830-04:00  INFO 23096 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T11:50:14.832-04:00  INFO 23096 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "phone_numbers")
+@Table(name = "user_phones")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,7 +19,7 @@ public class UserPhone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(nullable = false, length = 20, unique = true)
     private String number;
 
     @OneToOne

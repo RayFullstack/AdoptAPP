@@ -1,9 +1,7 @@
 package com.adoptapp.userservice.dto;
 
+import com.adoptapp.userservice.model.User;
 import com.adoptapp.userservice.model.UserStatus;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public record UserResponse (
         Long id,
@@ -19,6 +17,10 @@ public record UserResponse (
         String postalCode,
         String type,
 
-        UserStatus status
+        UserStatus status,
+
+        User.Role role,
+
+        boolean active
 ){
 }

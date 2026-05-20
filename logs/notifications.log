@@ -1,0 +1,201 @@
+2026-05-17T09:38:13.769-04:00  INFO 28116 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Starting NotificationServiceApplication using Java 26 with PID 28116 (C:\Users\camil\Documents\fullstack1\adoptapp\notification-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:38:13.771-04:00 DEBUG 28116 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:38:13.772-04:00  INFO 28116 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:38:13.814-04:00  INFO 28116 --- [notification-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:38:13.814-04:00  INFO 28116 --- [notification-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:38:14.287-04:00  INFO 28116 --- [notification-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:38:14.330-04:00  INFO 28116 --- [notification-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 2 JPA repository interfaces.
+2026-05-17T09:38:14.657-04:00  INFO 28116 --- [notification-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
+2026-05-17T09:38:14.667-04:00  INFO 28116 --- [notification-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:38:14.667-04:00  INFO 28116 --- [notification-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:38:14.703-04:00  INFO 28116 --- [notification-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 888 ms
+2026-05-17T09:38:14.973-04:00  INFO 28116 --- [notification-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:38:15.153-04:00  INFO 28116 --- [notification-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@565b340a
+2026-05-17T09:38:15.155-04:00  INFO 28116 --- [notification-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:38:15.177-04:00  INFO 28116 --- [notification-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/notif_db (PostgreSQL 18.3)
+2026-05-17T09:38:15.191-04:00  WARN 28116 --- [notification-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:38:15.218-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-05-17T09:38:15.221-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.017s)
+2026-05-17T09:38:15.236-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-05-17T09:38:15.358-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-05-17T09:38:15.366-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create notifications table"
+2026-05-17T09:38:15.415-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - insert notification types"
+2026-05-17T09:38:15.429-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - insert more notification types"
+2026-05-17T09:38:15.439-04:00  INFO 28116 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 3 migrations to schema "public", now at version v3 (execution time 00:00.039s)
+2026-05-17T09:38:15.506-04:00  INFO 28116 --- [notification-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T09:38:15.551-04:00  INFO 28116 --- [notification-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T09:38:15.923-04:00  INFO 28116 --- [notification-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T09:38:15.998-04:00  INFO 28116 --- [notification-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/notif_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: notif_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T09:38:16.665-04:00  INFO 28116 --- [notification-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T09:38:16.672-04:00  INFO 28116 --- [notification-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:38:16.735-04:00  INFO 28116 --- [notification-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T09:38:16.869-04:00  WARN 28116 --- [notification-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T09:38:16.898-04:00  INFO 28116 --- [notification-service] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-05-17T09:38:16.969-04:00 DEBUG 28116 --- [notification-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-05-17T09:38:16.988-04:00 DEBUG 28116 --- [notification-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T09:38:17.002-04:00 DEBUG 28116 --- [notification-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T09:38:17.034-04:00 DEBUG 28116 --- [notification-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T09:38:17.141-04:00  INFO 28116 --- [notification-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/notification-app'
+2026-05-17T09:38:17.145-04:00  INFO 28116 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Started NotificationServiceApplication in 3.838 seconds (process running for 4.559)
+2026-05-17T09:38:25.588-04:00  INFO 28116 --- [notification-service] [http-nio-8084-exec-2] o.a.c.c.C.[.[.[/notification-app]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-17T09:38:25.588-04:00  INFO 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-17T09:38:25.588-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-05-17T09:38:25.588-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-05-17T09:38:25.588-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@15a1bb6e
+2026-05-17T09:38:25.588-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@79ed1c37
+2026-05-17T09:38:25.588-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-05-17T09:38:25.588-04:00  INFO 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-05-17T09:38:25.607-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T09:38:25.623-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T09:38:25.896-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T09:38:25.941-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T09:38:25.947-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2026-05-17T09:38:26.027-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T09:48:22.651-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T09:48:22.651-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T09:48:22.653-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-5] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T09:48:22.657-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T09:48:22.657-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2026-05-17T09:48:22.658-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:04:45.069-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T10:04:45.070-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T10:04:45.072-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-8] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T10:04:45.074-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:04:45.074-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2026-05-17T10:04:45.075-04:00 DEBUG 28116 --- [notification-service] [http-nio-8084-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:15:26.213-04:00  INFO 28116 --- [notification-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T10:15:26.227-04:00  INFO 28116 --- [notification-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T10:15:26.232-04:00  INFO 28116 --- [notification-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T10:15:26.235-04:00  INFO 28116 --- [notification-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T10:15:26.238-04:00  INFO 28116 --- [notification-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-17T10:35:40.234-04:00  INFO 25260 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Starting NotificationServiceApplication using Java 26 with PID 25260 (C:\Users\camil\Documents\fullstack1\adoptapp\notification-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T10:35:40.236-04:00 DEBUG 25260 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T10:35:40.236-04:00  INFO 25260 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T10:35:40.272-04:00  INFO 25260 --- [notification-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T10:35:40.272-04:00  INFO 25260 --- [notification-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T10:35:40.749-04:00  INFO 25260 --- [notification-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T10:35:40.794-04:00  INFO 25260 --- [notification-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces.
+2026-05-17T10:35:41.105-04:00  INFO 25260 --- [notification-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
+2026-05-17T10:35:41.114-04:00  INFO 25260 --- [notification-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T10:35:41.115-04:00  INFO 25260 --- [notification-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T10:35:41.148-04:00  INFO 25260 --- [notification-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 876 ms
+2026-05-17T10:35:41.424-04:00  INFO 25260 --- [notification-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T10:35:41.582-04:00  INFO 25260 --- [notification-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@49b9b381
+2026-05-17T10:35:41.583-04:00  INFO 25260 --- [notification-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T10:35:41.602-04:00  INFO 25260 --- [notification-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/notif_db (PostgreSQL 18.3)
+2026-05-17T10:35:41.612-04:00  WARN 25260 --- [notification-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T10:35:41.653-04:00  INFO 25260 --- [notification-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.030s)
+2026-05-17T10:35:41.752-04:00  INFO 25260 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
+2026-05-17T10:35:41.756-04:00  INFO 25260 --- [notification-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-05-17T10:35:41.815-04:00  INFO 25260 --- [notification-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T10:35:41.857-04:00  INFO 25260 --- [notification-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T10:35:42.230-04:00  INFO 25260 --- [notification-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T10:35:42.307-04:00  INFO 25260 --- [notification-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/notif_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: notif_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T10:35:42.977-04:00  INFO 25260 --- [notification-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T10:35:42.983-04:00  INFO 25260 --- [notification-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T10:35:43.040-04:00  INFO 25260 --- [notification-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T10:35:43.174-04:00  WARN 25260 --- [notification-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T10:35:43.204-04:00  INFO 25260 --- [notification-service] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-05-17T10:35:43.276-04:00 DEBUG 25260 --- [notification-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-05-17T10:35:43.294-04:00 DEBUG 25260 --- [notification-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T10:35:43.309-04:00 DEBUG 25260 --- [notification-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T10:35:43.340-04:00 DEBUG 25260 --- [notification-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T10:35:43.435-04:00  INFO 25260 --- [notification-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/notification-app'
+2026-05-17T10:35:43.439-04:00  INFO 25260 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Started NotificationServiceApplication in 3.61 seconds (process running for 4.371)
+2026-05-17T10:35:55.698-04:00  INFO 25260 --- [notification-service] [http-nio-8084-exec-1] o.a.c.c.C.[.[.[/notification-app]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-17T10:35:55.698-04:00  INFO 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-17T10:35:55.698-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-05-17T10:35:55.698-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-05-17T10:35:55.698-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@223fbbbd
+2026-05-17T10:35:55.698-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@150651a1
+2026-05-17T10:35:55.698-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-05-17T10:35:55.698-04:00  INFO 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-05-17T10:35:55.698-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T10:35:55.714-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T10:35:55.971-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T10:35:56.015-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:35:56.015-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2026-05-17T10:35:56.099-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:36:36.558-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/notification-app/notifications", parameters={}
+2026-05-17T10:36:36.558-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#create(NotificationRequest)
+2026-05-17T10:36:36.610-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [NotificationRequest[userId=12, recipient=john.doe@example.com, message=Usuario eliminado: John, type (truncated)...]
+2026-05-17T10:36:36.891-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.name=?
+2026-05-17T10:36:36.909-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] org.hibernate.SQL                        : insert into notifications (created_at,message,recipient,status,type_id,user_id) values (?,?,?,?,?,?)
+2026-05-17T10:36:36.943-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:36:36.943-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [NotificationResponse[id=1, userId=12, recipient=john.doe@example.com, message=Usuario eliminado: Joh (truncated)...]
+2026-05-17T10:36:36.943-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-05-17T10:37:24.646-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/notification-app/notifications", parameters={}
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#create(NotificationRequest)
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [NotificationRequest[userId=13, recipient=john.doe@example.com, message=Usuario creado: John, typeNam (truncated)...]
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.name=?
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] org.hibernate.SQL                        : insert into notifications (created_at,message,recipient,status,type_id,user_id) values (?,?,?,?,?,?)
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [NotificationResponse[id=2, userId=13, recipient=john.doe@example.com, message=Usuario creado: John,  (truncated)...]
+2026-05-17T10:37:24.647-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-05-17T10:37:36.623-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T10:37:36.624-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T10:37:36.624-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T10:37:36.631-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:37:36.631-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:37:36.646-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:37:36.646-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[NotificationResponse[id=1, userId=12, recipient=john.doe@example.com, message=Usuario eliminado: Jo (truncated)...]
+2026-05-17T10:37:36.648-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:45:18.093-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T10:45:18.093-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T10:45:18.096-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T10:45:18.098-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:45:18.098-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:45:18.098-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:45:18.098-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[NotificationResponse[id=1, userId=12, recipient=john.doe@example.com, message=Usuario eliminado: Jo (truncated)...]
+2026-05-17T10:45:18.098-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:45:28.756-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T10:45:28.756-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T10:45:28.756-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T10:45:28.761-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:45:28.762-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:45:28.763-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:45:28.764-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[NotificationResponse[id=1, userId=12, recipient=john.doe@example.com, message=Usuario eliminado: Jo (truncated)...]
+2026-05-17T10:45:28.764-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T10:46:44.750-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notification", parameters={}
+2026-05-17T10:46:44.750-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-05-17T10:46:44.757-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2026-05-17T10:46:44.759-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.notificationservice.exception.GlobalExceptionHandler#handleGeneral(Exception)
+2026-05-17T10:46:44.760-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:46:44.762-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[message=Error interno del servidor, status=500, timestamp=2026-05-17T10:46:44.76058250 (truncated)...]
+2026-05-17T10:46:44.766-04:00  WARN 25260 --- [notification-service] [http-nio-8084-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource notification for request '/notification-app/notification'.]
+2026-05-17T10:46:44.766-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2026-05-17T10:46:51.030-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/notification-app/notifications", parameters={}
+2026-05-17T10:46:51.030-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.notificationservice.controller.NotificationController#getAllNotifications(String)
+2026-05-17T10:46:51.033-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] org.hibernate.SQL                        : select n1_0.id,n1_0.created_at,n1_0.message,n1_0.recipient,n1_0.status,n1_0.type_id,n1_0.user_id from notifications n1_0
+2026-05-17T10:46:51.035-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:46:51.035-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] org.hibernate.SQL                        : select nt1_0.id,nt1_0.channel,nt1_0.name,nt1_0.template from notification_types nt1_0 where nt1_0.id=?
+2026-05-17T10:46:51.035-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T10:46:51.035-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[NotificationResponse[id=1, userId=12, recipient=john.doe@example.com, message=Usuario eliminado: Jo (truncated)...]
+2026-05-17T10:46:51.035-04:00 DEBUG 25260 --- [notification-service] [http-nio-8084-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T11:50:14.838-04:00  INFO 25260 --- [notification-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T11:50:14.846-04:00  INFO 25260 --- [notification-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T11:50:14.851-04:00  INFO 25260 --- [notification-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T11:50:14.857-04:00  INFO 25260 --- [notification-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T11:50:14.859-04:00  INFO 25260 --- [notification-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

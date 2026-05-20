@@ -1,6 +1,7 @@
 package com.adoptapp.userservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,20 +27,21 @@ public class UserAddress {
     @Column(nullable = false, length = 100)
     private String street;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 20)
     private String homeNumber;
 
     @Column(nullable = false, length = 100)
     private String postalCode;
 
     @Column(nullable = false)
+    @NotNull(message = "Debe indicar si es dirección principal")
     private Boolean primaryAddress;
 
     @Column(nullable = false, length = 100)
     private String type;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
 }

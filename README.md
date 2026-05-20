@@ -1,6 +1,6 @@
 # AdoptApp - Plataforma de Adopción de Mascotas
 
-Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 3** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
+Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 3.4.5** y **Java 21**, diseñada para gestionar el ciclo de vida completo de adopciones en refugios.
 
 ## Arquitectura
 
@@ -8,16 +8,16 @@ Proyecto multi-módulo Maven con 10 microservicios desplegables de forma indepen
 
 ```
 adoptapp/
-├── user-service/          # Gestión de usuarios
-├── pet-service/           # Catálogo de mascotas
-├── adoption-service/      # Proceso de adopción
-├── donation-service/      # Donaciones (esqueleto)
-├── shelter-service/       # Gestión de refugios (esqueleto)
-├── staff-service/         # Gestión de personal (esqueleto)
-├── health-service/        # Registros de salud (esqueleto)
-├── notification-service/  # Notificaciones (esqueleto)
-├── supply-service/        # Insumos de refugio (esqueleto)
-├── followup-service/      # Seguimiento post-adopción (esqueleto)
+├── user-service/          # Gestión de usuarios (puerto 8081, /user-app)
+├── pet-service/           # Catálogo de mascotas (puerto 8082, /pet-app)
+├── adoption-service/      # Proceso de adopción (puerto 8083, /adoption-app)
+├── notification-service/  # Notificaciones (puerto 8084, /notification-app)
+├── health-service/        # Registros de salud (puerto 8085, /health-app)
+├── followup-service/      # Seguimiento post-adopción (puerto 8086, /followup-app)
+├── staff-service/         # Gestión de personal (puerto 8091, /staff-app)
+├── donation-service/      # Donaciones (puerto 8090, /donation-app)
+├── supply-service/        # Insumos de refugio (puerto 8092, /supply-app)
+├── shelter-service/       # Gestión de refugios (puerto 8095, /shelter-app)
 └── pom.xml                # POM Padre
 ```
 
@@ -26,242 +26,475 @@ adoptapp/
 | Tecnología | Uso |
 |---|---|
 | **Java 21** | Runtime |
-| **Spring Boot 3.x** | Framework |
+| **Spring Boot 3.4.5** | Framework |
+| **Spring Cloud 2024.0.0** | Feign clients entre servicios |
 | **Spring Data JPA** | Acceso a datos con relaciones |
-| **PostgreSQL** | Base de datos relacional (una BD por servicio) |
+| **PostgreSQL 18 / H2** | Bases de datos (prod / dev) |
+| **OpenFeign** | Comunicación sincrónica entre servicios |
+| **Resilience4j** | Circuit breaker para tolerancia a fallos |
+| **Flyway 11.7.2** | Migraciones de base de datos |
 | **Lombok** | Reducción de código repetitivo |
 | **Bean Validation** | Validación de DTOs de entrada |
+| **SLF4J + Logback** | Logging con archivos por servicio |
+| **spring-dotenv** | Carga de variables de entorno desde `.env` |
 | **Maven** | Gestión de dependencias |
+| **GitHub Actions** | CI/CD pipeline (build + test) |
 
-## Avances Realizados
+## Roles del Sistema
 
-### user-service (Puerto 8081) - COMPLETO CON RELACIONES JPA
+| Rol | Permisos |
+|---|---|
+| **ADOPTER** | Editar su propio perfil. Crear mascotas y adopciones. |
+| **SHELTER_ADMIN** | Hereda todos los permisos de SHELTER. Editar su propio perfil y los perfiles de VOLUNTEER. Gestionar mascotas y adopciones. |
+| **VOLUNTEER** | Editar su propio perfil. Crear y editar perfiles de mascotas (excepto ficha médica). |
+| **VET** | Editar su propio perfil y la ficha médica de animales (health-service). |
+| **ADMIN** | Acceso completo a todas las operaciones. |
 
-API CRUD para gestionar usuarios (adoptantes). Refactorizado con relaciones JPA reales.
+## Servicios Activos
 
-**Base de datos**: PostgreSQL `user_db`
+### user-service (Puerto 8081, `/user-app`) — COMPLETO
+
+API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER, VET, ADMIN.
+
+**Base de datos**: PostgreSQL `users_db` (o H2 con perfil `h2`)
 
 **Endpoints** (`/users`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/users` | Listar todos (filtro `?status=`) |
-| `GET` | `/users/by-id/{id}` | Obtener por ID |
-| `POST` | `/users` | Crear usuario |
-| `PUT` | `/users/by-id/{id}` | Actualizar usuario |
-| `DELETE` | `/users/by-id/{id}` | Eliminar usuario |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/users` | Listar todos (filtro `?status=`) | Público |
+| `GET` | `/users/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/users/by-email/{email}` | Obtener por email | Público |
+| `GET` | `/users/by-email/{email}/auth` | Auth por email | Público |
+| `GET` | `/users/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/users` | Crear usuario | Público (registro) |
+| `PUT` | `/users/by-id/{id}` | Actualizar usuario | Propio perfil + SHELTER_ADMIN edita VOLUNTEER |
+| `DELETE` | `/users/by-id/{id}` | Eliminar usuario | ADMIN |
 
-**Modelo de datos normalizado**:
-- `User` → `@OneToOne` → `UserPhone` (tabla `phone_numbers`)
-- `User` → `@OneToMany` → `UserAddress` (tabla `user_addresses`)
-- `User.status` → `@Enumerated(EnumType.STRING)` → `UserStatus {ACTIVE, INACTIVE, SUSPENDED}`
+**Comunicación saliente:**
+- → notification-service (`POST /notifications`): `USER_CREATED`, `USER_UPDATED`, `USER_DELETED`
 
-**DTOs** con campos de dirección: `country`, `city`, `street`, `homeNumber`, `postalCode`, `type`
+### pet-service (Puerto 8082, `/pet-app`) — COMPLETO
 
-**Validaciones** en `UserRequest`: `@NotBlank`, `@Email`, `@Size`, `@NotNull`
+API CRUD para gestionar mascotas. La información de salud (vacunación, esterilización, enfermedades) se almacena localmente y se replica en health-service para trazabilidad histórica.
 
-**Patrón**: Request → Command → Result → Response. Java records en todos los DTOs.
-
-**Siembra de datos**: 3 usuarios de ejemplo con teléfono y dirección.
-
-### pet-service (Puerto 8082) - COMPLETO CON RELACIONES JPA
-
-API CRUD para gestionar mascotas. Refactorizado con entidades relacionadas.
-
-**Base de datos**: PostgreSQL `pet_db`
+**Base de datos**: PostgreSQL `pet_db` (o H2 con perfil `h2`)
 
 **Endpoints** (`/pets`):
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/pets` | Listar todas (filtro `?status=`) |
-| `GET` | `/pets/by-id/{id}` | Obtener por ID |
-| `POST` | `/pets` | Crear mascota |
-| `PUT` | `/pets/by-id/{id}` | Actualizar mascota |
-| `DELETE` | `/pets/by-id/{id}` | Eliminar mascota |
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/pets` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/pets/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/pets/by-id/{id}/health` | Info de salud | Público |
+| `GET` | `/pets/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/pets` | Crear mascota | SHELTER_ADMIN, VOLUNTEER, ADMIN |
+| `PUT` | `/pets/by-id/{id}` | Actualizar mascota | SHELTER_ADMIN, VOLUNTEER, ADMIN |
+| `DELETE` | `/pets/by-id/{id}` | Eliminar mascota | ADMIN |
 
-**Modelo de datos normalizado**:
-- `Pet` → `@ManyToOne` → `PetStatus` (tabla `pet_status` - catálogo de estados)
-- `Pet` → `@OneToOne(cascade=ALL)` → `PetHealth` (tabla `pet_health` - vacunado, esterilizado, enfermedades)
-- Nuevos repositorios: `StatusRepository`, `HealthRepository`
+**Comunicación saliente:**
+- → health-service (`POST /health`, `PUT /health/by-id/{id}`, `DELETE /health/by-id/{id}`): delega registros clínicos
+- → user-service (`GET /users/by-id/{id}`): obtiene email para notificaciones
+- → notification-service (`POST /notifications`): `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`
 
-**DTOs** incluyen datos de salud: `vaccinated`, `sterilized`, `diseases`, `status` (String)
+### adoption-service (Puerto 8083, `/adoption-app`) — COMPLETO
 
-**Validaciones** en `PetRequest`: `@NotBlank`, `@Size`, `@Min`, `@NotNull`
+API para gestionar adopciones. Verifica existencia de usuario y mascota vía Feign antes de crear.
 
-**Siembra de datos**: 3 mascotas ("Yoni", "Loki", "Oso") con su estado y salud.
+**Base de datos**: PostgreSQL `adoption_db` (o H2 con perfil `h2`)
 
-### adoption-service - EN DESARROLLO (CON BUGS)
+**Endpoints** (`/adoptions`):
 
-Estructura base creada pero no compila. Problemas conocidos:
-- `AdoptionService` referencia `Pet` y campos que no existen en `Adoption`
-- `AdoptionController` con errores de sintaxis, rutas incompletas, código inalcanzable
-- `AdoptionRepository` con `existsByNameIgnoreCase()` pero `Adoption` no tiene campo `name`
-- `DataInitializer` con variable `command` no definida
-- Falta configuración de BD y driver PostgreSQL en `pom.xml`
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/adoptions` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/adoptions/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/adoptions/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/adoptions` | Crear adopción (valida user + pet) | SHELTER_ADMIN, ADMIN |
+| `PUT` | `/adoptions/by-id/{id}` | Actualizar adopción | SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/adoptions/by-id/{id}` | Eliminar adopción | ADMIN |
 
-**Entidad Adoption**: `id`, `userId`, `petId`, `status`, `createdAt`
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → pet-service (`GET /pets/by-id/{id}`): verifica mascota
+- → notification-service (`POST /notifications`): `ADOPTION_CREATED`, `ADOPTION_UPDATED`, `ADOPTION_DELETED`, `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`
 
-### Servicios Restantes - SOLO ESQUELETO
+### notification-service (Puerto 8084, `/notification-app`) — COMPLETO
 
-| Servicio | Propósito |
+API para gestionar notificaciones. Almacena notificaciones con tipos categorizados vía `@ManyToOne(NotificationType)`.
+
+**Base de datos**: PostgreSQL `notif_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/notifications`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/notifications` | Listar todas (filtro `?status=`) | Público |
+| `GET` | `/notifications/by-id/{id}` | Obtener por ID | Público |
+| `POST` | `/notifications` | Crear notificación | SHELTER_ADMIN, ADMIN |
+| `PUT` | `/notifications/by-id/{id}` | Actualizar notificación | SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/notifications/by-id/{id}` | Eliminar notificación | ADMIN |
+
+**Tipos de notificación disponibles (vía Flyway V2 + V3):**
+
+| Servicio | Tipos |
 |---|---|
-| `donation-service` | Gestionar donaciones monetarias y en especie |
-| `shelter-service` | Gestionar ubicaciones y capacidad de refugios |
-| `staff-service` | Gestionar personal y voluntarios |
-| `health-service` | Seguimiento de vacunas, tratamientos y registros médicos |
-| `notification-service` | Notificaciones por email/SMS |
-| `supply-service` | Control de insumos (comida, juguetes, medicinas) |
-| `followup-service` | Seguimiento post-adopción |
+| adoption | `ADOPTION_CREATED`, `ADOPTION_UPDATED`, `ADOPTION_DELETED` |
+| pet | `PET_CREATED`, `PET_UPDATED`, `PET_DELETED`, `PET_STATUS_CHANGED` |
+| user | `USER_CREATED`, `USER_UPDATED`, `USER_DELETED` |
+| donation | `DONATION_RECEIVED`, `DONATION_UPDATED`, `DONATION_CANCELLED` |
+| followup | `FOLLOWUP_SCHEDULED`, `FOLLOWUP_COMPLETED`, `FOLLOWUP_CANCELLED` |
+| health | `HEALTH_CHECK_CREATED`, `HEALTH_CHECK_UPDATED`, `HEALTH_ALERT` |
+| shelter | `SHELTER_CREATED`, `SHELTER_UPDATED`, `SHELTER_DELETED` |
+| staff | `STAFF_ADDED`, `STAFF_REMOVED` |
+| supply | `SUPPLY_LOW_STOCK`, `SUPPLY_ORDERED`, `SUPPLY_RECEIVED` |
+
+### health-service (Puerto 8085, `/health-app`) — COMPLETO
+
+API para gestionar registros clínicos de mascotas con historial de cambios. VET, SHELTER_ADMIN, ADMIN tienen acceso de escritura.
+
+**Base de datos**: PostgreSQL `health_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/health`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/health` | Listar todos (filtro `?vaccinationStatus=`, `?sterilizationStatus=`) | VET, SHELTER_ADMIN, ADMIN |
+| `GET` | `/health/by-id/{id}` | Obtener por ID | VET, SHELTER_ADMIN, ADMIN |
+| `GET` | `/health/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/health` | Crear registro clínico | VET, SHELTER_ADMIN, ADMIN |
+| `PUT` | `/health/by-id/{id}` | Actualizar registro clínico | VET, SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/health/by-id/{id}` | Eliminar registro clínico | ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): obtiene userId del creador
+- → pet-service (`GET /pets/by-id/{id}`): verifica mascota
+- → notification-service (`POST /notifications`): `HEALTH_CHECK_CREATED`, `HEALTH_CHECK_UPDATED`, `HEALTH_ALERT`
+
+### followup-service (Puerto 8086, `/followup-app`) — COMPLETO
+
+API para gestionar seguimientos post-adopción.
+
+**Base de datos**: PostgreSQL `followup_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/followups`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/followups` | Listar todos (filtro `?status=`) | Público |
+| `GET` | `/followups/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/followups/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/followups` | Crear seguimiento | SHELTER_ADMIN, ADMIN |
+| `PUT` | `/followups/by-id/{id}` | Actualizar seguimiento | SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/followups/by-id/{id}` | Eliminar seguimiento | SHELTER_ADMIN, ADMIN |
+
+### donation-service (Puerto 8090, `/donation-app`) — COMPLETO
+
+API para gestionar donaciones. Verifica existencia de usuario y refugio vía Feign antes de crear.
+
+**Base de datos**: PostgreSQL `donation_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/donations`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/donations` | Listar todas (filtro `?status=`) | ADMIN |
+| `GET` | `/donations/by-id/{id}` | Obtener por ID | ADMIN |
+| `GET` | `/donations/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/donations` | Crear donación | ADMIN |
+| `PUT` | `/donations/by-id/{id}` | Actualizar donación | ADMIN |
+| `DELETE` | `/donations/by-id/{id}` | Eliminar donación | ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → notification-service (`POST /notifications`): `DONATION_RECEIVED`, `DONATION_UPDATED`, `DONATION_CANCELLED`
+- → shelter-service (`GET /shelters/by-id/{id}`): verifica refugio
+
+### staff-service (Puerto 8091, `/staff-app`) — COMPLETO
+
+API para gestionar personal de refugios.
+
+**Base de datos**: PostgreSQL `staff_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/staff`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/staff` | Listar todo (filtro `?status=`) | ADMIN |
+| `GET` | `/staff/by-id/{id}` | Obtener por ID | ADMIN |
+| `GET` | `/staff/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/staff` | Crear personal | SHELTER_ADMIN, ADMIN |
+| `PUT` | `/staff/by-id/{id}` | Actualizar personal | SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/staff/by-id/{id}` | Eliminar personal | SHELTER_ADMIN, ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → notification-service (`POST /notifications`): `STAFF_ADDED`, `STAFF_REMOVED`
+- → shelter-service (`GET /shelters/by-id/{id}`): verifica refugio
+
+### supply-service (Puerto 8092, `/supply-app`) — COMPLETO
+
+API para gestionar insumos de refugios.
+
+**Base de datos**: PostgreSQL `supply_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/supplies`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/supplies` | Listar todos (filtro `?status=`) | Público |
+| `GET` | `/supplies/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/supplies/shelter/{shelterId}` | Insumos por refugio | Público |
+| `GET` | `/supplies/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/supplies` | Crear insumo | ADMIN, SHELTER_ADMIN |
+| `PUT` | `/supplies/by-id/{id}` | Actualizar insumo | ADMIN, SHELTER_ADMIN |
+| `DELETE` | `/supplies/by-id/{id}` | Eliminar insumo | ADMIN, SHELTER_ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → notification-service (`POST /notifications`): `SUPPLY_LOW_STOCK`, `SUPPLY_ORDERED`, `SUPPLY_RECEIVED`
+- → shelter-service (`GET /shelters/by-id/{id}`): verifica refugio
+
+### shelter-service (Puerto 8095, `/shelter-app`) — COMPLETO
+
+API para gestionar refugios.
+
+**Base de datos**: PostgreSQL `shelter_db` (o H2 con perfil `h2`)
+
+**Endpoints** (`/shelters`):
+
+| Método | Ruta | Descripción | Acceso |
+|---|---|---|---|
+| `GET` | `/shelters` | Listar todos (filtro `?status=`) | Público |
+| `GET` | `/shelters/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/shelters/by-id/{id}/history` | Historial de cambios | ADMIN |
+| `POST` | `/shelters?userId={id}` | Crear refugio | SHELTER_ADMIN, ADMIN |
+| `PUT` | `/shelters/by-id/{id}?userId={id}` | Actualizar refugio | SHELTER_ADMIN, ADMIN |
+| `DELETE` | `/shelters/by-id/{id}?userId={id}` | Eliminar refugio | SHELTER_ADMIN, ADMIN |
+
+**Comunicación saliente:**
+- → user-service (`GET /users/by-id/{id}`): verifica usuario
+- → notification-service (`POST /notifications`): `SHELTER_CREATED`, `SHELTER_UPDATED`, `SHELTER_DELETED`
+
+## Comunicación entre servicios
+
+```
+user-service ──(Feign)──→ notification-service (POST /notifications)
+
+pet-service  ──(Feign)──→ user-service (GET /users/by-id/{id})
+pet-service  ──(Feign)──→ health-service (CRUD /health)
+pet-service  ──(Feign)──→ notification-service (POST /notifications)
+pet-service  ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+
+adoption-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+adoption-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
+adoption-service ──(Feign)──→ notification-service (POST /notifications)
+adoption-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+adoption-service ──(Feign)──→ followup-service (POST /followups)
+
+health-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+health-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
+health-service ──(Feign)──→ notification-service (POST /notifications)
+
+donation-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+donation-service ──(Feign)──→ notification-service (POST /notifications)
+donation-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+
+followup-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+followup-service ──(Feign)──→ pet-service (GET /pets/by-id/{id})
+followup-service ──(Feign)──→ notification-service (POST /notifications)
+
+notification-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+
+shelter-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+shelter-service ──(Feign)──→ notification-service (POST /notifications)
+
+staff-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+staff-service ──(Feign)──→ notification-service (POST /notifications)
+staff-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+
+supply-service ──(Feign)──→ user-service (GET /users/by-id/{id})
+supply-service ──(Feign)──→ notification-service (POST /notifications)
+supply-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
+```
+
+## Cómo ejecutar
+
+### Build del proyecto completo
+
+```bash
+# Desde la raiz del proyecto
+.\mvnw.cmd clean install -DskipTests
+```
+
+### Ejecutar con Maven Wrapper
+
+Cada servicio necesita su propia terminal:
+
+```bash
+# Perfil PostgreSQL (default)
+cd donation-service
+.\mvnw.cmd spring-boot:run
+
+cd user-service
+.\mvnw.cmd spring-boot:run
+
+# Perfil H2 (desarrollo rapido, sin PostgreSQL)
+cd donation-service
+.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=h2
+```
+
+### Ejecutar desde IntelliJ IDEA
+
+1. Abrir el proyecto como proyecto Maven
+2. Hacer clic derecho en `pom.xml` → **Maven** → **Reload project**
+3. Ir a **Run** → **Edit Configurations** → agregar configuracion para cada servicio
+4. En **VM options** agregar `--spring.profiles.active=h2` para usar H2
+
+**Orden recomendado:** notification → user → shelter → health → pet → adoption → donation → followup → staff → supply
+
+## Perfiles de base de datos
+
+| Perfil | Base de datos | Flyway | Uso |
+|---|---|---|---|
+| `default` | PostgreSQL 18 | habilitado | Produccion |
+| `h2` | H2 en memoria | deshabilitado | Desarrollo |
+| `postgres` | PostgreSQL (override) | habilitado | Desarrollo con PostgreSQL |
+
+Variables de entorno requeridas (via `.env`):
+```env
+DB_USER=postgres
+DB_PASSWORD=1234
+```
+
+## Seguridad
+
+- HTTP Basic delegado a **user-service** via `CustomUserDetailsService` + Feign en todos los servicios
+- user-service: `CustomUserDetailsService` desde BD
+- adoption-service: `CustomUserDetailsService` → user-service
+- pet-service: `CustomUserDetailsService` → user-service
+- health-service: `CustomUserDetailsService` → user-service
+- Roles: `ADOPTER`, `SHELTER_ADMIN`, `VOLUNTEER`, `VET`, `ADMIN`
+- `@PreAuthorize` en endpoints sensibles
+- `UserSecurity.canEdit()`: ADMIN edita cualquiera; SHELTER_ADMIN edita VOLUNTEER; cada rol edita su propio perfil
+- **FeignAuthInterceptor**: Propaga automáticamente el header `Authorization` entre servicios via Feign
+- **GlobalExceptionHandler**: Manejo centralizado de excepciones en los 10 servicios con respuestas seguras (no expone stack traces)
+- **Structured logging**: Todos los métodos de notification-service incluyen logging estructurado con requestId
+- **Enum validation**: Todos los `Enum.valueOf()` protegidos con try/catch para evitar 500 por valores inválidos
+- **HikariCP pool size**: 5 conexiones por servicio (50 total) para evitar agotamiento de PostgreSQL `max_connections=100`
+- **Shared DTO**: `UserAuthResponse` centralizado en `shared-kernel` para eliminar duplicación entre 9 servicios
 
 ## Patrones del Proyecto
 
-### Capas de DTO (4 capas)
+### Capas de DTO
 
 ```
-Request (validación) → Command (servicio) → Result (servicio) → Response (API)
+Request (validacion) → Command (servicio) → Result (servicio) → Response (API)
 ```
 
-### Relaciones JPA implementadas
+### Logging
+- Archivos de log por servicio: `logs/{service}.log`
+- Perfiles `dev` (DEBUG) y `prod` (INFO)
+- Logging estructurado en notification-service con campos: `method`, `userId`, `recipient`, `status`
 
-- `@OneToOne` para teléfono de usuario y salud de mascota
-- `@OneToMany` para direcciones de usuario
-- `@ManyToOne` para estado de mascota (catálogo)
-- `@Enumerated(EnumType.STRING)` para estado de usuario
-- `CascadeType.ALL` para operaciones en cascada
+### Manejo Global de Excepciones
+- `GlobalExceptionHandler` con `@RestControllerAdvice` en cada servicio
+- `IllegalArgumentException` → 400 Bad Request
+- `MethodArgumentNotValidException` → 400 Bad Request
+- `UnauthorizedException` → 401 Unauthorized
+- `ForbiddenException` → 403 Forbidden
+- `ValidationException` → 400 Bad Request
+- `BusinessException` → 400 Bad Request
+- `Exception` (catch-all) → 500 Internal Server Error (mensaje genérico, log interno con stack trace)
 
-### Repositorios Spring Data JPA
+### Resiliencia
+- **Resilience4j Circuit Breaker**: Habilitado en 9 servicios con Feign clients
+  - `slidingWindowSize`: 10
+  - `failureRateThreshold`: 50%
+  - `waitDurationInOpenState`: 30s
+- **Feign Fallbacks**: Retornan `ResponseEntity.status(503)` cuando servicios remotos están caídos
+- **Try/Catch en Feign calls**: Envoltura de todas las llamadas remotas en 6 servicios críticos
 
-```java
-findByStatus_NameIgnoreCase(String name);
-findByStatusIgnoreCase(String status);
-existsByUsernameIgnoreCase(String username);
-existsByEmailIgnoreCase(String email);
-```
+### Base de Datos
+- **Foreign Keys**: `donation_history` tiene FK explícitas vía `V3__add_foreign_keys_to_donations.sql`
+- **Unique Constraints**: `health` tabla tiene constraint único en `pet_id` vía `V3__add_unique_constraint_pet_id.sql`
+- **Entity-Migration Alignment**: Correcciones en `User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields
 
-### Inicialización de Datos
+### CI/CD
+- Pipeline GitHub Actions en `.github/workflows/build.yml`
+- Trigger: push/PR a `main`/`master`
+- Jobs: `mvn clean compile` + `mvn test`
 
-Cada servicio incluye un `CommandLineRunner` que siembra datos si la tabla está vacía.
+## Historial de Cambios
 
-## Empezando
+### Roles y Permisos
+- `SHELTER` renombrado a `SHELTER_ADMIN`
+- SHELTER_ADMIN mantiene permisos anteriores + puede editar perfiles de VOLUNTEER
+- Agregado rol `VOLUNTEER`: edita su perfil y mascotas (excepto ficha medica)
+- Agregado rol `VET`: edita su perfil y fichas medicas en health-service
+- `ADOPTER` y `ADMIN` se mantienen sin cambios
+- Flyway V10 migra datos existentes: `SHELTER` → `SHELTER_ADMIN`
 
-### Prerrequisitos
+### Notificaciones
+- Sistema de tipos de notificacion via `notification_types` (entidad `NotificationType`)
+- Tipos para todos los microservicios (Flyway V2 + V3)
+- Notification-service en puerto 8084, context-path `/notification-app`
+- User-service envia notificaciones al crear/actualizar/eliminar usuarios
+- DTOs alineados entre clientes y servidor (`userId`, `recipient`, `message`, `typeName`, `status`)
 
-- Java 21
-- Maven 3.8+
-- PostgreSQL corriendo localmente
+### Correcciones y Mejoras
+- Flyway actualizado a 11.7.2 con soporte PostgreSQL 18 (`flyway-database-postgresql`)
+- `@EnableFeignClients` y OpenFeign agregados a pet-service y user-service
+- Endpoint `DELETE /pets/by-id/{id}` en pet-service
+- URLs de datasource estandarizadas con `${DB_HOST:localhost}:${DB_PORT:5432}`
+- Eliminados DTOs y Feign clients no utilizados en adoption-service
+- Eliminados archivos que anulaban auto-configuracion Spring Boot
+- Agregados campos: `updatedAt` en Adoption, `shelterId` en Pet
+- Migracion de `NotificationResponce.java` → `NotificationResponse.java`
+- donation-service: campos monetarios migrados de `Double` a `BigDecimal`
+- user-service: corregido `findByStatusIgnoreCase` en repositorio (enum no soporta IgnoreCase)
+- user-service: agregada migracion V3 para columna `updated_at`
+- health-service: agregado driver PostgreSQL al pom.xml
+- Todos los servicios: agregado `flyway-database-postgresql` dependency
 
-### Configuración de Bases de Datos
+### Auditoria Tecnica y Mejoras Criticas (2026-05)
+- **Resilience4j**: Circuit breaker agregado a 9 servicios (config: slidingWindowSize=10, failureRateThreshold=50%, waitDuration=30s)
+- **Feign Fallbacks**: supply-service y notification-service ahora retornan `ResponseEntity.status(503)` en lugar de `null`
+- **Feign Auth Propagation**: `FeignAuthInterceptor` como `@Component` en 9 servicios para propagar `Authorization` headers
+- **Exception Handling**: `UnauthorizedException`, `ForbiddenException`, `ValidationException`, `BusinessException` manejados en los 10 servicios
+- **Secure Catch-All**: Exception handler genérico retorna mensaje sin stack trace, log interno con detalles completos
+- **Structured Logging**: Todos los métodos de notification-service incluyen logging con campos estructurados
+- **Enum Validation**: 12 llamadas `Enum.valueOf()` protegidas con try/catch en todos los servicios
+- **Shared DTO**: `UserAuthResponse` movido a shared-kernel; 9 servicios actualizados para usar DTO centralizado
+- **HikariCP Pool**: `maximum-pool-size: 5` en todos los servicios para evitar agotamiento de conexiones PostgreSQL
+- **Database Fixes**: 
+  - `V3__add_foreign_keys_to_donations.sql` en donation-service
+  - `V3__add_unique_constraint_pet_id.sql` en health-service
+  - Corrección de entity↔migration mismatches (`User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields)
+  - Corrección de DB name en notification-service: `notif_db` (era `notification_db`)
+- **Security**: GET endpoints restringidos por roles en health, staff, donation, followup services
+- **Supply Service**: Refactorizado mapeo DTO con helper `applyCommandToEntity()`
+- **CI/CD**: Pipeline GitHub Actions `.github/workflows/build.yml` para build automático y tests
+- **Dead Code**: Eliminados 4 archivos `UserRole.java` no utilizados (adoption, donation, health, pet)
+- **Role Mapping**: user-service retorna `user.getRole().name()` para compatibilidad con shared-kernel `UserAuthResponse`
 
-**user-service** (puerto 8081, BD: `user_db`):
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/user_db
-    username: postgres
-    password: 1234
-  jpa:
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
-```
+## Notas y Limitaciones Conocidas
 
-**pet-service** (puerto 8082, BD: `pet_db`):
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/pet_db
-    username: postgres
-    password: 1234
-  jpa:
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
-```
+### Problemas identificados (pendientes de correccion)
+- **health-service**: La tabla se llama `health` (palabra reservada en algunos motores SQL). Funciona en PostgreSQL pero puede fallar en MySQL.
+- **shelter-service**: Soft delete implementado pero `GET /shelters` retorna registros eliminados.
+- **followup-service**: Notificaciones enviadas a email hardcodeado `sistema@adoptapp.com`.
+- **Sin paginacion**: Los endpoints `GET /resource` retornan listas completas sin paginacion.
+- **Rutas no RESTful**: Se usa `/resource/by-id/{id}` en lugar del estandar REST `/resource/{id}`.
+- **HTTP Basic Auth**: Sin JWT/OAuth2. Credenciales enviadas en Base64 en cada request.
 
-### Ejecutar un Servicio
+### Decisiones de diseno
+- **Database-per-service**: Cada microservicio tiene su propia base de datos PostgreSQL.
+- **Feign sincrono**: Comunicacion entre servicios via OpenFeign con fallbacks y circuit breakers.
+- **Sin API Gateway**: Cada servicio se expone directamente en su propio puerto.
+- **Shared Kernel**: `UserAuthResponse` centralizado para evitar duplicación de DTOs de autenticación.
+- **HikariCP pool**: 5 conexiones por servicio para mantener 50 conexiones totales < PostgreSQL `max_connections=100`.
 
-```bash
-cd user-service
-./mvnw spring-boot:run
-```
+## Testing
 
-### Compilar Todos
-
-```bash
-mvn clean install
-```
-
-> Nota: `adoption-service` fallará al compilar.
-
-## Ejemplos de Uso
-
-### Crear Usuario
-
-```bash
-curl -X POST http://localhost:8081/users \
-  -H "Content-Type: application/json" \
-  -d '{
-    "username": "johndoe",
-    "name": "John",
-    "surname": "Doe",
-    "email": "john@example.com",
-    "phone": "1234567890",
-    "country": "Chile",
-    "city": "Santiago",
-    "street": "Av. Siempre Viva",
-    "homeNumber": "742",
-    "postalCode": "8320000",
-    "type": "HOME"
-  }'
-```
-
-### Crear Mascota
-
-```bash
-curl -X POST http://localhost:8082/pets \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Rex",
-    "species": "Perro",
-    "race": "Pastor Alemán",
-    "age": 3,
-    "size": "Grande",
-    "color": "Negro",
-    "personality": "Amigable",
-    "fosterId": 1,
-    "vaccinated": true,
-    "sterilized": false,
-    "diseases": "Ninguna",
-    "status": "AVAILABLE"
-  }'
-```
-
-### Listar por Estado
-
-```bash
-curl "http://localhost:8081/users?status=ACTIVE"
-curl "http://localhost:8082/pets?status=AVAILABLE"
-```
-
-## Qué Falta / Trabajo Futuro
-
-- **adoption-service**: Reparar bugs y completar implementación
-- **7 servicios restantes**: Implementar CRUD y lógica de negocio
-- **Comunicación entre servicios**: Feign, REST template o message broker
-- **API Gateway**: Spring Cloud Gateway para ruteo
-- **Descubrimiento**: Eureka o Consul
-- **Seguridad**: Spring Security con autenticación JWT
-- **Manejo global de excepciones**: `@RestControllerAdvice`
-- **Paginación**: Endpoints con paginación Spring Data
-- **Contenedores**: Dockerfiles y docker-compose
-- **CI/CD**: Pipeline de integración y despliegue
-- **Migraciones**: Flyway o Liquibase para control de esquema
-
-## Problemas Conocidos
-
-1. `adoption-service` no compila
-2. `Pet.fosterId` es `Long` simple sin relación JPA
-3. Credenciales PostgreSQL por defecto (`postgres`/`1234`)
-4. No hay `.gitignore` en raíz
-5. Los 7 servicios esqueleto no tienen lógica de negocio
+Ver `test-commands.txt` en la raiz del proyecto para comandos curl de prueba de todos los servicios, organizados por perfil (PostgreSQL y H2).

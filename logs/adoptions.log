@@ -1,0 +1,239 @@
+2026-05-17T09:24:46.474-04:00  INFO 23940 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Starting AdoptionServiceApplication using Java 26 with PID 23940 (C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:24:46.480-04:00 DEBUG 23940 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:24:46.481-04:00  INFO 23940 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:24:46.534-04:00  INFO 23940 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:24:46.535-04:00  INFO 23940 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:24:47.391-04:00  INFO 23940 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:24:47.446-04:00  INFO 23940 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 2 JPA repository interfaces.
+2026-05-17T09:24:47.662-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55c32f79-071e-37b7-9c66-4c5d14ec6449
+2026-05-17T09:24:48.193-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-05-17T09:24:48.216-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:24:48.216-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:24:48.265-04:00  INFO 23940 --- [adoption-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1730 ms
+2026-05-17T09:24:48.667-04:00  INFO 23940 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:24:48.864-04:00  INFO 23940 --- [adoption-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@12d85c8d
+2026-05-17T09:24:48.866-04:00  INFO 23940 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:24:48.894-04:00  INFO 23940 --- [adoption-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/adoption_db (PostgreSQL 18.3)
+2026-05-17T09:24:48.905-04:00  WARN 23940 --- [adoption-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:24:48.948-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.029s)
+2026-05-17T09:24:49.044-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-05-17T09:24:49.047-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-05-17T09:24:49.160-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T09:24:49.241-04:00  INFO 23940 --- [adoption-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T09:24:49.778-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T09:24:49.852-04:00  WARN 23940 --- [adoption-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T09:24:49.870-04:00  INFO 23940 --- [adoption-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/adoption_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: adoption_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T09:24:50.800-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T09:24:50.846-04:00  INFO 23940 --- [adoption-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:24:50.944-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T09:24:51.200-04:00  WARN 23940 --- [adoption-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T09:24:51.918-04:00  INFO 23940 --- [adoption-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-17T09:24:52.193-04:00 DEBUG 23940 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2026-05-17T09:24:52.242-04:00 DEBUG 23940 --- [adoption-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T09:24:52.281-04:00 DEBUG 23940 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T09:24:52.344-04:00 DEBUG 23940 --- [adoption-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T09:24:53.461-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:24:53.520-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/adoption-app'
+2026-05-17T09:24:54.525-04:00  INFO 23940 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:24:54.530-04:00  INFO 23940 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Started AdoptionServiceApplication in 9.634 seconds (process running for 11.025)
+2026-05-17T09:25:23.411-04:00  INFO 23940 --- [adoption-service] [http-nio-8083-exec-2] o.a.c.c.C.[.[localhost].[/adoption-app]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-17T09:25:23.411-04:00  INFO 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-17T09:25:23.411-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-05-17T09:25:23.411-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-05-17T09:25:23.414-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4671e4dc
+2026-05-17T09:25:23.414-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@cc2fe81
+2026-05-17T09:25:23.414-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-05-17T09:25:23.414-04:00  INFO 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-05-17T09:25:23.700-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/adoption-app/adoptions", parameters={}
+2026-05-17T09:25:23.719-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAllAdoptions(String)
+2026-05-17T09:25:23.980-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.created_at,
+        a1_0.pet_id,
+        a1_0.status,
+        a1_0.updated_at,
+        a1_0.user_id 
+    from
+        adoptions a1_0
+2026-05-17T09:25:24.041-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-05-17T09:25:24.045-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[AdoptionResponse[id=1, userId=1, petId=1, status=PENDING, createdAt=2026-05-16T17:48:42.264349, upd (truncated)...]
+2026-05-17T09:25:24.134-04:00 DEBUG 23940 --- [adoption-service] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-17T09:29:02.993-04:00  INFO 23940 --- [adoption-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T09:29:02.999-04:00  INFO 23940 --- [adoption-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T09:29:03.004-04:00  INFO 23940 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:29:03.007-04:00  INFO 23940 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T09:29:03.009-04:00  INFO 23940 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-17T09:31:00.043-04:00  INFO 22364 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Starting AdoptionServiceApplication using Java 26 with PID 22364 (C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:31:00.045-04:00 DEBUG 22364 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:31:00.045-04:00  INFO 22364 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:31:00.081-04:00  INFO 22364 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:31:00.081-04:00  INFO 22364 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:31:00.660-04:00  INFO 22364 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:31:00.711-04:00  INFO 22364 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+2026-05-17T09:31:00.855-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55c32f79-071e-37b7-9c66-4c5d14ec6449
+2026-05-17T09:31:01.203-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-05-17T09:31:01.217-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:31:01.217-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:31:01.264-04:00  INFO 22364 --- [adoption-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1183 ms
+2026-05-17T09:31:01.530-04:00  INFO 22364 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:31:01.693-04:00  INFO 22364 --- [adoption-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53bfb9f8
+2026-05-17T09:31:01.695-04:00  INFO 22364 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:31:01.713-04:00  INFO 22364 --- [adoption-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/adoption_db (PostgreSQL 18.3)
+2026-05-17T09:31:01.723-04:00  WARN 22364 --- [adoption-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:31:01.754-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.022s)
+2026-05-17T09:31:01.845-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-05-17T09:31:01.847-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-05-17T09:31:01.909-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T09:31:01.953-04:00  INFO 22364 --- [adoption-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T09:31:02.337-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T09:31:02.386-04:00  WARN 22364 --- [adoption-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T09:31:02.402-04:00  INFO 22364 --- [adoption-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/adoption_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: adoption_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T09:31:03.093-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T09:31:03.129-04:00  INFO 22364 --- [adoption-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:31:03.212-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T09:31:03.396-04:00  WARN 22364 --- [adoption-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T09:31:03.936-04:00  INFO 22364 --- [adoption-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-17T09:31:04.102-04:00 DEBUG 22364 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2026-05-17T09:31:04.129-04:00 DEBUG 22364 --- [adoption-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T09:31:04.150-04:00 DEBUG 22364 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T09:31:04.190-04:00 DEBUG 22364 --- [adoption-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T09:31:05.278-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:31:05.335-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/adoption-app'
+2026-05-17T09:31:06.342-04:00  INFO 22364 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:31:06.347-04:00  INFO 22364 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Started AdoptionServiceApplication in 7.711 seconds (process running for 8.631)
+2026-05-17T09:35:04.171-04:00  INFO 22364 --- [adoption-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T09:35:04.177-04:00  INFO 22364 --- [adoption-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T09:35:04.183-04:00  INFO 22364 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:35:04.186-04:00  INFO 22364 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T09:35:04.188-04:00  INFO 22364 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-17T09:35:10.249-04:00  INFO 13048 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Starting AdoptionServiceApplication using Java 26 with PID 13048 (C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:35:10.251-04:00 DEBUG 13048 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:35:10.252-04:00  INFO 13048 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:35:10.288-04:00  INFO 13048 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:35:10.288-04:00  INFO 13048 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:35:10.866-04:00  INFO 13048 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:35:10.909-04:00  INFO 13048 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 2 JPA repository interfaces.
+2026-05-17T09:35:11.053-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55c32f79-071e-37b7-9c66-4c5d14ec6449
+2026-05-17T09:35:11.419-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-05-17T09:35:11.428-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:35:11.428-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:35:11.471-04:00  INFO 13048 --- [adoption-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1183 ms
+2026-05-17T09:35:11.758-04:00  INFO 13048 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:35:11.919-04:00  INFO 13048 --- [adoption-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@68073ff4
+2026-05-17T09:35:11.920-04:00  INFO 13048 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:35:11.940-04:00  INFO 13048 --- [adoption-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/adoption_db (PostgreSQL 18.3)
+2026-05-17T09:35:11.949-04:00  WARN 13048 --- [adoption-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:35:11.982-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.022s)
+2026-05-17T09:35:12.074-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-05-17T09:35:12.078-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-05-17T09:35:12.138-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T09:35:12.179-04:00  INFO 13048 --- [adoption-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T09:35:12.572-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T09:35:12.618-04:00  WARN 13048 --- [adoption-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T09:35:12.634-04:00  INFO 13048 --- [adoption-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/adoption_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: adoption_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T09:35:13.296-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T09:35:13.332-04:00  INFO 13048 --- [adoption-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:35:13.418-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T09:35:13.621-04:00  WARN 13048 --- [adoption-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T09:35:14.144-04:00  INFO 13048 --- [adoption-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-17T09:35:14.311-04:00 DEBUG 13048 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2026-05-17T09:35:14.337-04:00 DEBUG 13048 --- [adoption-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T09:35:14.361-04:00 DEBUG 13048 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T09:35:14.402-04:00 DEBUG 13048 --- [adoption-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T09:35:15.490-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:35:15.543-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/adoption-app'
+2026-05-17T09:35:16.549-04:00  INFO 13048 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:35:16.555-04:00  INFO 13048 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Started AdoptionServiceApplication in 7.668 seconds (process running for 8.672)
+2026-05-17T09:37:36.231-04:00  INFO 13048 --- [adoption-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T09:37:36.238-04:00  INFO 13048 --- [adoption-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T09:37:36.243-04:00  INFO 13048 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:37:36.246-04:00  INFO 13048 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T09:37:36.249-04:00  INFO 13048 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-17T09:37:42.190-04:00  INFO 8368 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Starting AdoptionServiceApplication using Java 26 with PID 8368 (C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp)
+2026-05-17T09:37:42.192-04:00 DEBUG 8368 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-05-17T09:37:42.193-04:00  INFO 8368 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T09:37:42.230-04:00  INFO 8368 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17T09:37:42.230-04:00  INFO 8368 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17T09:37:42.814-04:00  INFO 8368 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17T09:37:42.857-04:00  INFO 8368 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 2 JPA repository interfaces.
+2026-05-17T09:37:43.006-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55c32f79-071e-37b7-9c66-4c5d14ec6449
+2026-05-17T09:37:43.357-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-05-17T09:37:43.368-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-17T09:37:43.368-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-05-17T09:37:43.408-04:00  INFO 8368 --- [adoption-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1177 ms
+2026-05-17T09:37:43.691-04:00  INFO 8368 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-17T09:37:43.848-04:00  INFO 8368 --- [adoption-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@73024899
+2026-05-17T09:37:43.849-04:00  INFO 8368 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-17T09:37:43.868-04:00  INFO 8368 --- [adoption-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/adoption_db (PostgreSQL 18.3)
+2026-05-17T09:37:43.875-04:00  WARN 8368 --- [adoption-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-05-17T09:37:43.904-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.021s)
+2026-05-17T09:37:43.999-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-05-17T09:37:44.001-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-05-17T09:37:44.062-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-17T09:37:44.103-04:00  INFO 8368 --- [adoption-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-05-17T09:37:44.494-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-17T09:37:44.550-04:00  WARN 8368 --- [adoption-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-17T09:37:44.566-04:00  INFO 8368 --- [adoption-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/adoption_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: adoption_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-17T09:37:45.231-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-17T09:37:45.264-04:00  INFO 8368 --- [adoption-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T09:37:45.342-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-17T09:37:45.543-04:00  WARN 8368 --- [adoption-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-17T09:37:46.060-04:00  INFO 8368 --- [adoption-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-17T09:37:46.239-04:00 DEBUG 8368 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2026-05-17T09:37:46.267-04:00 DEBUG 8368 --- [adoption-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-05-17T09:37:46.290-04:00 DEBUG 8368 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-05-17T09:37:46.328-04:00 DEBUG 8368 --- [adoption-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-05-17T09:37:47.418-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:37:47.473-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/adoption-app'
+2026-05-17T09:37:48.479-04:00  INFO 8368 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-05-17T09:37:48.485-04:00  INFO 8368 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Started AdoptionServiceApplication in 7.667 seconds (process running for 8.533)
+2026-05-17T10:15:26.178-04:00  INFO 8368 --- [adoption-service] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17T10:15:26.186-04:00  INFO 8368 --- [adoption-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-05-17T10:15:26.195-04:00  INFO 8368 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17T10:15:26.201-04:00  INFO 8368 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-17T10:15:26.204-04:00  INFO 8368 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

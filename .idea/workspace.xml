@@ -5,19 +5,405 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/config/OpenApiConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/FollowUpServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetNotificationClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetNotificationClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/ShelterServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/ShelterServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/UserNotificationClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/UserNotificationClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/RestClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/ServiceProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/FollowUpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetNotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ShelterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/UserNotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/db/migration/V1__create_adoptions_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/db/migration/V2__create_adoption_history.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/db/migration/V3__insert_initial_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/db/migration/V4__add_updated_at_to_adoptions.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/client/ShelterServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/client/ShelterServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/ShelterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/model/DonationHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/repository/DonationHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/db/migration/V1__create_donations_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/db/migration/V2__seed_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/donation-service/src/main/resources/db/migration/V3__add_foreign_keys_to_donations.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/client/PetServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/client/PetServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/PetResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/model/FollowUpHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/repository/FollowUpHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/db/migration/V1__create_followups_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/db/migration/V2__seed_followups.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/followup-service/src/main/resources/db/migration/V3__add_reference_ids_to_followups.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/client/PetServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/client/PetServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/DataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/controller/HealthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/PetResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/SterilizationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/VaccinationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/service/HealthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/db/migration/V1__create_health_tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/db/migration/V2__seed_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-service/src/main/resources/db/migration/V3__add_unique_constraint_pet_id.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/adoptions.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/adoptions.log.2026-05-16.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/notifications.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/pets.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/pets.log.2026-05-16.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/users.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/users.log.2026-05-16.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/config/DataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/NotificationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/repository/NotificationTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/db/migration/V1__create_notifications_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/db/migration/V2__insert_notification_types.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/db/migration/V3__insert_more_notification_types.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/HealthServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/HealthServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/ShelterServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/ShelterServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/HealthRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/HealthResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetHistoryResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/ShelterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/SterilizationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/VaccinationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/db/migration/V1__create_pets_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/db/migration/V2__insert_initial_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/db/migration/V3__create_pet_history_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/db/migration/V4__add_shelter_id_to_pets.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/db/migration/V5__migrate_health_to_service.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pet-service/src/main/resources/db/migration/V6__remove_medical_fields_from_pets.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/dto/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/dto/UserAuthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/exception/ForbiddenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/exception/RemoteServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/exception/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/exception/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/util/ErrorResponseFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/config/DataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/controller/ShelterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/ShelterCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/ShelterHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/ShelterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/ShelterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/ShelterResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/model/Shelter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/model/ShelterHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/model/ShelterStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/repository/ShelterHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/repository/ShelterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/service/ShelterHistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/service/ShelterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/db/migration/V1__create_shelters_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/db/migration/V2__seed_shelters.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/client/ShelterServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/client/ShelterServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/controller/StaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/ShelterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/StaffCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/StaffHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/StaffRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/StaffResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/StaffResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/model/Staff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/model/StaffHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/model/StaffPosition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/model/StaffStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/repository/StaffHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/repository/StaffRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/service/StaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/db/migration/V1__create_staff_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staff-service/src/main/resources/db/migration/V2__seed_staff.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/client/NotificationServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/client/NotificationServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/client/ShelterServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/client/ShelterServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/client/UserServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/client/UserServiceClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/config/FeignAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/controller/SupplyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/NotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/ShelterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/SupplyCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/SupplyHistoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/SupplyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/SupplyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/SupplyResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/model/Supply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/model/SupplyCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/model/SupplyHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/model/SupplyStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/repository/SupplyHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/repository/SupplyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/service/SupplyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/db/migration/V1__create_supplies_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/db/migration/V2__seed_supplies.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supply-service/src/main/resources/db/migration/V3__add_changed_by_user_id_to_history.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-commands.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/logs/users.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/logs/users.log.2026-05-15.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/client/UserNotificationClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/client/UserNotificationClientFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/UserSecurity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserHistoryResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserNotificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/UserHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/UserHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-postgres.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V1__create_tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V2__seed_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V3__add_updated_at_to_users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/AdoptionServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/AdoptionServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/DataInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/DonationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/DonationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/controller/DonationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/controller/DonationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/DonationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/model/Donation.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/model/Donation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/service/DonationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/service/DonationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/FollowupServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/FollowupServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/controller/FollowUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/controller/FollowUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/FollowUpResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/model/FollowUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/model/FollowUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/service/FollowUpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/service/FollowUpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-service/src/main/resources/application.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/NotificationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/controller/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResponce.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/service/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/HealthRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/StatusRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pet-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shelter-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/ShelterServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/ShelterServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/StaffServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/StaffServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staff-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/supply-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/SupplyServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/SupplyServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supply-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/UserAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/UserAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/UserPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/model/UserPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/AddressRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +414,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -44,7 +431,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/RayFullstack/AdoptAPP.git&quot;,
-    &quot;accountId&quot;: &quot;c904664e-0639-418a-a04b-09e84e085bae&quot;
+    &quot;accountId&quot;: &quot;e5994531-2bf3-4816-a273-020feed737f9&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -59,7 +446,6 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -71,31 +457,41 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.AdoptionServiceApplication.executor": "Run",
-    "Spring Boot.DonationServiceApplication.executor": "Run",
-    "Spring Boot.FollowupServiceApplication.executor": "Run",
-    "Spring Boot.HealthServiceApplication.executor": "Run",
     "Spring Boot.NotificationServiceApplication.executor": "Run",
     "Spring Boot.PetServiceApplication.executor": "Run",
-    "Spring Boot.ShelterServiceApplication.executor": "Run",
-    "Spring Boot.StaffServiceApplication.executor": "Run",
-    "Spring Boot.SupplyServiceApplication.executor": "Run",
     "Spring Boot.UserServiceApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "jacqueline-dev",
-    "ignore.virus.scanning.warn.message": "true",
+    "git-widget-placeholder": "Merging jacqueline-dev",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/camil/Documents/fullstack1/adoptapp/health-service/src/main/java/com/adoptapp/healthservice/client",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.sourceCode.SQL",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.adoptapp.healthservice.dto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\health-service\src\main\java\com\adoptapp\healthservice\client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources\db" />
+      <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources\db\migration" />
+      <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources\db\migration\postgresql" />
+      <recent name="C:\Users\camil\Documents\fullstack1\adoptapp\user-service\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.adoptapp.healthservice.client" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -111,14 +507,8 @@
           <value>
             <map>
               <entry key="AdoptionServiceApplication" value="STOPPED" />
-              <entry key="DonationServiceApplication" value="STOPPED" />
-              <entry key="FollowupServiceApplication" value="STOPPED" />
-              <entry key="HealthServiceApplication" value="STOPPED" />
               <entry key="NotificationServiceApplication" value="STOPPED" />
               <entry key="PetServiceApplication" value="STOPPED" />
-              <entry key="ShelterServiceApplication" value="STOPPED" />
-              <entry key="StaffServiceApplication" value="STOPPED" />
-              <entry key="SupplyServiceApplication" value="STOPPED" />
               <entry key="UserServiceApplication" value="STOPPED" />
             </map>
           </value>
@@ -126,7 +516,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AdoptionServiceApplication">
+  <component name="RunManager" selected="Spring Boot.PetServiceApplication">
     <configuration name="AdoptionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="adoption-service" />
@@ -227,33 +617,27 @@
       <workItem from="1778250158310" duration="6693000" />
       <workItem from="1778260388678" duration="740000" />
       <workItem from="1778261142032" duration="13244000" />
-      <workItem from="1778351909119" duration="13510000" />
-      <workItem from="1778631063370" duration="5624000" />
-      <workItem from="1778801587578" duration="10509000" />
-      <workItem from="1779279770803" duration="236000" />
-      <workItem from="1779280027428" duration="4201000" />
-      <workItem from="1779286687967" duration="319000" />
+      <workItem from="1778351909119" duration="14286000" />
+      <workItem from="1778632955480" duration="796000" />
+      <workItem from="1778721485192" duration="13754000" />
+      <workItem from="1778793239731" duration="3133000" />
+      <workItem from="1778802597842" duration="7522000" />
+      <workItem from="1778821213707" duration="106000" />
+      <workItem from="1778821658879" duration="2690000" />
+      <workItem from="1778852536602" duration="9345000" />
+      <workItem from="1778936844147" duration="19777000" />
+      <workItem from="1778961900540" duration="9079000" />
+      <workItem from="1778971281893" duration="2212000" />
+      <workItem from="1778983830357" duration="467000" />
+      <workItem from="1779024235826" duration="28214000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/AdoptionServiceApplication.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

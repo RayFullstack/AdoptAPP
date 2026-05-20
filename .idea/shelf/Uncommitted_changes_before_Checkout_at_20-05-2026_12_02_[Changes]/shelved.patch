@@ -1,0 +1,412 @@
+Index: .gitignore
+===================================================================
+diff --git a/.gitignore b/.gitignore
+deleted file mode 100644
+--- a/.gitignore	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ /dev/null	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
+@@ -1,2 +0,0 @@
+-.env
+-*.txt
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ /dev/null	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/pet-service/pet-service.iml" filepath="$PROJECT_DIR$/pet-service/pet-service.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .mvn/wrapper/maven-wrapper.properties
+===================================================================
+diff --git a/.mvn/wrapper/maven-wrapper.properties b/.mvn/wrapper/maven-wrapper.properties
+deleted file mode 100644
+--- a/.mvn/wrapper/maven-wrapper.properties	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ /dev/null	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
+@@ -1,3 +0,0 @@
+-wrapperVersion=3.3.4
+-distributionType=only-script
+-distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.14/apache-maven-3.9.14-bin.zip
+Index: .github/workflows/build.yml
+===================================================================
+diff --git a/.github/workflows/build.yml b/.github/workflows/build.yml
+deleted file mode 100644
+--- a/.github/workflows/build.yml	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ /dev/null	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
+@@ -1,28 +0,0 @@
+-name: Build & Test
+-
+-on:
+-  push:
+-    branches: [ main, master ]
+-  pull_request:
+-    branches: [ main, master ]
+-
+-jobs:
+-  build:
+-    runs-on: ubuntu-latest
+-
+-    steps:
+-      - name: Checkout code
+-        uses: actions/checkout@v4
+-
+-      - name: Set up JDK 21
+-        uses: actions/setup-java@v4
+-        with:
+-          java-version: '21'
+-          distribution: 'temurin'
+-          cache: maven
+-
+-      - name: Build all modules
+-        run: mvn clean compile -B
+-
+-      - name: Run tests
+-        run: mvn test -B
+Index: adoption-service/logs/adoptions.log
+===================================================================
+diff --git a/adoption-service/logs/adoptions.log b/adoption-service/logs/adoptions.log
+deleted file mode 100644
+--- a/adoption-service/logs/adoptions.log	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ /dev/null	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
+@@ -1,73 +0,0 @@
+-2026-05-17T20:53:05.562-04:00  INFO 27152 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Starting AdoptionServiceApplication using Java 26 with PID 27152 (C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+-2026-05-17T20:53:05.565-04:00 DEBUG 27152 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Running with Spring Boot v4.0.0, Spring v7.0.1
+-2026-05-17T20:53:05.566-04:00  INFO 27152 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+-2026-05-17T20:53:05.627-04:00  INFO 27152 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+-2026-05-17T20:53:05.629-04:00  INFO 27152 --- [adoption-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+-2026-05-17T20:53:06.528-04:00  INFO 27152 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+-2026-05-17T20:53:06.606-04:00  INFO 27152 --- [adoption-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 2 JPA repository interfaces.
+-2026-05-17T20:53:06.854-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e24dde8b-bbe6-3bea-840a-0c8ff6e09ca3
+-2026-05-17T20:53:07.455-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+-2026-05-17T20:53:07.474-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+-2026-05-17T20:53:07.474-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
+-2026-05-17T20:53:07.533-04:00  INFO 27152 --- [adoption-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1903 ms
+-2026-05-17T20:53:07.966-04:00  INFO 27152 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+-2026-05-17T20:53:08.187-04:00  INFO 27152 --- [adoption-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1ef4100c
+-2026-05-17T20:53:08.190-04:00  INFO 27152 --- [adoption-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+-2026-05-17T20:53:08.216-04:00  INFO 27152 --- [adoption-service] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/adoption_db (PostgreSQL 18.3)
+-2026-05-17T20:53:08.227-04:00  WARN 27152 --- [adoption-service] [restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+-2026-05-17T20:53:08.264-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.026s)
+-2026-05-17T20:53:08.374-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+-2026-05-17T20:53:08.378-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+-2026-05-17T20:53:08.470-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+-2026-05-17T20:53:08.521-04:00  INFO 27152 --- [adoption-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+-2026-05-17T20:53:08.984-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+-2026-05-17T20:53:09.037-04:00  WARN 27152 --- [adoption-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+-2026-05-17T20:53:09.055-04:00  INFO 27152 --- [adoption-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+-	Database JDBC URL [jdbc:postgresql://localhost:5432/adoption_db]
+-	Database driver: PostgreSQL JDBC Driver
+-	Database dialect: PostgreSQLDialect
+-	Database version: 18.3
+-	Default catalog/schema: adoption_db/public
+-	Autocommit mode: undefined/unknown
+-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+-	JDBC fetch size: none
+-	Pool: DatasourceConnectionProviderImpl
+-	Minimum pool size: undefined/unknown
+-	Maximum pool size: undefined/unknown
+-2026-05-17T20:53:09.813-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+-2026-05-17T20:53:09.858-04:00  INFO 27152 --- [adoption-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+-2026-05-17T20:53:09.967-04:00  WARN 27152 --- [adoption-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+-2026-05-17T20:53:10.074-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+-2026-05-17T20:53:10.426-04:00  INFO 27152 --- [adoption-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+-2026-05-17T20:53:10.650-04:00 DEBUG 27152 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+-2026-05-17T20:53:10.687-04:00 DEBUG 27152 --- [adoption-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+-2026-05-17T20:53:10.712-04:00 DEBUG 27152 --- [adoption-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+-2026-05-17T20:53:10.756-04:00 DEBUG 27152 --- [adoption-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+-2026-05-17T20:53:11.858-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+-2026-05-17T20:53:11.921-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/adoption-app'
+-2026-05-17T20:53:12.930-04:00  INFO 27152 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+-2026-05-17T20:53:12.941-04:00  INFO 27152 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Started AdoptionServiceApplication in 8.852 seconds (process running for 9.52)
+-2026-05-17T20:57:51.975-04:00  INFO 27152 --- [adoption-service] [http-nio-8083-exec-1] o.a.c.c.C.[.[localhost].[/adoption-app]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+-2026-05-17T20:57:51.975-04:00  INFO 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+-2026-05-17T20:57:51.976-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+-2026-05-17T20:57:51.976-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+-2026-05-17T20:57:51.977-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@43eb1ac9
+-2026-05-17T20:57:51.977-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b5b7444
+-2026-05-17T20:57:51.978-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+-2026-05-17T20:57:51.978-04:00  INFO 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+-2026-05-17T20:57:53.137-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.w.c.HttpMessageConverterExtractor    : Reading to [com.adoptapp.adoptionservice.dto.UserAuthResponse]
+-2026-05-17T20:57:53.377-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/adoption-app/adoptions", parameters={}
+-2026-05-17T20:57:53.389-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAllAdoptions(String)
+-2026-05-17T20:57:53.630-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] org.hibernate.SQL                        : 
+-    select
+-        a1_0.id,
+-        a1_0.created_at,
+-        a1_0.pet_id,
+-        a1_0.status,
+-        a1_0.updated_at,
+-        a1_0.user_id 
+-    from
+-        adoptions a1_0
+-2026-05-17T20:57:53.677-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+-2026-05-17T20:57:53.680-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[AdoptionResponse[id=1, userId=1, petId=1, status=PENDING, createdAt=2026-05-17T20:49:46.716349, upd (truncated)...]
+-2026-05-17T20:57:53.732-04:00 DEBUG 27152 --- [adoption-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+Index: TESTING.md
+===================================================================
+diff --git a/TESTING.md b/TESTING.md
+deleted file mode 100644
+--- a/TESTING.md	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ /dev/null	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
+@@ -1,130 +0,0 @@
+-# Testing the Adoption Service
+-
+-## Prerequisites
+-
+-Start all 3 services **in order**, each in its own terminal.
+-
+-### Terminal 1 — User Service (port 8081)
+-
+-```bash
+-cd user-service
+-mvn spring-boot:run -Dspring-boot.run.profiles=h2
+-```
+-
+-### Terminal 2 — Pet Service (port 8082)
+-
+-```bash
+-cd pet-service
+-mvn spring-boot:run -Dspring-boot.run.profiles=h2
+-```
+-
+-### Terminal 3 — Adoption Service (port 8083)
+-
+-```bash
+-cd adoption-service
+-mvn spring-boot:run
+-```
+-
+-The `h2` profile lets user and pet services run with an in-memory database (no Postgres needed).
+-
+----
+-
+-## 1. Seed a User
+-
+-```bash
+-curl -s -X POST http://localhost:8081/user-app/users \
+-  -H "Content-Type: application/json" \
+-  -d '{
+-    "username": "jdoe",
+-    "name": "John",
+-    "surname": "Doe",
+-    "email": "john@example.com",
+-    "password": "pass123",
+-    "phone": "123456789",
+-    "country": "US",
+-    "city": "NY",
+-    "street": "Main St",
+-    "homeNumber": "123",
+-    "postalCode": "10001",
+-    "type": "PERSON",
+-    "status": "ACTIVE",
+-    "role": "ADOPTER",
+-    "active": true
+-  }'
+-```
+-
+-Save the returned `id` (e.g. `1`).
+-
+----
+-
+-## 2. Seed a Pet
+-
+-```bash
+-curl -s -X POST http://localhost:8082/pet-app/pets \
+-  -H "Content-Type: application/json" \
+-  -d '{
+-    "name": "Rex",
+-    "species": "DOG",
+-    "race": "Labrador",
+-    "age": 3,
+-    "size": "LARGE",
+-    "color": "Brown",
+-    "personality": "Friendly",
+-    "fosterId": null,
+-    "vaccinated": true,
+-    "sterilized": true,
+-    "diseases": "",
+-    "status": "AVAILABLE"
+-  }'
+-```
+-
+-Save the returned `id` (e.g. `1`).
+-
+----
+-
+-## 3. Create an Adoption (connects user + pet)
+-
+-```bash
+-curl -s -X POST http://localhost:8083/adoption-app/adoptions \
+-  -H "Content-Type: application/json" \
+-  -d '{"userId": 1, "petId": 1, "status": "PENDING"}'
+-```
+-
+-- **`201 Created`** — adoption created successfully (both user and pet exist)
+-- **`409 Conflict`** — user or pet was not found (Feign client received 404 from the downstream service)
+-
+----
+-
+-## 4. Verify
+-
+-```bash
+-# List all adoptions
+-curl http://localhost:8083/adoption-app/adoptions
+-
+-# Get by ID
+-curl http://localhost:8083/adoption-app/adoptions/by-id/1
+-
+-# Get history
+-curl http://localhost:8083/adoption-app/adoptions/1/history
+-
+-# Update
+-curl -s -X PUT http://localhost:8083/adoption-app/adoptions/1 \
+-  -H "Content-Type: application/json" \
+-  -d '{"userId": 1, "petId": 1, "status": "APPROVED"}'
+-
+-# Delete
+-curl -s -X DELETE http://localhost:8083/adoption-app/adoptions/1
+-```
+-
+----
+-
+-## How It Works
+-
+-When `POST /adoptions` is called, `AdoptionService.create()`:
+-
+-1. Calls **`UserServiceClient.getUserById()`** (Feign → `user-service:8081/user-app/users/by-id/{id}`)
+-2. Calls **`PetServiceClient.getPetById()`** (Feign → `pet-service:8082/pet-app/pets/by-id/{id}`)
+-3. If both return `2xx`, the adoption is created and saved
+-4. Notifications are sent to both user and pet notification endpoints
+-
+-If either service is down, the **Feign fallback** returns `404 Not Found`, and the adoption is rejected with `IllegalArgumentException`.
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4a01dda7-92d2-4fea-84f6-14f15269cee9\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/controller/Controller.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HeathResult.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResult.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthStatus.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/service/Service.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/health-service/src/main/resources/application.yaml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/health-service/src/main/resources/application.yaml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/logs/adoptions.log\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/logs/adoptions.log\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/notification-service/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/notification-service/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/notification-service/src/main/resources/application.yaml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/notification-service/src/main/resources/application.yaml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/HealthRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/HealthRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/StatusRepository.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pet-service/src/main/resources/application.yaml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V10__update_shelter_to_shelter_admin.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V1__create_users_table.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V2__insert_initial_data.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V3__create_history_table.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V4__add_password_to_users.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V5__add_role_and_active_to_users.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V6__seed_users_with_auth.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V7__add_unique_constraint_to_user_phones.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V8__add_role_and_active_to_user_history.sql\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/user-service/src/main/resources/db/migration/V9__add_passwords_to_v2_users.sql\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Record\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;camilaosorio123&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/RayFullstack/AdoptAPP.git&quot;,\r\n    &quot;accountId&quot;: &quot;e5994531-2bf3-4816-a273-020feed737f9&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3DRg702mfSUIiWgVSPUASRKsuj2\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252\": \"true\",\r\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\r\n    \"Spring Boot.AdoptionServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.NotificationServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.PetServiceApplication.executor\": \"Run\",\r\n    \"Spring Boot.UserServiceApplication.executor\": \"Run\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"git-widget-placeholder\": \"camila-dev\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/camil/Documents/fullstack1/adoptapp/health-service/src/main/java/com/adoptapp/healthservice/client\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"run.configurations.included.in.services\": \"true\",\r\n    \"settings.editor.selected.configurable\": \"reference.settings.project.maven.repository.indices\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"com.adoptapp.healthservice.dto\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\camil\\Documents\\fullstack1\\adoptapp\\health-service\\src\\main\\java\\com\\adoptapp\\healthservice\\client\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\camil\\Documents\\fullstack1\\adoptapp\\user-service\\src\\main\\resources\\db\" />\r\n      <recent name=\"C:\\Users\\camil\\Documents\\fullstack1\\adoptapp\\user-service\\src\\main\\resources\\db\\migration\" />\r\n      <recent name=\"C:\\Users\\camil\\Documents\\fullstack1\\adoptapp\\user-service\\src\\main\\resources\\db\\migration\\postgresql\" />\r\n      <recent name=\"C:\\Users\\camil\\Documents\\fullstack1\\adoptapp\\user-service\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.adoptapp.healthservice.client\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunDashboard\">\r\n    <option name=\"configurationTypes\">\r\n      <set>\r\n        <option value=\"KtorApplicationConfigurationType\" />\r\n        <option value=\"MicronautRunConfigurationType\" />\r\n        <option value=\"QuarkusRunConfigurationType\" />\r\n        <option value=\"SpringBootApplicationConfigurationType\" />\r\n      </set>\r\n    </option>\r\n    <option name=\"configurationStatuses\">\r\n      <map>\r\n        <entry key=\"SpringBootApplicationConfigurationType\">\r\n          <value>\r\n            <map>\r\n              <entry key=\"AdoptionServiceApplication\" value=\"STOPPED\" />\r\n              <entry key=\"NotificationServiceApplication\" value=\"STOPPED\" />\r\n              <entry key=\"PetServiceApplication\" value=\"STOPPED\" />\r\n              <entry key=\"UserServiceApplication\" value=\"STOPPED\" />\r\n            </map>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.PetServiceApplication\">\r\n    <configuration name=\"AdoptionServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"adoption-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.adoptionservice.AdoptionServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"DonationServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"donation-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.donationservice.DonationServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"FollowupServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"followup-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.followupservice.FollowupServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"HealthServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"health-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.healthservice.HealthServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"NotificationServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"notification-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.notificationservice.NotificationServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PetServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"pet-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.petservice.PetServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ShelterServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"shelter-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.shelterservice.ShelterServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StaffServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"staff-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.staffservice.StaffServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SupplyServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"supply-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.supplyservice.SupplyServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserServiceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"user-service\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.adoptapp.userservice.UserServiceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4a01dda7-92d2-4fea-84f6-14f15269cee9\" name=\"Changes\" comment=\"\" />\r\n      <created>1778250126136</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1778250126136</updated>\r\n      <workItem from=\"1778250127458\" duration=\"9000\" />\r\n      <workItem from=\"1778250158310\" duration=\"6693000\" />\r\n      <workItem from=\"1778260388678\" duration=\"740000\" />\r\n      <workItem from=\"1778261142032\" duration=\"13244000\" />\r\n      <workItem from=\"1778351909119\" duration=\"14286000\" />\r\n      <workItem from=\"1778632955480\" duration=\"796000\" />\r\n      <workItem from=\"1778721485192\" duration=\"13754000\" />\r\n      <workItem from=\"1778793239731\" duration=\"3133000\" />\r\n      <workItem from=\"1778802597842\" duration=\"7522000\" />\r\n      <workItem from=\"1778821213707\" duration=\"106000\" />\r\n      <workItem from=\"1778821658879\" duration=\"2690000\" />\r\n      <workItem from=\"1778852536602\" duration=\"9345000\" />\r\n      <workItem from=\"1778936844147\" duration=\"19777000\" />\r\n      <workItem from=\"1778961900540\" duration=\"9079000\" />\r\n      <workItem from=\"1778971281893\" duration=\"2212000\" />\r\n      <workItem from=\"1778983830357\" duration=\"467000\" />\r\n      <workItem from=\"1779024235826\" duration=\"28214000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnknownFeatures\">\r\n    <option featureType=\"com.intellij.fileTypeFactory\" implementationName=\".env\" />\r\n  </component>\r\n  <component name=\"github-copilot-workspace\">\r\n    <instructionFileLocations>\r\n      <option value=\".github/instructions\" />\r\n      <option value=\".github/instructions\" />\r\n    </instructionFileLocations>\r\n    <promptFileLocations>\r\n      <option value=\".github/prompts\" />\r\n      <option value=\".github/prompts\" />\r\n    </promptFileLocations>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e96cb17853f7cb96e5fa8c9d4d0e90020e266377)
++++ b/.idea/workspace.xml	(date 1779292882581)
+@@ -5,58 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionRequest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResult.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/Adoption.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/HealthServiceApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/controller/Controller.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthCommand.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthRequest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HeathResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResult.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthHistory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/HealthStatus.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthHistoryRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/service/Service.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/health-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/resources/application.yaml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/logs/adoptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/adoptions.log" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/config/DataInitializer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/controller/PetController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetCommand.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetRequest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResponse.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/dto/PetResult.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/Pet.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetHealth.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/model/PetStatus.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/HealthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/HealthRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/PetRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/repository/StatusRepository.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pet-service/src/main/resources/application.yaml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V10__update_shelter_to_shelter_admin.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V1__create_users_table.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V2__insert_initial_data.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V3__create_history_table.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V4__add_password_to_users.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V5__add_role_and_active_to_users.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V6__seed_users_with_auth.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V7__add_unique_constraint_to_user_phones.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V8__add_role_and_active_to_user_history.sql" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/db/migration/V9__add_passwords_to_v2_users.sql" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/TESTING.md" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/adoption-service/logs/adoptions.log" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -81,12 +35,12 @@
+     &quot;assignee&quot;: &quot;camilaosorio123&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/RayFullstack/AdoptAPP.git&quot;,
+-    &quot;accountId&quot;: &quot;e5994531-2bf3-4816-a273-020feed737f9&quot;
+-  }
+-}</component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/RayFullstack/AdoptAPP.git",
++    "accountId": "c904664e-0639-418a-a04b-09e84e085bae"
++  }
++}]]></component>
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="CurrentFile" />
+   </component>
+@@ -110,6 +64,7 @@
+     "RequestMappingsPanelWidth1": "75",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
++    "RunOnceActivity.git.unshallow": "true",
+     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+     "Spring Boot.AdoptionServiceApplication.executor": "Run",
+     "Spring Boot.NotificationServiceApplication.executor": "Run",
+@@ -251,6 +206,14 @@
+       </method>
+     </configuration>
+   </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
++        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
++      </set>
++    </attachedChunks>
++  </component>
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+       <changelist id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="" />
+@@ -275,6 +238,7 @@
+       <workItem from="1778971281893" duration="2212000" />
+       <workItem from="1778983830357" duration="467000" />
+       <workItem from="1779024235826" duration="28214000" />
++      <workItem from="1779292514725" duration="365000" />
+     </task>
+     <servers />
+   </component>

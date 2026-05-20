@@ -1,0 +1,65 @@
+server:
+  port: 8081
+  servlet:
+    context-path: "/user-app"
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: user-service
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:users_db}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    out-of-order: false
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    hibernate:
+      ddl-auto: validate
+
+    show-sql: false
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
+            logger-level: BASIC
+
+services:
+  notification-service:
+    url: http://localhost:8084/notification-app
+
+logging:
+  level:
+    root: INFO
+    com.adoptapp.userservice: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+        console: "%d{HH:mm:ss.SSS} [%-5level] %logger{0} - %msg%n"
+  file:
+        name: logs/users.log

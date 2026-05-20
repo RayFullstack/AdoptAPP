@@ -1,11 +1,20 @@
 package com.adoptapp.userservice.model;
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,7 +39,8 @@ public class User {
     @Column(nullable = false, unique = true, length = 50)
     private String username;
 
-    @Column(nullable = false, unique = true, length = 50)
+    @Email(message = "El email no tiene un formato válido")
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
@@ -46,13 +56,41 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = false)
+    private List<UserHistory> history = new ArrayList<>();
+
+    @Column(length = 255)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Role role = Role.ADOPTER;
+
+    @Column(nullable = false)
+    private boolean active = true;
+
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
-
-        if(status == null){
+        if (status == null) {
             status = UserStatus.ACTIVE;
         }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+
+    public enum Role {
+        ADOPTER,
+        SHELTER_ADMIN,
+        VOLUNTEER,
+        VET,
+        ADMIN,
     }
 }
 

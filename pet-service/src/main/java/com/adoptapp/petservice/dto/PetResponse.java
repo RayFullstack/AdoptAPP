@@ -9,10 +9,8 @@ public record PetResponse(
         String size,
         String color,
         String status,
-        Boolean vaccinated,
-        Boolean sterilized,
-        String diseases,
         String personality,
-        Long fosterId)
+        Long fosterId,
+        Long shelterId)
 {
 }

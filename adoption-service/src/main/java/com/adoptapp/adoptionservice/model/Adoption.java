@@ -17,14 +17,22 @@ public class Adoption {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+<<<<<<< HEAD
 
     private Long userId;
     private Long petId;
 
     @Column(nullable = false, length = 50)
     private String petName; // Añadido para que el Service no de error
+=======
 
+    private Long userId;
+    private Long petId;
+>>>>>>> origin/camila-dev
+
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 50)
+<<<<<<< HEAD
     private String adopterName; // Añadido para que el Service no de error
 
     @Column(nullable = false, length = 50)
@@ -32,4 +40,23 @@ public class Adoption {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+=======
+    private AdoptionStatus status;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+>>>>>>> origin/camila-dev
 }

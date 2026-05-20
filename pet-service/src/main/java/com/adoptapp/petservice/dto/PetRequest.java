@@ -28,6 +28,7 @@ public record PetRequest (
         String color,
 
         @NotBlank(message = "La personalidad es requerida")
+        @Size(max = 50)
         String personality,
 
         @NotNull(message = "El fosterId es requerido")
@@ -45,6 +46,8 @@ public record PetRequest (
 
         @NotBlank(message = "El estado es requerido")
         @Size(max = 50)
-        String status
+        String status,
+
+        Long shelterId
 ) {
 }

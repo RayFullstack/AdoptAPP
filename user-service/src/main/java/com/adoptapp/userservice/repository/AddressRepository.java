@@ -7,11 +7,7 @@ import java.util.List;
 
 public interface AddressRepository extends JpaRepository<UserAddress,Long> {
 
-    boolean existsByPostalCode(String postalcode); //eliminar
-
     List<UserAddress> findByCountryIgnoreCase(String country);
 
     List<UserAddress> findByCityIgnoreCase(String city);
-
-    List<UserAddress> findByPostalCodeIgnoreCase(String postalCode);
 }

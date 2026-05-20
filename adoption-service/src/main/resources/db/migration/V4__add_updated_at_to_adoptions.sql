@@ -1,0 +1,1 @@
+ALTER TABLE adoptions ADD COLUMN updated_at TIMESTAMP;
