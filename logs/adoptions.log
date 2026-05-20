@@ -2989,3 +2989,8 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 2026-05-20T17:40:21.531-04:00  INFO 16028 --- [adoption-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/adoption-app'
 2026-05-20T17:40:22.550-04:00  INFO 16028 --- [adoption-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:22.572-04:00  INFO 16028 --- [adoption-service] [restartedMain] c.a.a.AdoptionServiceApplication         : Started AdoptionServiceApplication in 18.762 seconds (process running for 20.358)
+2026-05-20T17:51:46.573-04:00  INFO 16028 --- [adoption-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.608-04:00  INFO 16028 --- [adoption-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.626-04:00  INFO 16028 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.635-04:00  INFO 16028 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.644-04:00  INFO 16028 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -3174,3 +3174,8 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2026-05-20T17:40:16.945-04:00  INFO 33724 --- [health-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/health-app'
 2026-05-20T17:40:17.956-04:00  INFO 33724 --- [health-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:17.974-04:00  INFO 33724 --- [health-service] [restartedMain] c.a.h.HealthServiceApplication           : Started HealthServiceApplication in 18.292 seconds (process running for 19.732)
+2026-05-20T17:51:46.664-04:00  INFO 33724 --- [health-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.703-04:00  INFO 33724 --- [health-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.783-04:00  INFO 33724 --- [health-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.812-04:00  INFO 33724 --- [health-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.833-04:00  INFO 33724 --- [health-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

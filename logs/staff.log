@@ -3461,3 +3461,8 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 2026-05-20T17:40:29.637-04:00  INFO 35428 --- [staff-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8091 (http) with context path '/staff-app'
 2026-05-20T17:40:30.656-04:00  INFO 35428 --- [staff-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:30.669-04:00  INFO 35428 --- [staff-service] [main] c.a.s.StaffServiceApplication            : Started StaffServiceApplication in 17.489 seconds (process running for 19.499)
+2026-05-20T17:51:46.546-04:00  INFO 35428 --- [staff-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.591-04:00  INFO 35428 --- [staff-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.615-04:00  INFO 35428 --- [staff-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.632-04:00  INFO 35428 --- [staff-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.648-04:00  INFO 35428 --- [staff-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

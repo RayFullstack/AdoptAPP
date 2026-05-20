@@ -48493,3 +48493,8 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 2026-05-20T17:40:39.355-04:00 DEBUG 23744 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
 2026-05-20T17:40:39.373-04:00 DEBUG 23744 --- [user-service] [http-nio-8081-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponse[id=3, username=StacyBakr, name=Stacy, surname=Baker, email=fakemail123@mail.com, phone= (truncated)...]
 2026-05-20T17:40:39.386-04:00 DEBUG 23744 --- [user-service] [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-05-20T17:51:46.551-04:00  INFO 23744 --- [user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.584-04:00  INFO 23744 --- [user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.606-04:00  INFO 23744 --- [user-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.631-04:00  INFO 23744 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.644-04:00  INFO 23744 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

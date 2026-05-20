@@ -2542,3 +2542,8 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 2026-05-20T17:40:23.456-04:00  INFO 35324 --- [followup-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/followup-app'
 2026-05-20T17:40:24.485-04:00  INFO 35324 --- [followup-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:24.501-04:00  INFO 35324 --- [followup-service] [main] c.a.f.FollowupServiceApplication         : Started FollowupServiceApplication in 16.663 seconds (process running for 18.42)
+2026-05-20T17:51:46.702-04:00  INFO 35324 --- [followup-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.851-04:00  INFO 35324 --- [followup-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.872-04:00  INFO 35324 --- [followup-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.890-04:00  INFO 35324 --- [followup-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.903-04:00  INFO 35324 --- [followup-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/adoptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/adoptions.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/donations.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/donations.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/followups.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/followups.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/health.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/health.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/notifications.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/notifications.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/pets.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/pets.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/shelters.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/shelters.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/staff.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/staff.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/supplies.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/supplies.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/users.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/users.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" afterDir="false" />
@@ -122,14 +126,14 @@
           <value>
             <map>
               <entry key="AdoptionServiceApplication" value="STOPPED" />
-              <entry key="DonationServiceApplication" value="FAILED" />
-              <entry key="FollowupServiceApplication" value="FAILED" />
+              <entry key="DonationServiceApplication" value="STOPPED" />
+              <entry key="FollowupServiceApplication" value="STOPPED" />
               <entry key="HealthServiceApplication" value="STOPPED" />
               <entry key="NotificationServiceApplication" value="STOPPED" />
               <entry key="PetServiceApplication" value="STOPPED" />
-              <entry key="ShelterServiceApplication" value="FAILED" />
-              <entry key="StaffServiceApplication" value="FAILED" />
-              <entry key="SupplyServiceApplication" value="FAILED" />
+              <entry key="ShelterServiceApplication" value="STOPPED" />
+              <entry key="StaffServiceApplication" value="STOPPED" />
+              <entry key="SupplyServiceApplication" value="STOPPED" />
               <entry key="UserServiceApplication" value="STOPPED" />
             </map>
           </value>
@@ -246,7 +250,7 @@
       <workItem from="1779286687967" duration="319000" />
       <workItem from="1779305288175" duration="3083000" />
       <workItem from="1779309065137" duration="1614000" />
-      <workItem from="1779310817276" duration="2350000" />
+      <workItem from="1779310817276" duration="3068000" />
     </task>
     <servers />
   </component>

@@ -4489,3 +4489,8 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "pets" does not ex
 2026-05-20T17:40:47.624-04:00  INFO 13096 --- [pet-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/pet-app'
 2026-05-20T17:40:48.632-04:00  INFO 13096 --- [pet-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:48.642-04:00  INFO 13096 --- [pet-service] [restartedMain] c.a.petservice.PetServiceApplication     : Started PetServiceApplication in 15.219 seconds (process running for 16.738)
+2026-05-20T17:51:46.795-04:00  INFO 13096 --- [pet-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.851-04:00  INFO 13096 --- [pet-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.870-04:00  INFO 13096 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.881-04:00  INFO 13096 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.886-04:00  INFO 13096 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
