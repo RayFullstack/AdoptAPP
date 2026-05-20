@@ -22,4 +22,7 @@ jobs:
           cache: maven
 
       - name: Build all modules (skip tests - no DB in CI)
-        run: mvn clean package -B -DskipTests
+        run: mvn clean compile -B
+
+      - name: Run tests
+        run: mvn test -B
