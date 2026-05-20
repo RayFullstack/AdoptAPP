@@ -10,6 +10,8 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
     out-of-order: false
+    schemas: ${DB_SCHEMA:notification_schema}
+    create-schemas: true
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
