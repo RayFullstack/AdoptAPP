@@ -175,45 +175,18 @@ public class DonationService {
     public boolean deleteById(Long id) {
         log.info("Eliminando donación: ID={}", id);
 
-        Optional<Donation> found = repository.findById(id);
-        if (found.isEmpty()) {
+        if (!repository.existsById(id)) {
             log.warn("Donación a eliminar no encontrada: ID={}", id);
             return false;
         }
 
-        Donation donation = found.get();
+        // Eliminar historial asociado para evitar violación de FK y TransientObjectException
+        historyRepository.deleteByDonationId(id);
 
-        String email = null;
-        try {
-            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(donation.getUserId());
-            if (userResponse.getStatusCode().is2xxSuccessful()) {
-                email = userResponse.getBody().email();
-            }
-        } catch (Exception e) {
-            log.warn("No se pudo obtener email del usuario {} para notificación", donation.getUserId());
-        }
-
-        String delStatus = donation.getStatus() != null ? donation.getStatus().name() : null;
-        BigDecimal delAmount = donation.getAmount();
-        recordHistory(id, "DELETED",
-                "Donación eliminada: " + donation.getDonorName() + " - $" + donation.getAmount(),
-                donation.getUserId(),
-                delStatus, null,
-                delAmount, null);
-
-        if (email != null) {
-            sendNotification(donation.getUserId(), email,
-                    "La donación " + id + " ha sido eliminada", "DONATION_CANCELLED");
-        }
-
-        try {
-            repository.deleteById(id);
-            log.info("Donación eliminada exitosamente: ID={}", id);
-            return true;
-        } catch (Exception e) {
-            log.error("Error al eliminar donación: ID={}", id, e);
-            throw e;
-        }
+        // Eliminar la donación
+        repository.deleteById(id);
+        log.info("Donación eliminada exitosamente: ID={}", id);
+        return true;
     }
 
     private void recordHistory(Long donationId, String action, String comment, Long changedByUserId,

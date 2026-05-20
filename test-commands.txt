@@ -1,3 +1,420 @@
+# ==============================================================================
+# 1. USER-SERVICE (puerto 8081)
+# ==============================================================================
+
+# GET - Listar todos, filtrar, buscar por ID, buscar por Email, Auth e Historial
+http://localhost:8081/user-app/users
+http://localhost:8081/user-app/users?status=ACTIVE
+http://localhost:8081/user-app/users/by-id/:id
+http://localhost:8081/user-app/users/by-email/:email
+http://localhost:8081/user-app/users/by-email/:email/auth
+http://localhost:8081/user-app/users/by-id/:id/history
+
+# POST - Crear Usuario
+# Body (JSON):
+# {
+#   "username": "jdoe",
+#   "name": "John",
+#   "surname": "Doe",
+#   "email": "john@example.com",
+#   "password": "secret123",
+#   "phone": "+123456789",
+#   "country": "USA",
+#   "city": "New York",
+#   "street": "5th Ave",
+#   "homeNumber": "123",
+#   "postalCode": "10001",
+#   "type": "HOME",
+#   "status": "ACTIVE",
+#   "role": "ADOPTER",
+#   "active": true
+# }
+http://localhost:8081/user-app/users
+
+# PUT - Actualizar por ID
+# Body (JSON):
+# {
+#   "username": "jdoe_updated",
+#   "name": "John",
+#   "surname": "Doe",
+#   "email": "john@example.com",
+#   "password": "newpass123",
+#   "phone": "+123456789",
+#   "country": "USA",
+#   "city": "Los Angeles",
+#   "street": "Main St",
+#   "homeNumber": "456",
+#   "postalCode": "90001",
+#   "type": "HOME",
+#   "status": "ACTIVE",
+#   "role": "ADOPTER",
+#   "active": true
+# }
+http://localhost:8081/user-app/users/by-id/:id
+
+# DELETE - Eliminar por ID
+http://localhost:8081/user-app/users/by-id/:id
+
+
+# ==============================================================================
+# 2. PET-SERVICE (puerto 8082)
+# ==============================================================================
+
+# GET - Listar todos, filtrar, buscar por ID, Historial y Salud
+http://localhost:8082/pet-app/pets
+http://localhost:8082/pet-app/pets?status=AVAILABLE
+http://localhost:8082/pet-app/pets/by-id/:id
+http://localhost:8082/pet-app/pets/by-id/:id/history
+http://localhost:8082/pet-app/pets/by-id/:id/health
+
+# POST - Crear Mascota
+# Body (JSON):
+# {
+#   "name": "Buddy",
+#   "species": "Dog",
+#   "race": "Golden Retriever",
+#   "age": 3,
+#   "size": "Large",
+#   "color": "Golden",
+#   "personality": "Friendly",
+#   "fosterId": 1,
+#   "vaccinated": true,
+#   "sterilized": true,
+#   "diseases": "Ninguna",
+#   "status": "AVAILABLE",
+#   "shelterId": 1
+# }
+http://localhost:8082/pet-app/pets
+
+# PUT - Actualizar Mascota
+# Body (JSON):
+# {
+#   "name": "Buddy Updated",
+#   "species": "Dog",
+#   "race": "Golden Retriever",
+#   "age": 4,
+#   "size": "Large",
+#   "color": "Golden",
+#   "personality": "Playful",
+#   "fosterId": 1,
+#   "vaccinated": true,
+#   "sterilized": true,
+#   "diseases": "Ninguna",
+#   "status": "NOT_AVAILABLE",
+#   "shelterId": 1
+# }
+http://localhost:8082/pet-app/pets/by-id/:id
+
+# DELETE - Eliminar Mascota
+http://localhost:8082/pet-app/pets/by-id/:id
+
+
+# ==============================================================================
+# 3. ADOPTION-SERVICE (puerto 8083)
+# ==============================================================================
+
+# GET - Listar todas, filtrar, por ID e Historial
+http://localhost:8083/adoption-app/adoptions
+http://localhost:8083/adoption-app/adoptions?status=PENDING
+http://localhost:8083/adoption-app/adoptions/by-id/:id
+http://localhost:8083/adoption-app/adoptions/by-id/:id/history
+
+# POST - Crear Adopción
+# Body (JSON):
+# {
+#   "petId": 1,
+#   "userId": 2,
+#   "status": "PENDING"
+# }
+http://localhost:8083/adoption-app/adoptions
+
+# PUT - Actualizar Adopción
+# Body (JSON):
+# {
+#   "petId": 1,
+#   "userId": 2,
+#   "status": "APPROVED"
+# }
+http://localhost:8083/adoption-app/adoptions/by-id/:id
+
+# DELETE - Eliminar Adopción
+http://localhost:8083/adoption-app/adoptions/by-id/:id
+
+
+# ==============================================================================
+# 4. NOTIFICATION-SERVICE (puerto 8084)
+# ==============================================================================
+
+# GET - Listar todas, filtrar y por ID
+http://localhost:8084/notification-app/notifications
+http://localhost:8084/notification-app/notifications?status=SENT
+http://localhost:8084/notification-app/notifications/by-id/:id
+
+# POST - Crear Notificación
+# Body (JSON):
+# {
+#   "userId": 1,
+#   "recipient": "john@example.com",
+#   "message": "Your adoption request has been approved!",
+#   "typeName": "EMAIL",
+#   "status": "PENDING"
+# }
+http://localhost:8084/notification-app/notifications
+
+# PUT - Actualizar Notificación
+# Body (JSON):
+# {
+#   "userId": 1,
+#   "recipient": "john@example.com",
+#   "message": "Updated notification",
+#   "typeName": "EMAIL",
+#   "status": "SENT"
+# }
+http://localhost:8084/notification-app/notifications/by-id/:id
+
+# DELETE - Eliminar Notificación
+http://localhost:8084/notification-app/notifications/by-id/:id
+
+
+# ==============================================================================
+# 5. HEALTH-SERVICE (puerto 8085)
+# ==============================================================================
+
+# GET - Listar, filtrar por vacunas, filtrar por esterilización, por ID e Historial
+http://localhost:8085/health-app/health
+http://localhost:8085/health-app/health?vaccinationStatus=VACCINATED
+http://localhost:8085/health-app/health?sterilizationStatus=STERILIZED
+http://localhost:8085/health-app/health/by-id/:id
+http://localhost:8085/health-app/health/by-id/:id/history
+
+# POST - Crear Ficha de Salud
+# Body (JSON):
+# {
+#   "userId": 1,
+#   "petId": 2,
+#   "vaccinationStatus": "VACCINATED",
+#   "sterilizationStatus": "STERILIZED",
+#   "diseases": "Ninguna"
+# }
+http://localhost:8085/health-app/health
+
+# PUT - Actualizar Ficha de Salud
+# Body (JSON):
+# {
+#   "userId": 1,
+#   "petId": 2,
+#   "vaccinationStatus": "NOT_VACCINATED",
+#   "sterilizationStatus": "NOT_STERILIZED",
+#   "diseases": "Alergia"
+# }
+http://localhost:8085/health-app/health/by-id/:id
+
+# DELETE - Eliminar Ficha de Salud
+http://localhost:8085/health-app/health/by-id/:id
+
+
+# ==============================================================================
+# 6. FOLLOWUP-SERVICE (puerto 8086)
+# ==============================================================================
+
+# GET - Listar todos, filtrar, por ID e Historial
+http://localhost:8086/followup-app/followups
+http://localhost:8086/followup-app/followups?status=PENDING
+http://localhost:8086/followup-app/followups/by-id/:id
+http://localhost:8086/followup-app/followups/by-id/:id/history
+
+# POST - Crear Seguimiento
+# Body (JSON):
+# {
+#   "adopterName": "John Doe",
+#   "petName": "Buddy",
+#   "userId": 1,
+#   "petId": 1,
+#   "adoptionId": 1,
+#   "visitDate": "2026-06-01T10:00:00",
+#   "comments": "First follow-up visit",
+#   "status": "PENDING"
+# }
+http://localhost:8086/followup-app/followups
+
+# PUT - Actualizar Seguimiento
+# Body (JSON):
+# {
+#   "adopterName": "John Doe",
+#   "petName": "Buddy",
+#   "userId": 1,
+#   "petId": 1,
+#   "adoptionId": 1,
+#   "visitDate": "2026-06-01T10:00:00",
+#   "comments": "Visit completed. Pet is healthy.",
+#   "status": "COMPLETED"
+# }
+http://localhost:8086/followup-app/followups/by-id/:id
+
+# DELETE - Eliminar Seguimiento
+http://localhost:8086/followup-app/followups/by-id/:id
+
+
+# ==============================================================================
+# 7. STAFF-SERVICE (puerto 8091)
+# ==============================================================================
+
+# GET - Listar todos, filtrar, por ID e Historial
+http://localhost:8091/staff-app/staff
+http://localhost:8091/staff-app/staff?status=ACTIVE
+http://localhost:8091/staff-app/staff/by-id/:id
+http://localhost:8091/staff-app/staff/by-id/:id/history
+
+ POST - Crear Personal
+ Body (JSON):
+ {
+   "userId": 1,
+   "shelterId": 1,
+   "position": "VETERINARIAN",
+   "phone": "+123456789",
+   "email": "vet@shelter.com",
+   "hireDate": "2025-01-15",
+   "status": "ACTIVE"
+}
+http://localhost:8091/staff-app/staff
+
+# PUT - Actualizar Personal
+# Body (JSON):
+# {
+#   "userId": 1,
+#   "shelterId": 1,
+#   "position": "VETERINARIAN",
+#   "phone": "+123456789",
+#   "email": "vet@shelter.com",
+#   "hireDate": "2025-01-15",
+#   "status": "ACTIVE"
+# }
+http://localhost:8091/staff-app/staff/by-id/:id
+
+# DELETE - Eliminar Personal
+http://localhost:8091/staff-app/staff/by-id/:id
+
+
+# ==============================================================================
+# 8. DONATION-SERVICE (puerto 8090)
+# ==============================================================================
+
+# GET - Listar todas, filtrar, por ID e Historial
+http://localhost:8090/donation-app/donations
+http://localhost:8090/donation-app/donations?status=COMPLETED
+http://localhost:8090/donation-app/donations/by-id/:id
+http://localhost:8090/donation-app/donations/by-id/:id/history
+
+# POST - Crear Donación
+# Body (JSON):
+# {
+#   "donorName": "Alice Smith",
+#   "amount": 50.00,
+#   "description": "Monthly donation",
+#   "status": "PENDING",
+#   "userId": 1,
+#   "shelterId": 1
+# }
+http://localhost:8090/donation-app/donations
+
+# PUT - Actualizar Donación
+# Body (JSON):
+# {
+#   "donorName": "Alice Smith",
+#   "amount": 75.00,
+#   "description": "Updated monthly donation",
+#   "status": "COMPLETED",
+#   "userId": 1,
+#   "shelterId": 1
+# }
+http://localhost:8090/donation-app/donations/by-id/:id
+
+# DELETE - Eliminar Donación
+http://localhost:8090/donation-app/donations/by-id/:id
+
+
+# ==============================================================================
+# 9. SUPPLY-SERVICE (puerto 8092)
+# ==============================================================================
+
+# GET - Listar todos, filtrar, por ID, por Refugio e Historial
+http://localhost:8092/supply-app/supplies
+http://localhost:8092/supply-app/supplies?status=IN_STOCK
+http://localhost:8092/supply-app/supplies/by-id/:id
+http://localhost:8092/supply-app/supplies/shelter/:shelterId
+http://localhost:8092/supply-app/supplies/by-id/:id/history
+
+# POST - Crear Suministro
+# Body (JSON):
+# {
+#   "name": "Dog Food",
+#   "description": "Premium dog food 15kg",
+#   "quantity": 50,
+#   "unit": "bags",
+#   "category": "FOOD",
+#   "shelterId": 1,
+#   "userId": 1,
+#   "supplierName": "PetSupply Co",
+#   "minimumStock": 10,
+#   "status": "AVAILABLE"
+# }
+http://localhost:8092/supply-app/supplies
+
+# PUT - Actualizar Suministro
+# Body (JSON):
+# {
+#   "name": "Dog Food Premium",
+#   "description": "Premium dog food 20kg",
+#   "quantity": 75,
+#   "unit": "bags",
+#   "category": "FOOD",
+#   "shelterId": 1,
+#   "userId": 1,
+#   "supplierName": "PetSupply Co",
+#   "minimumStock": 15,
+#   "status": "AVAILABLE"
+# }
+http://localhost:8092/supply-app/supplies/by-id/:id
+
+# DELETE - Eliminar Suministro
+http://localhost:8092/supply-app/supplies/by-id/:id
+
+
+# ==============================================================================
+# 10. SHELTER-SERVICE (puerto 8095)
+# ==============================================================================
+
+# GET - Listar todos, filtrar, por ID e Historial
+http://localhost:8095/shelter-app/shelters
+http://localhost:8095/shelter-app/shelters?status=ACTIVE
+http://localhost:8095/shelter-app/shelters/by-id/:id
+http://localhost:8095/shelter-app/shelters/by-id/:id/history
+
+# POST - Crear Refugio (Query Param: userId)
+# Body (JSON):
+# {
+#   "name": "Happy Paws Shelter",
+#   "email": "info@happypaws.org",
+#   "phone": "+123456789",
+#   "description": "Shelter for dogs and cats",
+#   "status": "ACTIVE"
+# }
+http://localhost:8095/shelter-app/shelters?userId=:userId
+
+# PUT - Actualizar Refugio (Query Param: userId)
+# Body (JSON):
+# {
+#   "name": "Happy Paws Shelter Updated",
+#   "email": "info@happypaws.org",
+#   "phone": "+123456789",
+#   "description": "Updated shelter description",
+#   "status": "ACTIVE"
+# }
+http://localhost:8095/shelter-app/shelters/by-id/:id?userId=:userId
+
+# DELETE - Eliminar Refugio (Query Param: userId)
+http://localhost:8095/shelter-app/shelters/by-id/:id?userId=:userId
+
 ============================================
   ADOPTAPP - COMANDOS DE PRUEBA (curl)
 ============================================
