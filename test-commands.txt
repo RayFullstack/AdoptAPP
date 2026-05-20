@@ -29,8 +29,8 @@ Servicios y puertos:
 ============================================
   AUTENTICACION
 ============================================
-Todos los endpoints requieren HTTP Basic Auth excepto:
-  POST /users (registro - publico)
+Todos los endpoints requieren HTTP Basic Auth (-u email:password).
+  POST /users requiere auth con rol: ADOPTER, SHELTER_ADMIN, VOLUNTEER, VET, o ADMIN
 
 Formato: -u email:password
 Ejemplo: -u admin@adoptapp.com:admin123
@@ -48,7 +48,7 @@ curl -u admin@adoptapp.com:admin123 http://localhost:8081/user-app/users/by-emai
 curl -u admin@adoptapp.com:admin123 http://localhost:8081/user-app/users/by-email/{email}/auth
 curl -u admin@adoptapp.com:admin123 http://localhost:8081/user-app/users/by-id/{id}/history
 
---- POST (publico, sin auth) ---
+--- POST (requiere auth) ---
 curl -X POST http://localhost:8081/user-app/users ^
   -H "Content-Type: application/json" ^
   -d "{\"username\":\"jdoe\",\"name\":\"John\",\"surname\":\"Doe\",\"email\":\"john@example.com\",\"password\":\"secret123\",\"phone\":\"+123456789\",\"country\":\"USA\",\"city\":\"New York\",\"street\":\"5th Ave\",\"homeNumber\":\"123\",\"postalCode\":\"10001\",\"type\":\"HOME\",\"status\":\"ACTIVE\",\"role\":\"ADOPTER\",\"active\":true}"
@@ -82,7 +82,7 @@ curl -u admin@adoptapp.com:admin123 -X POST http://localhost:8082/pet-app/pets ^
 --- PUT ---
 curl -u admin@adoptapp.com:admin123 -X PUT http://localhost:8082/pet-app/pets/by-id/{id} ^
   -H "Content-Type: application/json" ^
-  -d "{\"name\":\"Buddy Updated\",\"species\":\"Dog\",\"race\":\"Golden Retriever\",\"age\":4,\"size\":\"Large\",\"color\":\"Golden\",\"personality\":\"Playful\",\"fosterId\":1,\"vaccinated\":true,\"sterilized\":true,\"diseases\":\"Ninguna\",\"status\":\"ADOPTED\",\"shelterId\":1}"
+  -d "{\"name\":\"Buddy Updated\",\"species\":\"Dog\",\"race\":\"Golden Retriever\",\"age\":4,\"size\":\"Large\",\"color\":\"Golden\",\"personality\":\"Playful\",\"fosterId\":1,\"vaccinated\":true,\"sterilized\":true,\"diseases\":\"Ninguna\",\"status\":\"NOT_AVAILABLE\",\"shelterId\":1}"
 
 --- DELETE ---
 curl -u admin@adoptapp.com:admin123 -X DELETE http://localhost:8082/pet-app/pets/by-id/{id}
@@ -202,12 +202,12 @@ curl -u admin@adoptapp.com:admin123 http://localhost:8091/staff-app/staff/by-id/
 --- POST ---
 curl -u admin@adoptapp.com:admin123 -X POST http://localhost:8091/staff-app/staff ^
   -H "Content-Type: application/json" ^
-  -d "{\"userId\":1,\"shelterId\":1,\"position\":\"Veterinarian\",\"phone\":\"+123456789\",\"email\":\"vet@shelter.com\",\"hireDate\":\"2025-01-15\",\"status\":\"ACTIVE\"}"
+  -d "{\"userId\":1,\"shelterId\":1,\"position\":\"VETERINARIAN\",\"phone\":\"+123456789\",\"email\":\"vet@shelter.com\",\"hireDate\":\"2025-01-15\",\"status\":\"ACTIVE\"}"
 
 --- PUT ---
 curl -u admin@adoptapp.com:admin123 -X PUT http://localhost:8091/staff-app/staff/by-id/{id} ^
   -H "Content-Type: application/json" ^
-  -d "{\"userId\":1,\"shelterId\":1,\"position\":\"Senior Veterinarian\",\"phone\":\"+123456789\",\"email\":\"vet@shelter.com\",\"hireDate\":\"2025-01-15\",\"status\":\"ACTIVE\"}"
+  -d "{\"userId\":1,\"shelterId\":1,\"position\":\"VETERINARIAN\",\"phone\":\"+123456789\",\"email\":\"vet@shelter.com\",\"hireDate\":\"2025-01-15\",\"status\":\"ACTIVE\"}"
 
 --- DELETE ---
 curl -u admin@adoptapp.com:admin123 -X DELETE http://localhost:8091/staff-app/staff/by-id/{id}
@@ -253,12 +253,12 @@ curl -u admin@adoptapp.com:admin123 http://localhost:8092/supply-app/supplies/by
 --- POST ---
 curl -u admin@adoptapp.com:admin123 -X POST http://localhost:8092/supply-app/supplies ^
   -H "Content-Type: application/json" ^
-  -d "{\"name\":\"Dog Food\",\"description\":\"Premium dog food 15kg\",\"quantity\":50,\"unit\":\"bags\",\"category\":\"FOOD\",\"shelterId\":1,\"userId\":1,\"supplierName\":\"PetSupply Co\",\"minimumStock\":10,\"status\":\"IN_STOCK\"}"
+  -d "{\"name\":\"Dog Food\",\"description\":\"Premium dog food 15kg\",\"quantity\":50,\"unit\":\"bags\",\"category\":\"FOOD\",\"shelterId\":1,\"userId\":1,\"supplierName\":\"PetSupply Co\",\"minimumStock\":10,\"status\":\"AVAILABLE\"}"
 
 --- PUT ---
 curl -u admin@adoptapp.com:admin123 -X PUT http://localhost:8092/supply-app/supplies/by-id/{id} ^
   -H "Content-Type: application/json" ^
-  -d "{\"name\":\"Dog Food Premium\",\"description\":\"Premium dog food 20kg\",\"quantity\":75,\"unit\":\"bags\",\"category\":\"FOOD\",\"shelterId\":1,\"userId\":1,\"supplierName\":\"PetSupply Co\",\"minimumStock\":15,\"status\":\"IN_STOCK\"}"
+  -d "{\"name\":\"Dog Food Premium\",\"description\":\"Premium dog food 20kg\",\"quantity\":75,\"unit\":\"bags\",\"category\":\"FOOD\",\"shelterId\":1,\"userId\":1,\"supplierName\":\"PetSupply Co\",\"minimumStock\":15,\"status\":\"AVAILABLE\"}"
 
 --- DELETE ---
 curl -u admin@adoptapp.com:admin123 -X DELETE http://localhost:8092/supply-app/supplies/by-id/{id}
@@ -320,8 +320,8 @@ La diferencia es que los datos se pierden al reiniciar el servicio.
 ============================================
   NOTAS IMPORTANTES
 ============================================
-1. AUTENTICACION: Todos los endpoints requieren HTTP Basic Auth (-u email:password)
-   excepto POST /users que es publico para permitir registro.
+1. AUTENTICACION: Todos los endpoints requieren HTTP Basic Auth (-u email:password),
+   incluyendo POST /users (requiere rol: ADOPTER, SHELTER_ADMIN, VOLUNTEER, VET, o ADMIN).
 
 2. ORDEN DE CREACION: Si un servicio depende de otro (ej: adoption necesita
    user y pet), crear primero los recursos dependientes:
