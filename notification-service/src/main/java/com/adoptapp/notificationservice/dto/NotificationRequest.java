@@ -1,7 +1,6 @@
 package com.adoptapp.notificationservice.dto;
 
 import com.adoptapp.notificationservice.model.NotificationStatus;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

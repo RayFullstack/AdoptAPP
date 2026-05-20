@@ -1,22 +1,16 @@
 package com.adoptapp.adoptionservice.dto;
 
-import jakarta.validation.constraints.*;
-
-
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotNull;
 
 public record AdoptionRequest(
-        @NotNull(message = "El id es requerido")
-        Long id,
 
-        @NotNull(message = "El petId es requerido")
-        Long petId,
-
-        @NotNull(message = "El petId es requerido")
+        @NotNull
         Long userId,
 
-        String status,
+        @NotNull
+        Long petId,
 
-        LocalDateTime createdAt
-){
+        @NotNull
+        String status
+) {
 }

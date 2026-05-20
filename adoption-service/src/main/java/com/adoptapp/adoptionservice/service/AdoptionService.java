@@ -20,12 +20,14 @@ public class AdoptionService {
     }
 
     public List<AdoptionResult> getAdoptions() {
+
         return this.repository.findAll().stream()
                 .map(this::toResult)
                 .toList();
     }
 
     public List<AdoptionResult> getAdoptions(String status) {
+
         return this.repository.findAll().stream()
                 .filter(adoption ->
                         adoption.getStatus() != null &&
@@ -35,13 +37,12 @@ public class AdoptionService {
     }
 
     public AdoptionResult create(AdoptionCommand command) {
+
         Adoption adoption = new Adoption();
 
-        adoption.setPetName(command.petName());
-        adoption.setAdopterName(command.adopterName());
-        adoption.setStatus(command.status());
-        adoption.setPetId(command.petId());
         adoption.setUserId(command.userId());
+        adoption.setPetId(command.petId());
+        adoption.setStatus(command.status());
         adoption.setCreatedAt(LocalDateTime.now());
 
         Adoption saved = this.repository.save(adoption);
@@ -50,19 +51,26 @@ public class AdoptionService {
     }
 
     public Optional<AdoptionResult> getById(Long id) {
+
         return this.repository.findById(id)
                 .map(this::toResult);
     }
 
     public boolean deleteById(Long id) {
+
         if (!this.repository.existsById(id)) {
             return false;
         }
+
         this.repository.deleteById(id);
+
         return true;
     }
 
-    public Optional<AdoptionResult> updateById(Long id, AdoptionCommand command) {
+    public Optional<AdoptionResult> updateById(
+            Long id,
+            AdoptionCommand command) {
+
         Optional<Adoption> found = this.repository.findById(id);
 
         if (found.isEmpty()) {
@@ -71,11 +79,9 @@ public class AdoptionService {
 
         Adoption adoption = found.get();
 
-        adoption.setPetName(command.petName());
-        adoption.setAdopterName(command.adopterName());
-        adoption.setStatus(command.status());
-        adoption.setPetId(command.petId());
         adoption.setUserId(command.userId());
+        adoption.setPetId(command.petId());
+        adoption.setStatus(command.status());
 
         Adoption updated = this.repository.save(adoption);
 
@@ -83,10 +89,11 @@ public class AdoptionService {
     }
 
     private AdoptionResult toResult(Adoption adoption) {
+
         return new AdoptionResult(
                 adoption.getId(),
-                adoption.getPetName(),
-                adoption.getAdopterName(),
+                adoption.getUserId(),
+                adoption.getPetId(),
                 adoption.getStatus()
         );
     }
