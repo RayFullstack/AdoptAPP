@@ -1,7 +1,7 @@
 package com.adoptapp.notificationservice.config;
 
 import com.adoptapp.notificationservice.client.UserServiceClient;
-import com.adoptapp.notificationservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;

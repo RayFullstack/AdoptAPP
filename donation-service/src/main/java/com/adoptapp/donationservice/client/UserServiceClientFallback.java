@@ -1,6 +1,6 @@
 package com.adoptapp.donationservice.client;
 
-import com.adoptapp.donationservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.donationservice.dto.UserResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

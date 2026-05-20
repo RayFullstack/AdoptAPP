@@ -30,7 +30,7 @@ public class NotificationService {
     }
 
     public List<NotificationResult> getNotifications() {
-
+        log.debug("Obteniendo todas las notificaciones");
         return repository.findAll()
                 .stream()
                 .map(this::toResult)
@@ -38,24 +38,30 @@ public class NotificationService {
     }
 
     public List<NotificationResult> getNotifications(String status) {
+        log.debug("Obteniendo notificaciones con status={}", status);
+        try {
+            NotificationStatus notificationStatus =
+                    NotificationStatus.valueOf(status.toUpperCase());
 
-        NotificationStatus notificationStatus =
-                NotificationStatus.valueOf(status.toUpperCase());
-
-        return repository.findByStatus(notificationStatus)
-                .stream()
-                .map(this::toResult)
-                .toList();
+            return repository.findByStatus(notificationStatus)
+                    .stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para notificación: '{}'", status);
+            return List.of();
+        }
     }
 
     public Optional<NotificationResult> getById(Long id) {
-
+        log.debug("Obteniendo notificación por id={}", id);
         return repository.findById(id)
                 .map(this::toResult);
     }
 
     @Transactional
     public NotificationResult create(NotificationCommand command) {
+        log.info("Creando notificación: userId={}, type={}", command.userId(), command.typeName());
 
         NotificationType type = typeRepository.findByName(command.typeName())
                 .orElseThrow(() -> new IllegalArgumentException(
@@ -69,6 +75,7 @@ public class NotificationService {
         notification.setStatus(command.status());
 
         Notification saved = repository.save(notification);
+        log.info("Notificación creada exitosamente: id={}", saved.getId());
 
         return toResult(saved);
     }
@@ -77,6 +84,7 @@ public class NotificationService {
     public Optional<NotificationResult> updateById(
             Long id,
             NotificationCommand command) {
+        log.info("Actualizando notificación: id={}", id);
 
         return repository.findById(id)
                 .map(existing -> {
@@ -94,6 +102,7 @@ public class NotificationService {
                     existing.setStatus(command.status());
 
                     Notification updated = repository.save(existing);
+                    log.info("Notificación actualizada exitosamente: id={}", id);
 
                     return toResult(updated);
                 });
@@ -101,12 +110,15 @@ public class NotificationService {
 
     @Transactional
     public boolean deleteById(Long id) {
+        log.info("Eliminando notificación: id={}", id);
 
         if (!repository.existsById(id)) {
+            log.warn("Notificación a eliminar no encontrada: id={}", id);
             return false;
         }
 
         repository.deleteById(id);
+        log.info("Notificación eliminada exitosamente: id={}", id);
 
         return true;
     }

@@ -1,6 +1,6 @@
 package com.adoptapp.supplyservice.client;
 
-import com.adoptapp.supplyservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.supplyservice.dto.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

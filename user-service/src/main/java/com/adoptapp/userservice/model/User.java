@@ -40,7 +40,7 @@ public class User {
     private String username;
 
     @Email(message = "El email no tiene un formato válido")
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)

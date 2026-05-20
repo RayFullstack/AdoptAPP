@@ -48,11 +48,15 @@ public class DonationService {
     }
 
     public List<DonationResult> getDonations(String status) {
-        DonationStatus donationStatus =
-                DonationStatus.valueOf(status.toUpperCase());
-        return repository.findByStatus(donationStatus).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            DonationStatus donationStatus = DonationStatus.valueOf(status.toUpperCase());
+            return repository.findByStatus(donationStatus).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para donación: '{}'", status);
+            return List.of();
+        }
     }
 
     public Optional<DonationResult> getById(Long id) {
@@ -69,28 +73,27 @@ public class DonationService {
     @Transactional
     public DonationResult create(DonationCommand command) {
         log.info("Creando donación: userId={}, shelterId={}", command.userId(), command.shelterId());
-
-        ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(command.shelterId());
-        if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Refugio no encontrado: ID={}", command.shelterId());
-            throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        Donation donation = new Donation();
-        donation.setDonorName(command.donorName());
-        donation.setAmount(command.amount());
-        donation.setDescription(command.description());
-        donation.setStatus(command.status());
-        donation.setShelterId(command.shelterId());
-        donation.setUserId(command.userId());
-
         try {
+            ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(command.shelterId());
+            if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Refugio no encontrado: ID={}", command.shelterId());
+                throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            Donation donation = new Donation();
+            donation.setDonorName(command.donorName());
+            donation.setAmount(command.amount());
+            donation.setDescription(command.description());
+            donation.setStatus(command.status());
+            donation.setShelterId(command.shelterId());
+            donation.setUserId(command.userId());
+
             Donation saved = repository.save(donation);
 
             recordHistory(saved.getId(), "CREATED",
@@ -106,38 +109,39 @@ public class DonationService {
 
             log.info("Donación creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
-        } catch (Exception e) {
-            log.error("Error al crear donación", e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al crear donación: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al crear donación: no se pudo completar la validación");
         }
     }
 
     @Transactional
     public Optional<DonationResult> updateById(Long id, DonationCommand command) {
         log.info("Actualizando donación: ID={}", id);
-
-        Optional<Donation> found = repository.findById(id);
-        if (found.isEmpty()) {
-            log.warn("Donación no encontrada: ID={}", id);
-            return Optional.empty();
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        Donation toUpdate = found.get();
-        DonationStatus prevStatus = toUpdate.getStatus();
-        BigDecimal prevAmount = toUpdate.getAmount();
-
-        toUpdate.setDonorName(command.donorName());
-        toUpdate.setAmount(command.amount());
-        toUpdate.setDescription(command.description());
-        toUpdate.setStatus(command.status());
-
         try {
+            Optional<Donation> found = repository.findById(id);
+            if (found.isEmpty()) {
+                log.warn("Donación no encontrada: ID={}", id);
+                return Optional.empty();
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            Donation toUpdate = found.get();
+            DonationStatus prevStatus = toUpdate.getStatus();
+            BigDecimal prevAmount = toUpdate.getAmount();
+
+            toUpdate.setDonorName(command.donorName());
+            toUpdate.setAmount(command.amount());
+            toUpdate.setDescription(command.description());
+            toUpdate.setStatus(command.status());
+
             Donation updated = repository.save(toUpdate);
 
             String cambios = "";
@@ -159,9 +163,11 @@ public class DonationService {
 
             log.info("Donación actualizada exitosamente: ID={}", id);
             return Optional.of(toResult(updated));
-        } catch (Exception e) {
-            log.error("Error al actualizar donación: ID={}", id, e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al actualizar donación: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al actualizar donación: no se pudo completar la validación");
         }
     }
 

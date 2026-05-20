@@ -1,6 +1,7 @@
 package com.adoptapp.supplyservice.config;
 
 import com.adoptapp.supplyservice.client.UserServiceClient;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,20 +27,20 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         UserAuthResponse user = response.getBody();
 
-        if (!user.isEnabled()) {
+        if (!user.enabled()) {
             throw new UsernameNotFoundException("Usuario deshabilitado: " + email);
         }
 
-        String role = user.getRole() != null ? user.getRole() : "ADOPTER";
+        String role = user.role() != null ? user.role() : "ADOPTER";
 
         List<org.springframework.security.core.GrantedAuthority> authorities = List.of(
                 new org.springframework.security.core.authority.SimpleGrantedAuthority("ROLE_" + role)
         );
 
         return new org.springframework.security.core.userdetails.User(
-                user.getEmail(),
-                user.getPassword(),
-                user.isEnabled(),
+                user.email(),
+                user.password(),
+                user.enabled(),
                 true, true, true,
                 authorities
         );

@@ -1,6 +1,6 @@
 package com.adoptapp.followupservice.client;
 
-import com.adoptapp.followupservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.followupservice.dto.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

@@ -64,34 +64,25 @@ public class SupplyService {
 
     @Transactional
     public SupplyResult create(SupplyCommand command) {
-        log.info("Creando supply: name={}, shelterId={}, userId={}", command.getName(), command.getShelterId(), command.getUserId());
+        log.info("Creando supply: name={}, shelterId={}, userId={}", command.name(), command.shelterId(), command.userId());
 
-        validateShelter(command.getShelterId());
-        validateUser(command.getUserId());
+        validateShelter(command.shelterId());
+        validateUser(command.userId());
 
-        Supply supply = Supply.builder()
-                .name(command.getName())
-                .description(command.getDescription())
-                .quantity(command.getQuantity())
-                .unit(command.getUnit())
-                .category(SupplyCategory.valueOf(command.getCategory().toUpperCase()))
-                .shelterId(command.getShelterId())
-                .supplierName(command.getSupplierName())
-                .minimumStock(command.getMinimumStock() != null ? command.getMinimumStock() : 5)
-                .status(command.getStatus())
-                .build();
+        Supply supply = new Supply();
+        applyCommandToEntity(supply, command);
 
         Supply saved = supplyRepository.save(supply);
         log.info("Supply creado exitosamente: id={}, name={}", saved.getId(), saved.getName());
 
         recordHistory(saved.getId(), "CREATED",
-                "Supply creado: name=" + command.getName() + ", quantity=" + command.getQuantity(),
-                command.getUserId(),
+                "Supply creado: name=" + command.name() + ", quantity=" + command.quantity(),
+                command.userId(),
                 null, saved.getStatus().name(),
                 null, saved.getQuantity(),
                 null, saved.getCategory().name());
 
-        sendNotification(command.getUserId(), "SUPPLY_CREATED",
+        sendNotification(command.userId(), "SUPPLY_CREATED",
                 "Nuevo supply registrado: " + saved.getName());
 
         return toResult(saved);
@@ -107,34 +98,26 @@ public class SupplyService {
             return Optional.empty();
         }
 
-        validateShelter(command.getShelterId());
+        validateShelter(command.shelterId());
 
         Supply toUpdate = found.get();
         String prevStatus = toUpdate.getStatus().name();
         Integer prevQuantity = toUpdate.getQuantity();
         String prevCategory = toUpdate.getCategory().name();
 
-        toUpdate.setName(command.getName());
-        toUpdate.setDescription(command.getDescription());
-        toUpdate.setQuantity(command.getQuantity());
-        toUpdate.setUnit(command.getUnit());
-        toUpdate.setCategory(SupplyCategory.valueOf(command.getCategory().toUpperCase()));
-        toUpdate.setShelterId(command.getShelterId());
-        toUpdate.setSupplierName(command.getSupplierName());
-        toUpdate.setMinimumStock(command.getMinimumStock() != null ? command.getMinimumStock() : 5);
-        toUpdate.setStatus(SupplyStatus.valueOf(command.getStatus().toUpperCase()));
+        applyCommandToEntity(toUpdate, command);
 
         Supply saved = supplyRepository.save(toUpdate);
         log.info("Supply actualizado exitosamente: id={}, name={}", saved.getId(), saved.getName());
 
         recordHistory(saved.getId(), "UPDATED",
-                "Supply actualizado: name=" + command.getName(),
-                command.getUserId(),
+                "Supply actualizado: name=" + command.name(),
+                command.userId(),
                 prevStatus, saved.getStatus().name(),
                 prevQuantity, saved.getQuantity(),
                 prevCategory, saved.getCategory().name());
 
-        sendNotification(command.getUserId(), "SUPPLY_UPDATED",
+        sendNotification(command.userId(), "SUPPLY_UPDATED",
                 "Supply actualizado: " + saved.getName());
 
         return Optional.of(toResult(saved));
@@ -184,6 +167,18 @@ public class SupplyService {
         return Optional.of(history);
     }
 
+    private void applyCommandToEntity(Supply supply, SupplyCommand command) {
+        supply.setName(command.name());
+        supply.setDescription(command.description());
+        supply.setQuantity(command.quantity());
+        supply.setUnit(command.unit());
+        supply.setCategory(parseSupplyCategory(command.category()));
+        supply.setShelterId(command.shelterId());
+        supply.setSupplierName(command.supplierName());
+        supply.setMinimumStock(command.minimumStock() != null ? command.minimumStock() : 5);
+        supply.setStatus(command.status());
+    }
+
     private void recordHistory(Long supplyId, String action, String comment, Long changedByUserId,
                                 String prevStatus, String newStatus,
                                 Integer prevQuantity, Integer newQuantity,
@@ -227,8 +222,8 @@ public class SupplyService {
             String email = "sistema@adoptapp.com";
             ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(userId);
             if (userResponse != null && userResponse.getStatusCode().is2xxSuccessful()
-                    && userResponse.getBody() != null && userResponse.getBody().getEmail() != null) {
-                email = userResponse.getBody().getEmail();
+                    && userResponse.getBody() != null && userResponse.getBody().email() != null) {
+                email = userResponse.getBody().email();
             }
             NotificationRequest notif = new NotificationRequest(userId, email, message, type, "SENT");
             ResponseEntity<Void> response = notificationServiceClient.sendNotification(notif);
@@ -237,6 +232,15 @@ public class SupplyService {
             }
         } catch (Exception e) {
             log.warn("No se pudo enviar notificación: {}", e.getMessage());
+        }
+    }
+
+    private SupplyCategory parseSupplyCategory(String category) {
+        try {
+            return SupplyCategory.valueOf(category.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            log.warn("Categoría inválida para supply: '{}'", category);
+            throw new IllegalArgumentException("Categoría de supply inválida: " + category);
         }
     }
 

@@ -14,7 +14,8 @@ CREATE TABLE pets (
     vaccinated BOOLEAN,
     sterilized BOOLEAN,
     diseases VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX idx_pets_status ON pets(status);

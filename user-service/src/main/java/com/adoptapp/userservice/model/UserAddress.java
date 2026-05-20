@@ -27,7 +27,7 @@ public class UserAddress {
     @Column(nullable = false, length = 100)
     private String street;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 20)
     private String homeNumber;
 
     @Column(nullable = false, length = 100)
@@ -41,7 +41,7 @@ public class UserAddress {
     private String type;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
 }

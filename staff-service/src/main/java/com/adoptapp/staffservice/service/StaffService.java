@@ -49,10 +49,15 @@ public class StaffService {
     }
 
     public List<StaffResult> getAllStaff(String status) {
-        StaffStatus staffStatus = StaffStatus.valueOf(status.toUpperCase());
-        return repository.findByStatus(staffStatus).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            StaffStatus staffStatus = StaffStatus.valueOf(status.toUpperCase());
+            return repository.findByStatus(staffStatus).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para staff: '{}'", status);
+            return List.of();
+        }
     }
 
     public Optional<StaffResult> getById(Long id) {
@@ -70,29 +75,28 @@ public class StaffService {
     public StaffResult create(StaffCommand command) {
         log.info("Creando staff: userId={}, shelterId={}, position={}",
                 command.userId(), command.shelterId(), command.position());
-
-        ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(command.shelterId());
-        if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Refugio no encontrado: ID={}", command.shelterId());
-            throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        Staff staff = new Staff();
-        staff.setUserId(command.userId());
-        staff.setShelterId(command.shelterId());
-        staff.setPosition(command.position());
-        staff.setPhone(command.phone());
-        staff.setEmail(command.email());
-        staff.setHireDate(command.hireDate());
-        staff.setStatus(command.status() != null ? command.status() : StaffStatus.ACTIVE);
-
         try {
+            ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(command.shelterId());
+            if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Refugio no encontrado: ID={}", command.shelterId());
+                throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            Staff staff = new Staff();
+            staff.setUserId(command.userId());
+            staff.setShelterId(command.shelterId());
+            staff.setPosition(command.position());
+            staff.setPhone(command.phone());
+            staff.setEmail(command.email());
+            staff.setHireDate(command.hireDate());
+            staff.setStatus(command.status() != null ? command.status() : StaffStatus.ACTIVE);
+
             Staff saved = repository.save(staff);
 
             recordHistory(saved.getId(), "CREATED",
@@ -107,44 +111,45 @@ public class StaffService {
 
             log.info("Staff creado exitosamente: ID={}", saved.getId());
             return toResult(saved);
-        } catch (Exception e) {
-            log.error("Error al crear staff", e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al crear staff: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al crear staff: no se pudo completar la validación");
         }
     }
 
     @Transactional
     public Optional<StaffResult> updateById(Long id, StaffCommand command) {
         log.info("Actualizando staff: ID={}", id);
-
-        Optional<Staff> found = repository.findById(id);
-        if (found.isEmpty()) {
-            log.warn("Staff no encontrado: ID={}", id);
-            return Optional.empty();
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        Staff toUpdate = found.get();
-        StaffPosition prevPosition = toUpdate.getPosition();
-        StaffStatus prevStatus = toUpdate.getStatus();
-        String prevPhone = toUpdate.getPhone();
-
-        toUpdate.setUserId(command.userId());
-        toUpdate.setShelterId(command.shelterId());
-        toUpdate.setPosition(command.position());
-        toUpdate.setPhone(command.phone());
-        toUpdate.setEmail(command.email());
-        toUpdate.setHireDate(command.hireDate());
-        if (command.status() != null) {
-            toUpdate.setStatus(command.status());
-        }
-
         try {
+            Optional<Staff> found = repository.findById(id);
+            if (found.isEmpty()) {
+                log.warn("Staff no encontrado: ID={}", id);
+                return Optional.empty();
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            Staff toUpdate = found.get();
+            StaffPosition prevPosition = toUpdate.getPosition();
+            StaffStatus prevStatus = toUpdate.getStatus();
+            String prevPhone = toUpdate.getPhone();
+
+            toUpdate.setUserId(command.userId());
+            toUpdate.setShelterId(command.shelterId());
+            toUpdate.setPosition(command.position());
+            toUpdate.setPhone(command.phone());
+            toUpdate.setEmail(command.email());
+            toUpdate.setHireDate(command.hireDate());
+            if (command.status() != null) {
+                toUpdate.setStatus(command.status());
+            }
+
             Staff updated = repository.save(toUpdate);
 
             String cambios = "";
@@ -169,9 +174,11 @@ public class StaffService {
 
             log.info("Staff actualizado exitosamente: ID={}", id);
             return Optional.of(toResult(updated));
-        } catch (Exception e) {
-            log.error("Error al actualizar staff: ID={}", id, e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al actualizar staff: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al actualizar staff: no se pudo completar la validación");
         }
     }
 

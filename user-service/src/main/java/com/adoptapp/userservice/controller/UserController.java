@@ -1,5 +1,6 @@
 package com.adoptapp.userservice.controller;
 
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.userservice.dto.*;
 import com.adoptapp.userservice.model.UserStatus;
 import com.adoptapp.userservice.service.UserService;

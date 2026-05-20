@@ -56,42 +56,47 @@ public class AdoptionService {
     }
 
     public List<AdoptionResult> getAdoptions(String status) {
-        AdoptionStatus adoptionStatus = AdoptionStatus.valueOf(status.toUpperCase());
-        return this.repository.findByStatus(adoptionStatus).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            AdoptionStatus adoptionStatus = AdoptionStatus.valueOf(status.toUpperCase());
+            return this.repository.findByStatus(adoptionStatus).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para adopción: '{}'", status);
+            return List.of();
+        }
     }
 
     @Transactional
     public AdoptionResult create(AdoptionCommand command) {
         log.info("Creando adopción: userId={}, petId={}", command.userId(), command.petId());
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
-        if (!petResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Mascota no encontrada: ID={}", command.petId());
-            throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
-        }
-
-        PetResponse pet = petResponse.getBody();
-        if (pet != null && pet.shelterId() != null) {
-            ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(pet.shelterId());
-            if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
-                log.warn("Refugio no encontrado: ID={}", pet.shelterId());
-                throw new IllegalArgumentException("El refugio con ID " + pet.shelterId() + " no existe");
-            }
-        }
-
-        Adoption adoption = new Adoption();
-        adoption.setUserId(command.userId());
-        adoption.setPetId(command.petId());
-        adoption.setStatus(command.status());
         try {
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
+            if (!petResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Mascota no encontrada: ID={}", command.petId());
+                throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
+            }
+
+            PetResponse pet = petResponse.getBody();
+            if (pet != null && pet.shelterId() != null) {
+                ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(pet.shelterId());
+                if (!shelterResponse.getStatusCode().is2xxSuccessful()) {
+                    log.warn("Refugio no encontrado: ID={}", pet.shelterId());
+                    throw new IllegalArgumentException("El refugio con ID " + pet.shelterId() + " no existe");
+                }
+            }
+
+            Adoption adoption = new Adoption();
+            adoption.setUserId(command.userId());
+            adoption.setPetId(command.petId());
+            adoption.setStatus(command.status());
+
             Adoption saved = this.repository.save(adoption);
             recordHistory(saved, "CREATED",
                     "Adopción creada: mascota " + command.petId() + " por usuario " + command.userId());
@@ -106,9 +111,11 @@ public class AdoptionService {
 
             log.info("Adopción creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
-        } catch (Exception e) {
-            log.error("Error al crear adopción", e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al crear adopción: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al crear adopción: no se pudo completar la validación");
         }
     }
 
@@ -160,31 +167,30 @@ public class AdoptionService {
     @Transactional
     public Optional<AdoptionResult> updateById(Long id, AdoptionCommand command) {
         log.info("Actualizando adopción: ID={}", id);
-
-        Optional<Adoption> found = this.repository.findById(id);
-        if (found.isEmpty()) {
-            log.warn("Adopción no encontrada: ID={}", id);
-            return Optional.empty();
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
-        if (!petResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Mascota no encontrada: ID={}", command.petId());
-            throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
-        }
-
-        Adoption adoption = found.get();
-        adoption.setUserId(command.userId());
-        adoption.setPetId(command.petId());
-        adoption.setStatus(command.status());
-
         try {
+            Optional<Adoption> found = this.repository.findById(id);
+            if (found.isEmpty()) {
+                log.warn("Adopción no encontrada: ID={}", id);
+                return Optional.empty();
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
+            if (!petResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Mascota no encontrada: ID={}", command.petId());
+                throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
+            }
+
+            Adoption adoption = found.get();
+            adoption.setUserId(command.userId());
+            adoption.setPetId(command.petId());
+            adoption.setStatus(command.status());
+
             Adoption updated = this.repository.save(adoption);
             recordHistory(updated, "UPDATED",
                     "Adopción modificada: mascota " + command.petId() + ", usuario " + command.userId()
@@ -196,9 +202,11 @@ public class AdoptionService {
 
             log.info("Adopción actualizada exitosamente: ID={}", id);
             return Optional.of(toResult(updated));
-        } catch (Exception e) {
-            log.error("Error al actualizar adopción: ID={}", id, e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al actualizar adopción: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al actualizar adopción: no se pudo completar la validación");
         }
     }
 

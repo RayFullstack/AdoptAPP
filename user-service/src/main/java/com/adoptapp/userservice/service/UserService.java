@@ -1,7 +1,11 @@
 package com.adoptapp.userservice.service;
 
 import com.adoptapp.userservice.client.UserNotificationClient;
-import com.adoptapp.userservice.dto.*;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
+import com.adoptapp.userservice.dto.UserCommand;
+import com.adoptapp.userservice.dto.UserHistoryResult;
+import com.adoptapp.userservice.dto.UserNotificationRequest;
+import com.adoptapp.userservice.dto.UserResult;
 import com.adoptapp.userservice.model.*;
 import com.adoptapp.userservice.repository.AddressRepository;
 import com.adoptapp.userservice.repository.PhoneRepository;
@@ -52,11 +56,16 @@ public class UserService {
         if (statusFilter == null || statusFilter.isBlank()) {
             return getUsers();
         }
-        return this.userRepository
-                .findByStatus(com.adoptapp.userservice.model.UserStatus.valueOf(statusFilter.toUpperCase()))
-                .stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            return this.userRepository
+                    .findByStatus(com.adoptapp.userservice.model.UserStatus.valueOf(statusFilter.toUpperCase()))
+                    .stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para usuario: '{}'", statusFilter);
+            return List.of();
+        }
     }
 
     @Transactional
@@ -130,7 +139,13 @@ public class UserService {
 
     public Optional<UserAuthResponse> getAuthByEmail(String email) {
         return this.userRepository.findByEmail(email)
-                .map(user -> new UserAuthResponse(user.getEmail(), user.getPassword(), user.getRole()));
+                .map(user -> new UserAuthResponse(
+                        user.getId(),
+                        user.getEmail(),
+                        user.getPassword(),
+                        user.getRole().name(),
+                        user.isActive()
+                ));
     }
 
     @Transactional

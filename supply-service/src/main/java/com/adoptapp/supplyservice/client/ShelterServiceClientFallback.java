@@ -11,7 +11,7 @@ public class ShelterServiceClientFallback implements ShelterServiceClient {
 
     @Override
     public ResponseEntity<ShelterResponse> getShelterById(Long id) {
-        log.error("Fallback: No se pudo obtener shelter por id: {}", id);
-        return null;
+        log.error("Fallback: shelter-service no disponible, shelterId={}", id);
+        return ResponseEntity.status(503).build();
     }
 }

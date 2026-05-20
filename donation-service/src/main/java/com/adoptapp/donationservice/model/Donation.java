@@ -21,20 +21,23 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String donorName;
 
-    @Column(columnDefinition = "DECIMAL(12,2)")
+    @Column(nullable = false, columnDefinition = "DECIMAL(12,2)")
     private BigDecimal amount;
 
+    @Column(nullable = false, length = 255)
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private DonationStatus status;
 
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "shelter_id")
+    @Column(name = "shelter_id", nullable = false)
     private Long shelterId;
 
     @Column(name = "created_at")

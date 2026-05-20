@@ -1,7 +1,7 @@
 package com.adoptapp.shelterservice.config;
 
 import com.adoptapp.shelterservice.client.UserServiceClient;
-import com.adoptapp.shelterservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
@@ -30,6 +30,9 @@ public class CustomUserDetailsService implements UserDetailsService {
             }
 
             UserAuthResponse user = response.getBody();
+            if (!user.enabled()) {
+                throw new UsernameNotFoundException("Usuario deshabilitado: " + email);
+            }
             return User.withUsername(user.email())
                     .password(user.password())
                     .roles(user.role())

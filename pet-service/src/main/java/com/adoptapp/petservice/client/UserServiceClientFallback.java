@@ -1,6 +1,6 @@
 package com.adoptapp.petservice.client;
 
-import com.adoptapp.petservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.petservice.dto.UserResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

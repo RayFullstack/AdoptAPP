@@ -11,8 +11,7 @@ public class NotificationServiceClientFallback implements NotificationServiceCli
 
     @Override
     public ResponseEntity<Void> sendNotification(NotificationRequest request) {
-        log.warn("Fallback: No se pudo enviar notificación a userId={}, type={}",
-                request.userId(), request.typeName());
-        return null;
+        log.warn("Fallback: notification-service no disponible, userId={}", request.userId());
+        return ResponseEntity.status(503).build();
     }
 }

@@ -1,8 +1,12 @@
 package com.adoptapp.petservice.exception;
 
 import com.adoptapp.sharedkernel.dto.ErrorResponse;
+import com.adoptapp.sharedkernel.exception.BusinessException;
+import com.adoptapp.sharedkernel.exception.ForbiddenException;
 import com.adoptapp.sharedkernel.exception.RemoteServiceException;
 import com.adoptapp.sharedkernel.exception.ResourceNotFoundException;
+import com.adoptapp.sharedkernel.exception.UnauthorizedException;
+import com.adoptapp.sharedkernel.exception.ValidationException;
 import com.adoptapp.sharedkernel.util.ErrorResponseFactory;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -12,15 +16,42 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
-@ControllerAdvice
+@Slf4j
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundException ex, HttpServletRequest request) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ErrorResponseFactory.notFound(ex.getMessage(), request.getRequestURI()));
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorized(UnauthorizedException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(ErrorResponseFactory.unauthorized(ex.getMessage(), request.getRequestURI()));
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ErrorResponse> handleForbidden(ForbiddenException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(ErrorResponseFactory.forbidden(ex.getMessage(), request.getRequestURI()));
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(ValidationException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponseFactory.badRequest(ex.getMessage(), request.getRequestURI()));
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ErrorResponse> handleBusiness(BusinessException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(ErrorResponseFactory.conflict(ex.getMessage(), request.getRequestURI()));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
@@ -46,7 +77,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneric(Exception ex, HttpServletRequest request) {
+        log.error("Error interno no manejado en {}: {}", request.getRequestURI(), ex.getMessage(), ex);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ErrorResponseFactory.internalServerError(ex.getMessage(), request.getRequestURI()));
+                .body(ErrorResponseFactory.internalServerError("Error interno del servidor", request.getRequestURI()));
     }
 }

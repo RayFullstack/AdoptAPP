@@ -14,6 +14,8 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: ${DB_USER}
     password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
 
   flyway:
     enabled: true
@@ -39,12 +41,23 @@ spring:
 
   cloud:
     openfeign:
+      circuitbreaker:
+        enabled: true
       client:
         config:
           default:
             connect-timeout: 2000
             read-timeout: 3000
             logger-level: BASIC
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 30s
+        permittedNumberOfCallsInHalfOpenState: 3
 
 services:
   user-service:

@@ -31,12 +31,14 @@ adoptapp/
 | **Spring Data JPA** | Acceso a datos con relaciones |
 | **PostgreSQL 18 / H2** | Bases de datos (prod / dev) |
 | **OpenFeign** | Comunicación sincrónica entre servicios |
+| **Resilience4j** | Circuit breaker para tolerancia a fallos |
 | **Flyway 11.7.2** | Migraciones de base de datos |
 | **Lombok** | Reducción de código repetitivo |
 | **Bean Validation** | Validación de DTOs de entrada |
 | **SLF4J + Logback** | Logging con archivos por servicio |
 | **spring-dotenv** | Carga de variables de entorno desde `.env` |
 | **Maven** | Gestión de dependencias |
+| **GitHub Actions** | CI/CD pipeline (build + test) |
 
 ## Roles del Sistema
 
@@ -65,7 +67,7 @@ API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER,
 | `GET` | `/users/by-email/{email}` | Obtener por email | Público |
 | `GET` | `/users/by-email/{email}/auth` | Auth por email | Público |
 | `GET` | `/users/by-id/{id}/history` | Historial de cambios | ADMIN |
-| `POST` | `/users` | Crear usuario | Cualquier rol autenticado |
+| `POST` | `/users` | Crear usuario | Público (registro) |
 | `PUT` | `/users/by-id/{id}` | Actualizar usuario | Propio perfil + SHELTER_ADMIN edita VOLUNTEER |
 | `DELETE` | `/users/by-id/{id}` | Eliminar usuario | ADMIN |
 
@@ -157,8 +159,8 @@ API para gestionar registros clínicos de mascotas con historial de cambios. VET
 
 | Método | Ruta | Descripción | Acceso |
 |---|---|---|---|
-| `GET` | `/health` | Listar todos (filtro `?vaccinationStatus=`, `?sterilizationStatus=`) | Público |
-| `GET` | `/health/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/health` | Listar todos (filtro `?vaccinationStatus=`, `?sterilizationStatus=`) | VET, SHELTER_ADMIN, ADMIN |
+| `GET` | `/health/by-id/{id}` | Obtener por ID | VET, SHELTER_ADMIN, ADMIN |
 | `GET` | `/health/by-id/{id}/history` | Historial de cambios | ADMIN |
 | `POST` | `/health` | Crear registro clínico | VET, SHELTER_ADMIN, ADMIN |
 | `PUT` | `/health/by-id/{id}` | Actualizar registro clínico | VET, SHELTER_ADMIN, ADMIN |
@@ -196,8 +198,8 @@ API para gestionar donaciones. Verifica existencia de usuario y refugio vía Fei
 
 | Método | Ruta | Descripción | Acceso |
 |---|---|---|---|
-| `GET` | `/donations` | Listar todas (filtro `?status=`) | Público |
-| `GET` | `/donations/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/donations` | Listar todas (filtro `?status=`) | ADMIN |
+| `GET` | `/donations/by-id/{id}` | Obtener por ID | ADMIN |
 | `GET` | `/donations/by-id/{id}/history` | Historial de cambios | ADMIN |
 | `POST` | `/donations` | Crear donación | ADMIN |
 | `PUT` | `/donations/by-id/{id}` | Actualizar donación | ADMIN |
@@ -218,8 +220,8 @@ API para gestionar personal de refugios.
 
 | Método | Ruta | Descripción | Acceso |
 |---|---|---|---|
-| `GET` | `/staff` | Listar todo (filtro `?status=`) | Público |
-| `GET` | `/staff/by-id/{id}` | Obtener por ID | Público |
+| `GET` | `/staff` | Listar todo (filtro `?status=`) | ADMIN |
+| `GET` | `/staff/by-id/{id}` | Obtener por ID | ADMIN |
 | `GET` | `/staff/by-id/{id}/history` | Historial de cambios | ADMIN |
 | `POST` | `/staff` | Crear personal | SHELTER_ADMIN, ADMIN |
 | `PUT` | `/staff/by-id/{id}` | Actualizar personal | SHELTER_ADMIN, ADMIN |
@@ -375,6 +377,12 @@ DB_PASSWORD=1234
 - Roles: `ADOPTER`, `SHELTER_ADMIN`, `VOLUNTEER`, `VET`, `ADMIN`
 - `@PreAuthorize` en endpoints sensibles
 - `UserSecurity.canEdit()`: ADMIN edita cualquiera; SHELTER_ADMIN edita VOLUNTEER; cada rol edita su propio perfil
+- **FeignAuthInterceptor**: Propaga automáticamente el header `Authorization` entre servicios via Feign
+- **GlobalExceptionHandler**: Manejo centralizado de excepciones en los 10 servicios con respuestas seguras (no expone stack traces)
+- **Structured logging**: Todos los métodos de notification-service incluyen logging estructurado con requestId
+- **Enum validation**: Todos los `Enum.valueOf()` protegidos con try/catch para evitar 500 por valores inválidos
+- **HikariCP pool size**: 5 conexiones por servicio (50 total) para evitar agotamiento de PostgreSQL `max_connections=100`
+- **Shared DTO**: `UserAuthResponse` centralizado en `shared-kernel` para eliminar duplicación entre 9 servicios
 
 ## Patrones del Proyecto
 
@@ -387,12 +395,35 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 ### Logging
 - Archivos de log por servicio: `logs/{service}.log`
 - Perfiles `dev` (DEBUG) y `prod` (INFO)
+- Logging estructurado en notification-service con campos: `method`, `userId`, `recipient`, `status`
 
 ### Manejo Global de Excepciones
 - `GlobalExceptionHandler` con `@RestControllerAdvice` en cada servicio
 - `IllegalArgumentException` → 400 Bad Request
 - `MethodArgumentNotValidException` → 400 Bad Request
-- `Exception` → 500 Internal Server Error
+- `UnauthorizedException` → 401 Unauthorized
+- `ForbiddenException` → 403 Forbidden
+- `ValidationException` → 400 Bad Request
+- `BusinessException` → 400 Bad Request
+- `Exception` (catch-all) → 500 Internal Server Error (mensaje genérico, log interno con stack trace)
+
+### Resiliencia
+- **Resilience4j Circuit Breaker**: Habilitado en 9 servicios con Feign clients
+  - `slidingWindowSize`: 10
+  - `failureRateThreshold`: 50%
+  - `waitDurationInOpenState`: 30s
+- **Feign Fallbacks**: Retornan `ResponseEntity.status(503)` cuando servicios remotos están caídos
+- **Try/Catch en Feign calls**: Envoltura de todas las llamadas remotas en 6 servicios críticos
+
+### Base de Datos
+- **Foreign Keys**: `donation_history` tiene FK explícitas vía `V3__add_foreign_keys_to_donations.sql`
+- **Unique Constraints**: `health` tabla tiene constraint único en `pet_id` vía `V3__add_unique_constraint_pet_id.sql`
+- **Entity-Migration Alignment**: Correcciones en `User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields
+
+### CI/CD
+- Pipeline GitHub Actions en `.github/workflows/build.yml`
+- Trigger: push/PR a `main`/`master`
+- Jobs: `mvn clean compile` + `mvn test`
 
 ## Historial de Cambios
 
@@ -426,22 +457,43 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - health-service: agregado driver PostgreSQL al pom.xml
 - Todos los servicios: agregado `flyway-database-postgresql` dependency
 
+### Auditoria Tecnica y Mejoras Criticas (2026-05)
+- **Resilience4j**: Circuit breaker agregado a 9 servicios (config: slidingWindowSize=10, failureRateThreshold=50%, waitDuration=30s)
+- **Feign Fallbacks**: supply-service y notification-service ahora retornan `ResponseEntity.status(503)` en lugar de `null`
+- **Feign Auth Propagation**: `FeignAuthInterceptor` como `@Component` en 9 servicios para propagar `Authorization` headers
+- **Exception Handling**: `UnauthorizedException`, `ForbiddenException`, `ValidationException`, `BusinessException` manejados en los 10 servicios
+- **Secure Catch-All**: Exception handler genérico retorna mensaje sin stack trace, log interno con detalles completos
+- **Structured Logging**: Todos los métodos de notification-service incluyen logging con campos estructurados
+- **Enum Validation**: 12 llamadas `Enum.valueOf()` protegidas con try/catch en todos los servicios
+- **Shared DTO**: `UserAuthResponse` movido a shared-kernel; 9 servicios actualizados para usar DTO centralizado
+- **HikariCP Pool**: `maximum-pool-size: 5` en todos los servicios para evitar agotamiento de conexiones PostgreSQL
+- **Database Fixes**: 
+  - `V3__add_foreign_keys_to_donations.sql` en donation-service
+  - `V3__add_unique_constraint_pet_id.sql` en health-service
+  - Corrección de entity↔migration mismatches (`User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields)
+  - Corrección de DB name en notification-service: `notif_db` (era `notification_db`)
+- **Security**: GET endpoints restringidos por roles en health, staff, donation, followup services
+- **Supply Service**: Refactorizado mapeo DTO con helper `applyCommandToEntity()`
+- **CI/CD**: Pipeline GitHub Actions `.github/workflows/build.yml` para build automático y tests
+- **Dead Code**: Eliminados 4 archivos `UserRole.java` no utilizados (adoption, donation, health, pet)
+- **Role Mapping**: user-service retorna `user.getRole().name()` para compatibilidad con shared-kernel `UserAuthResponse`
+
 ## Notas y Limitaciones Conocidas
 
 ### Problemas identificados (pendientes de correccion)
 - **health-service**: La tabla se llama `health` (palabra reservada en algunos motores SQL). Funciona en PostgreSQL pero puede fallar en MySQL.
 - **shelter-service**: Soft delete implementado pero `GET /shelters` retorna registros eliminados.
 - **followup-service**: Notificaciones enviadas a email hardcodeado `sistema@adoptapp.com`.
-- **UserAuthResponse**: 3 firmas diferentes entre servicios (inconsistencia de DTOs de autenticacion).
 - **Sin paginacion**: Los endpoints `GET /resource` retornan listas completas sin paginacion.
 - **Rutas no RESTful**: Se usa `/resource/by-id/{id}` en lugar del estandar REST `/resource/{id}`.
 - **HTTP Basic Auth**: Sin JWT/OAuth2. Credenciales enviadas en Base64 en cada request.
 
 ### Decisiones de diseno
 - **Database-per-service**: Cada microservicio tiene su propia base de datos PostgreSQL.
-- **Feign sincrono**: Comunicacion entre servicios via OpenFeign con fallbacks.
+- **Feign sincrono**: Comunicacion entre servicios via OpenFeign con fallbacks y circuit breakers.
 - **Sin API Gateway**: Cada servicio se expone directamente en su propio puerto.
-- **Sin CI/CD**: No hay pipelines de GitHub Actions configurados.
+- **Shared Kernel**: `UserAuthResponse` centralizado para evitar duplicación de DTOs de autenticación.
+- **HikariCP pool**: 5 conexiones por servicio para mantener 50 conexiones totales < PostgreSQL `max_connections=100`.
 
 ## Testing
 

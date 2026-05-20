@@ -42,10 +42,15 @@ public class ShelterService {
     }
 
     public List<ShelterResult> getShelters(String status) {
-        ShelterStatus shelterStatus = ShelterStatus.valueOf(status.toUpperCase());
-        return repository.findByStatus(shelterStatus).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            ShelterStatus shelterStatus = ShelterStatus.valueOf(status.toUpperCase());
+            return repository.findByStatus(shelterStatus).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para refugio: '{}'", status);
+            return List.of();
+        }
     }
 
     public Optional<ShelterResult> getById(Long id) {
@@ -60,22 +65,21 @@ public class ShelterService {
     @Transactional
     public ShelterResult create(ShelterCommand command, Long userId) {
         log.info("Creando refugio: name={}, email={}", command.name(), command.email());
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(userId);
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", userId);
-            throw new IllegalArgumentException("El usuario con ID " + userId + " no existe");
-        }
-
-        Shelter shelter = new Shelter();
-        shelter.setName(command.name());
-        shelter.setEmail(command.email());
-        shelter.setPhone(command.phone());
-        shelter.setDescription(command.description());
-        shelter.setStatus(command.status() != null ? command.status() : ShelterStatus.ACTIVE);
-        shelter.setActive(true);
-
         try {
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(userId);
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", userId);
+                throw new IllegalArgumentException("El usuario con ID " + userId + " no existe");
+            }
+
+            Shelter shelter = new Shelter();
+            shelter.setName(command.name());
+            shelter.setEmail(command.email());
+            shelter.setPhone(command.phone());
+            shelter.setDescription(command.description());
+            shelter.setStatus(command.status() != null ? command.status() : ShelterStatus.ACTIVE);
+            shelter.setActive(true);
+
             Shelter saved = repository.save(shelter);
 
             historyService.recordHistory(saved.getId(), "CREATED",
@@ -94,46 +98,47 @@ public class ShelterService {
 
             log.info("Refugio creado exitosamente: ID={}", saved.getId());
             return toResult(saved);
-        } catch (Exception e) {
-            log.error("Error al crear refugio", e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al crear refugio: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al crear refugio: no se pudo completar la validación");
         }
     }
 
     @Transactional
     public Optional<ShelterResult> updateById(Long id, ShelterCommand command, Long userId) {
         log.info("Actualizando refugio: ID={}", id);
-
-        Optional<Shelter> found = repository.findById(id);
-        if (found.isEmpty()) {
-            log.warn("Refugio no encontrado: ID={}", id);
-            return Optional.empty();
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(userId);
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", userId);
-            throw new IllegalArgumentException("El usuario con ID " + userId + " no existe");
-        }
-
-        Shelter toUpdate = found.get();
-        String prevName = toUpdate.getName();
-        String prevEmail = toUpdate.getEmail();
-        String prevPhone = toUpdate.getPhone();
-        String prevDescription = toUpdate.getDescription();
-        ShelterStatus prevStatus = toUpdate.getStatus();
-        boolean prevActive = toUpdate.isActive();
-
-        toUpdate.setName(command.name());
-        toUpdate.setEmail(command.email());
-        toUpdate.setPhone(command.phone());
-        toUpdate.setDescription(command.description());
-        if (command.status() != null) {
-            toUpdate.setStatus(command.status());
-        }
-        toUpdate.setUpdatedAt(LocalDateTime.now());
-
         try {
+            Optional<Shelter> found = repository.findById(id);
+            if (found.isEmpty()) {
+                log.warn("Refugio no encontrado: ID={}", id);
+                return Optional.empty();
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(userId);
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", userId);
+                throw new IllegalArgumentException("El usuario con ID " + userId + " no existe");
+            }
+
+            Shelter toUpdate = found.get();
+            String prevName = toUpdate.getName();
+            String prevEmail = toUpdate.getEmail();
+            String prevPhone = toUpdate.getPhone();
+            String prevDescription = toUpdate.getDescription();
+            ShelterStatus prevStatus = toUpdate.getStatus();
+            boolean prevActive = toUpdate.isActive();
+
+            toUpdate.setName(command.name());
+            toUpdate.setEmail(command.email());
+            toUpdate.setPhone(command.phone());
+            toUpdate.setDescription(command.description());
+            if (command.status() != null) {
+                toUpdate.setStatus(command.status());
+            }
+            toUpdate.setUpdatedAt(LocalDateTime.now());
+
             Shelter updated = repository.save(toUpdate);
 
             String cambios = "";
@@ -163,9 +168,11 @@ public class ShelterService {
 
             log.info("Refugio actualizado exitosamente: ID={}", id);
             return Optional.of(toResult(updated));
-        } catch (Exception e) {
-            log.error("Error al actualizar refugio: ID={}", id, e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al actualizar refugio: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al actualizar refugio: no se pudo completar la validación");
         }
     }
 

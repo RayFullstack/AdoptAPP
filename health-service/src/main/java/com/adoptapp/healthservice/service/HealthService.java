@@ -46,17 +46,27 @@ public class HealthService {
     }
 
     public List<HealthResult> getVax(String vaccinationStatus) {
-        VaccinationStatus vax = VaccinationStatus.valueOf(vaccinationStatus.toUpperCase());
-        return this.healthRepository.findByVaccinationStatus(vax).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            VaccinationStatus vax = VaccinationStatus.valueOf(vaccinationStatus.toUpperCase());
+            return this.healthRepository.findByVaccinationStatus(vax).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado de vacunación inválido: '{}'", vaccinationStatus);
+            return List.of();
+        }
     }
 
     public List<HealthResult> getSter(String sterilizationStatus) {
-        SterilizationStatus ster = SterilizationStatus.valueOf(sterilizationStatus.toUpperCase());
-        return this.healthRepository.findBySterilizationStatus(ster).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            SterilizationStatus ster = SterilizationStatus.valueOf(sterilizationStatus.toUpperCase());
+            return this.healthRepository.findBySterilizationStatus(ster).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado de esterilización inválido: '{}'", sterilizationStatus);
+            return List.of();
+        }
     }
 
     public Optional<HealthResult> getById(Long id) {
@@ -67,26 +77,26 @@ public class HealthService {
     @Transactional
     public HealthResult create(HealthCommand command) {
         log.info("Creando ficha clinica: userId={}, petId={}", command.userId(), command.petId());
-
-        ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
-        if (!petResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Mascota no encontrada: ID={}", command.petId());
-            throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrad@: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        Health health = new Health();
-        health.setUserId(command.userId());
-        health.setPetId(command.petId());
-        health.setDiseases(command.diseases());
-        health.setSterilizationStatus(command.sterilizationStatus());
-        health.setVaccinationStatus(command.vaccinationStatus());
         try {
+            ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
+            if (!petResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Mascota no encontrada: ID={}", command.petId());
+                throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            Health health = new Health();
+            health.setUserId(command.userId());
+            health.setPetId(command.petId());
+            health.setDiseases(command.diseases());
+            health.setSterilizationStatus(command.sterilizationStatus());
+            health.setVaccinationStatus(command.vaccinationStatus());
+
             Health saved = this.healthRepository.save(health);
             recordHistory(saved.getId(), "HEALTH_CHECK_CREATED",
                     "Ficha creada: mascota " + command.petId() + " por usuario " + command.userId(),
@@ -101,9 +111,11 @@ public class HealthService {
 
             log.info("Ficha clínica creada exitosamente: ID={}", saved.getId());
             return toResult(saved);
-        } catch (Exception e) {
-            log.error("Error al crear ficha clínica", e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al crear ficha clínica: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al crear ficha clínica: no se pudo completar la validación");
         }
     }
 
@@ -195,37 +207,36 @@ public class HealthService {
     @Transactional
     public Optional<HealthResult> updateById(Long id, HealthCommand command) {
         log.info("Actualizando ficha: ID={}", id);
-
-        Optional<Health> found = this.healthRepository.findById(id);
-        if (found.isEmpty()) {
-            log.warn("Ficha no encontrada: ID={}", id);
-            return Optional.empty();
-        }
-
-        ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-        if (!userResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Usuario no encontrado: ID={}", command.userId());
-            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
-        }
-
-        ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
-        if (!petResponse.getStatusCode().is2xxSuccessful()) {
-            log.warn("Mascota no encontrada: ID={}", command.petId());
-            throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
-        }
-
-        Health toUpdate = found.get();
-        VaccinationStatus prevVax = toUpdate.getVaccinationStatus();
-        SterilizationStatus prevSter = toUpdate.getSterilizationStatus();
-        String prevDiseases = toUpdate.getDiseases();
-
-        toUpdate.setUserId(command.userId());
-        toUpdate.setPetId(command.petId());
-        toUpdate.setVaccinationStatus(command.vaccinationStatus());
-        toUpdate.setSterilizationStatus(command.sterilizationStatus());
-        toUpdate.setDiseases(command.diseases());
-
         try {
+            Optional<Health> found = this.healthRepository.findById(id);
+            if (found.isEmpty()) {
+                log.warn("Ficha no encontrada: ID={}", id);
+                return Optional.empty();
+            }
+
+            ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
+            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Usuario no encontrado: ID={}", command.userId());
+                throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+            }
+
+            ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
+            if (!petResponse.getStatusCode().is2xxSuccessful()) {
+                log.warn("Mascota no encontrada: ID={}", command.petId());
+                throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
+            }
+
+            Health toUpdate = found.get();
+            VaccinationStatus prevVax = toUpdate.getVaccinationStatus();
+            SterilizationStatus prevSter = toUpdate.getSterilizationStatus();
+            String prevDiseases = toUpdate.getDiseases();
+
+            toUpdate.setUserId(command.userId());
+            toUpdate.setPetId(command.petId());
+            toUpdate.setVaccinationStatus(command.vaccinationStatus());
+            toUpdate.setSterilizationStatus(command.sterilizationStatus());
+            toUpdate.setDiseases(command.diseases());
+
             Health updated = this.healthRepository.save(toUpdate);
 
             String cambios = "";
@@ -250,9 +261,11 @@ public class HealthService {
 
             log.info("Ficha clínica actualizada exitosamente: ID={}", id);
             return Optional.of(toResult(updated));
-        } catch (Exception e) {
-            log.error("Error al actualizar ficha clínica: ID={}", id, e);
+        } catch (IllegalArgumentException e) {
             throw e;
+        } catch (Exception e) {
+            log.error("Error al actualizar ficha clínica: servicio remoto no disponible - {}", e.getMessage());
+            throw new RuntimeException("Error al actualizar ficha clínica: no se pudo completar la validación");
         }
     }
 

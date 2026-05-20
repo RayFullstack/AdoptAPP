@@ -1,6 +1,6 @@
 package com.adoptapp.healthservice.client;
 
-import com.adoptapp.healthservice.dto.UserAuthResponse;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.healthservice.dto.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

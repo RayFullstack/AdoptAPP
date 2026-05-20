@@ -5,6 +5,7 @@ import com.adoptapp.petservice.client.NotificationServiceClient;
 import com.adoptapp.petservice.client.ShelterServiceClient;
 import com.adoptapp.petservice.client.UserServiceClient;
 import com.adoptapp.petservice.dto.HealthRequest;
+import com.adoptapp.petservice.dto.HealthResult;
 import com.adoptapp.petservice.dto.NotificationRequest;
 import com.adoptapp.petservice.dto.PetCommand;
 import com.adoptapp.petservice.dto.PetHistoryResult;
@@ -17,6 +18,7 @@ import com.adoptapp.petservice.model.VaccinationStatus;
 import com.adoptapp.petservice.repository.PetHistoryRepository;
 import com.adoptapp.petservice.repository.PetRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -218,7 +220,13 @@ public class PetService {
         toUpdate.setFosterId(command.fosterId());
 
         if (command.status() != null && !command.status().isBlank()) {
-            PetStatus petStatus = PetStatus.valueOf(command.status().toUpperCase());
+            PetStatus petStatus;
+            try {
+                petStatus = PetStatus.valueOf(command.status().toUpperCase());
+            } catch (IllegalArgumentException e) {
+                log.warn("Estado inválido para mascota: '{}'", command.status());
+                throw new IllegalArgumentException("Estado de mascota inválido: " + command.status());
+            }
             toUpdate.setStatus(petStatus);
         }
 

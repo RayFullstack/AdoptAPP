@@ -30,9 +30,6 @@ public class DataInitializer implements CommandLineRunner {
             p1.setSize("Grande");
             p1.setRace("Doberman");
             p1.setStatus(PetStatus.AVAILABLE);
-            p1.setVaccinated(true);
-            p1.setSterilized(false);
-            p1.setDiseases("Ninguna");
             petRepository.save(p1);
 
             Pet p2 = new Pet();
@@ -45,9 +42,6 @@ public class DataInitializer implements CommandLineRunner {
             p2.setSize("Mediano");
             p2.setRace("Domestico pelo largo");
             p2.setStatus(PetStatus.AVAILABLE);
-            p2.setVaccinated(false);
-            p2.setSterilized(false);
-            p2.setDiseases("NO SANO");
             petRepository.save(p2);
 
             Pet p3 = new Pet();
@@ -60,9 +54,6 @@ public class DataInitializer implements CommandLineRunner {
             p3.setSize("Mediano");
             p3.setRace("Cocker");
             p3.setStatus(PetStatus.NOT_AVAILABLE);
-            p3.setVaccinated(true);
-            p3.setSterilized(false);
-            p3.setDiseases("Ninguna");
             petRepository.save(p3);
         }
     }

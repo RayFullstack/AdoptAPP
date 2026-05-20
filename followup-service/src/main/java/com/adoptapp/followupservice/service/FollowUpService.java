@@ -48,10 +48,15 @@ public class FollowUpService {
     }
 
     public List<FollowUpResult> getFollowUps(String status) {
-        FollowUpStatus followUpStatus = FollowUpStatus.valueOf(status.toUpperCase());
-        return repository.findByStatus(followUpStatus).stream()
-                .map(this::toResult)
-                .toList();
+        try {
+            FollowUpStatus followUpStatus = FollowUpStatus.valueOf(status.toUpperCase());
+            return repository.findByStatus(followUpStatus).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado inválido para seguimiento: '{}'", status);
+            return List.of();
+        }
     }
 
     public Optional<FollowUpResult> getById(Long id) {
