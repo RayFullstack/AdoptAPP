@@ -10,4 +10,6 @@ import java.util.List;
 public interface DonationHistoryRepository extends JpaRepository<DonationHistory, Long> {
 
     List<DonationHistory> findByDonationIdOrderByChangedAtDesc(Long donationId);
+
+    void deleteByDonationId(Long donationId);
 }
