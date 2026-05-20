@@ -141,7 +141,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SupplyServiceApplication">
+  <component name="RunManager" selected="Spring Boot.AdoptionServiceApplication">
     <configuration name="AdoptionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="adoption-service" />
@@ -250,7 +250,7 @@
       <workItem from="1779286687967" duration="319000" />
       <workItem from="1779305288175" duration="3083000" />
       <workItem from="1779309065137" duration="1614000" />
-      <workItem from="1779310817276" duration="3068000" />
+      <workItem from="1779310817276" duration="3762000" />
     </task>
     <servers />
   </component>
