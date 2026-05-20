@@ -2629,3 +2629,8 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 2026-05-20T17:40:34.293-04:00  INFO 26808 --- [shelter-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8095 (http) with context path '/shelter-app'
 2026-05-20T17:40:35.309-04:00  INFO 26808 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:35.326-04:00  INFO 26808 --- [shelter-service] [main] c.a.s.ShelterServiceApplication          : Started ShelterServiceApplication in 17.409 seconds (process running for 18.749)
+2026-05-20T17:51:46.532-04:00  INFO 26808 --- [shelter-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.584-04:00  INFO 26808 --- [shelter-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.611-04:00  INFO 26808 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.634-04:00  INFO 26808 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.645-04:00  INFO 26808 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

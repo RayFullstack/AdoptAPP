@@ -4308,3 +4308,8 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 2026-05-20T17:40:40.976-04:00  INFO 24684 --- [notification-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8084 (http) with context path '/notification-app'
 2026-05-20T17:40:41.997-04:00  INFO 24684 --- [notification-service] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
 2026-05-20T17:40:42.013-04:00  INFO 24684 --- [notification-service] [restartedMain] c.a.n.NotificationServiceApplication     : Started NotificationServiceApplication in 18.827 seconds (process running for 20.45)
+2026-05-20T17:51:46.694-04:00  INFO 24684 --- [notification-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-20T17:51:46.778-04:00  INFO 24684 --- [notification-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-05-20T17:51:46.800-04:00  INFO 24684 --- [notification-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-20T17:51:46.809-04:00  INFO 24684 --- [notification-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-20T17:51:46.814-04:00  INFO 24684 --- [notification-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
