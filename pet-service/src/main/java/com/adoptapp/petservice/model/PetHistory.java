@@ -36,12 +36,6 @@ public class PetHistory {
     @Column(length = 20)
     private String newStatus;
 
-    @Column(name = "previous_foster_id")
-    private Long previousFosterId;
-
-    @Column(name = "new_foster_id")
-    private Long newFosterId;
-
     @Column(name = "changed_by_user_id")
     private Long changedByUserId;
 

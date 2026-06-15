@@ -10,4 +10,6 @@ public interface DonationRepository
         extends JpaRepository<Donation, Long> {
 
     List<Donation> findByStatus(DonationStatus status);
+
+    List<Donation> findByStatusNot(DonationStatus status);
 }

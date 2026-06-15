@@ -3,6 +3,13 @@ server:
   servlet:
     context-path: "/adoption-app"
 
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+
 spring:
   config:
     import: optional:file:.env[.properties]
@@ -70,6 +77,8 @@ services:
     url: http://localhost:8095/shelter-app
   followup-service:
     url: http://localhost:8086/followup-app
+  staff-service:
+    url: http://localhost:8091/staff-app
 
 logging:
   level:

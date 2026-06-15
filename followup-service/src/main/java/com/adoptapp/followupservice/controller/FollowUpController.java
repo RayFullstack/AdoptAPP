@@ -40,7 +40,7 @@ public class FollowUpController {
         return this.service.getById(id)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @GetMapping("/by-id/{id}/history")
@@ -73,14 +73,14 @@ public class FollowUpController {
         return this.service.updateById(id, command)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @DeleteMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         if (!this.service.deleteById(id)) {
-            return ResponseEntity.notFound().build();
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
         }
 
         return ResponseEntity.noContent().build();

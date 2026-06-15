@@ -1,5 +1,7 @@
 package com.adoptapp.notificationservice.config;
 
+import com.adoptapp.sharedkernel.security.JsonAccessDeniedHandler;
+import com.adoptapp.sharedkernel.security.JsonAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,6 +25,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(new JsonAuthenticationEntryPoint())
+                        .accessDeniedHandler(new JsonAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/notifications", "/notifications/by-id/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
                         .requestMatchers(HttpMethod.POST, "/notifications").hasAnyRole("SHELTER_ADMIN", "ADMIN")

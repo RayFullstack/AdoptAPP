@@ -1,147 +1,49 @@
-2026-05-16T00:00:53.074-04:00  INFO 11108 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 26 with PID 11108 (C:\Users\camil\Documents\fullstack1\adoptapp\user-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp\user-service)
-2026-05-16T00:00:53.083-04:00 DEBUG 11108 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Running with Spring Boot v4.0.0, Spring v7.0.1
-2026-05-16T00:00:53.083-04:00  INFO 11108 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-05-16T00:00:53.129-04:00  INFO 11108 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-05-16T00:00:53.130-04:00  INFO 11108 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-05-16T00:00:53.718-04:00  INFO 11108 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-16T00:00:53.771-04:00  INFO 11108 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
-2026-05-16T00:00:54.273-04:00  INFO 11108 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
-2026-05-16T00:00:54.288-04:00  INFO 11108 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-16T00:00:54.288-04:00  INFO 11108 --- [user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
-2026-05-16T00:00:54.331-04:00  INFO 11108 --- [user-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1200 ms
-2026-05-16T00:00:54.659-04:00  INFO 11108 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-05-16T00:00:55.852-04:00  WARN 11108 --- [user-service] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-----------------------------------------------------------------------------------------------------------------
-SQL State  : 28P01
-Error Code : 0
-Message    : FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-
-2026-05-16T00:00:55.856-04:00  INFO 11108 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2026-05-16T00:00:55.863-04:00  INFO 11108 --- [user-service] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-05-16T00:00:55.876-04:00 ERROR 11108 --- [user-service] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-----------------------------------------------------------------------------------------------------------------
-SQL State  : 28P01
-Error Code : 0
-Message    : FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:966) ~[spring-context-7.0.1.jar:7.0.1]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:620) ~[spring-context-7.0.1.jar:7.0.1]
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.0.jar:4.0.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:765) ~[spring-boot-4.0.0.jar:4.0.0]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:454) ~[spring-boot-4.0.0.jar:4.0.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.0.jar:4.0.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1374) ~[spring-boot-4.0.0.jar:4.0.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-4.0.0.jar:4.0.0]
-	at com.adoptapp.userservice.UserServiceApplication.main(UserServiceApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.0.jar:4.0.0]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-----------------------------------------------------------------------------------------------------------------
-SQL State  : 28P01
-Error Code : 0
-Message    : FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1817) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.1.jar:7.0.1]
-	... 13 common frames omitted
-Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-----------------------------------------------------------------------------------------------------------------
-SQL State  : 28P01
-Error Code : 0
-Message    : FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:71) ~[flyway-core-10.21.0.jar:na]
-	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76) ~[flyway-core-10.21.0.jar:na]
-	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:137) ~[flyway-core-10.21.0.jar:na]
-	at org.flywaydb.core.Flyway.migrate(Flyway.java:177) ~[flyway-core-10.21.0.jar:na]
-	at org.springframework.boot.flyway.autoconfigure.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:67) ~[spring-boot-flyway-4.0.0.jar:4.0.0]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.1.jar:7.0.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.1.jar:7.0.1]
-	... 20 common frames omitted
-Caused by: org.postgresql.util.PSQLException: FATAL: la autentificaci�n password fall� para el usuario �${DB_USER}�
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:704) ~[postgresql-42.7.5.jar:42.7.5]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:213) ~[postgresql-42.7.5.jar:42.7.5]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268) ~[postgresql-42.7.5.jar:42.7.5]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar:42.7.5]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar:42.7.5]
-	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar:42.7.5]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar:42.7.5]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97) ~[HikariCP-7.0.2.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-7.0.2.jar:na]
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:59) ~[flyway-core-10.21.0.jar:na]
-	... 26 common frames omitted
-
-2026-05-16T00:04:47.198-04:00  INFO 5836 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 26 with PID 5836 (C:\Users\camil\Documents\fullstack1\adoptapp\user-service\target\classes started by camil in C:\Users\camil\Documents\fullstack1\adoptapp\user-service)
-2026-05-16T00:04:47.201-04:00 DEBUG 5836 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Running with Spring Boot v4.0.0, Spring v7.0.1
-2026-05-16T00:04:47.201-04:00  INFO 5836 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : The following 1 profile is active: "h2"
-2026-05-16T00:04:47.250-04:00  INFO 5836 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-05-16T00:04:47.251-04:00  INFO 5836 --- [user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-05-16T00:04:47.833-04:00  INFO 5836 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-16T00:04:47.889-04:00  INFO 5836 --- [user-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 4 JPA repository interfaces.
-2026-05-16T00:04:48.379-04:00  INFO 5836 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
-2026-05-16T00:04:48.390-04:00  INFO 5836 --- [user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-16T00:04:48.391-04:00  INFO 5836 --- [user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.14]
-2026-05-16T00:04:48.430-04:00  INFO 5836 --- [user-service] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1179 ms
-2026-05-16T00:04:48.558-04:00  INFO 5836 --- [user-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-16T00:04:48.598-04:00  INFO 5836 --- [user-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
-2026-05-16T00:04:48.982-04:00  INFO 5836 --- [user-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-16T00:04:49.014-04:00  INFO 5836 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-05-16T00:04:49.147-04:00  INFO 5836 --- [user-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:user_db user=SA
-2026-05-16T00:04:49.149-04:00  INFO 5836 --- [user-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-05-16T00:04:49.167-04:00  WARN 5836 --- [user-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-16T00:04:49.187-04:00  INFO 5836 --- [user-service] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:user_db]
-	Database driver: H2 JDBC Driver
-	Database dialect: H2Dialect
+2026-06-03T16:51:19.431-04:00  INFO 1904 --- [user-service] [main] c.a.u.UserServiceApplicationTests        : Starting UserServiceApplicationTests using Java 21.0.11 with PID 1904 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\user-service)
+2026-06-03T16:51:19.442-04:00 DEBUG 1904 --- [user-service] [main] c.a.u.UserServiceApplicationTests        : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-03T16:51:19.443-04:00  INFO 1904 --- [user-service] [main] c.a.u.UserServiceApplicationTests        : The following 1 profile is active: "h2"
+2026-06-03T16:51:19.512-04:00 DEBUG 1904 --- [user-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@65ae095c
+2026-06-03T16:51:21.299-04:00  INFO 1904 --- [user-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-03T16:51:21.412-04:00  INFO 1904 --- [user-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 4 JPA repository interfaces.
+2026-06-03T16:51:21.912-04:00  INFO 1904 --- [user-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=accec565-8e65-32da-a93c-51d0fffbaaaf
+2026-06-03T16:51:22.868-04:00  INFO 1904 --- [user-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-03T16:51:23.029-04:00  INFO 1904 --- [user-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-03T16:51:23.208-04:00  INFO 1904 --- [user-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-03T16:51:23.898-04:00  INFO 1904 --- [user-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-03T16:51:23.956-04:00  INFO 1904 --- [user-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-03T16:51:24.309-04:00  INFO 1904 --- [user-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:user_db user=SA
+2026-06-03T16:51:24.313-04:00  INFO 1904 --- [user-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-03T16:51:24.359-04:00  WARN 1904 --- [user-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-03T16:51:24.411-04:00  INFO 1904 --- [user-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
 	Database version: 2.3.232
-	Default catalog/schema: USER_DB/PUBLIC
 	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: 100
-	Pool: DatasourceConnectionProviderImpl
+	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-05-16T00:04:50.158-04:00  INFO 5836 --- [user-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-16T00:04:50.174-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.058-04:00  INFO 1904 --- [user-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-03T16:51:26.080-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     drop table if exists user_addresses cascade 
-2026-05-16T00:04:50.176-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.083-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     drop table if exists user_history cascade 
-2026-05-16T00:04:50.176-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.083-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     drop table if exists user_phones cascade 
-2026-05-16T00:04:50.176-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.083-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     drop table if exists users cascade 
-2026-05-16T00:04:50.181-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.085-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     create table user_addresses (
         primary_address boolean not null,
         id bigint generated by default as identity,
-        user_id bigint,
+        user_id bigint not null,
+        home_number varchar(20) not null,
         city varchar(100) not null,
         country varchar(100) not null,
-        home_number varchar(100) not null,
         postal_code varchar(100) not null,
         street varchar(100) not null,
         type varchar(100) not null,
         primary key (id)
     )
-2026-05-16T00:04:50.189-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.098-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     create table user_history (
         new_active boolean,
         previous_active boolean,
@@ -165,297 +67,178 @@ Caused by: org.postgresql.util.PSQLException: FATAL: la autentificaci�n passwo
         comment varchar(255),
         primary key (id)
     )
-2026-05-16T00:04:50.191-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.098-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     create table user_phones (
         id bigint generated by default as identity,
         user_id bigint unique,
-        number varchar(100) not null unique,
+        number varchar(20) not null unique,
         primary key (id)
     )
-2026-05-16T00:04:50.195-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.101-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     create table users (
         active boolean not null,
         created_at timestamp(6),
         id bigint generated by default as identity,
-        email varchar(50) not null unique,
+        updated_at timestamp(6),
         name varchar(50) not null,
         surname varchar(50) not null,
         username varchar(50) not null unique,
+        email varchar(100) not null unique,
         password varchar(255),
-        role enum ('ADMIN','ADOPTER','SHELTER') not null,
+        role enum ('ADMIN','ADOPTER','SHELTER_ADMIN','VET','VOLUNTEER') not null,
         status enum ('ACTIVE','INACTIVE','SUSPENDED') not null,
         primary key (id)
     )
-2026-05-16T00:04:50.197-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.104-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     alter table if exists user_addresses 
        add constraint FKn2fisxyyu3l9wlch3ve2nocgp 
        foreign key (user_id) 
        references users
-2026-05-16T00:04:50.208-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.111-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     alter table if exists user_history 
        add constraint FKd8f7md75uuycl5mgtl394nqoi 
        foreign key (user_id) 
        references users
-2026-05-16T00:04:50.209-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.111-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     alter table if exists user_phones 
        add constraint FKnup2o0u3x7dudj4ky81oiio13 
        foreign key (user_id) 
        references users
-2026-05-16T00:04:50.215-04:00  INFO 5836 --- [user-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-16T00:04:50.286-04:00  INFO 5836 --- [user-service] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-05-16T00:04:50.526-04:00  WARN 5836 --- [user-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-05-16T00:04:50.600-04:00  INFO 5836 --- [user-service] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-05-16T00:04:50.785-04:00 DEBUG 5836 --- [user-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2026-05-16T00:04:50.815-04:00 DEBUG 5836 --- [user-service] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-05-16T00:04:50.835-04:00 DEBUG 5836 --- [user-service] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-05-16T00:04:50.874-04:00 DEBUG 5836 --- [user-service] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-05-16T00:04:50.981-04:00  INFO 5836 --- [user-service] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/user-app'
-2026-05-16T00:04:50.986-04:00  INFO 5836 --- [user-service] [restartedMain] c.a.userservice.UserServiceApplication   : Started UserServiceApplication in 4.177 seconds (process running for 4.64)
-2026-05-16T00:04:51.262-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:26.121-04:00  INFO 1904 --- [user-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-03T16:51:27.268-04:00  WARN 1904 --- [user-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-03T16:51:27.637-04:00  INFO 1904 --- [user-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-03T16:51:27.841-04:00 DEBUG 1904 --- [user-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-03T16:51:28.176-04:00 DEBUG 1904 --- [user-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-03T16:51:28.922-04:00 DEBUG 1904 --- [user-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-03T16:51:28.985-04:00 DEBUG 1904 --- [user-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-03T16:51:30.117-04:00  INFO 1904 --- [user-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-03T16:51:30.149-04:00  INFO 1904 --- [user-service] [main] c.a.u.UserServiceApplicationTests        : Started UserServiceApplicationTests in 12.28 seconds (process running for 13.518)
+2026-06-03T16:51:30.518-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     select
         count(*) 
     from
         users u1_0
-2026-05-16T00:04:51.392-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.673-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         users
-        (active, created_at, email, name, password, role, status, surname, username, id) 
+        (active, created_at, email, name, password, role, status, surname, updated_at, username, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:04:51.406-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:30.703-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         user_addresses
         (city, country, home_number, postal_code, primary_address, street, type, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:04:51.407-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.707-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         user_phones
         (number, user_id, id) 
     values
         (?, ?, default)
-2026-05-16T00:04:51.490-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.788-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         users
-        (active, created_at, email, name, password, role, status, surname, username, id) 
+        (active, created_at, email, name, password, role, status, surname, updated_at, username, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:04:51.491-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:30.795-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         user_addresses
         (city, country, home_number, postal_code, primary_address, street, type, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:04:51.492-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.797-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         user_phones
         (number, user_id, id) 
     values
         (?, ?, default)
-2026-05-16T00:04:51.557-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.861-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         users
-        (active, created_at, email, name, password, role, status, surname, username, id) 
+        (active, created_at, email, name, password, role, status, surname, updated_at, username, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:04:51.558-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:30.862-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         user_addresses
         (city, country, home_number, postal_code, primary_address, street, type, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:04:51.559-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.864-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         user_phones
         (number, user_id, id) 
     values
         (?, ?, default)
-2026-05-16T00:04:51.620-04:00 DEBUG 5836 --- [user-service] [restartedMain] org.hibernate.SQL                        : 
+2026-06-03T16:51:30.931-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         users
-        (active, created_at, email, name, password, role, status, surname, username, id) 
+        (active, created_at, email, name, password, role, status, surname, updated_at, username, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-05-16T00:08:12.172-04:00  INFO 5836 --- [user-service] [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/user-app]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-16T00:08:12.172-04:00  INFO 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-05-16T00:08:12.173-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2026-05-16T00:08:12.173-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2026-05-16T00:08:12.174-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1136c376
-2026-05-16T00:08:12.174-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6509cd1d
-2026-05-16T00:08:12.175-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2026-05-16T00:08:12.175-04:00  INFO 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-05-16T00:08:12.194-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/user-app/users", parameters={}
-2026-05-16T00:08:12.202-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.userservice.controller.UserController#getAllUsers(String)
-2026-05-16T00:08:12.270-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        u1_0.id,
-        u1_0.active,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role,
-        u1_0.status,
-        u1_0.surname,
-        u1_0.username 
-    from
-        users u1_0 
-    order by
-        u1_0.created_at
-2026-05-16T00:08:12.288-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        up1_0.id,
-        up1_0.number,
-        u1_0.id,
-        u1_0.active,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role,
-        u1_0.status,
-        u1_0.surname,
-        u1_0.username 
-    from
-        user_phones up1_0 
-    left join
-        users u1_0 
-            on u1_0.id=up1_0.user_id 
-    where
-        up1_0.user_id=?
-2026-05-16T00:08:12.292-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        up1_0.id,
-        up1_0.number,
-        u1_0.id,
-        u1_0.active,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role,
-        u1_0.status,
-        u1_0.surname,
-        u1_0.username 
-    from
-        user_phones up1_0 
-    left join
-        users u1_0 
-            on u1_0.id=up1_0.user_id 
-    where
-        up1_0.user_id=?
-2026-05-16T00:08:12.294-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        up1_0.id,
-        up1_0.number,
-        u1_0.id,
-        u1_0.active,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role,
-        u1_0.status,
-        u1_0.surname,
-        u1_0.username 
-    from
-        user_phones up1_0 
-    left join
-        users u1_0 
-            on u1_0.id=up1_0.user_id 
-    where
-        up1_0.user_id=?
-2026-05-16T00:08:12.295-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        up1_0.id,
-        up1_0.number,
-        u1_0.id,
-        u1_0.active,
-        u1_0.created_at,
-        u1_0.email,
-        u1_0.name,
-        u1_0.password,
-        u1_0.role,
-        u1_0.status,
-        u1_0.surname,
-        u1_0.username 
-    from
-        user_phones up1_0 
-    left join
-        users u1_0 
-            on u1_0.id=up1_0.user_id 
-    where
-        up1_0.user_id=?
-2026-05-16T00:08:12.300-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        a1_0.user_id,
-        a1_0.id,
-        a1_0.city,
-        a1_0.country,
-        a1_0.home_number,
-        a1_0.postal_code,
-        a1_0.primary_address,
-        a1_0.street,
-        a1_0.type 
-    from
-        user_addresses a1_0 
-    where
-        a1_0.user_id=?
-2026-05-16T00:08:12.303-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        a1_0.user_id,
-        a1_0.id,
-        a1_0.city,
-        a1_0.country,
-        a1_0.home_number,
-        a1_0.postal_code,
-        a1_0.primary_address,
-        a1_0.street,
-        a1_0.type 
-    from
-        user_addresses a1_0 
-    where
-        a1_0.user_id=?
-2026-05-16T00:08:12.304-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        a1_0.user_id,
-        a1_0.id,
-        a1_0.city,
-        a1_0.country,
-        a1_0.home_number,
-        a1_0.postal_code,
-        a1_0.primary_address,
-        a1_0.street,
-        a1_0.type 
-    from
-        user_addresses a1_0 
-    where
-        a1_0.user_id=?
-2026-05-16T00:08:12.304-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] org.hibernate.SQL                        : 
-    select
-        a1_0.user_id,
-        a1_0.id,
-        a1_0.city,
-        a1_0.country,
-        a1_0.home_number,
-        a1_0.postal_code,
-        a1_0.primary_address,
-        a1_0.street,
-        a1_0.type 
-    from
-        user_addresses a1_0 
-    where
-        a1_0.user_id=?
-2026-05-16T00:08:12.314-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
-2026-05-16T00:08:12.322-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[UserResponse[id=1, username=LisaS, name=Lisa, surname=Simpson, email=lsimpson@mail.com, phone=12345 (truncated)...]
-2026-05-16T00:08:12.386-04:00 DEBUG 5836 --- [user-service] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:30.933-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_addresses
+        (city, country, home_number, postal_code, primary_address, street, type, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:30.933-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_phones
+        (number, user_id, id) 
+    values
+        (?, ?, default)
+2026-06-03T16:51:30.990-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (active, created_at, email, name, password, role, status, surname, updated_at, username, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:31.001-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_addresses
+        (city, country, home_number, postal_code, primary_address, street, type, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:31.001-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_phones
+        (number, user_id, id) 
+    values
+        (?, ?, default)
+2026-06-03T16:51:31.053-04:00 DEBUG 1904 --- [user-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (active, created_at, email, name, password, role, status, surname, updated_at, username, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-03T16:51:31.972-04:00 DEBUG 1904 --- [user-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@65ae095c, started on Wed Jun 03 16:51:19 CLT 2026
+2026-06-03T16:51:31.976-04:00  INFO 1904 --- [user-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-03T16:51:31.978-04:00 DEBUG 1904 --- [user-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists user_addresses cascade 
+2026-06-03T16:51:31.981-04:00 DEBUG 1904 --- [user-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists user_history cascade 
+2026-06-03T16:51:31.983-04:00 DEBUG 1904 --- [user-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists user_phones cascade 
+2026-06-03T16:51:31.985-04:00 DEBUG 1904 --- [user-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists users cascade 
+2026-06-03T16:51:31.987-04:00  INFO 1904 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-03T16:51:31.990-04:00  INFO 1904 --- [user-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

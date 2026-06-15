@@ -1,0 +1,11 @@
+com\adoptapp\sharedkernel\security\JsonAccessDeniedHandler.class
+com\adoptapp\sharedkernel\exception\ValidationException.class
+com\adoptapp\sharedkernel\exception\ForbiddenException.class
+com\adoptapp\sharedkernel\dto\ErrorResponse.class
+com\adoptapp\sharedkernel\dto\UserAuthResponse.class
+com\adoptapp\sharedkernel\util\ErrorResponseFactory.class
+com\adoptapp\sharedkernel\exception\BusinessException.class
+com\adoptapp\sharedkernel\exception\RemoteServiceException.class
+com\adoptapp\sharedkernel\security\JsonAuthenticationEntryPoint.class
+com\adoptapp\sharedkernel\exception\UnauthorizedException.class
+com\adoptapp\sharedkernel\exception\ResourceNotFoundException.class

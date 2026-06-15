@@ -2,5 +2,6 @@ package com.adoptapp.petservice.model;
 
 public enum PetStatus {
     AVAILABLE,
-    NOT_AVAILABLE
+    NOT_AVAILABLE,
+    DELETED
 }

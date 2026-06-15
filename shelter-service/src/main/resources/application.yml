@@ -64,7 +64,12 @@ services:
     url: http://localhost:8084/notification-app
   user-service:
     url: http://localhost:8081/user-app
-
+  staff-service:
+    url: http://localhost:8091/staff-app
+  pet-service:
+    url: http://localhost:8082/pet-app
+  supply-service:
+    url: http://localhost:8092/supply-app
 
 logging:
   level:

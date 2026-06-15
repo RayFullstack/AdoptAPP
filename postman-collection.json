@@ -1,0 +1,940 @@
+{
+  "info": {
+    "_postman_id": "adoptapp-local-microservices",
+    "name": "AdoptApp Microservices",
+    "description": "Coleccion Postman generada desde los controllers actuales del proyecto AdoptApp. Usa Basic Auth con las variables username y password.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{username}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{password}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "username",
+      "value": "admin@adoptapp.com"
+    },
+    {
+      "key": "password",
+      "value": "password"
+    },
+    {
+      "key": "userBaseUrl",
+      "value": "http://localhost:8081/user-app"
+    },
+    {
+      "key": "petBaseUrl",
+      "value": "http://localhost:8082/pet-app"
+    },
+    {
+      "key": "adoptionBaseUrl",
+      "value": "http://localhost:8083/adoption-app"
+    },
+    {
+      "key": "notificationBaseUrl",
+      "value": "http://localhost:8084/notification-app"
+    },
+    {
+      "key": "healthBaseUrl",
+      "value": "http://localhost:8085/health-app"
+    },
+    {
+      "key": "followupBaseUrl",
+      "value": "http://localhost:8086/followup-app"
+    },
+    {
+      "key": "donationBaseUrl",
+      "value": "http://localhost:8090/donation-app"
+    },
+    {
+      "key": "staffBaseUrl",
+      "value": "http://localhost:8091/staff-app"
+    },
+    {
+      "key": "supplyBaseUrl",
+      "value": "http://localhost:8092/supply-app"
+    },
+    {
+      "key": "shelterBaseUrl",
+      "value": "http://localhost:8095/shelter-app"
+    },
+    {
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "key": "userId",
+      "value": "1"
+    },
+    {
+      "key": "petId",
+      "value": "1"
+    },
+    {
+      "key": "shelterId",
+      "value": "1"
+    },
+    {
+      "key": "adoptionId",
+      "value": "1"
+    },
+    {
+      "key": "email",
+      "value": "admin@adoptapp.com"
+    },
+    {
+      "key": "status",
+      "value": "ACTIVE"
+    }
+  ],
+  "item": [
+    {
+      "name": "User Service",
+      "item": [
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "url": "{{userBaseUrl}}/users"
+          }
+        },
+        {
+          "name": "List users by status",
+          "request": {
+            "method": "GET",
+            "url": "{{userBaseUrl}}/users?status=ACTIVE"
+          }
+        },
+        {
+          "name": "Get user by id",
+          "request": {
+            "method": "GET",
+            "url": "{{userBaseUrl}}/users/by-id/{{userId}}"
+          }
+        },
+        {
+          "name": "Get user by email",
+          "request": {
+            "method": "GET",
+            "url": "{{userBaseUrl}}/users/by-email/{{email}}"
+          }
+        },
+        {
+          "name": "Get user auth by email",
+          "request": {
+            "method": "GET",
+            "url": "{{userBaseUrl}}/users/by-email/{{email}}/auth"
+          }
+        },
+        {
+          "name": "Get user history",
+          "request": {
+            "method": "GET",
+            "url": "{{userBaseUrl}}/users/by-id/{{userId}}/history"
+          }
+        },
+        {
+          "name": "Register adopter",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"adopter.demo\",\n  \"name\": \"Camila\",\n  \"surname\": \"Demo\",\n  \"email\": \"adopter.demo@adoptapp.com\",\n  \"password\": \"secret123\",\n  \"phone\": \"+56911111111\",\n  \"country\": \"Chile\",\n  \"city\": \"Santiago\",\n  \"street\": \"Av Siempre Viva\",\n  \"homeNumber\": \"123\",\n  \"postalCode\": \"8320000\",\n  \"type\": \"HOME\",\n  \"status\": \"ACTIVE\",\n  \"role\": \"ADOPTER\",\n  \"active\": true\n}"
+            },
+            "url": "{{userBaseUrl}}/users/register"
+          }
+        },
+        {
+          "name": "Create user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"volunteer.demo\",\n  \"name\": \"Voluntario\",\n  \"surname\": \"Demo\",\n  \"email\": \"volunteer.demo@adoptapp.com\",\n  \"password\": \"secret123\",\n  \"phone\": \"+56922222222\",\n  \"country\": \"Chile\",\n  \"city\": \"Santiago\",\n  \"street\": \"Calle Uno\",\n  \"homeNumber\": \"456\",\n  \"postalCode\": \"8320000\",\n  \"type\": \"HOME\",\n  \"status\": \"ACTIVE\",\n  \"role\": \"VOLUNTEER\",\n  \"active\": true\n}"
+            },
+            "url": "{{userBaseUrl}}/users"
+          }
+        },
+        {
+          "name": "Update user",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"adopter.updated\",\n  \"name\": \"Camila\",\n  \"surname\": \"Actualizada\",\n  \"email\": \"adopter.updated@adoptapp.com\",\n  \"password\": \"secret123\",\n  \"phone\": \"+56933333333\",\n  \"country\": \"Chile\",\n  \"city\": \"Santiago\",\n  \"street\": \"Nueva Calle\",\n  \"homeNumber\": \"789\",\n  \"postalCode\": \"8320000\",\n  \"type\": \"HOME\",\n  \"status\": \"ACTIVE\",\n  \"role\": \"ADOPTER\",\n  \"active\": true\n}"
+            },
+            "url": "{{userBaseUrl}}/users/by-id/{{userId}}"
+          }
+        },
+        {
+          "name": "Delete user",
+          "request": {
+            "method": "DELETE",
+            "url": "{{userBaseUrl}}/users/by-id/{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pet Service",
+      "item": [
+        {
+          "name": "List pets",
+          "request": {
+            "method": "GET",
+            "url": "{{petBaseUrl}}/pets"
+          }
+        },
+        {
+          "name": "Admin list pets by status",
+          "request": {
+            "method": "GET",
+            "url": "{{petBaseUrl}}/pets/admin?status=AVAILABLE"
+          }
+        },
+        {
+          "name": "Get pet by id",
+          "request": {
+            "method": "GET",
+            "url": "{{petBaseUrl}}/pets/by-id/{{petId}}"
+          }
+        },
+        {
+          "name": "Admin get pet including deleted",
+          "request": {
+            "method": "GET",
+            "url": "{{petBaseUrl}}/pets/admin/by-id/{{petId}}"
+          }
+        },
+        {
+          "name": "Get pet health",
+          "request": {
+            "method": "GET",
+            "url": "{{petBaseUrl}}/pets/by-id/{{petId}}/health"
+          }
+        },
+        {
+          "name": "Get pet history",
+          "request": {
+            "method": "GET",
+            "url": "{{petBaseUrl}}/pets/by-id/{{petId}}/history"
+          }
+        },
+        {
+          "name": "Create pet",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Firulais\",\n  \"species\": \"Perro\",\n  \"race\": \"Mestizo\",\n  \"age\": 3,\n  \"size\": \"Mediano\",\n  \"color\": \"Cafe\",\n  \"personality\": \"Jugueton\",\n  \"status\": \"AVAILABLE\",\n  \"shelterId\": {{shelterId}}\n}"
+            },
+            "url": "{{petBaseUrl}}/pets"
+          }
+        },
+        {
+          "name": "Update pet",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Firulais\",\n  \"species\": \"Perro\",\n  \"race\": \"Mestizo\",\n  \"age\": 4,\n  \"size\": \"Mediano\",\n  \"color\": \"Cafe\",\n  \"personality\": \"Tranquilo\",\n  \"status\": \"AVAILABLE\",\n  \"shelterId\": {{shelterId}}\n}"
+            },
+            "url": "{{petBaseUrl}}/pets/by-id/{{petId}}"
+          }
+        },
+        {
+          "name": "Patch pet status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"NOT_AVAILABLE\"\n}"
+            },
+            "url": "{{petBaseUrl}}/pets/by-id/{{petId}}/status"
+          }
+        },
+        {
+          "name": "Delete pet",
+          "request": {
+            "method": "DELETE",
+            "url": "{{petBaseUrl}}/pets/by-id/{{petId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Adoption Service",
+      "item": [
+        {
+          "name": "List visible adoptions",
+          "request": {
+            "method": "GET",
+            "url": "{{adoptionBaseUrl}}/adoptions"
+          }
+        },
+        {
+          "name": "Admin list adoptions by status",
+          "request": {
+            "method": "GET",
+            "url": "{{adoptionBaseUrl}}/adoptions/admin?status=PENDING"
+          }
+        },
+        {
+          "name": "Get adoption by id",
+          "request": {
+            "method": "GET",
+            "url": "{{adoptionBaseUrl}}/adoptions/by-id/{{adoptionId}}"
+          }
+        },
+        {
+          "name": "Admin get adoption including cancelled",
+          "request": {
+            "method": "GET",
+            "url": "{{adoptionBaseUrl}}/adoptions/admin/by-id/{{adoptionId}}"
+          }
+        },
+        {
+          "name": "Get adoption history",
+          "request": {
+            "method": "GET",
+            "url": "{{adoptionBaseUrl}}/adoptions/by-id/{{adoptionId}}/history"
+          }
+        },
+        {
+          "name": "Create adoption",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"petId\": {{petId}}\n}"
+            },
+            "url": "{{adoptionBaseUrl}}/adoptions"
+          }
+        },
+        {
+          "name": "Update adoption status",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APPROVED\"\n}"
+            },
+            "url": "{{adoptionBaseUrl}}/adoptions/by-id/{{adoptionId}}"
+          }
+        },
+        {
+          "name": "Cancel adoption",
+          "request": {
+            "method": "DELETE",
+            "url": "{{adoptionBaseUrl}}/adoptions/by-id/{{adoptionId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health Service",
+      "item": [
+        {
+          "name": "List health",
+          "request": {
+            "method": "GET",
+            "url": "{{healthBaseUrl}}/health"
+          }
+        },
+        {
+          "name": "List health by vaccination status",
+          "request": {
+            "method": "GET",
+            "url": "{{healthBaseUrl}}/health?vaccinationStatus=VACCINATED"
+          }
+        },
+        {
+          "name": "List health by sterilization status",
+          "request": {
+            "method": "GET",
+            "url": "{{healthBaseUrl}}/health?sterilizationStatus=STERILIZED"
+          }
+        },
+        {
+          "name": "Get health by id",
+          "request": {
+            "method": "GET",
+            "url": "{{healthBaseUrl}}/health/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Get health by pet id",
+          "request": {
+            "method": "GET",
+            "url": "{{healthBaseUrl}}/health/by-pet/{{petId}}"
+          }
+        },
+        {
+          "name": "Get health history",
+          "request": {
+            "method": "GET",
+            "url": "{{healthBaseUrl}}/health/by-id/{{id}}/history"
+          }
+        },
+        {
+          "name": "Create health",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"petId\": {{petId}},\n  \"vaccinationStatus\": \"VACCINATED\",\n  \"sterilizationStatus\": \"STERILIZED\",\n  \"diseases\": \"Ninguna\"\n}"
+            },
+            "url": "{{healthBaseUrl}}/health"
+          }
+        },
+        {
+          "name": "Update health",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"petId\": {{petId}},\n  \"vaccinationStatus\": \"VACCINATED\",\n  \"sterilizationStatus\": \"STERILIZED\",\n  \"diseases\": \"Control al dia\"\n}"
+            },
+            "url": "{{healthBaseUrl}}/health/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Delete health by id",
+          "request": {
+            "method": "DELETE",
+            "url": "{{healthBaseUrl}}/health/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Delete health by pet id",
+          "request": {
+            "method": "DELETE",
+            "url": "{{healthBaseUrl}}/health/by-pet/{{petId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shelter Service",
+      "item": [
+        {
+          "name": "List shelters",
+          "request": {
+            "method": "GET",
+            "url": "{{shelterBaseUrl}}/shelters"
+          }
+        },
+        {
+          "name": "List shelters by status",
+          "request": {
+            "method": "GET",
+            "url": "{{shelterBaseUrl}}/shelters?status=ACTIVE"
+          }
+        },
+        {
+          "name": "Get shelter by id",
+          "request": {
+            "method": "GET",
+            "url": "{{shelterBaseUrl}}/shelters/by-id/{{shelterId}}"
+          }
+        },
+        {
+          "name": "Get shelter history",
+          "request": {
+            "method": "GET",
+            "url": "{{shelterBaseUrl}}/shelters/by-id/{{shelterId}}/history"
+          }
+        },
+        {
+          "name": "Create shelter",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Refugio Demo\",\n  \"email\": \"refugio.demo@adoptapp.com\",\n  \"phone\": \"+56944444444\",\n  \"description\": \"Refugio de prueba\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": "{{shelterBaseUrl}}/shelters"
+          }
+        },
+        {
+          "name": "Update shelter",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Refugio Demo Actualizado\",\n  \"email\": \"refugio.demo@adoptapp.com\",\n  \"phone\": \"+56944444444\",\n  \"description\": \"Descripcion actualizada\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": "{{shelterBaseUrl}}/shelters/by-id/{{shelterId}}"
+          }
+        },
+        {
+          "name": "Delete shelter",
+          "request": {
+            "method": "DELETE",
+            "url": "{{shelterBaseUrl}}/shelters/by-id/{{shelterId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Staff Service",
+      "item": [
+        {
+          "name": "List staff",
+          "request": {
+            "method": "GET",
+            "url": "{{staffBaseUrl}}/staff"
+          }
+        },
+        {
+          "name": "List staff by status",
+          "request": {
+            "method": "GET",
+            "url": "{{staffBaseUrl}}/staff?status=ACTIVE"
+          }
+        },
+        {
+          "name": "Get staff by id",
+          "request": {
+            "method": "GET",
+            "url": "{{staffBaseUrl}}/staff/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Get staff by user id",
+          "request": {
+            "method": "GET",
+            "url": "{{staffBaseUrl}}/staff/by-user/{{userId}}"
+          }
+        },
+        {
+          "name": "Get staff history",
+          "request": {
+            "method": "GET",
+            "url": "{{staffBaseUrl}}/staff/by-id/{{id}}/history"
+          }
+        },
+        {
+          "name": "Create staff",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"shelterId\": {{shelterId}},\n  \"position\": \"VOLUNTEER\",\n  \"phone\": \"+56955555555\",\n  \"email\": \"staff.demo@adoptapp.com\",\n  \"hireDate\": \"2026-06-13T10:00:00\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": "{{staffBaseUrl}}/staff"
+          }
+        },
+        {
+          "name": "Update staff",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"shelterId\": {{shelterId}},\n  \"position\": \"VOLUNTEER\",\n  \"phone\": \"+56955555555\",\n  \"email\": \"staff.demo@adoptapp.com\",\n  \"hireDate\": \"2026-06-13T10:00:00\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": "{{staffBaseUrl}}/staff/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Delete staff",
+          "request": {
+            "method": "DELETE",
+            "url": "{{staffBaseUrl}}/staff/by-id/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Supply Service",
+      "item": [
+        {
+          "name": "List supplies",
+          "request": {
+            "method": "GET",
+            "url": "{{supplyBaseUrl}}/supplies"
+          }
+        },
+        {
+          "name": "List supplies by status",
+          "request": {
+            "method": "GET",
+            "url": "{{supplyBaseUrl}}/supplies?status=AVAILABLE"
+          }
+        },
+        {
+          "name": "Get supply by id",
+          "request": {
+            "method": "GET",
+            "url": "{{supplyBaseUrl}}/supplies/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Get supplies by shelter",
+          "request": {
+            "method": "GET",
+            "url": "{{supplyBaseUrl}}/supplies/shelter/{{shelterId}}"
+          }
+        },
+        {
+          "name": "Get supply history",
+          "request": {
+            "method": "GET",
+            "url": "{{supplyBaseUrl}}/supplies/by-id/{{id}}/history"
+          }
+        },
+        {
+          "name": "Create supply",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alimento adulto\",\n  \"description\": \"Saco de alimento\",\n  \"quantity\": 20,\n  \"unit\": \"KG\",\n  \"category\": \"FOOD\",\n  \"shelterId\": {{shelterId}},\n  \"userId\": {{userId}},\n  \"supplierName\": \"Proveedor Demo\",\n  \"minimumStock\": 5,\n  \"status\": \"AVAILABLE\"\n}"
+            },
+            "url": "{{supplyBaseUrl}}/supplies"
+          }
+        },
+        {
+          "name": "Update supply",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alimento adulto\",\n  \"description\": \"Saco actualizado\",\n  \"quantity\": 15,\n  \"unit\": \"KG\",\n  \"category\": \"FOOD\",\n  \"shelterId\": {{shelterId}},\n  \"userId\": {{userId}},\n  \"supplierName\": \"Proveedor Demo\",\n  \"minimumStock\": 5,\n  \"status\": \"AVAILABLE\"\n}"
+            },
+            "url": "{{supplyBaseUrl}}/supplies/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Delete supply",
+          "request": {
+            "method": "DELETE",
+            "url": "{{supplyBaseUrl}}/supplies/by-id/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Donation Service",
+      "item": [
+        {
+          "name": "List donations",
+          "request": {
+            "method": "GET",
+            "url": "{{donationBaseUrl}}/donations"
+          }
+        },
+        {
+          "name": "List donations by status",
+          "request": {
+            "method": "GET",
+            "url": "{{donationBaseUrl}}/donations?status=PENDING"
+          }
+        },
+        {
+          "name": "Get donation by id",
+          "request": {
+            "method": "GET",
+            "url": "{{donationBaseUrl}}/donations/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Get donation history",
+          "request": {
+            "method": "GET",
+            "url": "{{donationBaseUrl}}/donations/by-id/{{id}}/history"
+          }
+        },
+        {
+          "name": "Create donation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"donorName\": \"Donante Demo\",\n  \"amount\": 10000,\n  \"description\": \"Donacion para alimentos\",\n  \"userId\": {{userId}},\n  \"shelterId\": {{shelterId}}\n}"
+            },
+            "url": "{{donationBaseUrl}}/donations"
+          }
+        },
+        {
+          "name": "Update donation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"donorName\": \"Donante Demo\",\n  \"amount\": 15000,\n  \"description\": \"Donacion actualizada\",\n  \"status\": \"COMPLETED\",\n  \"userId\": {{userId}},\n  \"shelterId\": {{shelterId}}\n}"
+            },
+            "url": "{{donationBaseUrl}}/donations/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Cancel donation",
+          "request": {
+            "method": "DELETE",
+            "url": "{{donationBaseUrl}}/donations/by-id/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FollowUp Service",
+      "item": [
+        {
+          "name": "List followups",
+          "request": {
+            "method": "GET",
+            "url": "{{followupBaseUrl}}/followups"
+          }
+        },
+        {
+          "name": "List followups by status",
+          "request": {
+            "method": "GET",
+            "url": "{{followupBaseUrl}}/followups?status=PENDING"
+          }
+        },
+        {
+          "name": "Get followup by id",
+          "request": {
+            "method": "GET",
+            "url": "{{followupBaseUrl}}/followups/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Get followup history",
+          "request": {
+            "method": "GET",
+            "url": "{{followupBaseUrl}}/followups/by-id/{{id}}/history"
+          }
+        },
+        {
+          "name": "Create followup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adopterName\": \"Camila Demo\",\n  \"petName\": \"Firulais\",\n  \"userId\": {{userId}},\n  \"petId\": {{petId}},\n  \"adoptionId\": {{adoptionId}},\n  \"visitDate\": \"2026-06-20T10:00:00\",\n  \"comments\": \"Primera visita\",\n  \"status\": \"PENDING\"\n}"
+            },
+            "url": "{{followupBaseUrl}}/followups"
+          }
+        },
+        {
+          "name": "Update followup",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adopterName\": \"Camila Demo\",\n  \"petName\": \"Firulais\",\n  \"userId\": {{userId}},\n  \"petId\": {{petId}},\n  \"adoptionId\": {{adoptionId}},\n  \"visitDate\": \"2026-06-20T10:00:00\",\n  \"comments\": \"Visita realizada\",\n  \"status\": \"COMPLETED\"\n}"
+            },
+            "url": "{{followupBaseUrl}}/followups/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Cancel followup",
+          "request": {
+            "method": "DELETE",
+            "url": "{{followupBaseUrl}}/followups/by-id/{{id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notification Service",
+      "item": [
+        {
+          "name": "List notifications",
+          "request": {
+            "method": "GET",
+            "url": "{{notificationBaseUrl}}/notifications"
+          }
+        },
+        {
+          "name": "List notifications by status",
+          "request": {
+            "method": "GET",
+            "url": "{{notificationBaseUrl}}/notifications?status=SENT"
+          }
+        },
+        {
+          "name": "Get notification by id",
+          "request": {
+            "method": "GET",
+            "url": "{{notificationBaseUrl}}/notifications/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Create notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"shelterId\": {{shelterId}},\n  \"recipient\": \"demo@adoptapp.com\",\n  \"message\": \"Mensaje de prueba\",\n  \"typeName\": \"USER_UPDATED\",\n  \"status\": \"SENT\"\n}"
+            },
+            "url": "{{notificationBaseUrl}}/notifications"
+          }
+        },
+        {
+          "name": "Update notification",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {{userId}},\n  \"shelterId\": {{shelterId}},\n  \"recipient\": \"demo@adoptapp.com\",\n  \"message\": \"Mensaje actualizado\",\n  \"typeName\": \"USER_UPDATED\",\n  \"status\": \"SENT\"\n}"
+            },
+            "url": "{{notificationBaseUrl}}/notifications/by-id/{{id}}"
+          }
+        },
+        {
+          "name": "Delete notification",
+          "request": {
+            "method": "DELETE",
+            "url": "{{notificationBaseUrl}}/notifications/by-id/{{id}}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -68,6 +68,9 @@ services:
     url: http://localhost:8081/user-app
   shelter-service:
     url: http://localhost:8095/shelter-app
+  staff-service:
+    url: http://localhost:8091/staff-app
+
 
 logging:
   level:

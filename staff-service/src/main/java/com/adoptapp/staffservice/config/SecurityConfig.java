@@ -1,5 +1,7 @@
 package com.adoptapp.staffservice.config;
 
+import com.adoptapp.sharedkernel.security.JsonAccessDeniedHandler;
+import com.adoptapp.sharedkernel.security.JsonAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,7 +24,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(new JsonAuthenticationEntryPoint())
+                        .accessDeniedHandler(new JsonAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.GET, "/staff/internal/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/staff", "/staff/by-id/**").hasAnyRole("SHELTER_ADMIN", "ADMIN")
                         .requestMatchers(HttpMethod.GET, "/staff/by-id/{id}/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/staff").hasAnyRole("SHELTER_ADMIN", "ADMIN")

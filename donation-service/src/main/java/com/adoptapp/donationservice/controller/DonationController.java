@@ -45,7 +45,7 @@ public class DonationController {
         return this.service.getById(id)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @GetMapping("/by-id/{id}/history")
@@ -58,7 +58,7 @@ public class DonationController {
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<DonationResponse> create(
-            @Valid @RequestBody DonationRequest request) {
+            @Valid @RequestBody DonationCreateRequest request) {
 
         DonationCommand command = toCommand(request);
 
@@ -72,14 +72,14 @@ public class DonationController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<DonationResponse> updateDonationById(
             @PathVariable Long id,
-            @Valid @RequestBody DonationRequest request) {
+            @Valid @RequestBody DonationUpdateRequest request) {
 
         DonationCommand command = toCommand(request);
 
         return this.service.updateById(id, command)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @DeleteMapping("/by-id/{id}")
@@ -88,14 +88,24 @@ public class DonationController {
             @PathVariable Long id) {
 
         if (!this.service.deleteById(id)) {
-            return ResponseEntity.notFound().build();
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
         }
 
         return ResponseEntity.noContent().build();
     }
 
-    private DonationCommand toCommand(DonationRequest request) {
+    private DonationCommand toCommand(DonationCreateRequest request) {
+        return new DonationCommand(
+                request.donorName(),
+                request.amount(),
+                request.description(),
+                null,
+                request.userId(),
+                request.shelterId()
+        );
+    }
 
+    private DonationCommand toCommand(DonationUpdateRequest request) {
         return new DonationCommand(
                 request.donorName(),
                 request.amount(),

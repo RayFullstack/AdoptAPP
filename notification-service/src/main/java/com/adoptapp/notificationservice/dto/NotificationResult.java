@@ -8,6 +8,7 @@ public record NotificationResult(
 
         Long id,
         Long userId,
+        Long shelterId,
         String recipient,
         String message,
         Long typeId,

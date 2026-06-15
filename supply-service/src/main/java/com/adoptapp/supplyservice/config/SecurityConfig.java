@@ -1,5 +1,7 @@
 package com.adoptapp.supplyservice.config;
 
+import com.adoptapp.sharedkernel.security.JsonAccessDeniedHandler;
+import com.adoptapp.sharedkernel.security.JsonAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,6 +25,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.GET, "/supplies/internal/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.GET, "/supplies/by-id/{id}/history").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.GET, "/supplies/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
                 .requestMatchers(HttpMethod.POST, "/supplies/**").hasAnyRole("ADMIN", "SHELTER_ADMIN")

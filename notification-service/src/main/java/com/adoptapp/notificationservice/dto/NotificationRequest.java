@@ -9,6 +9,8 @@ public record NotificationRequest(
 
         Long userId,
 
+        Long shelterId,
+
         @NotBlank(message = "Recipient is required")
         String recipient,
 

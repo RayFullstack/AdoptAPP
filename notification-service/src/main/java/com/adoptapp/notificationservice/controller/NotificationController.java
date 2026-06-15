@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,11 +25,27 @@ public class NotificationController {
     @GetMapping
     @PreAuthorize("hasAnyRole('ADOPTER', 'VOLUNTEER', 'VET', 'SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<List<NotificationResponse>> getAllNotifications(
-            @RequestParam(required = false) String status) {
+            @RequestParam(required = false) String status,
+            Authentication authentication) {
 
-        List<NotificationResult> results = status != null
-                ? this.service.getNotifications(status)
-                : this.service.getNotifications();
+        List<NotificationResult> results;
+
+        if (hasRole(authentication, "ROLE_ADMIN")) {
+            results = status != null
+                    ? this.service.getNotifications(status)
+                    : this.service.getNotifications();
+        } else if (hasRole(authentication, "ROLE_SHELTER_ADMIN")) {
+            Long userId = service.getUserIdByEmail(authentication.getName());
+            Long shelterId = service.getShelterIdForStaffUser(userId);
+            results = status != null
+                    ? this.service.getNotificationsByUserOrShelter(userId, shelterId, status)
+                    : this.service.getNotificationsByUserOrShelter(userId, shelterId);
+        } else {
+            Long userId = service.getUserIdByEmail(authentication.getName());
+            results = status != null
+                    ? this.service.getNotificationsByUser(userId, status)
+                    : this.service.getNotificationsByUser(userId);
+        }
 
         List<NotificationResponse> responses = results.stream()
                 .map(this::toResponse)
@@ -40,12 +57,31 @@ public class NotificationController {
     @GetMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('ADOPTER', 'VOLUNTEER', 'VET', 'SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<NotificationResponse> getNotificationById(
-            @PathVariable Long id) {
+            @PathVariable Long id,
+            Authentication authentication) {
 
-        return this.service.getById(id)
+        Optional<NotificationResult> result;
+
+        if (hasRole(authentication, "ROLE_ADMIN")) {
+            result = this.service.getByIdIncludingArchived(id);
+        } else if (hasRole(authentication, "ROLE_SHELTER_ADMIN")) {
+            Long userId = service.getUserIdByEmail(authentication.getName());
+            Long shelterId = service.getShelterIdForStaffUser(userId);
+            result = this.service.getByIdForUserOrShelter(id, userId, shelterId);
+        } else {
+            Long userId = service.getUserIdByEmail(authentication.getName());
+            result = this.service.getByIdForUser(id, userId);
+        }
+
+        return result
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
+    }
+
+    private boolean hasRole(Authentication authentication, String role) {
+        return authentication.getAuthorities().stream()
+                .anyMatch(authority -> authority.getAuthority().equals(role));
     }
 
     @PostMapping
@@ -71,7 +107,7 @@ public class NotificationController {
         return this.service.updateById(id, command)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @DeleteMapping("/by-id/{id}")
@@ -80,7 +116,7 @@ public class NotificationController {
             @PathVariable Long id) {
 
         if (!this.service.deleteById(id)) {
-            return ResponseEntity.notFound().build();
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
         }
 
         return ResponseEntity.noContent().build();
@@ -89,6 +125,7 @@ public class NotificationController {
     private NotificationCommand toCommand(NotificationRequest request) {
         return new NotificationCommand(
                 request.userId(),
+                request.shelterId(),
                 request.recipient(),
                 request.message(),
                 request.typeName(),
@@ -100,6 +137,7 @@ public class NotificationController {
         return new NotificationResponse(
                 result.id(),
                 result.userId(),
+                result.shelterId(),
                 result.recipient(),
                 result.message(),
                 result.typeId(),

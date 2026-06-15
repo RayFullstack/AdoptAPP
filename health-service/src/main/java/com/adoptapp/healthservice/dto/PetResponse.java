@@ -13,7 +13,6 @@ public record PetResponse(
         Boolean sterilized,
         String diseases,
         String personality,
-        Long fosterId,
         Long shelterId
 ) {
 }

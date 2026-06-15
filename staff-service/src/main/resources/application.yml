@@ -67,6 +67,7 @@ services:
   shelter-service:
     url: http://localhost:8095/shelter-app
 
+
 logging:
   level:
     root: INFO

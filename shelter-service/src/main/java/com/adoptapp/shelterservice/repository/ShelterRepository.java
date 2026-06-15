@@ -11,4 +11,6 @@ import java.util.List;
 public interface ShelterRepository extends JpaRepository<Shelter, Long> {
 
     List<Shelter> findByStatus(ShelterStatus status);
+
+    List<Shelter> findByStatusNot(ShelterStatus status);
 }

@@ -42,7 +42,7 @@ public class DonationService {
     }
 
     public List<DonationResult> getDonations() {
-        return repository.findAll().stream()
+        return repository.findByStatusNot(DonationStatus.CANCELLED).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -55,12 +55,13 @@ public class DonationService {
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado inválido para donación: '{}'", status);
-            return List.of();
+            throw new IllegalArgumentException("Status invalido: " + status);
         }
     }
 
     public Optional<DonationResult> getById(Long id) {
         return repository.findById(id)
+                .filter(donation -> donation.getStatus() != DonationStatus.CANCELLED)
                 .map(this::toResult);
     }
 
@@ -90,7 +91,7 @@ public class DonationService {
             donation.setDonorName(command.donorName());
             donation.setAmount(command.amount());
             donation.setDescription(command.description());
-            donation.setStatus(command.status());
+            donation.setStatus(DonationStatus.PENDING);
             donation.setShelterId(command.shelterId());
             donation.setUserId(command.userId());
 
@@ -99,8 +100,8 @@ public class DonationService {
             recordHistory(saved.getId(), "CREATED",
                     "Donación creada: " + command.donorName() + " - $" + command.amount(),
                     command.userId(),
-                    null, command.status() != null ? command.status().name() : null,
-                    null, command.amount());
+                    null, saved.getStatus() != null ? saved.getStatus().name() : null,
+                    null, saved.getAmount());
 
             String email = userResponse.getBody().email();
             sendNotification(command.userId(), email,
@@ -128,12 +129,24 @@ public class DonationService {
             }
 
             ResponseEntity<UserResponse> userResponse = userServiceClient.getUserById(command.userId());
-            if (!userResponse.getStatusCode().is2xxSuccessful()) {
+            if (!userResponse.getStatusCode().is2xxSuccessful() || userResponse.getBody() == null) {
                 log.warn("Usuario no encontrado: ID={}", command.userId());
                 throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
             }
 
+            ResponseEntity<ShelterResponse> shelterResponse =
+                    shelterServiceClient.getShelterById(command.shelterId());
+
+            if (!shelterResponse.getStatusCode().is2xxSuccessful() || shelterResponse.getBody() == null) {
+                log.warn("Refugio no encontrado: ID={}", command.shelterId());
+                throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
+            }
+
             Donation toUpdate = found.get();
+            if (toUpdate.getStatus() == DonationStatus.CANCELLED) {
+                throw new IllegalArgumentException("No se puede actualizar una donacion cancelada");
+            }
+
             DonationStatus prevStatus = toUpdate.getStatus();
             BigDecimal prevAmount = toUpdate.getAmount();
 
@@ -141,6 +154,7 @@ public class DonationService {
             toUpdate.setAmount(command.amount());
             toUpdate.setDescription(command.description());
             toUpdate.setStatus(command.status());
+            toUpdate.setShelterId(command.shelterId());
 
             Donation updated = repository.save(toUpdate);
 
@@ -175,17 +189,34 @@ public class DonationService {
     public boolean deleteById(Long id) {
         log.info("Eliminando donación: ID={}", id);
 
-        if (!repository.existsById(id)) {
+        Optional<Donation> found = repository.findById(id);
+        if (found.isEmpty()) {
             log.warn("Donación a eliminar no encontrada: ID={}", id);
             return false;
         }
 
-        // Eliminar historial asociado para evitar violación de FK y TransientObjectException
-        historyRepository.deleteByDonationId(id);
+        Donation donation = found.get();
+        if (donation.getStatus() == DonationStatus.CANCELLED) {
+            log.warn("Donacion ya cancelada: ID={}", id);
+            return false;
+        }
 
-        // Eliminar la donación
-        repository.deleteById(id);
-        log.info("Donación eliminada exitosamente: ID={}", id);
+        DonationStatus prevStatus = donation.getStatus();
+        BigDecimal prevAmount = donation.getAmount();
+
+        donation.setStatus(DonationStatus.CANCELLED);
+
+        Donation updated = repository.save(donation);
+
+        recordHistory(id, "CANCELLED",
+                "Donación marcada como eliminada",
+                donation.getUserId(),
+                prevStatus != null ? prevStatus.name() : null,
+                updated.getStatus() != null ? updated.getStatus().name() : null,
+                prevAmount,
+                updated.getAmount());
+
+        log.info("Donación marcada como eliminada exitosamente: ID={}", id);
         return true;
     }
 
@@ -235,7 +266,7 @@ public class DonationService {
 
     private void sendNotification(Long userId, String recipient, String message, String typeName) {
         try {
-            NotificationRequest request = new NotificationRequest(userId, recipient, message, typeName, "SENT");
+            NotificationRequest request = new NotificationRequest(userId, null, recipient, message, typeName, "SENT");
             notificationServiceClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion a {}: {}", recipient, e.getMessage());

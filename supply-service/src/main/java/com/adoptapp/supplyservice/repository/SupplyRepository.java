@@ -12,7 +12,9 @@ import java.util.List;
 public interface SupplyRepository extends JpaRepository<Supply, Long> {
     List<Supply> findByShelterId(Long shelterId);
     List<Supply> findByStatus(SupplyStatus status);
+    List<Supply> findByStatusNot(SupplyStatus status);
     List<Supply> findByCategory(SupplyCategory category);
     List<Supply> findByShelterIdAndCategory(Long shelterId, SupplyCategory category);
     List<Supply> findByShelterIdAndStatus(Long shelterId, SupplyStatus status);
+    List<Supply> findByShelterIdAndStatusNot(Long shelterId, SupplyStatus status);
 }
