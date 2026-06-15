@@ -49,18 +49,12 @@ public class Pet {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(nullable = false)
-    private Long fosterId;
-
-    @Column(name = "shelter_id")
+    @Column(name = "shelter_id", nullable = false)
     private Long shelterId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PetStatus status;
-
-    @Column(name = "health_service_id")
-    private Long healthServiceId;
 
     @PrePersist
     public void prePersist() {

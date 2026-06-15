@@ -31,23 +31,11 @@ public record PetRequest (
         @Size(max = 50)
         String personality,
 
-        @NotNull(message = "El fosterId es requerido")
-        Long fosterId,
-
-        @NotNull(message = "Debe indicar si está vacunado")
-        Boolean vaccinated,
-
-        @NotNull(message = "Debe indicar si está esterilizado")
-        Boolean sterilized,
-
-        @NotNull(message = "Debe indicar si tiene enfermedades")
-        @Size(max = 255, message = "Máximo 255 caracteres")
-        String diseases,
-
         @NotBlank(message = "El estado es requerido")
         @Size(max = 50)
         String status,
 
+        @NotNull(message = "El shelterId es requerido")
         Long shelterId
 ) {
 }

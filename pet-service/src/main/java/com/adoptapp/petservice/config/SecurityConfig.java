@@ -1,5 +1,7 @@
 package com.adoptapp.petservice.config;
 
+import com.adoptapp.sharedkernel.security.JsonAccessDeniedHandler;
+import com.adoptapp.sharedkernel.security.JsonAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,9 +24,13 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(new JsonAuthenticationEntryPoint())
+                        .accessDeniedHandler(new JsonAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.GET, "/pets/internal/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/pets/by-id/{id}/history").hasAnyRole("ADMIN", "SHELTER_ADMIN")
                         .requestMatchers(HttpMethod.GET, "/pets", "/pets/by-id/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/pets/by-id/{id}/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/pets").hasAnyRole("SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/pets/by-id/**").hasAnyRole("SHELTER_ADMIN", "VOLUNTEER", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/pets/by-id/**").hasRole("ADMIN")

@@ -2,7 +2,9 @@ package com.adoptapp.supplyservice.service;
 
 import com.adoptapp.supplyservice.client.NotificationServiceClient;
 import com.adoptapp.supplyservice.client.ShelterServiceClient;
+import com.adoptapp.supplyservice.client.StaffServiceClient;
 import com.adoptapp.supplyservice.client.UserServiceClient;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.supplyservice.dto.*;
 import com.adoptapp.supplyservice.model.Supply;
 import com.adoptapp.supplyservice.model.SupplyCategory;
@@ -29,9 +31,10 @@ public class SupplyService {
     private final UserServiceClient userServiceClient;
     private final NotificationServiceClient notificationServiceClient;
     private final ShelterServiceClient shelterServiceClient;
+    private final StaffServiceClient staffServiceClient;
 
     public List<SupplyResult> getSupplies() {
-        return supplyRepository.findAll().stream()
+        return supplyRepository.findByStatusNot(SupplyStatus.INACTIVE).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -47,19 +50,59 @@ public class SupplyService {
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado inválido para supply: '{}'", status);
-            return List.of();
+            throw new IllegalArgumentException("Status invalido: " + status);
         }
     }
 
     public Optional<SupplyResult> getById(Long id) {
         return supplyRepository.findById(id)
+                .filter(supply -> supply.getStatus() != SupplyStatus.INACTIVE)
+                .map(this::toResult);
+    }
+
+    public Optional<SupplyResult> getByIdForShelter(Long id, Long shelterId) {
+        return supplyRepository.findById(id)
+                .filter(supply -> supply.getStatus() != SupplyStatus.INACTIVE)
+                .filter(supply -> shelterId.equals(supply.getShelterId()))
                 .map(this::toResult);
     }
 
     public List<SupplyResult> findByShelterId(Long shelterId) {
-        return supplyRepository.findByShelterId(shelterId).stream()
+        return supplyRepository.findByShelterIdAndStatusNot(shelterId, SupplyStatus.INACTIVE).stream()
                 .map(this::toResult)
                 .toList();
+    }
+
+    public List<SupplyResult> findByShelterId(Long shelterId, String status) {
+        if (status == null || status.isBlank()) {
+            return findByShelterId(shelterId);
+        }
+
+        try {
+            SupplyStatus supplyStatus = SupplyStatus.valueOf(status.toUpperCase());
+            return supplyRepository.findByShelterIdAndStatus(shelterId, supplyStatus).stream()
+                    .map(this::toResult)
+                    .toList();
+        } catch (IllegalArgumentException e) {
+            log.warn("Estado invalido para supply: '{}'", status);
+            throw new IllegalArgumentException("Status invalido: " + status);
+        }
+    }
+
+    public Long getUserIdByEmail(String email) {
+        ResponseEntity<UserAuthResponse> response = userServiceClient.getUserAuthByEmail(email);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("Usuario autenticado no encontrado: " + email);
+        }
+        return response.getBody().id();
+    }
+
+    public Long getShelterIdForStaffUser(Long userId) {
+        ResponseEntity<StaffResponse> response = staffServiceClient.getStaffByUserId(userId);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("El usuario no tiene staff activo asociado");
+        }
+        return response.getBody().shelterId();
     }
 
     @Transactional
@@ -84,6 +127,8 @@ public class SupplyService {
 
         sendNotification(command.userId(), "SUPPLY_CREATED",
                 "Nuevo supply registrado: " + saved.getName());
+        sendShelterNotification(supply.getShelterId(), "SUPPLY_CREATED",
+                "Supply creado: " + supply.getName());
 
         return toResult(saved);
     }
@@ -99,8 +144,13 @@ public class SupplyService {
         }
 
         validateShelter(command.shelterId());
+        validateUser(command.userId());
 
         Supply toUpdate = found.get();
+        if (toUpdate.getStatus() == SupplyStatus.INACTIVE) {
+            throw new IllegalArgumentException("No se puede actualizar un insumo inactivo");
+        }
+
         String prevStatus = toUpdate.getStatus().name();
         Integer prevQuantity = toUpdate.getQuantity();
         String prevCategory = toUpdate.getCategory().name();
@@ -119,6 +169,8 @@ public class SupplyService {
 
         sendNotification(command.userId(), "SUPPLY_UPDATED",
                 "Supply actualizado: " + saved.getName());
+        sendShelterNotification(saved.getShelterId(), "SUPPLY_UPDATED",
+                "Supply actualizado: " + saved.getName());
 
         return Optional.of(toResult(saved));
     }
@@ -134,11 +186,28 @@ public class SupplyService {
         }
 
         Supply supply = found.get();
+        if (supply.getStatus() == SupplyStatus.INACTIVE) {
+            log.warn("Supply ya inactivo: id={}", id);
+            return false;
+        }
 
-        supplyRepository.deleteById(id);
-        log.info("Supply eliminado exitosamente: id={}, name={}", id, supply.getName());
+        String prevStatus = supply.getStatus() != null ? supply.getStatus().name() : null;
+        Integer prevQuantity = supply.getQuantity();
+        String prevCategory = supply.getCategory() != null ? supply.getCategory().name() : null;
 
-        sendNotification(supply.getShelterId(), "SUPPLY_DELETED",
+        supply.setStatus(SupplyStatus.INACTIVE);
+        Supply saved = supplyRepository.save(supply);
+
+        recordHistory(saved.getId(), "INACTIVE",
+                "Supply marcado como inactivo: name=" + saved.getName(),
+                null,
+                prevStatus, saved.getStatus().name(),
+                prevQuantity, saved.getQuantity(),
+                prevCategory, saved.getCategory().name());
+
+        log.info("Supply marcado como inactivo exitosamente: id={}, name={}", id, supply.getName());
+
+        sendShelterNotification(supply.getShelterId(), "SUPPLY_DELETED",
                 "Supply eliminado: " + supply.getName());
 
         return true;
@@ -168,6 +237,10 @@ public class SupplyService {
     }
 
     private void applyCommandToEntity(Supply supply, SupplyCommand command) {
+        if (command.status() == SupplyStatus.INACTIVE && supply.getStatus() != SupplyStatus.INACTIVE) {
+            throw new IllegalArgumentException("No se puede marcar un insumo como inactivo desde update; use delete");
+        }
+
         supply.setName(command.name());
         supply.setDescription(command.description());
         supply.setQuantity(command.quantity());
@@ -225,13 +298,41 @@ public class SupplyService {
                     && userResponse.getBody() != null && userResponse.getBody().email() != null) {
                 email = userResponse.getBody().email();
             }
-            NotificationRequest notif = new NotificationRequest(userId, email, message, type, "SENT");
+            NotificationRequest notif = new NotificationRequest(userId, null, email, message, type, "SENT");
             ResponseEntity<Void> response = notificationServiceClient.sendNotification(notif);
             if (response != null && !response.getStatusCode().is2xxSuccessful()) {
                 log.warn("Notificación enviada con error: status={}", response.getStatusCode());
             }
         } catch (Exception e) {
             log.warn("No se pudo enviar notificación: {}", e.getMessage());
+        }
+    }
+
+    private void sendShelterNotification(Long shelterId, String type, String message) {
+        try {
+            String email = "sistema@adoptapp.com";
+
+            ResponseEntity<ShelterResponse> shelterResponse = shelterServiceClient.getShelterById(shelterId);
+
+            if (shelterResponse != null
+                    && shelterResponse.getStatusCode().is2xxSuccessful()
+                    && shelterResponse.getBody() != null
+                    && shelterResponse.getBody().email() != null) {
+                email = shelterResponse.getBody().email();
+            }
+
+            NotificationRequest notif = new NotificationRequest(
+                    null,
+                    shelterId,
+                    email,
+                    message,
+                    type,
+                    "SENT"
+            );
+
+            notificationServiceClient.sendNotification(notif);
+        } catch (Exception e) {
+            log.warn("No se pudo enviar notificación al refugio {}: {}", shelterId, e.getMessage());
         }
     }
 

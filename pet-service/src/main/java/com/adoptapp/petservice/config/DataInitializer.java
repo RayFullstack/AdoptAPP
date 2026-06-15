@@ -24,7 +24,7 @@ public class DataInitializer implements CommandLineRunner {
             p1.setName("Yoni");
             p1.setAge(7);
             p1.setColor("Cafe");
-            p1.setFosterId(1L);
+            p1.setShelterId(1L);
             p1.setPersonality("Arisco");
             p1.setSpecies("Perro");
             p1.setSize("Grande");
@@ -36,7 +36,7 @@ public class DataInitializer implements CommandLineRunner {
             p2.setName("Loki");
             p2.setAge(4);
             p2.setColor("Negro");
-            p2.setFosterId(1L);
+            p2.setShelterId(1L);
             p2.setPersonality("Serena");
             p2.setSpecies("Gato");
             p2.setSize("Mediano");
@@ -48,7 +48,7 @@ public class DataInitializer implements CommandLineRunner {
             p3.setName("Oso");
             p3.setAge(2);
             p3.setColor("Crema");
-            p3.setFosterId(1L);
+            p3.setShelterId(1L);
             p3.setPersonality("Regalon");
             p3.setSpecies("Perro");
             p3.setSize("Mediano");

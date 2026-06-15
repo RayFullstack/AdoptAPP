@@ -5,8 +5,6 @@ CREATE TABLE pet_history (
     new_name VARCHAR(20),
     previous_status VARCHAR(20),
     new_status VARCHAR(20),
-    previous_foster_id BIGINT,
-    new_foster_id BIGINT,
     changed_by_user_id BIGINT,
     changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     comment VARCHAR(255),

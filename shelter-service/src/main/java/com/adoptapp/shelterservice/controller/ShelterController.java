@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public class ShelterController {
         return this.service.getById(id)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @GetMapping("/by-id/{id}/history")
@@ -56,9 +57,10 @@ public class ShelterController {
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<ShelterResponse> create(
             @Valid @RequestBody ShelterRequest request,
-            @RequestParam Long userId) {
+            Authentication authentication) {
 
         ShelterCommand command = toCommand(request);
+        Long userId = getAuthenticatedUserId(authentication);
 
         ShelterResult result = this.service.create(command, userId);
         ShelterResponse response = toResponse(result);
@@ -71,24 +73,34 @@ public class ShelterController {
     public ResponseEntity<ShelterResponse> updateShelterById(
             @PathVariable Long id,
             @Valid @RequestBody ShelterRequest request,
-            @RequestParam Long userId) {
+            Authentication authentication) {
+
+        if (!canModifyShelter(id, authentication)) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
 
         ShelterCommand command = toCommand(request);
+        Long userId = getAuthenticatedUserId(authentication);
 
         return this.service.updateById(id, command, userId)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @DeleteMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<Void> deleteShelterById(
             @PathVariable Long id,
-            @RequestParam Long userId) {
+            Authentication authentication) {
 
+        if (!canModifyShelter(id, authentication)) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
+
+        Long userId = getAuthenticatedUserId(authentication);
         if (!this.service.deleteById(id, userId)) {
-            return ResponseEntity.notFound().build();
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
         }
 
         return ResponseEntity.noContent().build();
@@ -116,5 +128,29 @@ public class ShelterController {
                 result.createdAt(),
                 result.updatedAt()
         );
+    }
+
+    private boolean canModifyShelter(Long shelterId, Authentication authentication) {
+        if (hasRole(authentication, "ROLE_ADMIN")) {
+            return true;
+        }
+
+        Long authenticatedShelterId = getShelterIdForAuthenticatedUser(authentication);
+        return authenticatedShelterId.equals(shelterId)
+                && this.service.getByIdActive(shelterId).isPresent();
+    }
+
+    private Long getAuthenticatedUserId(Authentication authentication) {
+        return service.getUserIdByEmail(authentication.getName());
+    }
+
+    private Long getShelterIdForAuthenticatedUser(Authentication authentication) {
+        Long userId = getAuthenticatedUserId(authentication);
+        return service.getShelterIdForStaffUser(userId);
+    }
+
+    private boolean hasRole(Authentication authentication, String role) {
+        return authentication.getAuthorities().stream()
+                .anyMatch(authority -> authority.getAuthority().equals(role));
     }
 }

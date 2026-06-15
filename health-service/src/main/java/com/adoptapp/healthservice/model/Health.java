@@ -43,6 +43,10 @@ public class Health {
     @Column(length = 500, nullable = false)
     private String diseases;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private HealthStatus status = HealthStatus.ACTIVE;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -51,6 +55,9 @@ public class Health {
         createdAt = LocalDateTime.now();
         if (diseases == null) {
             diseases = "Ninguna";
+        }
+        if (status == null) {
+            status = HealthStatus.ACTIVE;
         }
     }
 

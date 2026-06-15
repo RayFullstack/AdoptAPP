@@ -47,7 +47,7 @@ public class UserService {
     }
 
     public List<UserResult> getUsers() {
-        return this.userRepository.findAllByOrderByCreatedAtAsc().stream()
+        return this.userRepository.findByStatusNotOrderByCreatedAtAsc(UserStatus.INACTIVE).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -64,7 +64,7 @@ public class UserService {
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado inválido para usuario: '{}'", statusFilter);
-            return List.of();
+            throw new IllegalArgumentException("Status invalido: " + statusFilter);
         }
     }
 
@@ -130,11 +130,15 @@ public class UserService {
     }
 
     public Optional<UserResult> getById(Long id) {
-        return this.userRepository.findById(id).map(this::toResult);
+        return this.userRepository.findById(id)
+                .filter(user -> user.getStatus() != UserStatus.INACTIVE)
+                .map(this::toResult);
     }
 
     public Optional<UserResult> getByEmail(String email) {
-        return this.userRepository.findByEmail(email).map(this::toResult);
+        return this.userRepository.findByEmail(email)
+                .filter(user -> user.getStatus() != UserStatus.INACTIVE)
+                .map(this::toResult);
     }
 
     public Optional<UserAuthResponse> getAuthByEmail(String email) {
@@ -156,7 +160,14 @@ public class UserService {
             Optional<User> found = this.userRepository.findById(id);
             if (found.isPresent()) {
                 User user = found.get();
-                this.userRepository.deleteById(id);
+                if (user.getStatus() == UserStatus.INACTIVE) {
+                    log.warn("Usuario ya inactivo: ID={}", id);
+                    return false;
+                }
+
+                user.setStatus(UserStatus.INACTIVE);
+                user.setActive(false);
+                this.userRepository.save(user);
                 sendNotification(id, user.getEmail(), "Usuario eliminado: " + user.getName(), "USER_DELETED");
                 log.info("Usuario eliminado exitosamente: ID={}", id);
                 return true;
@@ -192,7 +203,24 @@ public class UserService {
             return Optional.empty();
         }
 
+        boolean existsByUsername = this.userRepository.existsByUsernameIgnoreCaseAndIdNot(command.username(), id);
+        boolean existsByEmail = this.userRepository.existsByEmailIgnoreCaseAndIdNot(command.email(), id);
+
+        if (existsByUsername) {
+            log.warn("Nombre de usuario duplicado: '{}', ID={}", command.username(), id);
+            throw new IllegalArgumentException(
+                    "El nombre de usuario ya está en uso: \"" + command.username() + "\"");
+        }
+        if (existsByEmail) {
+            log.warn("Email duplicado: '{}', ID={}", command.email(), id);
+            throw new IllegalArgumentException(
+                    "El email ya está en uso: \"" + command.email() + "\"");
+        }
+
         User toUpdate = found.get();
+        if (toUpdate.getStatus() == UserStatus.INACTIVE) {
+            throw new IllegalArgumentException("No se puede actualizar un usuario inactivo");
+        }
 
         String oldName = toUpdate.getName();
         String oldSurname = toUpdate.getSurname();
@@ -215,8 +243,8 @@ public class UserService {
         }
 
         // ROLE
-        if (command.role() != null) {
-            toUpdate.setRole(command.role());
+        if (command.role() != null && command.role() != toUpdate.getRole()) {
+            throw new IllegalArgumentException("No se permite cambiar el rol desde esta operacion");
         }
 
         // ACTIVE
@@ -242,7 +270,6 @@ public class UserService {
             address.setUser(toUpdate);
 
             toUpdate.setAddresses(new ArrayList<>(List.of(address)));
-
 
         } else {
 
@@ -414,8 +441,31 @@ public class UserService {
     private void validateRoleAssignment(User.Role role) {
         if (role == User.Role.ADMIN) {
             throw new IllegalArgumentException(
-                    "No se permite la creación directa de usuarios con rol ADMIN");
+                    "No se permite asignar usuarios con rol ADMIN desde esta operación");
         }
+    }
+
+    @Transactional
+    public UserResult register(UserCommand command) {
+        UserCommand adopterCommand = new UserCommand(
+                command.username(),
+                command.name(),
+                command.surname(),
+                command.email(),
+                command.password(),
+                command.phone(),
+                command.country(),
+                command.city(),
+                command.street(),
+                command.homeNumber(),
+                command.postalCode(),
+                command.type(),
+                UserStatus.ACTIVE,
+                User.Role.ADOPTER,
+                true
+        );
+
+        return create(adopterCommand);
     }
 }
 

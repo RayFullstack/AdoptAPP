@@ -42,7 +42,7 @@ public class FollowUpService {
     }
 
     public List<FollowUpResult> getFollowUps() {
-        return repository.findAll().stream()
+        return repository.findByStatusNot(FollowUpStatus.CANCELLED).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -55,12 +55,13 @@ public class FollowUpService {
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado inválido para seguimiento: '{}'", status);
-            return List.of();
+            throw new IllegalArgumentException("Status invalido: " + status);
         }
     }
 
     public Optional<FollowUpResult> getById(Long id) {
         return repository.findById(id)
+                .filter(followUp -> followUp.getStatus() != FollowUpStatus.CANCELLED)
                 .map(this::toResult);
     }
 
@@ -73,6 +74,22 @@ public class FollowUpService {
     @Transactional
     public FollowUpResult create(FollowUpCommand command) {
         log.info("Creando seguimiento: adopterName={}, petName={}", command.adopterName(), command.petName());
+
+        ResponseEntity<UserResponse> userResponse =
+                userServiceClient.getUserById(command.userId());
+
+        if (!userResponse.getStatusCode().is2xxSuccessful() || userResponse.getBody() == null) {
+            log.warn("Usuario no encontrado: ID={}", command.userId());
+            throw new IllegalArgumentException("El usuario con ID " + command.userId() + " no existe");
+        }
+
+        ResponseEntity<PetResponse> petResponse =
+                petServiceClient.getPetById(command.petId());
+
+        if (!petResponse.getStatusCode().is2xxSuccessful() || petResponse.getBody() == null) {
+            log.warn("Mascota no encontrada: ID={}", command.petId());
+            throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
+        }
 
         FollowUp followUp = new FollowUp();
         followUp.setAdopterName(command.adopterName());
@@ -114,13 +131,27 @@ public class FollowUpService {
         }
 
         FollowUp toUpdate = found.get();
+        if (toUpdate.getStatus() == FollowUpStatus.CANCELLED) {
+            throw new IllegalArgumentException("No se puede actualizar un seguimiento cancelado");
+        }
+
         FollowUpStatus prevStatus = toUpdate.getStatus();
 
         toUpdate.setAdopterName(command.adopterName());
         toUpdate.setPetName(command.petName());
-        if (command.userId() != null) toUpdate.setUserId(command.userId());
-        if (command.petId() != null) toUpdate.setPetId(command.petId());
-        if (command.adoptionId() != null) toUpdate.setAdoptionId(command.adoptionId());
+
+        if (command.userId() != null && !command.userId().equals(toUpdate.getUserId())) {
+            throw new IllegalArgumentException("No se puede cambiar el usuario asociado al seguimiento");
+        }
+
+        if (command.petId() != null && !command.petId().equals(toUpdate.getPetId())) {
+            throw new IllegalArgumentException("No se puede cambiar la mascota asociada al seguimiento");
+        }
+
+        if (command.adoptionId() != null && !command.adoptionId().equals(toUpdate.getAdoptionId())) {
+            throw new IllegalArgumentException("No se puede cambiar la adopcion asociada al seguimiento");
+        }
+
         toUpdate.setVisitDate(command.visitDate());
         toUpdate.setComments(command.comments());
         if (command.status() != null) {
@@ -160,16 +191,23 @@ public class FollowUpService {
         }
 
         FollowUp followUp = found.get();
+        if (followUp.getStatus() == FollowUpStatus.CANCELLED) {
+            log.warn("Seguimiento ya cancelado: ID={}", id);
+            return false;
+        }
+
         String delStatus = followUp.getStatus() != null ? followUp.getStatus().name() : null;
 
-        recordHistory(id, "DELETED",
+        followUp.setStatus(FollowUpStatus.CANCELLED);
+        FollowUp updated = repository.save(followUp);
+
+        recordHistory(id, "CANCELLED",
                 "Seguimiento eliminado: " + followUp.getAdopterName() + " - " + followUp.getPetName(),
-                delStatus, null);
+                delStatus, updated.getStatus() != null ? updated.getStatus().name() : null);
 
         sendNotification(id, "Seguimiento " + id + " ha sido eliminado", "FOLLOWUP_CANCELLED");
 
         try {
-            repository.deleteById(id);
             log.info("Seguimiento eliminado exitosamente: ID={}", id);
             return true;
         } catch (Exception e) {
@@ -199,7 +237,7 @@ public class FollowUpService {
     private void sendNotification(Long followUpId, String message, String typeName) {
         try {
             String recipient = "sistema@adoptapp.com";
-            NotificationRequest request = new NotificationRequest(null, recipient, message, typeName, "SENT");
+            NotificationRequest request = new NotificationRequest(null, null, recipient, message, typeName, "SENT");
             notificationServiceClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion para seguimiento {}: {}", followUpId, e.getMessage());

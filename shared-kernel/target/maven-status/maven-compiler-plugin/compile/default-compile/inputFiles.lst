@@ -1,0 +1,12 @@
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\dto\ErrorResponse.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\dto\UserAuthResponse.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\exception\BusinessException.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\exception\ForbiddenException.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\exception\RemoteServiceException.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\exception\ResourceNotFoundException.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\exception\UnauthorizedException.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\exception\ValidationException.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\security\JsonAccessDeniedHandler.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\security\JsonAuthenticationEntryPoint.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\util\ErrorResponseEntity.java
+C:\Users\camil\Documents\fullstack1\adoptapp\shared-kernel\src\main\java\com\adoptapp\sharedkernel\util\ErrorResponseFactory.java

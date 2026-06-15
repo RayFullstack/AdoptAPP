@@ -1,7 +1,11 @@
 package com.adoptapp.shelterservice.service;
 
 import com.adoptapp.shelterservice.client.NotificationServiceClient;
+import com.adoptapp.shelterservice.client.PetServiceClient;
+import com.adoptapp.shelterservice.client.StaffServiceClient;
+import com.adoptapp.shelterservice.client.SupplyServiceClient;
 import com.adoptapp.shelterservice.client.UserServiceClient;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.shelterservice.dto.*;
 import com.adoptapp.shelterservice.model.Shelter;
 import com.adoptapp.shelterservice.model.ShelterStatus;
@@ -23,20 +27,29 @@ public class ShelterService {
     private final ShelterRepository repository;
     private final ShelterHistoryService historyService;
     private final UserServiceClient userServiceClient;
+    private final StaffServiceClient staffServiceClient;
+    private final PetServiceClient petServiceClient;
+    private final SupplyServiceClient supplyServiceClient;
     private final NotificationServiceClient notificationServiceClient;
 
     public ShelterService(ShelterRepository repository,
                           ShelterHistoryService historyService,
                           UserServiceClient userServiceClient,
+                          StaffServiceClient staffServiceClient,
+                          PetServiceClient petServiceClient,
+                          SupplyServiceClient supplyServiceClient,
                           NotificationServiceClient notificationServiceClient) {
         this.repository = repository;
         this.historyService = historyService;
         this.userServiceClient = userServiceClient;
+        this.staffServiceClient = staffServiceClient;
+        this.petServiceClient = petServiceClient;
+        this.supplyServiceClient = supplyServiceClient;
         this.notificationServiceClient = notificationServiceClient;
     }
 
     public List<ShelterResult> getShelters() {
-        return repository.findAll().stream()
+        return repository.findByStatusNot(ShelterStatus.DELETED).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -49,13 +62,36 @@ public class ShelterService {
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado inválido para refugio: '{}'", status);
-            return List.of();
+            throw new IllegalArgumentException("Status invalido: " + status);
         }
     }
 
     public Optional<ShelterResult> getById(Long id) {
         return repository.findById(id)
+                .filter(shelter -> shelter.getStatus() != ShelterStatus.DELETED)
                 .map(this::toResult);
+    }
+
+    public Optional<ShelterResult> getByIdActive(Long id) {
+        return repository.findById(id)
+                .filter(shelter -> shelter.getStatus() != ShelterStatus.DELETED)
+                .map(this::toResult);
+    }
+
+    public Long getUserIdByEmail(String email) {
+        ResponseEntity<UserAuthResponse> response = userServiceClient.getUserAuthByEmail(email);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("Usuario autenticado no encontrado: " + email);
+        }
+        return response.getBody().id();
+    }
+
+    public Long getShelterIdForStaffUser(Long userId) {
+        ResponseEntity<StaffResponse> response = staffServiceClient.getStaffByUserId(userId);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("El usuario no tiene staff activo asociado");
+        }
+        return response.getBody().shelterId();
     }
 
     public List<ShelterHistoryResponse> getHistory(Long shelterId) {
@@ -123,6 +159,10 @@ public class ShelterService {
             }
 
             Shelter toUpdate = found.get();
+            if (toUpdate.getStatus() == ShelterStatus.DELETED) {
+                throw new IllegalArgumentException("No se puede actualizar un refugio eliminado");
+            }
+
             String prevName = toUpdate.getName();
             String prevEmail = toUpdate.getEmail();
             String prevPhone = toUpdate.getPhone();
@@ -134,6 +174,9 @@ public class ShelterService {
             toUpdate.setEmail(command.email());
             toUpdate.setPhone(command.phone());
             toUpdate.setDescription(command.description());
+            if (command.status() == ShelterStatus.DELETED) {
+                throw new IllegalArgumentException("No se puede marcar un refugio como eliminado desde update; use delete");
+            }
             if (command.status() != null) {
                 toUpdate.setStatus(command.status());
             }
@@ -187,6 +230,12 @@ public class ShelterService {
         }
 
         Shelter shelter = found.get();
+        if (shelter.getStatus() == ShelterStatus.DELETED) {
+            log.warn("Refugio ya eliminado: ID={}", id);
+            return false;
+        }
+
+        validateNoActiveDependencies(id);
 
         String email = null;
         try {
@@ -249,9 +298,66 @@ public class ShelterService {
         );
     }
 
+    private void validateNoActiveDependencies(Long shelterId) {
+        validateNoActivePets(shelterId);
+        validateNoActiveStaff(shelterId);
+        validateNoActiveSupplies(shelterId);
+    }
+
+    private void validateNoActivePets(Long shelterId) {
+        try {
+            ResponseEntity<List<PetResponse>> response = petServiceClient.getActivePetsByShelter(shelterId);
+            if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+                throw new IllegalStateException("No se pudo validar mascotas activas del refugio " + shelterId);
+            }
+            if (!response.getBody().isEmpty()) {
+                throw new IllegalArgumentException("No se puede eliminar el refugio porque tiene mascotas activas");
+            }
+        } catch (IllegalArgumentException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("Error validando mascotas activas del refugio {}: {}", shelterId, e.getMessage());
+            throw new RuntimeException("No se pudo validar mascotas activas del refugio " + shelterId);
+        }
+    }
+
+    private void validateNoActiveStaff(Long shelterId) {
+        try {
+            ResponseEntity<List<StaffResponse>> response = staffServiceClient.getActiveStaffByShelter(shelterId);
+            if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+                throw new IllegalStateException("No se pudo validar staff activo del refugio " + shelterId);
+            }
+            if (!response.getBody().isEmpty()) {
+                throw new IllegalArgumentException("No se puede eliminar el refugio porque tiene staff activo");
+            }
+        } catch (IllegalArgumentException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("Error validando staff activo del refugio {}: {}", shelterId, e.getMessage());
+            throw new RuntimeException("No se pudo validar staff activo del refugio " + shelterId);
+        }
+    }
+
+    private void validateNoActiveSupplies(Long shelterId) {
+        try {
+            ResponseEntity<List<SupplyResponse>> response = supplyServiceClient.getActiveSuppliesByShelter(shelterId);
+            if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+                throw new IllegalStateException("No se pudo validar insumos activos del refugio " + shelterId);
+            }
+            if (!response.getBody().isEmpty()) {
+                throw new IllegalArgumentException("No se puede eliminar el refugio porque tiene insumos activos");
+            }
+        } catch (IllegalArgumentException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("Error validando insumos activos del refugio {}: {}", shelterId, e.getMessage());
+            throw new RuntimeException("No se pudo validar insumos activos del refugio " + shelterId);
+        }
+    }
+
     private void sendNotification(Long userId, String recipient, String message, String typeName) {
         try {
-            NotificationRequest request = new NotificationRequest(userId, recipient, message, typeName, "SENT");
+            NotificationRequest request = new NotificationRequest(userId, null, recipient, message, typeName, "SENT");
             notificationServiceClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion a {}: {}", recipient, e.getMessage());

@@ -62,6 +62,8 @@ resilience4j:
 services:
   user-service:
     url: http://localhost:8081/user-app
+  staff-service:
+    url: http://localhost:8091/staff-app
 
 logging:
   level:

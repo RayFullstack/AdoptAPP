@@ -23,6 +23,9 @@ public class Notification {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "shelter_id")
+    private Long shelterId;
+
     @Column(nullable = false, length = 255)
     private String recipient;
 

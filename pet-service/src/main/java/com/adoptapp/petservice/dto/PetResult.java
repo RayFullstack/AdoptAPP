@@ -10,7 +10,6 @@ public record PetResult(
         String color,
         String status,
         String personality,
-        Long fosterId,
         Long shelterId
 ) {
 }

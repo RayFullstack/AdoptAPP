@@ -1,5 +1,7 @@
 package com.adoptapp.userservice.config;
 
+import com.adoptapp.sharedkernel.security.JsonAccessDeniedHandler;
+import com.adoptapp.sharedkernel.security.JsonAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,14 +24,23 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(new JsonAuthenticationEntryPoint())
+                        .accessDeniedHandler(new JsonAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users", "/users/by-id/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
                         .requestMatchers("/users/by-email/{email}/auth").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/users/by-id/{id}/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/users").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "VOLUNTEER", "VET", "ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/users/by-id/**").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "VOLUNTEER", "VET", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/users/by-id/**").hasRole("ADMIN")
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/doc/swagger-ui.html",
+                                "/doc/swagger-ui/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());

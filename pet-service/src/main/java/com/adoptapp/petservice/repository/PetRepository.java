@@ -6,16 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
-    Boolean existsByNameIgnoreCase(String name);
-
-    List<Pet> findByNameIgnoreCase(String name);
-
-    List<Pet> findAllByOrderByCreatedAtAsc();
+    List<Pet> findByStatusInOrderByCreatedAtAsc(List<PetStatus> statuses);
 
     List<Pet> findByStatus(PetStatus status);
+
+    List<Pet> findByShelterIdAndStatusInOrderByCreatedAtAsc(Long shelterId, List<PetStatus> statuses);
+
+    List<Pet> findByShelterIdAndStatus(Long shelterId, PetStatus status);
 }

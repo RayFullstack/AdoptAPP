@@ -3,6 +3,7 @@ package com.adoptapp.staffservice.service;
 import com.adoptapp.staffservice.client.NotificationServiceClient;
 import com.adoptapp.staffservice.client.ShelterServiceClient;
 import com.adoptapp.staffservice.client.UserServiceClient;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.staffservice.dto.*;
 import com.adoptapp.staffservice.model.Staff;
 import com.adoptapp.staffservice.model.StaffHistory;
@@ -43,7 +44,13 @@ public class StaffService {
     }
 
     public List<StaffResult> getAllStaff() {
-        return repository.findAll().stream()
+        return repository.findByStatusNot(StaffStatus.INACTIVE).stream()
+                .map(this::toResult)
+                .toList();
+    }
+
+    public List<StaffResult> getAllStaffByShelter(Long shelterId) {
+        return repository.findByShelterIdAndStatusNot(shelterId, StaffStatus.INACTIVE).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -56,13 +63,40 @@ public class StaffService {
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado inválido para staff: '{}'", status);
-            return List.of();
+            throw new IllegalArgumentException("Status invalido: " + status);
         }
     }
 
     public Optional<StaffResult> getById(Long id) {
         return repository.findById(id)
+                .filter(staff -> staff.getStatus() != StaffStatus.INACTIVE)
                 .map(this::toResult);
+    }
+
+    public Optional<StaffResult> getByIdForShelter(Long id, Long shelterId) {
+        return repository.findById(id)
+                .filter(staff -> staff.getStatus() != StaffStatus.INACTIVE)
+                .filter(staff -> shelterId.equals(staff.getShelterId()))
+                .map(this::toResult);
+    }
+
+    public Optional<StaffResult> getByUserId(Long userId) {
+        return repository.findByUserIdAndStatus(userId, StaffStatus.ACTIVE)
+                .map(this::toResult);
+    }
+
+    public Long getUserIdByEmail(String email) {
+        ResponseEntity<UserAuthResponse> response = userServiceClient.getUserAuthByEmail(email);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("Usuario autenticado no encontrado: " + email);
+        }
+        return response.getBody().id();
+    }
+
+    public Long getShelterIdForStaffUser(Long userId) {
+        Staff staff = repository.findByUserIdAndStatus(userId, StaffStatus.ACTIVE)
+                .orElseThrow(() -> new IllegalArgumentException("El usuario no tiene staff activo asociado"));
+        return staff.getShelterId();
     }
 
     public List<StaffHistoryResponse> getHistory(Long staffId) {
@@ -136,16 +170,30 @@ public class StaffService {
             }
 
             Staff toUpdate = found.get();
+            if (toUpdate.getStatus() == StaffStatus.INACTIVE) {
+                throw new IllegalArgumentException("No se puede actualizar un staff inactivo");
+            }
+
             StaffPosition prevPosition = toUpdate.getPosition();
             StaffStatus prevStatus = toUpdate.getStatus();
             String prevPhone = toUpdate.getPhone();
 
             toUpdate.setUserId(command.userId());
+
+            ResponseEntity<ShelterResponse> shelterResponse =
+                    shelterServiceClient.getShelterById(command.shelterId());
+
+            if (!shelterResponse.getStatusCode().is2xxSuccessful() || shelterResponse.getBody() == null) {
+                throw new IllegalArgumentException("El refugio con ID " + command.shelterId() + " no existe");
+            }
             toUpdate.setShelterId(command.shelterId());
             toUpdate.setPosition(command.position());
             toUpdate.setPhone(command.phone());
             toUpdate.setEmail(command.email());
             toUpdate.setHireDate(command.hireDate());
+            if (command.status() == StaffStatus.INACTIVE) {
+                throw new IllegalArgumentException("No se puede marcar staff como inactivo desde update; use delete");
+            }
             if (command.status() != null) {
                 toUpdate.setStatus(command.status());
             }
@@ -193,6 +241,11 @@ public class StaffService {
         }
 
         Staff staff = found.get();
+        if (staff.getStatus() == StaffStatus.INACTIVE) {
+            log.warn("Staff ya inactivo: ID={}", id);
+            return false;
+        }
+
         String delStatus = staff.getStatus() != null ? staff.getStatus().name() : null;
         String delPhone = staff.getPhone();
         String delPosition = staff.getPosition() != null ? staff.getPosition().name() : null;
@@ -207,11 +260,14 @@ public class StaffService {
             log.warn("No se pudo obtener email del usuario {} para notificación", staff.getUserId());
         }
 
-        recordHistory(id, "DELETED",
+        staff.setStatus(StaffStatus.INACTIVE);
+        Staff updated = repository.save(staff);
+
+        recordHistory(id, "INACTIVE",
                 "Staff eliminado: userId=" + staff.getUserId(),
-                delStatus, null,
-                delPhone, null,
-                delPosition, null);
+                delStatus, updated.getStatus() != null ? updated.getStatus().name() : null,
+                delPhone, updated.getPhone(),
+                delPosition, updated.getPosition() != null ? updated.getPosition().name() : null);
 
         if (email != null) {
             sendNotification(staff.getUserId(), email,
@@ -219,7 +275,6 @@ public class StaffService {
         }
 
         try {
-            repository.deleteById(id);
             log.info("Staff eliminado exitosamente: ID={}", id);
             return true;
         } catch (Exception e) {
@@ -248,7 +303,7 @@ public class StaffService {
 
     private void sendNotification(Long userId, String recipient, String message, String typeName) {
         try {
-            NotificationRequest request = new NotificationRequest(userId, recipient, message, typeName, "SENT");
+            NotificationRequest request = new NotificationRequest(userId, null, recipient, message, typeName, "SENT");
             notificationServiceClient.sendNotification(request);
         } catch (Exception e) {
             log.warn("Error enviando notificacion a {}: {}", recipient, e.getMessage());

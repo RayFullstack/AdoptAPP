@@ -1,9 +1,11 @@
 package com.adoptapp.healthservice.service;
 
 import com.adoptapp.healthservice.client.*;
+import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.healthservice.dto.*;
 import com.adoptapp.healthservice.model.Health;
 import com.adoptapp.healthservice.model.HealthHistory;
+import com.adoptapp.healthservice.model.HealthStatus;
 import com.adoptapp.healthservice.model.SterilizationStatus;
 import com.adoptapp.healthservice.model.VaccinationStatus;
 import com.adoptapp.healthservice.repository.HealthHistoryRepository;
@@ -26,21 +28,24 @@ public class HealthService {
     private final PetServiceClient petServiceClient;
     private final NotificationServiceClient notificationServiceClient;
     private final UserServiceClient userServiceClient;
+    private final StaffServiceClient staffServiceClient;
 
     public HealthService(HealthRepository healthRepository,
                    HealthHistoryRepository healthHistoryRepository,
                    PetServiceClient petServiceClient,
                    NotificationServiceClient notificationServiceClient,
-                   UserServiceClient userServiceClient) {
+                   UserServiceClient userServiceClient,
+                   StaffServiceClient staffServiceClient) {
         this.healthRepository = healthRepository;
         this.healthHistoryRepository = healthHistoryRepository;
         this.petServiceClient = petServiceClient;
         this.notificationServiceClient = notificationServiceClient;
         this.userServiceClient = userServiceClient;
+        this.staffServiceClient = staffServiceClient;
     }
 
     public List<HealthResult> getHealth() {
-        return this.healthRepository.findAll().stream()
+        return this.healthRepository.findByStatus(HealthStatus.ACTIVE).stream()
                 .map(this::toResult)
                 .toList();
     }
@@ -48,30 +53,64 @@ public class HealthService {
     public List<HealthResult> getVax(String vaccinationStatus) {
         try {
             VaccinationStatus vax = VaccinationStatus.valueOf(vaccinationStatus.toUpperCase());
-            return this.healthRepository.findByVaccinationStatus(vax).stream()
+            return this.healthRepository.findByVaccinationStatusAndStatus(vax, HealthStatus.ACTIVE).stream()
                     .map(this::toResult)
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado de vacunación inválido: '{}'", vaccinationStatus);
-            return List.of();
+            throw new IllegalArgumentException("Estado de vacunacion invalido: " + vaccinationStatus);
         }
     }
 
     public List<HealthResult> getSter(String sterilizationStatus) {
         try {
             SterilizationStatus ster = SterilizationStatus.valueOf(sterilizationStatus.toUpperCase());
-            return this.healthRepository.findBySterilizationStatus(ster).stream()
+            return this.healthRepository.findBySterilizationStatusAndStatus(ster, HealthStatus.ACTIVE).stream()
                     .map(this::toResult)
                     .toList();
         } catch (IllegalArgumentException e) {
             log.warn("Estado de esterilización inválido: '{}'", sterilizationStatus);
-            return List.of();
+            throw new IllegalArgumentException("Estado de esterilizacion invalido: " + sterilizationStatus);
         }
     }
 
     public Optional<HealthResult> getById(Long id) {
         return this.healthRepository.findById(id)
+                .filter(health -> health.getStatus() == HealthStatus.ACTIVE)
                 .map(this::toResult);
+    }
+
+    public Optional<HealthResult> getByPetId(Long petId) {
+        return this.healthRepository.findByPetIdAndStatus(petId, HealthStatus.ACTIVE)
+                .map(this::toResult);
+    }
+
+    public Optional<HealthResult> getByIdIncludingDeleted(Long id) {
+        return this.healthRepository.findById(id)
+                .map(this::toResult);
+    }
+
+    public Long getUserIdByEmail(String email) {
+        ResponseEntity<UserAuthResponse> response = userServiceClient.getUserAuthByEmail(email);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("Usuario autenticado no encontrado: " + email);
+        }
+        return response.getBody().id();
+    }
+
+    public Long getShelterIdForStaffUser(Long userId) {
+        ResponseEntity<StaffResponse> response = staffServiceClient.getStaffByUserId(userId);
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IllegalArgumentException("El usuario no tiene staff activo asociado");
+        }
+        return response.getBody().shelterId();
+    }
+
+    public boolean petBelongsToShelter(Long petId, Long shelterId) {
+        ResponseEntity<PetResponse> response = petServiceClient.getPetById(petId);
+        return response.getStatusCode().is2xxSuccessful()
+                && response.getBody() != null
+                && shelterId.equals(response.getBody().shelterId());
     }
 
     @Transactional
@@ -79,6 +118,9 @@ public class HealthService {
         log.info("Creando ficha clinica: userId={}, petId={}", command.userId(), command.petId());
         try {
             ResponseEntity<PetResponse> petResponse = petServiceClient.getPetById(command.petId());
+            if (healthRepository.existsByPetIdAndStatus(command.petId(), HealthStatus.ACTIVE)) {
+                throw new IllegalArgumentException("La mascota ya tiene una ficha de salud");
+            }
             if (!petResponse.getStatusCode().is2xxSuccessful()) {
                 log.warn("Mascota no encontrada: ID={}", command.petId());
                 throw new IllegalArgumentException("La mascota con ID " + command.petId() + " no existe");
@@ -119,44 +161,58 @@ public class HealthService {
         }
     }
 
+    @Transactional
+    public boolean deleteByPetId(Long petId) {
+        log.info("Eliminando la ficha clinica por Id de la mascota: ID={}", petId);
 
-    private void sendNotification(Long userId, String recipient, String message, String typeName) {
+        Optional<Health> found = this.healthRepository.findByPetIdAndStatus(petId, HealthStatus.ACTIVE);
+
+        if (found.isEmpty()) {
+            log.warn("Ficha a eliminar no encontrada para  petID: ID={}", petId);
+            return false;
+        }
+
+        Health health = found.get();
+        if (health.getStatus() == HealthStatus.DELETED) {
+            log.warn("Ficha ya eliminada para petId={}", petId);
+            return false;
+        }
+
+        String email = null;
+
+        VaccinationStatus delVax = health.getVaccinationStatus();
+        SterilizationStatus delSter = health.getSterilizationStatus();
+        String delDiseases = health.getDiseases();
+        recordHistory(health.getId(), "DELETED",
+                "Ficha eliminada: mascota " + health.getPetId() + ", usuario " + health.getUserId(),
+                health.getUserId(),
+                delSter != null ? delSter.name() : null, null,
+                delVax != null ? delVax.name() : null, null,
+                delDiseases, null);
+
         try {
-            NotificationRequest request = new NotificationRequest(userId, recipient, message, typeName, "SENT");
-            notificationServiceClient.sendNotification(request);
+            var userResponse = userServiceClient.getUserById(health.getUserId());
+
+            if (userResponse.getBody() != null) {
+                email = userResponse.getBody().email();
+            }
         } catch (Exception e) {
-            log.warn("Error enviando notificacion a {}: {}", recipient, e.getMessage());
+            log.warn("No se pudo obtener email del usuario ID={}: {}", health.getUserId(), e.getMessage());
+        }
+        if (email != null) {
+            sendNotification(health.getUserId(), email, "La ficha " + petId + " ha sido eliminada", "HEALTH_ALERT");
+        }
+
+        try {
+            health.setStatus(HealthStatus.DELETED);
+            this.healthRepository.save(health);
+            log.info("Ficha eliminada exitosamente: ID={}", petId);
+            return true;
+        } catch (Exception e) {
+            log.error("Error al eliminar ficha: ID={}", petId, e);
+            throw e;
         }
     }
-
-    private HealthHistoryResponse toHistoryResponse(HealthHistory history) {
-        return new HealthHistoryResponse(
-                history.getHealth().getId(),
-                history.getPreviousSterilizationStatus(),
-                history.getNewSterilizationStatus(),
-                history.getPreviousVaccinationStatus(),
-                history.getNewVaccinationStatus(),
-                history.getPreviousDisease(),
-                history.getNewDisease(),
-                history.getAction(),
-                history.getChangedAt(),
-                history.getComment(),
-                history.getChangedByUserId()
-        );
-    }
-    private HealthResult toResult(Health health) {
-        return new HealthResult(
-                health.getId(),
-                health.getUserId(),
-                health.getPetId(),
-                health.getVaccinationStatus(),
-                health.getSterilizationStatus(),
-                health.getDiseases(),
-                health.getCreatedAt(),
-                health.getUpdatedAt()
-        );
-    }
-
 
     @Transactional
     public boolean deleteById(Long id) {
@@ -169,6 +225,10 @@ public class HealthService {
         }
 
         Health health = found.get();
+        if (health.getStatus() == HealthStatus.DELETED) {
+            log.warn("Ficha ya eliminada: ID={}", id);
+            return false;
+        }
 
         String email = null;
         try {
@@ -195,7 +255,8 @@ public class HealthService {
         }
 
         try {
-            this.healthRepository.deleteById(id);
+            health.setStatus(HealthStatus.DELETED);
+            this.healthRepository.save(health);
             log.info("Ficha eliminada exitosamente: ID={}", id);
             return true;
         } catch (Exception e) {
@@ -203,6 +264,8 @@ public class HealthService {
             throw e;
         }
     }
+
+
 
     @Transactional
     public Optional<HealthResult> updateById(Long id, HealthCommand command) {
@@ -227,12 +290,23 @@ public class HealthService {
             }
 
             Health toUpdate = found.get();
+            if (toUpdate.getStatus() == HealthStatus.DELETED) {
+                throw new IllegalArgumentException("No se puede actualizar una ficha clinica eliminada");
+            }
+
+            if (!toUpdate.getPetId().equals(command.petId())) {
+                throw new IllegalArgumentException("No se puede cambiar la mascota asociada a una ficha clinica");
+            }
+
+            if (!toUpdate.getUserId().equals(command.userId())) {
+                throw new IllegalArgumentException("No se puede cambiar el usuario asociado a una ficha clinica");
+            }
+
+
             VaccinationStatus prevVax = toUpdate.getVaccinationStatus();
             SterilizationStatus prevSter = toUpdate.getSterilizationStatus();
             String prevDiseases = toUpdate.getDiseases();
 
-            toUpdate.setUserId(command.userId());
-            toUpdate.setPetId(command.petId());
             toUpdate.setVaccinationStatus(command.vaccinationStatus());
             toUpdate.setSterilizationStatus(command.sterilizationStatus());
             toUpdate.setDiseases(command.diseases());
@@ -294,4 +368,41 @@ public class HealthService {
         healthHistoryRepository.save(history);
     }
 
+    private void sendNotification(Long userId, String recipient, String message, String typeName) {
+        try {
+            NotificationRequest request = new NotificationRequest(userId, null, recipient, message, typeName, "SENT");
+            notificationServiceClient.sendNotification(request);
+        } catch (Exception e) {
+            log.warn("Error enviando notificacion a {}: {}", recipient, e.getMessage());
+        }
+    }
+
+    private HealthHistoryResponse toHistoryResponse(HealthHistory history) {
+        return new HealthHistoryResponse(
+                history.getHealth().getId(),
+                history.getPreviousSterilizationStatus(),
+                history.getNewSterilizationStatus(),
+                history.getPreviousVaccinationStatus(),
+                history.getNewVaccinationStatus(),
+                history.getPreviousDisease(),
+                history.getNewDisease(),
+                history.getAction(),
+                history.getChangedAt(),
+                history.getComment(),
+                history.getChangedByUserId()
+        );
+    }
+    private HealthResult toResult(Health health) {
+        return new HealthResult(
+                health.getId(),
+                health.getUserId(),
+                health.getPetId(),
+                health.getVaccinationStatus(),
+                health.getSterilizationStatus(),
+                health.getDiseases(),
+                health.getStatus(),
+                health.getCreatedAt(),
+                health.getUpdatedAt()
+        );
+    }
 }

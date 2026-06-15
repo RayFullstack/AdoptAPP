@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,7 +48,16 @@ public class HealthController {
         return this.service.getById(id)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
+    }
+
+    @GetMapping("/by-pet/{petId}")
+    public ResponseEntity<HealthResponse> getHealthByPetId(@PathVariable Long petId) {
+
+        return this.service.getByPetId(petId)
+                .map(this::toResponse)
+                .map(ResponseEntity::ok)
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @GetMapping("/by-id/{id}/history")
@@ -59,7 +69,12 @@ public class HealthController {
     @PostMapping
     @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
     public ResponseEntity<HealthResponse> createForm(
-            @Valid @RequestBody HealthRequest request) {
+            @Valid @RequestBody HealthRequest request,
+            Authentication authentication) {
+
+        if (!canUsePet(request.petId(), authentication)) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
 
         HealthCommand command = toCommand(request);
         HealthResult result = this.service.create(command);
@@ -70,26 +85,53 @@ public class HealthController {
 
     @PutMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<HealthResponse> updateFormById(
+    public ResponseEntity<HealthResponse> updateById(
             @PathVariable Long id,
-            @Valid @RequestBody HealthRequest request) {
+            @Valid @RequestBody HealthRequest request,
+            Authentication authentication) {
+
+        if (!canModifyHealth(id, authentication) || !canUsePet(request.petId(), authentication)) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
 
         HealthCommand command = toCommand(request);
 
         return this.service.updateById(id, command)
                 .map(this::toResponse)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
 
     @DeleteMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<Void> deleteFormById(
-            @PathVariable Long id) {
+    public ResponseEntity<Void> deleteById(
+            @PathVariable Long id,
+            Authentication authentication) {
+
+        if (!canModifyHealth(id, authentication)) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
 
         boolean deleted = service.deleteById(id);
         if (!deleted) {
-            return ResponseEntity.notFound().build();
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/by-pet/{petId}")
+    @PreAuthorize("hasAnyRole('VET', 'SHELTER_ADMIN', 'ADMIN')")
+    public ResponseEntity<Void> deleteByPetId(
+            @PathVariable Long petId,
+            Authentication authentication) {
+
+        if (!canUsePet(petId, authentication)) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
+        }
+
+        boolean deleted = service.deleteByPetId(petId);
+        if (!deleted) {
+            return com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado");
         }
         return ResponseEntity.noContent().build();
     }
@@ -114,8 +156,38 @@ public class HealthController {
                 result.vaccinationStatus(),
                 result.sterilizationStatus(),
                 result.diseases(),
+                result.status(),
                 result.createdAt(),
                 result.updatedAt()
         );
+    }
+
+    private boolean canModifyHealth(Long healthId, Authentication authentication) {
+        if (hasRole(authentication, "ROLE_ADMIN")) {
+            return true;
+        }
+
+        return this.service.getById(healthId)
+                .map(health -> canUsePet(health.petId(), authentication))
+                .orElse(false);
+    }
+
+    private boolean canUsePet(Long petId, Authentication authentication) {
+        if (hasRole(authentication, "ROLE_ADMIN")) {
+            return true;
+        }
+
+        Long shelterId = getShelterIdForAuthenticatedUser(authentication);
+        return this.service.petBelongsToShelter(petId, shelterId);
+    }
+
+    private Long getShelterIdForAuthenticatedUser(Authentication authentication) {
+        Long userId = service.getUserIdByEmail(authentication.getName());
+        return service.getShelterIdForStaffUser(userId);
+    }
+
+    private boolean hasRole(Authentication authentication, String role) {
+        return authentication.getAuthorities().stream()
+                .anyMatch(authority -> authority.getAuthority().equals(role));
     }
 }

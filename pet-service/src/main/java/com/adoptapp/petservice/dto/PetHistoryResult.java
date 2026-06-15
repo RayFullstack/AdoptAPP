@@ -9,8 +9,6 @@ public record PetHistoryResult(
     String newName,
     String previousStatus,
     String newStatus,
-    Long previousFosterId,
-    Long newFosterId,
     Long changedByUserId,
     LocalDateTime changedAt,
     String comment

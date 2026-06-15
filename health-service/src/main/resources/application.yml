@@ -64,6 +64,8 @@ services:
     url: http://localhost:8081/user-app
   pet-service:
     url: http://localhost:8082/pet-app
+  staff-service:
+    url: http://localhost:8091/staff-app
   notification-service:
     url: http://localhost:8084/notification-app
 
