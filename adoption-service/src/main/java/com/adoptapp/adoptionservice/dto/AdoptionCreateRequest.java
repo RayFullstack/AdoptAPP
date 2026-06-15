@@ -8,9 +8,7 @@ public record AdoptionRequest(
         Long petId,
 
         @NotNull(message = "El userId es requerido")
-        Long userId,
+        Long userId
 
-        @NotNull(message = "El estado es requerido")
-        AdoptionStatus status
 ){
 }
