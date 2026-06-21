@@ -3,7 +3,7 @@ package com.adoptapp.userservice.service;
 import com.adoptapp.userservice.client.UserNotificationClient;
 import com.adoptapp.sharedkernel.dto.UserAuthResponse;
 import com.adoptapp.userservice.dto.UserCommand;
-import com.adoptapp.userservice.dto.UserHistoryResult;
+import com.adoptapp.userservice.dto.UserHistoryResponse;
 import com.adoptapp.userservice.dto.UserNotificationRequest;
 import com.adoptapp.userservice.dto.UserResult;
 import com.adoptapp.userservice.model.*;
@@ -180,11 +180,11 @@ public class UserService {
         }
     }
 
-    public Optional<List<UserHistoryResult>> getHistory(Long userId) {
+    public Optional<List<UserHistoryResponse>> getHistory(Long userId) {
         if (!userRepository.existsById(userId)) {
             return Optional.empty();
         }
-        List<UserHistoryResult> historial = userHistoryRepository
+        List<UserHistoryResponse> historial = userHistoryRepository
                 .findByUserIdOrderByChangedAtDesc(userId)
                 .stream()
                 .map(this::toHistoryResult)
@@ -347,8 +347,8 @@ public class UserService {
         );
     }
 
-    private UserHistoryResult toHistoryResult(UserHistory h) {
-        return new UserHistoryResult(
+    private UserHistoryResponse toHistoryResult(UserHistory h) {
+        return new UserHistoryResponse(
                 h.getId(),
                 h.getUser() != null ? h.getUser().getId() : null,
                 h.getPreviousName(),

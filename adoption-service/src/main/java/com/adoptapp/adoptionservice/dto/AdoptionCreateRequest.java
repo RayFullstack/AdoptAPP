@@ -3,6 +3,7 @@ package com.adoptapp.adoptionservice.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 
+@Schema(description = "Datos para la creacion de una adopción")
 public record AdoptionCreateRequest(
         @Schema(description = "ID de la mascota que se desea adoptar", example = "1")
         @NotNull(message = "El petId es requerido")

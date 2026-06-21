@@ -9,6 +9,7 @@ import com.adoptapp.sharedkernel.exception.UnauthorizedException;
 import com.adoptapp.sharedkernel.exception.ValidationException;
 import com.adoptapp.sharedkernel.util.ErrorResponseFactory;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.List;
 
@@ -69,6 +71,26 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex, HttpServletRequest request) {
         List<String> errors = ex.getBindingResult().getFieldErrors().stream()
                 .map(FieldError::getDefaultMessage)
+                .toList();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponseFactory.badRequest(errors, request.getRequestURI()));
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorResponse> handleTypeMismatch(
+            MethodArgumentTypeMismatchException ex,
+            HttpServletRequest request) {
+        String message = "El parámetro '" + ex.getName() + "' tiene un formato inválido";
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponseFactory.badRequest(message, request.getRequestURI()));
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorResponse> handleConstraintViolation(
+            ConstraintViolationException ex,
+            HttpServletRequest request) {
+        List<String> errors = ex.getConstraintViolations().stream()
+                .map(violation -> violation.getMessage())
                 .toList();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ErrorResponseFactory.badRequest(errors, request.getRequestURI()));

@@ -8,4 +8,5 @@ com\adoptapp\sharedkernel\exception\BusinessException.class
 com\adoptapp\sharedkernel\exception\RemoteServiceException.class
 com\adoptapp\sharedkernel\security\JsonAuthenticationEntryPoint.class
 com\adoptapp\sharedkernel\exception\UnauthorizedException.class
+com\adoptapp\sharedkernel\util\ErrorResponseEntity.class
 com\adoptapp\sharedkernel\exception\ResourceNotFoundException.class

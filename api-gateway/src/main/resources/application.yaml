@@ -1,0 +1,66 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user-app/**
+
+        - id: pet-service
+          uri: lb://pet-service
+          predicates:
+            - Path=/pet-app/**
+
+        - id: adoption-service
+          uri: lb://adoption-service
+          predicates:
+            - Path=/adoption-app/**
+
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification-app/**
+
+        - id: health-service
+          uri: lb://health-service
+          predicates:
+            - Path=/health-app/**
+
+        - id: followup-service
+          uri: lb://followup-service
+          predicates:
+            - Path=/followup-app/**
+
+        - id: donation-service
+          uri: lb://donation-service
+          predicates:
+            - Path=/donation-app/**
+
+        - id: staff-service
+          uri: lb://staff-service
+          predicates:
+            - Path=/staff-app/**
+
+        - id: supply-service
+          uri: lb://supply-service
+          predicates:
+            - Path=/supply-app/**
+
+        - id: shelter-service
+          uri: lb://shelter-service
+          predicates:
+            - Path=/shelter-app/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}

@@ -29,6 +29,8 @@ public class SecurityConfig {
                         .authenticationEntryPoint(new JsonAuthenticationEntryPoint())
                         .accessDeniedHandler(new JsonAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
+                                "/doc/swagger-ui.html", "/doc/swagger-ui/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/adoptions", "/adoptions/by-id/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
                         .requestMatchers(HttpMethod.GET, "/adoptions/by-id/*/history").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "ADMIN")
                         .requestMatchers(HttpMethod.POST, "/adoptions").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "ADMIN")

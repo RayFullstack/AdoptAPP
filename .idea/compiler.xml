@@ -7,7 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
         <module name="shared-kernel" />
+        <module name="eureka-server" />
       </profile>
       <profile name="Annotation profile for followup-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -41,7 +43,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="adoption-service" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="donation-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="followup-service" options="-parameters" />
       <module name="health-service" options="-parameters" />
       <module name="notification-service" options="-parameters" />

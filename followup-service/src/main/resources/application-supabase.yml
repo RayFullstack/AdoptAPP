@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 2
+      minimum-idle: 0
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    schemas: ${DB_SCHEMA:followup_service}
+    default-schema: ${DB_SCHEMA:followup_service}
+    create-schemas: true
+    baseline-on-migrate: true
+    out-of-order: false
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEMA:followup_service}
+        format_sql: true

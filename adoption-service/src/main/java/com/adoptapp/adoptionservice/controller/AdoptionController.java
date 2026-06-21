@@ -3,9 +3,13 @@ package com.adoptapp.adoptionservice.controller;
 import com.adoptapp.adoptionservice.dto.*;
 import com.adoptapp.adoptionservice.service.AdoptionService;
 
+import com.adoptapp.sharedkernel.dto.ErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
@@ -21,6 +25,7 @@ import java.util.Optional;
 @Tag(name = "Adopciones", description = "Operaciones para gestionar adopciones")
 @RestController
 @RequestMapping("/adoptions")
+@SecurityRequirement(name = "basicAuth")
 public class AdoptionController {
 
     private final AdoptionService service;
@@ -32,9 +37,12 @@ public class AdoptionController {
     @Operation(summary = "Listar todas las adopciones")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopciones listadas correctamente"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para listar adopciones"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para listar adopciones",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping
     @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'ADMIN')")
@@ -46,10 +54,14 @@ public class AdoptionController {
     @Operation(summary = "Buscar adopción por ID")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopción encontrada correctamente"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopción"),
-            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopción",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'ADMIN')")
@@ -73,9 +85,14 @@ public class AdoptionController {
     @Operation(summary = "Buscar adopción por ID incluyendo canceladas")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopción encontrada correctamente"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopción"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+            @ApiResponse(responseCode = "401", description = "No autenticado", content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopción",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Adopción no encontrada",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping("/admin/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
@@ -94,9 +111,12 @@ public class AdoptionController {
     @Operation(summary = "Listar adopciones por status")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopciones listadas correctamente"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver estas adopciones"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver estas adopciones",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping("/admin")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
@@ -110,11 +130,14 @@ public class AdoptionController {
     @Operation(summary = "Listar historial de cambios de adopción por ID")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Historial de adopción listado correctamente"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "403", description = "No tienes permisos para ver el historial de cambios de " +
-                    "esta adopción"),
-            @ApiResponse(responseCode = "404", description = "No se encontraron historial para esta adopción"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+                    "esta adopción",content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "No se encontraron historial para esta adopción",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping("/by-id/{id}/history")
     @PreAuthorize("hasAnyRole('ADMIN', 'ADOPTER', 'SHELTER_ADMIN')")
@@ -134,13 +157,20 @@ public class AdoptionController {
     @Operation(summary = "Crear adopción")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Adopción creada correctamente"),
-            @ApiResponse(responseCode = "400", description = "Datos inválidos"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para crear esta adopción"),
-            @ApiResponse(responseCode = "404", description = "Mascota, usuario o refugio no encontrado"),
-            @ApiResponse(responseCode = "409", description = "La adopción no cumple una regla de negocio"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor"),
-            @ApiResponse(responseCode = "503", description = "Servicio remoto no disponible")
+            @ApiResponse(responseCode = "400", description = "Datos inválidos",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para crear esta adopción",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Mascota, usuario o refugio no encontrado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "409", description = "La adopción no cumple una regla de negocio",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "503", description = "Servicio remoto no disponible",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @PostMapping
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN', 'ADOPTER')")
@@ -160,13 +190,20 @@ public class AdoptionController {
     @Operation(summary = "Actualizar adopción por ID")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopción actualizada correctamente"),
-            @ApiResponse(responseCode = "400", description = "Datos inválidos"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para actualizar esta adopción"),
-            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID"),
-            @ApiResponse(responseCode = "409", description = "La actualización no cumple una regla de negocio"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor"),
-            @ApiResponse(responseCode = "503", description = "Servicio remoto no disponible")
+            @ApiResponse(responseCode = "400", description = "Datos inválidos",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para actualizar esta adopción",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "409", description = "La actualización no cumple una regla de negocio",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "503", description = "Servicio remoto no disponible",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @PutMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
@@ -186,10 +223,14 @@ public class AdoptionController {
     @Operation(summary = "Eliminar adopción por ID")
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Adopción eliminada correctamente"),
-            @ApiResponse(responseCode = "401", description = "No autenticado"),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para eliminar esta adopción"),
-            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID"),
-            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+            @ApiResponse(responseCode = "401", description = "No autenticado",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para eliminar esta adopción",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @DeleteMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
