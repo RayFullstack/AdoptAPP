@@ -5,80 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a01dda7-92d2-4fea-84f6-14f15269cee9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/logs/adoptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/logs/adoptions.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/AdoptionServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/AdoptionServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetServiceClientFallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/client/PetServiceClientFallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/RestClientConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/OpenApiConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/config/ServiceProperties.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/controller/AdoptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/controller/AdoptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionHistoryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionHistoryResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/AdoptionUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/FollowUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/FollowUpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetNotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetNotificationRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetStatusRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/PetStatusRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ShelterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/ShelterResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/StaffResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/StaffResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/UserNotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/UserNotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionHistoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/repository/AdoptionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/service/AdoptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/dto/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/java/com/adoptapp/adoptionservice/model/AdoptionHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adoption-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/adoption-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/donation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/controller/DonationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/controller/DonationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/repository/DonationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/repository/DonationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/service/DonationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/java/com/adoptapp/donationservice/service/DonationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donation-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/donation-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/followup-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/controller/FollowUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/controller/FollowUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/PetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/dto/PetResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/repository/FollowUpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/repository/FollowUpRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/service/FollowUpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/java/com/adoptapp/followupservice/service/FollowUpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/followup-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/followup-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/controller/HealthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/controller/HealthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/HealthResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/PetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/dto/PetResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/model/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/repository/HealthRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/service/HealthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/java/com/adoptapp/healthservice/service/HealthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/health-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/adoptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/adoptions.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/adoptions.log.2026-05-16.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/donations.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/donations.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/followups.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/followups.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/health.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/health.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/notifications.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/notifications.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/pets.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/pets.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/pets.log.2026-05-16.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/shelters.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/shelters.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/staff.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/staff.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/supplies.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/supplies.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/adoptions.log.2026-06-06.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/adoptions.log.2026-06-10.0.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/users.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/users.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/users.log.2026-05-16.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/users.log.2026-06-06.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/users.log.2026-06-10.0.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/dto/NotificationResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/NotificationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/model/NotificationStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/repository/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/repository/NotificationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/adoptapp/notificationservice/service/NotificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/PetServiceApplication.java" afterDir="false" />
@@ -98,40 +60,30 @@
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/main/java/com/adoptapp/petservice/service/PetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/main/resources/application.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pet-service/src/test/java/com/adoptapp/petservice/PetServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/pet-service/src/test/java/com/adoptapp/petservice/PetServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared-kernel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared-kernel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelter-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/dto/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-kernel/src/main/java/com/adoptapp/sharedkernel/dto/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-kernel/target/classes/com/adoptapp/sharedkernel/dto/ErrorResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/shared-kernel/target/classes/com/adoptapp/sharedkernel/dto/ErrorResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-kernel/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shared-kernel/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-kernel/target/shared-kernel-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/shared-kernel/target/shared-kernel-1.0.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shelter-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/controller/ShelterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/controller/ShelterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/repository/ShelterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/repository/ShelterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/service/ShelterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/java/com/adoptapp/shelterservice/service/ShelterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shelter-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/shelter-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staff-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/repository/StaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/repository/StaffRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/service/StaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/java/com/adoptapp/staffservice/service/StaffService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staff-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/staff-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/supply-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/controller/SupplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/controller/SupplyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/model/SupplyStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/model/SupplyStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/repository/SupplyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/repository/SupplyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/service/SupplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/java/com/adoptapp/supplyservice/service/SupplyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/supply-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/supply-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/adoption-compile-debug.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/logs/users.log" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/logs/users.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/logs/users.log.2026-05-15.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/logs/users.log.2026-05-27.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/logs/users.log.2026-05-28.0.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/OpenApiConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserHistoryResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserHistoryResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/dto/UserResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/adoptapp/userservice/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
@@ -265,10 +217,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DonationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="donation-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.donationservice.DonationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.adoptapp.eurekaserver.EurekaServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -381,7 +349,17 @@
       <workItem from="1780843778769" duration="11406000" />
       <workItem from="1780953231256" duration="603000" />
       <workItem from="1781141807310" duration="3800000" />
-      <workItem from="1781380436323" duration="13503000" />
+      <workItem from="1781380436323" duration="14271000" />
+      <workItem from="1781537631120" duration="1728000" />
+      <workItem from="1781624675051" duration="10000" />
+      <workItem from="1781627887252" duration="6375000" />
+      <workItem from="1781652350918" duration="1123000" />
+      <workItem from="1781659022089" duration="3955000" />
+      <workItem from="1781833048649" duration="2182000" />
+      <workItem from="1781911059634" duration="2696000" />
+      <workItem from="1781914941186" duration="7543000" />
+      <workItem from="1781962573452" duration="15871000" />
+      <workItem from="1782013144675" duration="6223000" />
     </task>
     <servers />
   </component>

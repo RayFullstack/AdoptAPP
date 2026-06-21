@@ -4,7 +4,7 @@ Plataforma de adopción de mascotas basada en microservicios con **Spring Boot 3
 
 ## Arquitectura
 
-Proyecto multi-módulo Maven con 10 microservicios desplegables de forma independiente:
+Proyecto multi-módulo Maven con 10 microservicios, un API Gateway, un servidor Eureka y un shared kernel:
 
 ```
 adoptapp/
@@ -18,7 +18,11 @@ adoptapp/
 ├── donation-service/      # Donaciones (puerto 8090, /donation-app)
 ├── supply-service/        # Insumos de refugio (puerto 8092, /supply-app)
 ├── shelter-service/       # Gestión de refugios (puerto 8095, /shelter-app)
-└── pom.xml                # POM Padre
+├── api-gateway/           # Punto de entrada y enrutamiento (puerto 8080)
+├── eureka-server/         # Registro y descubrimiento (puerto 8761)
+├── shared-kernel/         # DTOs, excepciones y utilidades compartidas
+├── compose.yml            # Orquestación de los 12 contenedores
+└── pom.xml                # POM padre
 ```
 
 ## Stack Tecnológico
@@ -27,9 +31,13 @@ adoptapp/
 |---|---|
 | **Java 21** | Runtime |
 | **Spring Boot 3.4.5** | Framework |
-| **Spring Cloud 2024.0.0** | Feign clients entre servicios |
+| **Spring Cloud 2024.0.0** | OpenFeign, Gateway, LoadBalancer y Eureka |
 | **Spring Data JPA** | Acceso a datos con relaciones |
-| **PostgreSQL 18 / H2** | Bases de datos (prod / dev) |
+| **Supabase PostgreSQL / H2** | Base de datos online por schemas / tests y desarrollo |
+| **Spring Cloud Gateway** | Punto de entrada único con rutas `lb://` |
+| **Netflix Eureka** | Registro y descubrimiento de servicios |
+| **Docker Compose** | Construcción y ejecución de los 12 componentes |
+| **Springdoc OpenAPI** | Documentación Swagger de las APIs |
 | **OpenFeign** | Comunicación sincrónica entre servicios |
 | **Resilience4j** | Circuit breaker para tolerancia a fallos |
 | **Flyway 11.7.2** | Migraciones de base de datos |
@@ -56,7 +64,7 @@ adoptapp/
 
 API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER, VET, ADMIN.
 
-**Base de datos**: PostgreSQL `users_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `users_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/users`):
 
@@ -78,7 +86,7 @@ API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER,
 
 API CRUD para gestionar mascotas. La informacion clinica no se almacena en pet-service; se consulta y administra desde health-service.
 
-**Base de datos**: PostgreSQL `pet_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `pet_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/pets`):
 
@@ -103,7 +111,7 @@ API CRUD para gestionar mascotas. La informacion clinica no se almacena en pet-s
 
 API para gestionar adopciones. Crea solicitudes en estado `PENDING`, valida usuario, mascota, refugio y disponibilidad, y sincroniza el estado de la mascota con pet-service al aprobar o cancelar.
 
-**Base de datos**: PostgreSQL `adoption_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `adoption_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/adoptions`):
 
@@ -128,7 +136,7 @@ API para gestionar adopciones. Crea solicitudes en estado `PENDING`, valida usua
 
 API para gestionar notificaciones. Almacena notificaciones con tipos categorizados vía `@ManyToOne(NotificationType)` y usa soft delete con estado `ARCHIVED`.
 
-**Base de datos**: PostgreSQL `notif_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `notification_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/notifications`):
 
@@ -158,7 +166,7 @@ API para gestionar notificaciones. Almacena notificaciones con tipos categorizad
 
 API para gestionar registros clínicos de mascotas con historial de cambios. VET, SHELTER_ADMIN, ADMIN tienen acceso de escritura.
 
-**Base de datos**: PostgreSQL `health_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `health_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/health`):
 
@@ -182,7 +190,7 @@ API para gestionar registros clínicos de mascotas con historial de cambios. VET
 
 API para gestionar seguimientos post-adopción.
 
-**Base de datos**: PostgreSQL `followup_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `followup_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/followups`):
 
@@ -199,7 +207,7 @@ API para gestionar seguimientos post-adopción.
 
 API para gestionar donaciones. Verifica existencia de usuario y refugio vía Feign antes de crear.
 
-**Base de datos**: PostgreSQL `donation_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `donation_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/donations`):
 
@@ -221,7 +229,7 @@ API para gestionar donaciones. Verifica existencia de usuario y refugio vía Fei
 
 API para gestionar personal de refugios.
 
-**Base de datos**: PostgreSQL `staff_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `staff_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/staff`):
 
@@ -245,7 +253,7 @@ API para gestionar personal de refugios.
 
 API para gestionar insumos de refugios.
 
-**Base de datos**: PostgreSQL `supply_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `supply_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/supplies`):
 
@@ -269,7 +277,7 @@ API para gestionar insumos de refugios.
 
 API para gestionar refugios.
 
-**Base de datos**: PostgreSQL `shelter_db` (o H2 con perfil `h2`)
+**Base de datos**: Supabase PostgreSQL, schema `shelter_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/shelters`):
 
@@ -334,13 +342,79 @@ supply-service ──(Feign)──→ notification-service (POST /notifications)
 supply-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
 ```
 
+## Infraestructura y descubrimiento
+
+### API Gateway
+
+El Gateway escucha en `http://localhost:8080` y publica los mismos context paths de los microservicios. Sus 10 rutas usan `lb://<spring.application.name>` para resolver instancias registradas en Eureka.
+
+| Servicio | URL directa | URL mediante Gateway |
+|---|---|---|
+| user-service | `http://localhost:8081/user-app/users` | `http://localhost:8080/user-app/users` |
+| pet-service | `http://localhost:8082/pet-app/pets` | `http://localhost:8080/pet-app/pets` |
+| adoption-service | `http://localhost:8083/adoption-app/adoptions` | `http://localhost:8080/adoption-app/adoptions` |
+
+El Gateway reenvía el encabezado `Authorization`; cada microservicio continúa aplicando HTTP Basic y sus reglas de autorización.
+
+### Eureka Server
+
+- Panel: `http://localhost:8761`
+- Registro REST: `http://localhost:8761/eureka/apps`
+- Todos los clientes usan `prefer-ip-address: true` dentro de Docker.
+- Eureka no se registra a sí mismo ni consulta otro registro.
+- El estado esperado es 11 aplicaciones `UP`: los 10 microservicios y `API-GATEWAY`.
+
+### Docker Compose
+
+`compose.yml` levanta 12 contenedores. Eureka incluye un healthcheck contra `/actuator/health`; los demás componentes esperan `service_healthy` antes de comenzar. Las dependencias adicionales usan `service_started`.
+
+Los servicios pueden tardar cerca de dos minutos en iniciar mientras Flyway, JPA y Supabase se estabilizan. Durante ese periodo el Gateway puede responder temporalmente `503`; una vez actualizado el registro, una ruta protegida sin credenciales debe responder `401`.
+
 ## Cómo ejecutar
 
 ### Build del proyecto completo
 
 ```bash
 # Desde la raiz del proyecto
-.\mvnw.cmd clean install -DskipTests
+.\mvnw.cmd clean package -DskipTests
+```
+
+Este paso es obligatorio antes de construir las imágenes porque los Dockerfile copian los JAR desde `target/`.
+
+### Variables para Supabase
+
+Crear un archivo `.env` en la raíz. Está ignorado por Git y no debe incluirse en commits:
+
+```env
+DB_URL=jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&prepareThreshold=0
+DB_USER=postgres.<PROJECT_REF>
+DB_PASSWORD=<SUPABASE_PASSWORD>
+```
+
+Cada contenedor recibe su propio `DB_SCHEMA`. Flyway crea y migra automáticamente los schemas `users_service`, `pet_service`, `adoption_service`, `notification_service`, `health_service`, `followup_service`, `donation_service`, `staff_service`, `supply_service` y `shelter_service`.
+
+### Ejecutar con Docker Compose
+
+```powershell
+.\mvnw.cmd clean package -DskipTests
+docker compose build
+docker compose up -d
+
+docker compose ps
+docker compose logs -f eureka-server api-gateway
+```
+
+Eureka debe mostrarse como `Up (healthy)`. Para detener los contenedores:
+
+```powershell
+docker compose down
+```
+
+Después de modificar código Java:
+
+```powershell
+.\mvnw.cmd package -DskipTests
+docker compose up -d --build --force-recreate
 ```
 
 ### Ejecutar con Maven Wrapper
@@ -348,7 +422,7 @@ supply-service ──(Feign)──→ shelter-service (GET /shelters/by-id/{id})
 Cada servicio necesita su propia terminal:
 
 ```bash
-# Perfil PostgreSQL (default)
+# Perfil Supabase (default)
 cd donation-service
 .\mvnw.cmd spring-boot:run
 
@@ -374,23 +448,39 @@ cd donation-service
 3. Ir a **Run** → **Edit Configurations** → agregar configuracion para cada servicio
 4. En **VM options** agregar `--spring.profiles.active=h2` para usar H2
 
-**Orden recomendado:** notification → user → shelter → health → pet → adoption → donation → followup → staff → supply
+Para ejecución manual, iniciar primero `eureka-server`, después los microservicios y finalmente `api-gateway`.
 
 ## Perfiles de base de datos
 
 | Perfil | Base de datos | Flyway | Uso |
 |---|---|---|---|
-| `default` | PostgreSQL 18 | habilitado | Produccion |
+| `supabase` (default) | Supabase PostgreSQL | habilitado | Ejecución principal |
 | `h2` | H2 en memoria | deshabilitado | Desarrollo |
-| `postgres` | PostgreSQL (override) | habilitado | Desarrollo con PostgreSQL |
+| `postgres` | PostgreSQL local | habilitado | Desarrollo local opcional |
 
 Variables de entorno requeridas (via `.env`):
 ```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=postgres
-DB_PASSWORD=1234
+DB_URL=jdbc:postgresql://<SUPABASE_POOLER>:6543/postgres?sslmode=require&prepareThreshold=0
+DB_USER=postgres.<PROJECT_REF>
+DB_PASSWORD=<SUPABASE_PASSWORD>
 ```
+
+El perfil Supabase configura HikariCP con `maximum-pool-size: 2` y `minimum-idle: 0` por servicio para evitar agotar las conexiones del pooler.
+
+## OpenAPI y Swagger
+
+Los 10 microservicios incluyen Springdoc OpenAPI. La documentación se consulta directamente en cada puerto:
+
+```text
+http://localhost:<PUERTO>/<CONTEXT_PATH>/doc/swagger-ui/index.html
+```
+
+Ejemplos:
+
+- user-service: `http://localhost:8081/user-app/doc/swagger-ui/index.html`
+- adoption-service: `http://localhost:8083/adoption-app/doc/swagger-ui/index.html`
+
+Los endpoints protegidos requieren usar el botón **Authorize** con credenciales HTTP Basic.
 
 ## Seguridad
 
@@ -407,7 +497,7 @@ DB_PASSWORD=1234
 - **GlobalExceptionHandler**: Manejo centralizado de excepciones en los 10 servicios con respuestas seguras (no expone stack traces)
 - **Structured logging**: Todos los métodos de notification-service incluyen logging estructurado con requestId
 - **Enum validation**: Todos los `Enum.valueOf()` protegidos con try/catch para evitar 500 por valores inválidos
-- **HikariCP pool size**: 5 conexiones por servicio (50 total) para evitar agotamiento de PostgreSQL `max_connections=100`
+- **HikariCP pool size**: 2 conexiones máximas y 0 conexiones mínimas por servicio en el perfil Supabase
 - **Shared DTO**: `UserAuthResponse` centralizado en `shared-kernel` para eliminar duplicación entre 9 servicios
 
 ## Patrones del Proyecto
@@ -455,8 +545,8 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Unique Constraints**: `health` tabla tiene constraint unico en `pet_id` via `V3__add_unique_constraint_pet_id.sql`
 - **Entity-Migration Alignment**: Correcciones en `User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields
 - **Flyway Repair**: `flyway.repair-on-migrate=true` habilitado para reparar checksums automaticamente
-- **Schema Isolation**: `flyway.create-schemas=true` para crear schemas automaticamente en cada base de datos
-- **Neon Postgres**: Soporte configurado para Neon Serverless Postgres con aislamiento de schemas
+- **Schema Isolation**: `flyway.create-schemas=true` para crear automáticamente un schema por microservicio
+- **Supabase PostgreSQL**: conexión mediante transaction pooler en puerto 6543, SSL y `prepareThreshold=0`
 
 ### CI/CD
 - Pipeline GitHub Actions en `.github/workflows/build.yml`
@@ -505,7 +595,7 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Structured Logging**: Todos los métodos de notification-service incluyen logging con campos estructurados
 - **Enum Validation**: filtros con valores de enum invalidos responden 400 Bad Request en todos los servicios principales
 - **Shared DTO**: `UserAuthResponse` movido a shared-kernel; 9 servicios actualizados para usar DTO centralizado
-- **HikariCP Pool**: `maximum-pool-size: 5` en todos los servicios para evitar agotamiento de conexiones PostgreSQL
+- **HikariCP Pool**: `maximum-pool-size: 2` y `minimum-idle: 0` en todos los perfiles Supabase
 - **Database Fixes**:
   - `V3__add_foreign_keys_to_donations.sql` en donation-service
   - `V3__add_unique_constraint_pet_id.sql` en health-service
@@ -528,6 +618,16 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Filtros invalidos**: filtros por estado invalidos devuelven 400 Bad Request.
 - **Endpoints internos**: rutas `/internal/**` usadas para validaciones entre servicios protegidas con rol `ADMIN`.
 
+### Supabase, Docker y Service Discovery (2026-06)
+- **Supabase**: migración desde PostgreSQL local a un proyecto online con 10 schemas aislados.
+- **Transaction pooler**: conexión por puerto 6543 con SSL y `prepareThreshold=0`.
+- **Docker**: Dockerfile con Java 21 y usuario sin privilegios para cada componente; orquestación central en `compose.yml`.
+- **Eureka Server**: registro en puerto 8761, healthcheck de Actuator y espera mediante `service_healthy`.
+- **Eureka Client**: agregado a los 10 microservicios y al API Gateway con registro por IP.
+- **API Gateway**: agregado en puerto 8080 con 10 rutas `lb://` y Spring Cloud LoadBalancer.
+- **Verificación**: los 12 contenedores levantan, las 11 aplicaciones cliente se registran como `UP` y las rutas protegidas responden `401` sin credenciales.
+- **OpenAPI**: Springdoc habilitado en los 10 microservicios con Swagger UI bajo `/doc/swagger-ui/index.html`.
+
 ## Notas y Limitaciones Conocidas
 
 ### Problemas identificados (pendientes de correccion)
@@ -536,13 +636,17 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Sin paginacion**: Los endpoints `GET /resource` retornan listas completas sin paginacion.
 - **Rutas no RESTful**: Se usa `/resource/by-id/{id}` en lugar del estandar REST `/resource/{id}`.
 - **HTTP Basic Auth**: Sin JWT/OAuth2. Credenciales enviadas en Base64 en cada request.
+- **Arranque inicial**: JPA, Flyway y Supabase pueden tardar cerca de dos minutos; el Gateway puede responder `503` hasta el siguiente refresco de Eureka.
+- **Build Docker en dos pasos**: los Dockerfile copian JAR desde `target`, por lo que Maven debe ejecutarse antes de construir imágenes.
+- **Feign con URL fija**: Eureka resuelve las rutas del Gateway; las llamadas Feign internas todavía usan URLs configuradas por entorno.
 
 ### Decisiones de diseno
-- **Database-per-service**: Cada microservicio tiene su propia base de datos PostgreSQL.
+- **Schema-per-service**: Los microservicios comparten el proyecto PostgreSQL de Supabase, pero cada uno usa un schema aislado.
 - **Feign sincrono**: Comunicacion entre servicios via OpenFeign con fallbacks y circuit breakers.
-- **Sin API Gateway**: Cada servicio se expone directamente en su propio puerto.
+- **API Gateway**: Punto de entrada en el puerto 8080 con rutas `lb://` resueltas mediante Eureka. Los puertos directos se mantienen expuestos para desarrollo.
+- **Eureka**: Los 10 microservicios y el Gateway se registran por IP dentro de la red de Docker.
 - **Shared Kernel**: `UserAuthResponse` centralizado para evitar duplicación de DTOs de autenticación. Excepciones compartidas (`BusinessException`, `ForbiddenException`, `UnauthorizedException`, `ValidationException`, `ResourceNotFoundException`, `RemoteServiceException`) y `ErrorResponseFactory` para respuestas consistentes.
-- **HikariCP pool**: 5 conexiones por servicio para mantener 50 conexiones totales < PostgreSQL `max_connections=100`.
+- **HikariCP pool**: 2 conexiones máximas por servicio para respetar los límites del pooler de Supabase.
 
 ## Testing
 

@@ -28,9 +28,10 @@ public class SecurityConfig {
                         .authenticationEntryPoint(new JsonAuthenticationEntryPoint())
                         .accessDeniedHandler(new JsonAccessDeniedHandler()))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST, "/users/register").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/users/by-id/{id}/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/users", "/users/by-id/**").hasAnyRole("ADOPTER", "VOLUNTEER", "VET", "SHELTER_ADMIN", "ADMIN")
                         .requestMatchers("/users/by-email/{email}/auth").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/users/by-id/{id}/history").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/users").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "VOLUNTEER", "VET", "ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/users/by-id/**").hasAnyRole("ADOPTER", "SHELTER_ADMIN", "VOLUNTEER", "VET", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/users/by-id/**").hasRole("ADMIN")

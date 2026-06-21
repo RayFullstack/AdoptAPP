@@ -1,0 +1,268 @@
+x-common-environment: &common-environment
+  SPRING_PROFILES_ACTIVE: supabase
+  DB_URL: ${DB_URL}
+  DB_USER: ${DB_USER}
+  DB_PASSWORD: ${DB_PASSWORD}
+  EUREKA_URL: http://eureka-server:8761/eureka
+
+x-common-service: &common-service
+  dns:
+    - 1.1.1.1
+    - 8.8.8.8
+
+services:
+  user-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: user-service/Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: users_service
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+
+  pet-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: pet-service/Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: pet_service
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_HEALTHSERVICE_URL: http://health-service:8085/health-app
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_SHELTERSERVICE_URL: http://shelter-service:8095/shelter-app
+      SERVICES_STAFFSERVICE_URL: http://staff-service:8091/staff-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+      shelter-service:
+        condition: service_started
+      staff-service:
+        condition: service_started
+      health-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+
+  adoption-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: adoption-service/Dockerfile
+    ports:
+      - "8083:8083"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: adoption_service
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_PETSERVICE_URL: http://pet-service:8082/pet-app
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_SHELTERSERVICE_URL: http://shelter-service:8095/shelter-app
+      SERVICES_FOLLOWUPSERVICE_URL: http://followup-service:8086/followup-app
+      SERVICES_STAFFSERVICE_URL: http://staff-service:8091/staff-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+      pet-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+      shelter-service:
+        condition: service_started
+      followup-service:
+        condition: service_started
+      staff-service:
+        condition: service_started
+
+  notification-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: notification-service/Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: notification_service
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_STAFFSERVICE_URL: http://staff-service:8091/staff-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+      staff-service:
+        condition: service_started
+
+  health-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: health-service/Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: health_service
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_PETSERVICE_URL: http://pet-service:8082/pet-app
+      SERVICES_STAFFSERVICE_URL: http://staff-service:8091/staff-app
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+      staff-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+
+  followup-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: followup-service/Dockerfile
+    ports:
+      - "8086:8086"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: followup_service
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_PETSERVICE_URL: http://pet-service:8082/pet-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      notification-service:
+        condition: service_started
+      user-service:
+        condition: service_started
+      pet-service:
+        condition: service_started
+
+  donation-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: donation-service/Dockerfile
+    ports:
+      - "8090:8090"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: donation_service
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_SHELTERSERVICE_URL: http://shelter-service:8095/shelter-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+      shelter-service:
+        condition: service_started
+
+  staff-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: staff-service/Dockerfile
+    ports:
+      - "8091:8091"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: staff_service
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_SHELTERSERVICE_URL: http://shelter-service:8095/shelter-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+
+  supply-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: supply-service/Dockerfile
+    ports:
+      - "8092:8092"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: supply_service
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_SHELTERSERVICE_URL: http://shelter-service:8095/shelter-app
+      SERVICES_STAFFSERVICE_URL: http://staff-service:8091/staff-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      notification-service:
+        condition: service_started
+      user-service:
+        condition: service_started
+      shelter-service:
+        condition: service_started
+      staff-service:
+        condition: service_started
+
+  shelter-service:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: shelter-service/Dockerfile
+    ports:
+      - "8095:8095"
+    environment:
+      <<: *common-environment
+      DB_SCHEMA: shelter_service
+      SERVICES_NOTIFICATIONSERVICE_URL: http://notification-service:8084/notification-app
+      SERVICES_USERSERVICE_URL: http://user-service:8081/user-app
+      SERVICES_STAFFSERVICE_URL: http://staff-service:8091/staff-app
+      SERVICES_PETSERVICE_URL: http://pet-service:8082/pet-app
+      SERVICES_SUPPLYSERVICE_URL: http://supply-service:8092/supply-app
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+
+  api-gateway:
+    <<: *common-service
+    build:
+      context: .
+      dockerfile: api-gateway/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_URL: http://eureka-server:8761/eureka
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+
+  eureka-server:
+    build:
+      context: .
+      dockerfile: eureka-server/Dockerfile
+    ports:
+      - "8761:8761"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s

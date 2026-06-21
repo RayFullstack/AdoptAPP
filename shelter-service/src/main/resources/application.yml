@@ -4,8 +4,10 @@ server:
     context-path: "/shelter-app"
 
 spring:
+  profiles:
+    default: supabase
   config:
-    import: optional:file:.env[.properties]
+    import: optional:file:.env[.properties],optional:file:../.env[.properties]
   application:
     name: shelter-service
 
@@ -82,3 +84,10 @@ logging:
     console: "%d{HH:mm:ss.SSS} [%-5level] %logger{0} - %msg%n"
   file:
     name: logs/shelters.log
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
