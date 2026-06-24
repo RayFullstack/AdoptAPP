@@ -334,6 +334,7 @@ public class AdoptionService {
             log.error("Error al actualizar adopcion: servicio remoto no disponible - {}", e.getMessage());
             throw new RuntimeException("Error al actualizar adopcion: no se pudo completar la validacion");
         }
+
     }
 
     public List<AdoptionHistoryResponse> getHistory(Long adoptionId) {

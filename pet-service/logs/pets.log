@@ -1,19 +1,19 @@
-2026-06-03T16:50:07.674-04:00  INFO 31320 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 31320 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
-2026-06-03T16:50:07.681-04:00 DEBUG 31320 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:50:07.681-04:00  INFO 31320 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
-2026-06-03T16:50:07.715-04:00 DEBUG 31320 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7f9ab969
-2026-06-03T16:50:09.067-04:00  INFO 31320 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:50:09.166-04:00  INFO 31320 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:50:09.631-04:00  INFO 31320 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e72bc549-f873-3429-b295-f69e3b2d1345
-2026-06-03T16:50:10.663-04:00  INFO 31320 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:50:10.851-04:00  INFO 31320 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:50:10.917-04:00  INFO 31320 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:50:11.305-04:00  INFO 31320 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:50:11.335-04:00  INFO 31320 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:50:11.488-04:00  INFO 31320 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
-2026-06-03T16:50:11.493-04:00  INFO 31320 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:50:11.509-04:00  WARN 31320 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:50:11.535-04:00  INFO 31320 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T12:48:49.436-04:00  INFO 21512 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 21512 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T12:48:49.448-04:00 DEBUG 21512 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T12:48:49.449-04:00  INFO 21512 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
+2026-06-23T12:48:49.554-04:00 DEBUG 21512 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@149d7cc6
+2026-06-23T12:48:52.642-04:00  INFO 21512 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T12:48:53.092-04:00  INFO 21512 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 413 ms. Found 2 JPA repository interfaces.
+2026-06-23T12:48:54.097-04:00  INFO 21512 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=76dcd468-8f92-3c80-b6cc-65cdef023f3f
+2026-06-23T12:48:55.725-04:00  INFO 21512 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T12:48:55.911-04:00  INFO 21512 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T12:48:56.015-04:00  INFO 21512 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T12:48:56.682-04:00  INFO 21512 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T12:48:56.758-04:00  INFO 21512 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T12:48:57.316-04:00  INFO 21512 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
+2026-06-23T12:48:57.321-04:00  INFO 21512 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T12:48:57.375-04:00  WARN 21512 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T12:48:57.426-04:00  INFO 21512 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -21,19 +21,17 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:50:12.472-04:00  INFO 31320 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:50:12.489-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:48:59.610-04:00  INFO 21512 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T12:48:59.645-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     drop table if exists pet_history cascade 
-2026-06-03T16:50:12.489-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:48:59.653-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     drop table if exists pets cascade 
-2026-06-03T16:50:12.495-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:48:59.664-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     create table pet_history (
         changed_at timestamp(6) not null,
         changed_by_user_id bigint,
         id bigint generated by default as identity,
-        new_foster_id bigint,
         pet_id bigint not null,
-        previous_foster_id bigint,
         new_name varchar(20),
         new_status varchar(20),
         previous_name varchar(20),
@@ -41,14 +39,12 @@
         comment varchar(255),
         primary key (id)
     )
-2026-06-03T16:50:12.507-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:48:59.681-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     create table pets (
         age integer not null check (age>=0),
         created_at timestamp(6),
-        foster_id bigint not null,
-        health_service_id bigint,
         id bigint generated by default as identity,
-        shelter_id bigint,
+        shelter_id bigint not null,
         updated_at timestamp(6),
         name varchar(20) not null,
         color varchar(50) not null,
@@ -56,54 +52,1212 @@
         race varchar(50) not null,
         size varchar(50) not null,
         species varchar(50) not null,
-        status enum ('AVAILABLE','NOT_AVAILABLE') not null,
+        status enum ('AVAILABLE','DELETED','NOT_AVAILABLE') not null,
         primary key (id)
     )
-2026-06-03T16:50:12.510-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:48:59.691-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     alter table if exists pet_history 
        add constraint FKiomkslu0b0pchjp542ihafh05 
        foreign key (pet_id) 
        references pets
-2026-06-03T16:50:12.525-04:00  INFO 31320 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:50:12.987-04:00  WARN 31320 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:50:14.875-04:00  INFO 31320 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:50:15.159-04:00 DEBUG 31320 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:50:15.534-04:00 DEBUG 31320 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:50:16.221-04:00 DEBUG 31320 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:50:16.284-04:00 DEBUG 31320 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:50:17.632-04:00  INFO 31320 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:50:17.680-04:00  INFO 31320 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 11.5 seconds (process running for 12.817)
-2026-06-03T16:50:18.027-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:48:59.726-04:00  INFO 21512 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:49:00.861-04:00  WARN 21512 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T12:49:03.625-04:00  INFO 21512 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T12:49:04.021-04:00 DEBUG 21512 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-06-23T12:49:04.512-04:00 DEBUG 21512 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T12:49:05.631-04:00 DEBUG 21512 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T12:49:05.777-04:00 DEBUG 21512 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T12:49:07.787-04:00  INFO 21512 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T12:49:07.831-04:00  INFO 21512 --- [pet-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T12:49:07.931-04:00  WARN 21512 --- [pet-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T12:49:08.009-04:00  INFO 21512 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 20.695 seconds (process running for 23.625)
+2026-06-23T12:49:08.892-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     select
         count(*) 
     from
         pets p1_0
-2026-06-03T16:50:18.083-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:09.034-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         pets
-        (age, color, created_at, foster_id, health_service_id, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:50:18.108-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T12:49:09.082-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         pets
-        (age, color, created_at, foster_id, health_service_id, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:50:18.108-04:00 DEBUG 31320 --- [pet-service] [main] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T12:49:09.085-04:00 DEBUG 21512 --- [pet-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         pets
-        (age, color, created_at, foster_id, health_service_id, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
     values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:50:18.935-04:00 DEBUG 31320 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7f9ab969, started on Wed Jun 03 16:50:07 CLT 2026
-2026-06-03T16:50:18.941-04:00  INFO 31320 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:50:18.944-04:00 DEBUG 31320 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T12:49:11.875-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T12:49:11.890-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T12:49:11.928-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T12:49:11.941-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T12:49:12.041-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T12:49:12.041-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T12:49:12.041-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota eliminada exitosamente: ID=1
+2026-06-23T12:49:12.064-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T12:49:12.064-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Refugio no encontrado: ID=2
+2026-06-23T12:49:12.074-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T12:49:12.080-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota creada exitosamente: ID=1
+2026-06-23T12:49:12.111-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T12:49:12.118-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T12:49:12.119-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota ya eliminada: ID=1
+2026-06-23T12:49:12.131-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T12:49:12.139-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota actualizada exitosamente: ID=1
+2026-06-23T12:49:12.147-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=99
+2026-06-23T12:49:12.147-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota no encontrada: ID=99
+2026-06-23T12:49:12.172-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T12:49:12.172-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T12:49:12.182-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T12:49:12.185-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T12:49:12.185-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado de mascota actualizado exitosamente: ID=1
+2026-06-23T12:49:12.193-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T12:49:12.194-04:00 ERROR 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo eliminar salud asociada al petId=1: Health-service no pudo eliminar salud asociada a petId=1
+2026-06-23T12:49:12.195-04:00 ERROR 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Error al eliminar mascota: ID=1
+
+java.lang.RuntimeException: No se pudo eliminar la ficha de salud asociada a la mascota 1
+	at com.adoptapp.petservice.service.PetService.deleteHealthOrFail(PetService.java:263) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetService.deleteById(PetService.java:237) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetServiceTest.lambda$deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth$11(PetServiceTest.java:373) ~[test-classes/:na]
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:904) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.catchThrowable(Assertions.java:1470) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.assertThatThrownBy(Assertions.java:1313) ~[assertj-core-3.26.3.jar:na]
+	at com.adoptapp.petservice.service.PetServiceTest.deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth(PetServiceTest.java:373) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+
+2026-06-23T12:49:12.231-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T12:49:12.234-04:00  INFO 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=99
+2026-06-23T12:49:12.234-04:00  WARN 21512 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota a eliminar no encontrada: ID=99
+2026-06-23T12:49:12.278-04:00 DEBUG 21512 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@149d7cc6, started on Tue Jun 23 12:48:49 CLT 2026
+2026-06-23T12:49:12.319-04:00  INFO 21512 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:49:12.954-04:00 DEBUG 21512 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists pet_history cascade 
-2026-06-03T16:50:18.946-04:00 DEBUG 31320 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:49:12.964-04:00 DEBUG 21512 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists pets cascade 
-2026-06-03T16:50:18.948-04:00  INFO 31320 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:50:18.950-04:00  INFO 31320 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T12:49:12.973-04:00  INFO 21512 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T12:49:12.984-04:00  INFO 21512 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:40:56.003-04:00  INFO 18936 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 18936 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T13:40:56.006-04:00 DEBUG 18936 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:40:56.008-04:00  INFO 18936 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
+2026-06-23T13:40:56.122-04:00 DEBUG 18936 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@47f8374
+2026-06-23T13:40:59.551-04:00  INFO 18936 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:40:59.969-04:00  INFO 18936 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 392 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:41:00.783-04:00  INFO 18936 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=76dcd468-8f92-3c80-b6cc-65cdef023f3f
+2026-06-23T13:41:02.461-04:00  INFO 18936 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:41:02.718-04:00  INFO 18936 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:41:02.831-04:00  INFO 18936 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:41:03.163-04:00  INFO 18936 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:41:03.255-04:00  INFO 18936 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:41:03.853-04:00  INFO 18936 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
+2026-06-23T13:41:03.858-04:00  INFO 18936 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:41:03.932-04:00  WARN 18936 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:41:03.996-04:00  INFO 18936 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:41:06.192-04:00  INFO 18936 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:41:06.234-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T13:41:06.245-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T13:41:06.255-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pet_history (
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        pet_id bigint not null,
+        new_name varchar(20),
+        new_status varchar(20),
+        previous_name varchar(20),
+        previous_status varchar(20),
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T13:41:06.278-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pets (
+        age integer not null check (age>=0),
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        name varchar(20) not null,
+        color varchar(50) not null,
+        personality varchar(50) not null,
+        race varchar(50) not null,
+        size varchar(50) not null,
+        species varchar(50) not null,
+        status enum ('AVAILABLE','DELETED','NOT_AVAILABLE') not null,
+        primary key (id)
+    )
+2026-06-23T13:41:06.289-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    alter table if exists pet_history 
+       add constraint FKiomkslu0b0pchjp542ihafh05 
+       foreign key (pet_id) 
+       references pets
+2026-06-23T13:41:06.328-04:00  INFO 18936 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:41:07.253-04:00  WARN 18936 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:41:09.779-04:00  INFO 18936 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:41:10.294-04:00 DEBUG 18936 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:41:10.958-04:00 DEBUG 18936 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:41:12.122-04:00 DEBUG 18936 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:41:12.269-04:00 DEBUG 18936 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:41:14.334-04:00  INFO 18936 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:41:14.378-04:00  INFO 18936 --- [pet-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:41:14.498-04:00  WARN 18936 --- [pet-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:41:14.583-04:00  INFO 18936 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 21.182 seconds (process running for 28.935)
+2026-06-23T13:41:15.529-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        pets p1_0
+2026-06-23T13:41:15.694-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:41:15.745-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:41:15.749-04:00 DEBUG 18936 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:41:16.752-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:41:16.753-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T13:41:16.784-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T13:41:16.795-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:41:16.853-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T13:41:16.855-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T13:41:16.855-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota eliminada exitosamente: ID=1
+2026-06-23T13:41:16.866-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:41:16.867-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Refugio no encontrado: ID=2
+2026-06-23T13:41:16.875-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:41:16.878-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota creada exitosamente: ID=1
+2026-06-23T13:41:16.895-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T13:41:16.902-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T13:41:16.903-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota ya eliminada: ID=1
+2026-06-23T13:41:16.916-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T13:41:16.918-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota actualizada exitosamente: ID=1
+2026-06-23T13:41:16.925-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=99
+2026-06-23T13:41:16.926-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota no encontrada: ID=99
+2026-06-23T13:41:16.943-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T13:41:16.943-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T13:41:16.950-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T13:41:16.951-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T13:41:16.951-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado de mascota actualizado exitosamente: ID=1
+2026-06-23T13:41:16.956-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T13:41:16.958-04:00 ERROR 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo eliminar salud asociada al petId=1: Health-service no pudo eliminar salud asociada a petId=1
+2026-06-23T13:41:16.958-04:00 ERROR 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Error al eliminar mascota: ID=1
+
+java.lang.RuntimeException: No se pudo eliminar la ficha de salud asociada a la mascota 1
+	at com.adoptapp.petservice.service.PetService.deleteHealthOrFail(PetService.java:263) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetService.deleteById(PetService.java:237) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetServiceTest.lambda$deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth$11(PetServiceTest.java:373) ~[test-classes/:na]
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:904) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.catchThrowable(Assertions.java:1470) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.assertThatThrownBy(Assertions.java:1313) ~[assertj-core-3.26.3.jar:na]
+	at com.adoptapp.petservice.service.PetServiceTest.deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth(PetServiceTest.java:373) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+
+2026-06-23T13:41:16.979-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T13:41:16.985-04:00  INFO 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=99
+2026-06-23T13:41:16.986-04:00  WARN 18936 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota a eliminar no encontrada: ID=99
+2026-06-23T13:41:17.016-04:00 DEBUG 18936 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@47f8374, started on Tue Jun 23 13:40:56 CLT 2026
+2026-06-23T13:41:17.029-04:00  INFO 18936 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:41:17.481-04:00 DEBUG 18936 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T13:41:17.485-04:00 DEBUG 18936 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T13:41:17.489-04:00  INFO 18936 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:41:17.491-04:00  INFO 18936 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:46:07.365-04:00  INFO 23144 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 23144 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T13:46:07.367-04:00 DEBUG 23144 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:46:07.367-04:00  INFO 23144 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
+2026-06-23T13:46:07.430-04:00 DEBUG 23144 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@47f8374
+2026-06-23T13:46:09.501-04:00  INFO 23144 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:46:09.743-04:00  INFO 23144 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:46:10.316-04:00  INFO 23144 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=76dcd468-8f92-3c80-b6cc-65cdef023f3f
+2026-06-23T13:46:11.357-04:00  INFO 23144 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:46:11.469-04:00  INFO 23144 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:46:11.522-04:00  INFO 23144 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:46:11.698-04:00  INFO 23144 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:46:11.772-04:00  INFO 23144 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:46:12.197-04:00  INFO 23144 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
+2026-06-23T13:46:12.200-04:00  INFO 23144 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:46:12.238-04:00  WARN 23144 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:46:12.267-04:00  INFO 23144 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:46:13.643-04:00  INFO 23144 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:46:13.669-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T13:46:13.676-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T13:46:13.683-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pet_history (
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        pet_id bigint not null,
+        new_name varchar(20),
+        new_status varchar(20),
+        previous_name varchar(20),
+        previous_status varchar(20),
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T13:46:13.697-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pets (
+        age integer not null check (age>=0),
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        name varchar(20) not null,
+        color varchar(50) not null,
+        personality varchar(50) not null,
+        race varchar(50) not null,
+        size varchar(50) not null,
+        species varchar(50) not null,
+        status enum ('AVAILABLE','DELETED','NOT_AVAILABLE') not null,
+        primary key (id)
+    )
+2026-06-23T13:46:13.706-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    alter table if exists pet_history 
+       add constraint FKiomkslu0b0pchjp542ihafh05 
+       foreign key (pet_id) 
+       references pets
+2026-06-23T13:46:13.728-04:00  INFO 23144 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:46:14.368-04:00  WARN 23144 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:46:15.964-04:00  INFO 23144 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:46:16.302-04:00 DEBUG 23144 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:46:16.713-04:00 DEBUG 23144 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:46:17.488-04:00 DEBUG 23144 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:46:17.587-04:00 DEBUG 23144 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:46:19.209-04:00  INFO 23144 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:46:19.234-04:00  INFO 23144 --- [pet-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:46:19.296-04:00  WARN 23144 --- [pet-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:46:19.340-04:00  INFO 23144 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 13.864 seconds (process running for 19.684)
+2026-06-23T13:46:19.850-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        pets p1_0
+2026-06-23T13:46:19.937-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:46:19.967-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:46:19.969-04:00 DEBUG 23144 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:46:20.566-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:46:20.567-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T13:46:20.581-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T13:46:20.588-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:46:20.624-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T13:46:20.626-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T13:46:20.626-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota eliminada exitosamente: ID=1
+2026-06-23T13:46:20.636-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:46:20.636-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Refugio no encontrado: ID=2
+2026-06-23T13:46:20.641-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T13:46:20.642-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota creada exitosamente: ID=1
+2026-06-23T13:46:20.655-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T13:46:20.658-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T13:46:20.659-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota ya eliminada: ID=1
+2026-06-23T13:46:20.669-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T13:46:20.671-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota actualizada exitosamente: ID=1
+2026-06-23T13:46:20.675-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=99
+2026-06-23T13:46:20.676-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota no encontrada: ID=99
+2026-06-23T13:46:20.688-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T13:46:20.688-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T13:46:20.692-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T13:46:20.693-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T13:46:20.693-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado de mascota actualizado exitosamente: ID=1
+2026-06-23T13:46:20.698-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T13:46:20.698-04:00 ERROR 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo eliminar salud asociada al petId=1: Health-service no pudo eliminar salud asociada a petId=1
+2026-06-23T13:46:20.699-04:00 ERROR 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Error al eliminar mascota: ID=1
+
+java.lang.RuntimeException: No se pudo eliminar la ficha de salud asociada a la mascota 1
+	at com.adoptapp.petservice.service.PetService.deleteHealthOrFail(PetService.java:263) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetService.deleteById(PetService.java:237) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetServiceTest.lambda$deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth$11(PetServiceTest.java:373) ~[test-classes/:na]
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:904) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.catchThrowable(Assertions.java:1470) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.assertThatThrownBy(Assertions.java:1313) ~[assertj-core-3.26.3.jar:na]
+	at com.adoptapp.petservice.service.PetServiceTest.deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth(PetServiceTest.java:373) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+
+2026-06-23T13:46:20.711-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T13:46:20.715-04:00  INFO 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=99
+2026-06-23T13:46:20.716-04:00  WARN 23144 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota a eliminar no encontrada: ID=99
+2026-06-23T13:46:20.736-04:00 DEBUG 23144 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@47f8374, started on Tue Jun 23 13:46:07 CLT 2026
+2026-06-23T13:46:20.746-04:00  INFO 23144 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:46:20.997-04:00 DEBUG 23144 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T13:46:20.998-04:00 DEBUG 23144 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T13:46:21.001-04:00  INFO 23144 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:46:21.002-04:00  INFO 23144 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:52:30.064-04:00  INFO 30624 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 30624 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T14:52:30.069-04:00 DEBUG 30624 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:52:30.071-04:00  INFO 30624 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
+2026-06-23T14:52:30.181-04:00 DEBUG 30624 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@47f8374
+2026-06-23T14:52:34.098-04:00  INFO 30624 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:52:34.508-04:00  INFO 30624 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 387 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:52:35.349-04:00  INFO 30624 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=76dcd468-8f92-3c80-b6cc-65cdef023f3f
+2026-06-23T14:52:37.216-04:00  INFO 30624 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:52:37.428-04:00  INFO 30624 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:52:37.539-04:00  INFO 30624 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:52:37.905-04:00  INFO 30624 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:52:38.022-04:00  INFO 30624 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:52:38.840-04:00  INFO 30624 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
+2026-06-23T14:52:38.847-04:00  INFO 30624 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:52:38.936-04:00  WARN 30624 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:52:38.994-04:00  INFO 30624 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:52:41.149-04:00  INFO 30624 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:52:41.187-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T14:52:41.199-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T14:52:41.211-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pet_history (
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        pet_id bigint not null,
+        new_name varchar(20),
+        new_status varchar(20),
+        previous_name varchar(20),
+        previous_status varchar(20),
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T14:52:41.236-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pets (
+        age integer not null check (age>=0),
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        name varchar(20) not null,
+        color varchar(50) not null,
+        personality varchar(50) not null,
+        race varchar(50) not null,
+        size varchar(50) not null,
+        species varchar(50) not null,
+        status enum ('AVAILABLE','DELETED','NOT_AVAILABLE') not null,
+        primary key (id)
+    )
+2026-06-23T14:52:41.248-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    alter table if exists pet_history 
+       add constraint FKiomkslu0b0pchjp542ihafh05 
+       foreign key (pet_id) 
+       references pets
+2026-06-23T14:52:41.290-04:00  INFO 30624 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:52:42.549-04:00  WARN 30624 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:52:45.097-04:00  INFO 30624 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:52:45.602-04:00 DEBUG 30624 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:52:46.315-04:00 DEBUG 30624 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:52:47.374-04:00 DEBUG 30624 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:52:47.559-04:00 DEBUG 30624 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:52:49.659-04:00  INFO 30624 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:52:49.702-04:00  INFO 30624 --- [pet-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:52:49.812-04:00  WARN 30624 --- [pet-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:52:49.887-04:00  INFO 30624 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 22.403 seconds (process running for 29.913)
+2026-06-23T14:52:50.902-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        pets p1_0
+2026-06-23T14:52:51.071-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:52:51.116-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:52:51.119-04:00 DEBUG 30624 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:52:52.062-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T14:52:52.063-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T14:52:52.091-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T14:52:52.101-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T14:52:52.157-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T14:52:52.159-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T14:52:52.159-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota eliminada exitosamente: ID=1
+2026-06-23T14:52:52.168-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T14:52:52.169-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Refugio no encontrado: ID=2
+2026-06-23T14:52:52.178-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T14:52:52.179-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota creada exitosamente: ID=1
+2026-06-23T14:52:52.196-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T14:52:52.201-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T14:52:52.202-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota ya eliminada: ID=1
+2026-06-23T14:52:52.215-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T14:52:52.217-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota actualizada exitosamente: ID=1
+2026-06-23T14:52:52.222-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=99
+2026-06-23T14:52:52.223-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota no encontrada: ID=99
+2026-06-23T14:52:52.238-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T14:52:52.239-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T14:52:52.244-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T14:52:52.245-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T14:52:52.245-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado de mascota actualizado exitosamente: ID=1
+2026-06-23T14:52:52.251-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T14:52:52.251-04:00 ERROR 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo eliminar salud asociada al petId=1: Health-service no pudo eliminar salud asociada a petId=1
+2026-06-23T14:52:52.252-04:00 ERROR 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Error al eliminar mascota: ID=1
+
+java.lang.RuntimeException: No se pudo eliminar la ficha de salud asociada a la mascota 1
+	at com.adoptapp.petservice.service.PetService.deleteHealthOrFail(PetService.java:263) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetService.deleteById(PetService.java:237) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetServiceTest.lambda$deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth$11(PetServiceTest.java:373) ~[test-classes/:na]
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:904) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.catchThrowable(Assertions.java:1470) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.assertThatThrownBy(Assertions.java:1313) ~[assertj-core-3.26.3.jar:na]
+	at com.adoptapp.petservice.service.PetServiceTest.deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth(PetServiceTest.java:373) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+
+2026-06-23T14:52:52.270-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T14:52:52.276-04:00  INFO 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=99
+2026-06-23T14:52:52.276-04:00  WARN 30624 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota a eliminar no encontrada: ID=99
+2026-06-23T14:52:52.307-04:00 DEBUG 30624 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@47f8374, started on Tue Jun 23 14:52:30 CLT 2026
+2026-06-23T14:52:52.320-04:00  INFO 30624 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:52:52.781-04:00 DEBUG 30624 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T14:52:52.785-04:00 DEBUG 30624 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T14:52:52.789-04:00  INFO 30624 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:52:52.791-04:00  INFO 30624 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T15:56:14.645-04:00  INFO 30048 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 30048 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T15:56:14.652-04:00 DEBUG 30048 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T15:56:14.654-04:00  INFO 30048 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
+2026-06-23T15:56:14.839-04:00 DEBUG 30048 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6db2a260
+2026-06-23T15:56:19.392-04:00  INFO 30048 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T15:56:19.952-04:00  INFO 30048 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 537 ms. Found 2 JPA repository interfaces.
+2026-06-23T15:56:21.206-04:00  INFO 30048 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=76dcd468-8f92-3c80-b6cc-65cdef023f3f
+2026-06-23T15:56:23.250-04:00  INFO 30048 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T15:56:23.542-04:00  INFO 30048 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T15:56:23.648-04:00  INFO 30048 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T15:56:24.024-04:00  INFO 30048 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T15:56:24.142-04:00  INFO 30048 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T15:56:24.949-04:00  INFO 30048 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
+2026-06-23T15:56:24.953-04:00  INFO 30048 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T15:56:25.052-04:00  WARN 30048 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T15:56:25.105-04:00  INFO 30048 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T15:56:27.693-04:00  INFO 30048 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T15:56:27.737-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T15:56:27.748-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T15:56:27.757-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pet_history (
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        pet_id bigint not null,
+        new_name varchar(20),
+        new_status varchar(20),
+        previous_name varchar(20),
+        previous_status varchar(20),
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T15:56:27.782-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pets (
+        age integer not null check (age>=0),
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        name varchar(20) not null,
+        color varchar(50) not null,
+        personality varchar(50) not null,
+        race varchar(50) not null,
+        size varchar(50) not null,
+        species varchar(50) not null,
+        status enum ('AVAILABLE','DELETED','NOT_AVAILABLE') not null,
+        primary key (id)
+    )
+2026-06-23T15:56:27.792-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    alter table if exists pet_history 
+       add constraint FKiomkslu0b0pchjp542ihafh05 
+       foreign key (pet_id) 
+       references pets
+2026-06-23T15:56:27.832-04:00  INFO 30048 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T15:56:28.907-04:00  WARN 30048 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T15:56:31.452-04:00  INFO 30048 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T15:56:31.993-04:00 DEBUG 30048 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-06-23T15:56:32.648-04:00 DEBUG 30048 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T15:56:33.957-04:00 DEBUG 30048 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T15:56:34.152-04:00 DEBUG 30048 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T15:56:36.336-04:00  INFO 30048 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T15:56:36.396-04:00  INFO 30048 --- [pet-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T15:56:36.533-04:00  WARN 30048 --- [pet-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T15:56:36.625-04:00  INFO 30048 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 24.872 seconds (process running for 34.432)
+2026-06-23T15:56:37.813-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        pets p1_0
+2026-06-23T15:56:37.993-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T15:56:38.084-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T15:56:38.088-04:00 DEBUG 30048 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T15:56:39.138-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T15:56:39.138-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T15:56:39.155-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T15:56:39.171-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T15:56:39.256-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T15:56:39.259-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T15:56:39.259-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota eliminada exitosamente: ID=1
+2026-06-23T15:56:39.273-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T15:56:39.273-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Refugio no encontrado: ID=2
+2026-06-23T15:56:39.289-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Creando mascota: 'Cholito'
+2026-06-23T15:56:39.289-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota creada exitosamente: ID=1
+2026-06-23T15:56:39.316-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T15:56:39.325-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T15:56:39.325-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota ya eliminada: ID=1
+2026-06-23T15:56:39.341-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=1
+2026-06-23T15:56:39.343-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota actualizada exitosamente: ID=1
+2026-06-23T15:56:39.351-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando mascota: ID=99
+2026-06-23T15:56:39.353-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota no encontrada: ID=99
+2026-06-23T15:56:39.373-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T15:56:39.375-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado invalido para mascota: 'DELETED'
+2026-06-23T15:56:39.383-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T15:56:39.385-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo enviar notificacion para 'Cholito': Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because "shelterResponse" is null
+2026-06-23T15:56:39.385-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Estado de mascota actualizado exitosamente: ID=1
+2026-06-23T15:56:39.393-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=1
+2026-06-23T15:56:39.393-04:00 ERROR 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : No se pudo eliminar salud asociada al petId=1: Health-service no pudo eliminar salud asociada a petId=1
+2026-06-23T15:56:39.393-04:00 ERROR 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Error al eliminar mascota: ID=1
+
+java.lang.RuntimeException: No se pudo eliminar la ficha de salud asociada a la mascota 1
+	at com.adoptapp.petservice.service.PetService.deleteHealthOrFail(PetService.java:263) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetService.deleteById(PetService.java:237) ~[classes/:na]
+	at com.adoptapp.petservice.service.PetServiceTest.lambda$deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth$11(PetServiceTest.java:373) ~[test-classes/:na]
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:904) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.catchThrowable(Assertions.java:1470) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.assertThatThrownBy(Assertions.java:1313) ~[assertj-core-3.26.3.jar:na]
+	at com.adoptapp.petservice.service.PetServiceTest.deleteById_shouldThrow_whenHealthServiceCannotDeleteAssociatedHealth(PetServiceTest.java:373) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+
+2026-06-23T15:56:39.421-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Actualizando estado de mascota: ID=1
+2026-06-23T15:56:39.425-04:00  INFO 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Eliminando mascota: ID=99
+2026-06-23T15:56:39.425-04:00  WARN 30048 --- [pet-service] [main] c.a.petservice.service.PetService        : Mascota a eliminar no encontrada: ID=99
+2026-06-23T15:56:39.469-04:00 DEBUG 30048 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@6db2a260, started on Tue Jun 23 15:56:14 CLT 2026
+2026-06-23T15:56:39.483-04:00  INFO 30048 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T15:56:39.973-04:00 DEBUG 30048 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T15:56:39.984-04:00 DEBUG 30048 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T15:56:39.987-04:00  INFO 30048 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T15:56:39.993-04:00  INFO 30048 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T22:33:15.912-04:00  INFO 33984 --- [pet-service] [main] c.a.p.controller.PetControllerTest       : Starting PetControllerTest using Java 21.0.11 with PID 33984 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T22:33:15.916-04:00 DEBUG 33984 --- [pet-service] [main] c.a.p.controller.PetControllerTest       : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T22:33:15.917-04:00  INFO 33984 --- [pet-service] [main] c.a.p.controller.PetControllerTest       : The following 1 profile is active: "h2"
+2026-06-23T22:33:15.966-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@778c2e7c
+2026-06-23T22:33:22.723-04:00  WARN 33984 --- [pet-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b8640e09-e18f-47cb-9e8f-96ec45de9d15
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T22:33:22.810-04:00  INFO 33984 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T22:33:23.814-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2026-06-23T22:33:24.559-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T22:33:26.111-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T22:33:26.302-04:00 DEBUG 33984 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T22:33:26.659-04:00  INFO 33984 --- [pet-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T22:33:26.659-04:00  INFO 33984 --- [pet-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T22:33:26.661-04:00  INFO 33984 --- [pet-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-23T22:33:26.745-04:00  INFO 33984 --- [pet-service] [main] c.a.p.controller.PetControllerTest       : Started PetControllerTest in 13.501 seconds (process running for 17.383)
+2026-06-23T22:33:27.195-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getPetById(Long)
+2026-06-23T22:33:27.456-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:27.501-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:27.835-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getByIdIncludingDeleted(Long, Authentication)
+2026-06-23T22:33:27.988-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:27.989-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:28.033-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getPetById(Long)
+2026-06-23T22:33:28.094-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.113-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T22:33:28.035547200, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T22:33:28.131-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getPetHealth(Long)
+2026-06-23T22:33:28.135-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.137-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T22:33:28.134164300, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T22:33:28.156-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getByIdIncludingDeleted(Long, Authentication)
+2026-06-23T22:33:28.158-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.159-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:28.180-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#updatePetByStatus(Long, PetStatusRequest, Authentication)
+2026-06-23T22:33:28.292-04:00 DEBUG 33984 --- [pet-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PetStatusRequest[status=NOT_AVAILABLE]]
+2026-06-23T22:33:28.420-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.420-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:28.450-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#deletePetById(Long)
+2026-06-23T22:33:28.455-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.455-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-06-23T22:33:28.473-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#deletePetById(Long)
+2026-06-23T22:33:28.475-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.476-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T22:33:28.474631800, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T22:33:28.494-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getAllPets()
+2026-06-23T22:33:28.514-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.514-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status= (truncated)...]
+2026-06-23T22:33:28.544-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#updatePetById(Long, PetRequest, Authentication)
+2026-06-23T22:33:28.603-04:00 DEBUG 33984 --- [pet-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PetRequest[name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, personality=Tra (truncated)...]
+2026-06-23T22:33:28.795-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.795-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:28.814-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#create(PetRequest, Authentication)
+2026-06-23T22:33:28.816-04:00 DEBUG 33984 --- [pet-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PetRequest[name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, personality=Tra (truncated)...]
+2026-06-23T22:33:28.820-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.821-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:28.839-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getActivePetsByShelter(Long)
+2026-06-23T22:33:28.840-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.841-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status= (truncated)...]
+2026-06-23T22:33:28.858-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getHistory(Long, Authentication)
+2026-06-23T22:33:28.867-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.868-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[PetHistoryResult[id=1, petId=1, previousName=Benito, newName=Benito, previousStatus=AVAILABLE, newS (truncated)...]
+2026-06-23T22:33:28.888-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#create(PetRequest, Authentication)
+2026-06-23T22:33:28.890-04:00 DEBUG 33984 --- [pet-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PetRequest[name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, personality=Tra (truncated)...]
+2026-06-23T22:33:28.892-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.893-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status=A (truncated)...]
+2026-06-23T22:33:28.907-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#updatePetById(Long, PetRequest, Authentication)
+2026-06-23T22:33:28.909-04:00 DEBUG 33984 --- [pet-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [PetRequest[name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, personality=Tra (truncated)...]
+2026-06-23T22:33:28.912-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.912-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T22:33:28.911873500, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T22:33:28.927-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getPetHealth(Long)
+2026-06-23T22:33:28.935-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:28.957-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [HealthResult[id=5, userId=1, petId=1, vaccinationStatus=VACCINATED, sterilizationStatus=STERILIZED,  (truncated)...]
+2026-06-23T22:33:28.977-04:00 DEBUG 33984 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.petservice.controller.PetController#getPetsByStatusAdmin(String, Authentication)
+2026-06-23T22:33:28.999-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T22:33:29.000-04:00 DEBUG 33984 --- [pet-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[PetResponse[id=1, name=Benito, species=Perro, race=Mestizo, age=3, size=MEDIUM, color=Cafe, status= (truncated)...]
+2026-06-23T22:33:29.118-04:00 DEBUG 33984 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@778c2e7c, started on Tue Jun 23 22:33:15 CLT 2026
+2026-06-23T22:55:51.864-04:00  INFO 21500 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Starting PetServiceApplicationTests using Java 21.0.11 with PID 21500 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\pet-service)
+2026-06-23T22:55:51.866-04:00 DEBUG 21500 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T22:55:51.869-04:00  INFO 21500 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : The following 1 profile is active: "h2"
+2026-06-23T22:55:51.961-04:00 DEBUG 21500 --- [pet-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@27c49f54
+2026-06-23T22:55:54.804-04:00  INFO 21500 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T22:55:55.123-04:00  INFO 21500 --- [pet-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 296 ms. Found 2 JPA repository interfaces.
+2026-06-23T22:55:55.704-04:00  INFO 21500 --- [pet-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=76dcd468-8f92-3c80-b6cc-65cdef023f3f
+2026-06-23T22:55:56.849-04:00  INFO 21500 --- [pet-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T22:55:56.970-04:00  INFO 21500 --- [pet-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T22:55:57.027-04:00  INFO 21500 --- [pet-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T22:55:57.232-04:00  INFO 21500 --- [pet-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T22:55:57.310-04:00  INFO 21500 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T22:55:57.782-04:00  INFO 21500 --- [pet-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pet_db user=SA
+2026-06-23T22:55:57.786-04:00  INFO 21500 --- [pet-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T22:55:57.831-04:00  WARN 21500 --- [pet-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T22:55:57.868-04:00  INFO 21500 --- [pet-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T22:55:59.387-04:00  INFO 21500 --- [pet-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T22:55:59.413-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T22:55:59.419-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T22:55:59.426-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pet_history (
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        pet_id bigint not null,
+        new_name varchar(20),
+        new_status varchar(20),
+        previous_name varchar(20),
+        previous_status varchar(20),
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T22:55:59.443-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    create table pets (
+        age integer not null check (age>=0),
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        name varchar(20) not null,
+        color varchar(50) not null,
+        personality varchar(50) not null,
+        race varchar(50) not null,
+        size varchar(50) not null,
+        species varchar(50) not null,
+        status enum ('AVAILABLE','DELETED','NOT_AVAILABLE') not null,
+        primary key (id)
+    )
+2026-06-23T22:55:59.451-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    alter table if exists pet_history 
+       add constraint FKiomkslu0b0pchjp542ihafh05 
+       foreign key (pet_id) 
+       references pets
+2026-06-23T22:55:59.472-04:00  INFO 21500 --- [pet-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T22:56:00.139-04:00  WARN 21500 --- [pet-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T22:56:01.812-04:00  INFO 21500 --- [pet-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T22:56:02.097-04:00 DEBUG 21500 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2026-06-23T22:56:02.501-04:00 DEBUG 21500 --- [pet-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T22:56:03.497-04:00 DEBUG 21500 --- [pet-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T22:56:03.614-04:00 DEBUG 21500 --- [pet-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T22:56:05.394-04:00  INFO 21500 --- [pet-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T22:56:05.457-04:00  INFO 21500 --- [pet-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T22:56:05.569-04:00  WARN 21500 --- [pet-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T22:56:05.646-04:00  INFO 21500 --- [pet-service] [main] c.a.p.PetServiceApplicationTests         : Started PetServiceApplicationTests in 15.832 seconds (process running for 21.599)
+2026-06-23T22:56:06.634-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        pets p1_0
+2026-06-23T22:56:06.800-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T22:56:06.851-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T22:56:06.853-04:00 DEBUG 21500 --- [pet-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        pets
+        (age, color, created_at, name, personality, race, shelter_id, size, species, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T22:56:06.962-04:00 DEBUG 21500 --- [pet-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@27c49f54, started on Tue Jun 23 22:55:51 CLT 2026
+2026-06-23T22:56:06.978-04:00  INFO 21500 --- [pet-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T22:56:07.342-04:00 DEBUG 21500 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pet_history cascade 
+2026-06-23T22:56:07.345-04:00 DEBUG 21500 --- [pet-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists pets cascade 
+2026-06-23T22:56:07.349-04:00  INFO 21500 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T22:56:07.350-04:00  INFO 21500 --- [pet-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

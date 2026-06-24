@@ -1,19 +1,19 @@
-2026-06-03T16:27:09.730-04:00  INFO 33464 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 26 with PID 33464 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
-2026-06-03T16:27:09.737-04:00 DEBUG 33464 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:27:09.738-04:00  INFO 33464 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
-2026-06-03T16:27:09.782-04:00 DEBUG 33464 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@245a060f
-2026-06-03T16:27:11.121-04:00  INFO 33464 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:27:11.230-04:00  INFO 33464 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:27:11.706-04:00  INFO 33464 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=916bd506-179a-32de-9f9a-38034fb0ea9d
-2026-06-03T16:27:12.708-04:00  INFO 33464 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:27:12.863-04:00  INFO 33464 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:27:12.955-04:00  INFO 33464 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:27:13.528-04:00  INFO 33464 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:27:13.589-04:00  INFO 33464 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:27:13.866-04:00  INFO 33464 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
-2026-06-03T16:27:13.868-04:00  INFO 33464 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:27:13.897-04:00  WARN 33464 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:27:13.933-04:00  INFO 33464 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T00:03:52.497-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 18348 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T00:03:52.508-04:00 DEBUG 18348 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T00:03:52.508-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T00:03:52.621-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4b691611
+2026-06-23T00:03:55.934-04:00  INFO 18348 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T00:03:56.503-04:00  INFO 18348 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 537 ms. Found 2 JPA repository interfaces.
+2026-06-23T00:03:57.484-04:00  INFO 18348 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T00:03:59.405-04:00  INFO 18348 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T00:03:59.626-04:00  INFO 18348 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T00:03:59.735-04:00  INFO 18348 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T00:04:00.495-04:00  INFO 18348 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T00:04:00.584-04:00  INFO 18348 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T00:04:01.289-04:00  INFO 18348 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T00:04:01.289-04:00  INFO 18348 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T00:04:01.379-04:00  WARN 18348 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T00:04:01.437-04:00  INFO 18348 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -21,12 +21,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:27:15.100-04:00  INFO 33464 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:27:15.122-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:03.970-04:00  INFO 18348 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T00:04:04.025-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     drop table if exists adoption_history cascade 
-2026-06-03T16:27:15.126-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:04.035-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     drop table if exists adoptions cascade 
-2026-06-03T16:27:15.132-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:04.055-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     create table adoption_history (
         adoption_id bigint not null,
         created_at timestamp(6),
@@ -35,80 +35,148 @@
         description TEXT,
         primary key (id)
     )
-2026-06-03T16:27:15.144-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:04.084-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     create table adoptions (
         created_at timestamp(6),
         id bigint generated by default as identity,
         pet_id bigint,
         updated_at timestamp(6),
         user_id bigint,
-        status enum ('APPROVED','PENDING','REJECTED') not null,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
         primary key (id)
     )
-2026-06-03T16:27:15.146-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:04.085-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     alter table if exists adoption_history 
        add constraint FKpud0gygbsbx7usaemm8cphw59 
        foreign key (adoption_id) 
        references adoptions
-2026-06-03T16:27:15.167-04:00  INFO 33464 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:27:15.697-04:00  WARN 33464 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:27:17.714-04:00  INFO 33464 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:27:17.969-04:00 DEBUG 33464 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:27:18.321-04:00 DEBUG 33464 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:27:18.992-04:00 DEBUG 33464 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:27:19.060-04:00 DEBUG 33464 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:27:20.436-04:00  INFO 33464 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:27:20.545-04:00  INFO 33464 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 12.327 seconds (process running for 13.672)
-2026-06-03T16:27:21.781-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:04.128-04:00  INFO 18348 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T00:04:05.151-04:00  WARN 18348 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T00:04:08.485-04:00  INFO 18348 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T00:04:09.017-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T00:04:09.546-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T00:04:10.532-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T00:04:10.697-04:00 DEBUG 18348 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T00:04:12.815-04:00  INFO 18348 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T00:04:12.864-04:00  INFO 18348 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T00:04:12.989-04:00  WARN 18348 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T00:04:13.062-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 22.708 seconds (process running for 26.765)
+2026-06-23T00:04:14.088-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     select
         count(*) 
     from
         adoptions a1_0
-2026-06-03T16:27:21.918-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:14.233-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         adoptions
         (created_at, pet_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, default)
-2026-06-03T16:27:22.026-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:14.285-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         adoptions
         (created_at, pet_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, default)
-2026-06-03T16:27:22.029-04:00 DEBUG 33464 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:04:14.285-04:00 DEBUG 18348 --- [adoption-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         adoptions
         (created_at, pet_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, default)
-2026-06-03T16:27:25.670-04:00 DEBUG 33464 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@245a060f, started on Wed Jun 03 16:27:09 GMT-04:00 2026
-2026-06-03T16:27:25.695-04:00  INFO 33464 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:27:25.697-04:00 DEBUG 33464 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T00:04:15.385-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T00:04:15.555-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T00:04:15.565-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T00:04:15.577-04:00  INFO 18348 --- [adoption-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.adoptapp.adoptionservice.controller.AdoptionControllerTest]: AdoptionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T00:04:15.647-04:00  INFO 18348 --- [adoption-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.adoptapp.adoptionservice.AdoptionServiceApplication for test class com.adoptapp.adoptionservice.controller.AdoptionControllerTest
+2026-06-23T00:04:15.655-04:00  INFO 18348 --- [adoption-service] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-06-23T00:04:16.797-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 18348 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T00:04:16.799-04:00 DEBUG 18348 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T00:04:16.799-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T00:04:16.801-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@719349f7
+2026-06-23T00:04:17.908-04:00  WARN 18348 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 83adbdba-6647-4c2c-9139-71f12e143cde
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T00:04:17.944-04:00  INFO 18348 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T00:04:18.088-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T00:04:18.315-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T00:04:18.640-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T00:04:18.675-04:00 DEBUG 18348 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T00:04:18.960-04:00  INFO 18348 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T00:04:18.961-04:00  INFO 18348 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T00:04:18.963-04:00  INFO 18348 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-23T00:04:19.018-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 3.364 seconds (process running for 32.722)
+2026-06-23T00:04:19.366-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T00:04:19.725-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:04:19.753-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T00:04:20.663-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T00:04:20.710-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:04:20.745-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T00:04:20.677991500, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T00:04:20.790-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T00:04:20.995-04:00 DEBUG 18348 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T00:04:21.210-04:00 DEBUG 18348 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T00:04:21.215-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:04:21.215-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T00:04:21.215714800, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T00:04:21.232-04:00 DEBUG 18348 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T00:04:21.295-04:00 DEBUG 18348 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T00:04:21.295-04:00 DEBUG 18348 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T00:04:21.299-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:04:21.299-04:00 DEBUG 18348 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T00:04:22.911-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:04:22.945-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:04:22.980-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:04:22.986-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=99
+2026-06-23T00:04:22.986-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion no encontrada: ID=99
+2026-06-23T00:04:23.002-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=1
+2026-06-23T00:04:23.005-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : No se pudo obtener email del usuario null para notificacion
+2026-06-23T00:04:23.005-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error enviando notificacion a mascota null: Cannot invoke "java.lang.Long.toString()" because "petId" is null
+2026-06-23T00:04:23.005-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=1
+2026-06-23T00:04:23.018-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=99, petId=10
+2026-06-23T00:04:23.025-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Usuario no encontrado: ID=99
+2026-06-23T00:04:23.035-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=99
+2026-06-23T00:04:23.035-04:00  WARN 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Mascota no encontrada: ID=99
+2026-06-23T00:04:23.042-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:04:23.050-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:04:23.050-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T00:04:23.067-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:04:23.067-04:00 ERROR 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Fallo sincronizando mascota 10 a estado NOT_AVAILABLE para adopcion 100: pet-service no disponible
+2026-06-23T00:04:23.067-04:00 ERROR 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error al actualizar adopcion: servicio remoto no disponible - No se pudo sincronizar el estado de la mascota 10
+2026-06-23T00:04:23.090-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:04:23.091-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T00:04:23.117-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:04:23.117-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Seguimiento creado para adopcion: mascota=Benito, userId=1, adoptionId=100
+2026-06-23T00:04:23.117-04:00  INFO 18348 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T00:04:23.191-04:00 DEBUG 18348 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4b691611, started on Tue Jun 23 00:03:52 CLT 2026
+2026-06-23T00:04:23.219-04:00  INFO 18348 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T00:04:23.867-04:00 DEBUG 18348 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists adoption_history cascade 
-2026-06-03T16:27:25.708-04:00 DEBUG 33464 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T00:04:23.875-04:00 DEBUG 18348 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists adoptions cascade 
-2026-06-03T16:27:25.714-04:00  INFO 33464 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:27:25.727-04:00  INFO 33464 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-06-03T16:48:37.344-04:00  INFO 4612 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 4612 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
-2026-06-03T16:48:37.346-04:00 DEBUG 4612 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:48:37.347-04:00  INFO 4612 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
-2026-06-03T16:48:37.431-04:00 DEBUG 4612 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2b8bd14b
-2026-06-03T16:48:39.303-04:00  INFO 4612 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:48:39.447-04:00  INFO 4612 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:48:40.095-04:00  INFO 4612 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=916bd506-179a-32de-9f9a-38034fb0ea9d
-2026-06-03T16:48:41.653-04:00  INFO 4612 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:48:41.795-04:00  INFO 4612 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:48:41.864-04:00  INFO 4612 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:48:42.570-04:00  INFO 4612 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:48:42.605-04:00  INFO 4612 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:48:42.841-04:00  INFO 4612 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
-2026-06-03T16:48:42.843-04:00  INFO 4612 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:48:42.873-04:00  WARN 4612 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:48:42.887-04:00  INFO 4612 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T00:04:23.889-04:00  INFO 18348 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T00:04:23.889-04:00  INFO 18348 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T00:04:23.895-04:00 DEBUG 18348 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@719349f7, started on Tue Jun 23 00:04:16 CLT 2026
+2026-06-23T00:08:20.166-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 30988 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T00:08:20.169-04:00 DEBUG 30988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T00:08:20.170-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T00:08:20.272-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7dd45c93
+2026-06-23T00:08:23.023-04:00  INFO 30988 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T00:08:23.482-04:00  INFO 30988 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 417 ms. Found 2 JPA repository interfaces.
+2026-06-23T00:08:24.466-04:00  INFO 30988 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T00:08:26.189-04:00  INFO 30988 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T00:08:26.379-04:00  INFO 30988 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T00:08:26.499-04:00  INFO 30988 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T00:08:27.232-04:00  INFO 30988 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T00:08:27.310-04:00  INFO 30988 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T00:08:28.005-04:00  INFO 30988 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T00:08:28.007-04:00  INFO 30988 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T00:08:28.080-04:00  WARN 30988 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T00:08:28.137-04:00  INFO 30988 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -116,12 +184,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:48:44.026-04:00  INFO 4612 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:48:44.049-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:30.864-04:00  INFO 30988 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T00:08:30.917-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     drop table if exists adoption_history cascade 
-2026-06-03T16:48:44.057-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:30.929-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     drop table if exists adoptions cascade 
-2026-06-03T16:48:44.057-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:30.944-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     create table adoption_history (
         adoption_id bigint not null,
         created_at timestamp(6),
@@ -130,61 +198,964 @@
         description TEXT,
         primary key (id)
     )
-2026-06-03T16:48:44.078-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:30.969-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     create table adoptions (
         created_at timestamp(6),
         id bigint generated by default as identity,
         pet_id bigint,
         updated_at timestamp(6),
         user_id bigint,
-        status enum ('APPROVED','PENDING','REJECTED') not null,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
         primary key (id)
     )
-2026-06-03T16:48:44.078-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:30.975-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     alter table if exists adoption_history 
        add constraint FKpud0gygbsbx7usaemm8cphw59 
        foreign key (adoption_id) 
        references adoptions
-2026-06-03T16:48:44.105-04:00  INFO 4612 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:48:44.548-04:00  WARN 4612 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:48:46.490-04:00  INFO 4612 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:48:46.893-04:00 DEBUG 4612 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:48:47.299-04:00 DEBUG 4612 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:48:48.149-04:00 DEBUG 4612 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:48:48.321-04:00 DEBUG 4612 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:48:49.671-04:00  INFO 4612 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:48:49.727-04:00  INFO 4612 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 13.969 seconds (process running for 15.5)
-2026-06-03T16:48:50.219-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:31.034-04:00  INFO 30988 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T00:08:31.835-04:00  WARN 30988 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T00:08:34.387-04:00  INFO 30988 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T00:08:34.929-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T00:08:35.514-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T00:08:36.577-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T00:08:36.754-04:00 DEBUG 30988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T00:08:38.872-04:00  INFO 30988 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T00:08:38.916-04:00  INFO 30988 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T00:08:39.046-04:00  WARN 30988 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T00:08:39.117-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 21.22 seconds (process running for 24.87)
+2026-06-23T00:08:39.984-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     select
         count(*) 
     from
         adoptions a1_0
-2026-06-03T16:48:50.279-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:40.174-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         adoptions
         (created_at, pet_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, default)
-2026-06-03T16:48:50.290-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:40.244-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         adoptions
         (created_at, pet_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, default)
-2026-06-03T16:48:50.304-04:00 DEBUG 4612 --- [adoption-service] [main] org.hibernate.SQL                        : 
+2026-06-23T00:08:40.254-04:00 DEBUG 30988 --- [adoption-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         adoptions
         (created_at, pet_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, default)
-2026-06-03T16:48:50.993-04:00 DEBUG 4612 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2b8bd14b, started on Wed Jun 03 16:48:37 CLT 2026
-2026-06-03T16:48:51.002-04:00  INFO 4612 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:48:51.003-04:00 DEBUG 4612 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T00:08:41.574-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T00:08:41.728-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T00:08:41.734-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T00:08:41.753-04:00  INFO 30988 --- [adoption-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.adoptapp.adoptionservice.controller.AdoptionControllerTest]: AdoptionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T00:08:41.810-04:00  INFO 30988 --- [adoption-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.adoptapp.adoptionservice.AdoptionServiceApplication for test class com.adoptapp.adoptionservice.controller.AdoptionControllerTest
+2026-06-23T00:08:41.820-04:00  INFO 30988 --- [adoption-service] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-06-23T00:08:42.934-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 30988 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T00:08:42.934-04:00 DEBUG 30988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T00:08:42.934-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T00:08:42.940-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@1e88bec4
+2026-06-23T00:08:44.028-04:00  WARN 30988 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: be11bc07-a09c-4531-9f4d-6b42c07ceb0d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T00:08:44.047-04:00  INFO 30988 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T00:08:44.204-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T00:08:44.458-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T00:08:44.811-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T00:08:44.852-04:00 DEBUG 30988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T00:08:45.228-04:00  INFO 30988 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T00:08:45.229-04:00  INFO 30988 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T00:08:45.233-04:00  INFO 30988 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-06-23T00:08:45.294-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 3.476 seconds (process running for 31.044)
+2026-06-23T00:08:45.664-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T00:08:46.056-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:08:46.084-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T00:08:46.429-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T00:08:46.449-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:08:46.465-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T00:08:46.432321800, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T00:08:46.490-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T00:08:46.648-04:00 DEBUG 30988 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T00:08:46.935-04:00 DEBUG 30988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T00:08:46.941-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:08:46.943-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T00:08:46.935844400, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T00:08:46.964-04:00 DEBUG 30988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T00:08:47.054-04:00 DEBUG 30988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T00:08:47.059-04:00 DEBUG 30988 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T00:08:47.064-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T00:08:47.068-04:00 DEBUG 30988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T00:08:48.914-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:08:48.954-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:08:48.976-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:08:48.984-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=99
+2026-06-23T00:08:48.984-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion no encontrada: ID=99
+2026-06-23T00:08:48.994-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:08:49.006-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=1
+2026-06-23T00:08:49.006-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : No se pudo obtener email del usuario null para notificacion
+2026-06-23T00:08:49.009-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error enviando notificacion a mascota null: Cannot invoke "java.lang.Long.toString()" because "petId" is null
+2026-06-23T00:08:49.009-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=1
+2026-06-23T00:08:49.029-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=99, petId=10
+2026-06-23T00:08:49.029-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Usuario no encontrado: ID=99
+2026-06-23T00:08:49.038-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=99
+2026-06-23T00:08:49.038-04:00  WARN 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Mascota no encontrada: ID=99
+2026-06-23T00:08:49.046-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:08:49.054-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:08:49.054-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T00:08:49.067-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:08:49.067-04:00 ERROR 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Fallo sincronizando mascota 10 a estado NOT_AVAILABLE para adopcion 100: pet-service no disponible
+2026-06-23T00:08:49.067-04:00 ERROR 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error al actualizar adopcion: servicio remoto no disponible - No se pudo sincronizar el estado de la mascota 10
+2026-06-23T00:08:49.086-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:08:49.086-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T00:08:49.104-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T00:08:49.106-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Seguimiento creado para adopcion: mascota=Benito, userId=1, adoptionId=100
+2026-06-23T00:08:49.106-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T00:08:49.116-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T00:08:49.118-04:00  INFO 30988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T00:08:49.165-04:00 DEBUG 30988 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@7dd45c93, started on Tue Jun 23 00:08:20 CLT 2026
+2026-06-23T00:08:49.184-04:00  INFO 30988 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T00:08:49.940-04:00 DEBUG 30988 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists adoption_history cascade 
-2026-06-03T16:48:51.006-04:00 DEBUG 4612 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T00:08:49.948-04:00 DEBUG 30988 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists adoptions cascade 
-2026-06-03T16:48:51.008-04:00  INFO 4612 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:48:51.008-04:00  INFO 4612 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T00:08:49.956-04:00  INFO 30988 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T00:08:49.962-04:00  INFO 30988 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T00:08:49.964-04:00 DEBUG 30988 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@1e88bec4, started on Tue Jun 23 00:08:42 CLT 2026
+2026-06-23T12:46:41.671-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 22248 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T12:46:41.673-04:00 DEBUG 22248 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T12:46:41.674-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T12:46:41.741-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@1182d1df
+2026-06-23T12:46:43.771-04:00  INFO 22248 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T12:46:44.072-04:00  INFO 22248 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 287 ms. Found 2 JPA repository interfaces.
+2026-06-23T12:46:44.693-04:00  INFO 22248 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T12:46:45.847-04:00  INFO 22248 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T12:46:46.018-04:00  INFO 22248 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T12:46:46.089-04:00  INFO 22248 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T12:46:46.556-04:00  INFO 22248 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T12:46:46.613-04:00  INFO 22248 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T12:46:47.046-04:00  INFO 22248 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T12:46:47.049-04:00  INFO 22248 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T12:46:47.104-04:00  WARN 22248 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T12:46:47.141-04:00  INFO 22248 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T12:46:48.709-04:00  INFO 22248 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T12:46:48.742-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T12:46:48.750-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T12:46:48.758-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoption_history (
+        adoption_id bigint not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        action varchar(50) not null,
+        description TEXT,
+        primary key (id)
+    )
+2026-06-23T12:46:48.774-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoptions (
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        pet_id bigint,
+        updated_at timestamp(6),
+        user_id bigint,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
+        primary key (id)
+    )
+2026-06-23T12:46:48.781-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    alter table if exists adoption_history 
+       add constraint FKpud0gygbsbx7usaemm8cphw59 
+       foreign key (adoption_id) 
+       references adoptions
+2026-06-23T12:46:48.815-04:00  INFO 22248 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:46:49.308-04:00  WARN 22248 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T12:46:50.803-04:00  INFO 22248 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T12:46:51.119-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T12:46:51.470-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T12:46:51.980-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T12:46:52.069-04:00 DEBUG 22248 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T12:46:53.613-04:00  INFO 22248 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T12:46:53.643-04:00  INFO 22248 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T12:46:53.705-04:00  WARN 22248 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T12:46:53.748-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 13.774 seconds (process running for 16.324)
+2026-06-23T12:46:54.356-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        adoptions a1_0
+2026-06-23T12:46:54.432-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T12:46:54.461-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T12:46:54.463-04:00 DEBUG 22248 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T12:46:55.020-04:00  WARN 22248 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T12:46:55.122-04:00  WARN 22248 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T12:46:55.126-04:00  WARN 22248 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T12:46:55.139-04:00  INFO 22248 --- [adoption-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.adoptapp.adoptionservice.controller.AdoptionControllerTest]: AdoptionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T12:46:55.178-04:00  INFO 22248 --- [adoption-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.adoptapp.adoptionservice.AdoptionServiceApplication for test class com.adoptapp.adoptionservice.controller.AdoptionControllerTest
+2026-06-23T12:46:55.182-04:00  INFO 22248 --- [adoption-service] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-06-23T12:46:56.244-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 22248 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T12:46:56.244-04:00 DEBUG 22248 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T12:46:56.244-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T12:46:56.246-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@698d0a68
+2026-06-23T12:46:56.883-04:00  WARN 22248 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ed76cd37-b751-4ac2-9e2c-f66522ae0545
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T12:46:56.897-04:00  INFO 22248 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T12:46:57.021-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T12:46:57.165-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T12:46:57.357-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T12:46:57.377-04:00 DEBUG 22248 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T12:46:57.575-04:00  INFO 22248 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T12:46:57.577-04:00  INFO 22248 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T12:46:57.579-04:00  INFO 22248 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-23T12:46:57.609-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 2.428 seconds (process running for 20.184)
+2026-06-23T12:46:57.846-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T12:46:58.104-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T12:46:58.122-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T12:46:58.360-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T12:46:58.371-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T12:46:58.384-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T12:46:58.362008100, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T12:46:58.397-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T12:46:58.487-04:00 DEBUG 22248 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T12:46:58.639-04:00 DEBUG 22248 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T12:46:58.641-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T12:46:58.641-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T12:46:58.640435800, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T12:46:58.654-04:00 DEBUG 22248 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T12:46:58.682-04:00 DEBUG 22248 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T12:46:58.683-04:00 DEBUG 22248 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T12:46:58.687-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T12:46:58.687-04:00 DEBUG 22248 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T12:46:59.636-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T12:46:59.652-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.662-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.668-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=99
+2026-06-23T12:46:59.668-04:00  WARN 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion no encontrada: ID=99
+2026-06-23T12:46:59.676-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.682-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.682-04:00  WARN 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Usuario no encontrado: ID=1
+2026-06-23T12:46:59.690-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.691-04:00  WARN 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Mascota no encontrada: ID=10
+2026-06-23T12:46:59.698-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T12:46:59.704-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.712-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T12:46:59.714-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Seguimiento creado para adopcion: mascota=Benito, userId=1, adoptionId=100
+2026-06-23T12:46:59.715-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T12:46:59.728-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T12:46:59.729-04:00 ERROR 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Fallo sincronizando mascota 10 a estado NOT_AVAILABLE para adopcion 100: pet-service no disponible
+2026-06-23T12:46:59.730-04:00 ERROR 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error al actualizar adopcion: servicio remoto no disponible - No se pudo sincronizar el estado de la mascota 10
+2026-06-23T12:46:59.737-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T12:46:59.737-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T12:46:59.750-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T12:46:59.752-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T12:46:59.758-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T12:46:59.760-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T12:46:59.769-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T12:46:59.771-04:00  INFO 22248 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T12:46:59.805-04:00 DEBUG 22248 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@1182d1df, started on Tue Jun 23 12:46:41 CLT 2026
+2026-06-23T12:46:59.822-04:00  INFO 22248 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:47:00.235-04:00 DEBUG 22248 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T12:47:00.241-04:00 DEBUG 22248 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T12:47:00.248-04:00  INFO 22248 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T12:47:00.252-04:00  INFO 22248 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T12:47:00.254-04:00 DEBUG 22248 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@698d0a68, started on Tue Jun 23 12:46:56 CLT 2026
+2026-06-23T13:15:55.203-04:00  INFO 4188 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 4188 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T13:15:55.205-04:00 DEBUG 4188 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:15:55.207-04:00  INFO 4188 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T13:15:55.237-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@66ab924
+2026-06-23T13:15:59.991-04:00  WARN 4188 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ae1b94df-9753-440e-99a2-def078cd315f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T13:16:00.031-04:00  INFO 4188 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T13:16:00.915-04:00 DEBUG 4188 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:16:01.545-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T13:16:02.583-04:00 DEBUG 4188 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:16:02.787-04:00 DEBUG 4188 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:16:03.234-04:00  INFO 4188 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T13:16:03.235-04:00  INFO 4188 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T13:16:03.240-04:00  INFO 4188 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-06-23T13:16:03.362-04:00  INFO 4188 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 10.317 seconds (process running for 13.632)
+2026-06-23T13:16:03.725-04:00 DEBUG 4188 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T13:16:04.111-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:16:04.122-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T13:16:04.479-04:00 DEBUG 4188 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T13:16:04.496-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:16:04.514-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T13:16:04.482106800, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T13:16:04.536-04:00 DEBUG 4188 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T13:16:04.671-04:00 DEBUG 4188 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T13:16:04.977-04:00 DEBUG 4188 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T13:16:04.980-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:16:04.981-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T13:16:04.979097500, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T13:16:04.996-04:00 DEBUG 4188 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T13:16:05.045-04:00 DEBUG 4188 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T13:16:05.047-04:00 DEBUG 4188 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T13:16:05.054-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:16:05.055-04:00 DEBUG 4188 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T13:16:05.410-04:00 DEBUG 4188 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@66ab924, started on Tue Jun 23 13:15:55 CLT 2026
+2026-06-23T13:38:26.422-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 21748 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T13:38:26.424-04:00 DEBUG 21748 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:38:26.426-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T13:38:26.501-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@42cc5460
+2026-06-23T13:38:28.510-04:00  INFO 21748 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:38:28.797-04:00  INFO 21748 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 262 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:38:29.467-04:00  INFO 21748 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T13:38:30.576-04:00  INFO 21748 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:38:30.731-04:00  INFO 21748 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:38:30.804-04:00  INFO 21748 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:38:31.296-04:00  INFO 21748 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:38:31.354-04:00  INFO 21748 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:38:31.813-04:00  INFO 21748 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T13:38:31.818-04:00  INFO 21748 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:38:31.865-04:00  WARN 21748 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:38:31.899-04:00  INFO 21748 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:38:33.484-04:00  INFO 21748 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:38:33.518-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T13:38:33.526-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T13:38:33.537-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoption_history (
+        adoption_id bigint not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        action varchar(50) not null,
+        description TEXT,
+        primary key (id)
+    )
+2026-06-23T13:38:33.553-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoptions (
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        pet_id bigint,
+        updated_at timestamp(6),
+        user_id bigint,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
+        primary key (id)
+    )
+2026-06-23T13:38:33.554-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    alter table if exists adoption_history 
+       add constraint FKpud0gygbsbx7usaemm8cphw59 
+       foreign key (adoption_id) 
+       references adoptions
+2026-06-23T13:38:33.579-04:00  INFO 21748 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:38:34.083-04:00  WARN 21748 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:38:35.840-04:00  INFO 21748 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:38:36.210-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:38:36.630-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:38:37.273-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:38:37.361-04:00 DEBUG 21748 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:38:39.050-04:00  INFO 21748 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:38:39.076-04:00  INFO 21748 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:38:39.142-04:00  WARN 21748 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:38:39.191-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 14.538 seconds (process running for 17.247)
+2026-06-23T13:38:39.828-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        adoptions a1_0
+2026-06-23T13:38:39.916-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T13:38:39.944-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T13:38:39.947-04:00 DEBUG 21748 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T13:38:40.575-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'user@mail.com': Mensaje
+2026-06-23T13:38:40.677-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.c.PetNotificationClientFallback    : Pet-notification no disponible para 'pet@mail.com': Mensaje
+2026-06-23T13:38:40.680-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.c.FollowUpServiceClientFallback    : Fallback: No se pudo crear seguimiento en followup-service para mascota Benito
+2026-06-23T13:38:40.683-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para userId 1
+2026-06-23T13:38:40.685-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para auth user@mail.com
+2026-06-23T13:38:40.685-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.c.ShelterServiceClientFallback     : Shelter-service no disponible para shelterId 2
+2026-06-23T13:38:40.685-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.StaffServiceClientFallback  : Staff-service no disponible para userId 1
+2026-06-23T13:38:40.686-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T13:38:40.687-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T13:38:40.692-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T13:38:40.698-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T13:38:40.703-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T13:38:40.716-04:00  INFO 21748 --- [adoption-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.adoptapp.adoptionservice.controller.AdoptionControllerTest]: AdoptionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T13:38:40.757-04:00  INFO 21748 --- [adoption-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.adoptapp.adoptionservice.AdoptionServiceApplication for test class com.adoptapp.adoptionservice.controller.AdoptionControllerTest
+2026-06-23T13:38:40.762-04:00  INFO 21748 --- [adoption-service] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-06-23T13:38:41.839-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 21748 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T13:38:41.840-04:00 DEBUG 21748 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:38:41.840-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T13:38:41.841-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@575a5a2f
+2026-06-23T13:38:42.539-04:00  WARN 21748 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bdf564e1-16c4-4340-b990-8cf6515ec9b0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T13:38:42.554-04:00  INFO 21748 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T13:38:42.676-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:38:42.858-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T13:38:43.047-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:38:43.067-04:00 DEBUG 21748 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:38:43.264-04:00  INFO 21748 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T13:38:43.265-04:00  INFO 21748 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T13:38:43.268-04:00  INFO 21748 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-23T13:38:43.304-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 2.543 seconds (process running for 21.36)
+2026-06-23T13:38:43.536-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T13:38:43.769-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:38:43.786-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T13:38:43.999-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T13:38:44.013-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:38:44.027-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T13:38:44.002521700, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T13:38:44.042-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T13:38:44.139-04:00 DEBUG 21748 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T13:38:44.284-04:00 DEBUG 21748 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T13:38:44.286-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:38:44.288-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T13:38:44.286876800, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T13:38:44.300-04:00 DEBUG 21748 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T13:38:44.340-04:00 DEBUG 21748 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T13:38:44.341-04:00 DEBUG 21748 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T13:38:44.345-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:38:44.346-04:00 DEBUG 21748 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T13:38:45.852-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:38:45.868-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.880-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.888-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=99
+2026-06-23T13:38:45.888-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion no encontrada: ID=99
+2026-06-23T13:38:45.896-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.904-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.905-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Usuario no encontrado: ID=1
+2026-06-23T13:38:45.912-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.913-04:00  WARN 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Mascota no encontrada: ID=10
+2026-06-23T13:38:45.920-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:38:45.927-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.936-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:38:45.937-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Seguimiento creado para adopcion: mascota=Benito, userId=1, adoptionId=100
+2026-06-23T13:38:45.938-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T13:38:45.955-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:38:45.957-04:00 ERROR 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Fallo sincronizando mascota 10 a estado NOT_AVAILABLE para adopcion 100: pet-service no disponible
+2026-06-23T13:38:45.958-04:00 ERROR 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error al actualizar adopcion: servicio remoto no disponible - No se pudo sincronizar el estado de la mascota 10
+2026-06-23T13:38:45.968-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:38:45.970-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T13:38:45.988-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:38:45.990-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T13:38:45.998-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T13:38:46.000-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T13:38:46.010-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T13:38:46.012-04:00  INFO 21748 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T13:38:46.045-04:00 DEBUG 21748 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@42cc5460, started on Tue Jun 23 13:38:26 CLT 2026
+2026-06-23T13:38:46.063-04:00  INFO 21748 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:38:46.490-04:00 DEBUG 21748 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T13:38:46.495-04:00 DEBUG 21748 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T13:38:46.505-04:00  INFO 21748 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:38:46.509-04:00  INFO 21748 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:38:46.510-04:00 DEBUG 21748 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@575a5a2f, started on Tue Jun 23 13:38:41 CLT 2026
+2026-06-23T13:44:10.555-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 27988 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T13:44:10.558-04:00 DEBUG 27988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:44:10.559-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T13:44:10.676-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@42cc5460
+2026-06-23T13:44:13.211-04:00  INFO 27988 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:44:13.519-04:00  INFO 27988 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 288 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:44:14.245-04:00  INFO 27988 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T13:44:15.512-04:00  INFO 27988 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:44:15.648-04:00  INFO 27988 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:44:15.716-04:00  INFO 27988 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:44:16.196-04:00  INFO 27988 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:44:16.239-04:00  INFO 27988 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:44:16.671-04:00  INFO 27988 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T13:44:16.674-04:00  INFO 27988 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:44:16.718-04:00  WARN 27988 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:44:16.754-04:00  INFO 27988 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:44:18.346-04:00  INFO 27988 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:44:18.371-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T13:44:18.378-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T13:44:18.386-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoption_history (
+        adoption_id bigint not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        action varchar(50) not null,
+        description TEXT,
+        primary key (id)
+    )
+2026-06-23T13:44:18.408-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoptions (
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        pet_id bigint,
+        updated_at timestamp(6),
+        user_id bigint,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
+        primary key (id)
+    )
+2026-06-23T13:44:18.410-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    alter table if exists adoption_history 
+       add constraint FKpud0gygbsbx7usaemm8cphw59 
+       foreign key (adoption_id) 
+       references adoptions
+2026-06-23T13:44:18.442-04:00  INFO 27988 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:44:19.100-04:00  WARN 27988 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:44:20.815-04:00  INFO 27988 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:44:21.211-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:44:21.676-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:44:22.322-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:44:22.407-04:00 DEBUG 27988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:44:24.103-04:00  INFO 27988 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:44:24.127-04:00  INFO 27988 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:44:24.186-04:00  WARN 27988 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:44:24.230-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 15.731 seconds (process running for 19.5)
+2026-06-23T13:44:24.725-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        adoptions a1_0
+2026-06-23T13:44:24.787-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T13:44:24.815-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T13:44:24.817-04:00 DEBUG 27988 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T13:44:25.339-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'user@mail.com': Mensaje
+2026-06-23T13:44:25.431-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.c.PetNotificationClientFallback    : Pet-notification no disponible para 'pet@mail.com': Mensaje
+2026-06-23T13:44:25.433-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.c.FollowUpServiceClientFallback    : Fallback: No se pudo crear seguimiento en followup-service para mascota Benito
+2026-06-23T13:44:25.436-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para userId 1
+2026-06-23T13:44:25.437-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para auth user@mail.com
+2026-06-23T13:44:25.437-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.c.ShelterServiceClientFallback     : Shelter-service no disponible para shelterId 2
+2026-06-23T13:44:25.437-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.StaffServiceClientFallback  : Staff-service no disponible para userId 1
+2026-06-23T13:44:25.438-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T13:44:25.438-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T13:44:25.444-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T13:44:25.463-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T13:44:25.467-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T13:44:25.478-04:00  INFO 27988 --- [adoption-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.adoptapp.adoptionservice.controller.AdoptionControllerTest]: AdoptionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T13:44:25.517-04:00  INFO 27988 --- [adoption-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.adoptapp.adoptionservice.AdoptionServiceApplication for test class com.adoptapp.adoptionservice.controller.AdoptionControllerTest
+2026-06-23T13:44:25.521-04:00  INFO 27988 --- [adoption-service] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-06-23T13:44:26.592-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 27988 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T13:44:26.592-04:00 DEBUG 27988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:44:26.592-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T13:44:26.594-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@152cabb5
+2026-06-23T13:44:27.292-04:00  WARN 27988 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7b6621ee-039d-49dd-9057-ef76d41fd4ec
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T13:44:27.306-04:00  INFO 27988 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T13:44:27.432-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:44:27.616-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T13:44:27.838-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:44:27.861-04:00 DEBUG 27988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:44:28.085-04:00  INFO 27988 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T13:44:28.086-04:00  INFO 27988 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T13:44:28.090-04:00  INFO 27988 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-23T13:44:28.141-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 2.621 seconds (process running for 23.412)
+2026-06-23T13:44:28.435-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T13:44:28.748-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:44:28.768-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T13:44:29.060-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T13:44:29.076-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:44:29.097-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T13:44:29.062116300, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T13:44:29.119-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T13:44:29.242-04:00 DEBUG 27988 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T13:44:29.427-04:00 DEBUG 27988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T13:44:29.429-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:44:29.430-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T13:44:29.429533100, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T13:44:29.444-04:00 DEBUG 27988 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T13:44:29.491-04:00 DEBUG 27988 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T13:44:29.493-04:00 DEBUG 27988 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T13:44:29.498-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T13:44:29.499-04:00 DEBUG 27988 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T13:44:31.014-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:44:31.040-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.058-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.070-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=99
+2026-06-23T13:44:31.070-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion no encontrada: ID=99
+2026-06-23T13:44:31.081-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.091-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.091-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Usuario no encontrado: ID=1
+2026-06-23T13:44:31.101-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.102-04:00  WARN 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Mascota no encontrada: ID=10
+2026-06-23T13:44:31.110-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:44:31.120-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.132-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:44:31.136-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Seguimiento creado para adopcion: mascota=Benito, userId=1, adoptionId=100
+2026-06-23T13:44:31.137-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T13:44:31.163-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:44:31.168-04:00 ERROR 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Fallo sincronizando mascota 10 a estado NOT_AVAILABLE para adopcion 100: pet-service no disponible
+2026-06-23T13:44:31.168-04:00 ERROR 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error al actualizar adopcion: servicio remoto no disponible - No se pudo sincronizar el estado de la mascota 10
+2026-06-23T13:44:31.183-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T13:44:31.185-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T13:44:31.205-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T13:44:31.206-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T13:44:31.212-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T13:44:31.215-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T13:44:31.223-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T13:44:31.225-04:00  INFO 27988 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T13:44:31.258-04:00 DEBUG 27988 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@42cc5460, started on Tue Jun 23 13:44:10 CLT 2026
+2026-06-23T13:44:31.275-04:00  INFO 27988 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:44:31.656-04:00 DEBUG 27988 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T13:44:31.661-04:00 DEBUG 27988 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T13:44:31.668-04:00  INFO 27988 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:44:31.672-04:00  INFO 27988 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:44:31.674-04:00 DEBUG 27988 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@152cabb5, started on Tue Jun 23 13:44:26 CLT 2026
+2026-06-23T14:49:46.795-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 2560 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T14:49:46.798-04:00 DEBUG 2560 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:49:46.799-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T14:49:46.909-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@42cc5460
+2026-06-23T14:49:50.513-04:00  INFO 2560 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:49:51.100-04:00  INFO 2560 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 555 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:49:52.311-04:00  INFO 2560 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T14:49:54.236-04:00  INFO 2560 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:49:54.499-04:00  INFO 2560 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:49:54.664-04:00  INFO 2560 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:49:55.480-04:00  INFO 2560 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:49:55.565-04:00  INFO 2560 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:49:56.272-04:00  INFO 2560 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T14:49:56.279-04:00  INFO 2560 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:49:56.360-04:00  WARN 2560 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:49:56.422-04:00  INFO 2560 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:49:59.264-04:00  INFO 2560 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:49:59.321-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T14:49:59.333-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T14:49:59.349-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoption_history (
+        adoption_id bigint not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        action varchar(50) not null,
+        description TEXT,
+        primary key (id)
+    )
+2026-06-23T14:49:59.376-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoptions (
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        pet_id bigint,
+        updated_at timestamp(6),
+        user_id bigint,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
+        primary key (id)
+    )
+2026-06-23T14:49:59.379-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    alter table if exists adoption_history 
+       add constraint FKpud0gygbsbx7usaemm8cphw59 
+       foreign key (adoption_id) 
+       references adoptions
+2026-06-23T14:49:59.427-04:00  INFO 2560 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:50:00.377-04:00  WARN 2560 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:50:03.793-04:00  INFO 2560 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:50:04.317-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:50:05.148-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:50:06.408-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:50:06.551-04:00 DEBUG 2560 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:50:08.633-04:00  INFO 2560 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:50:08.657-04:00  INFO 2560 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:50:08.720-04:00  WARN 2560 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:50:08.763-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 24.282 seconds (process running for 28.324)
+2026-06-23T14:50:09.501-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        adoptions a1_0
+2026-06-23T14:50:09.578-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T14:50:09.606-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T14:50:09.607-04:00 DEBUG 2560 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T14:50:10.472-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'user@mail.com': Mensaje
+2026-06-23T14:50:10.586-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.c.PetNotificationClientFallback    : Pet-notification no disponible para 'pet@mail.com': Mensaje
+2026-06-23T14:50:10.590-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.c.FollowUpServiceClientFallback    : Fallback: No se pudo crear seguimiento en followup-service para mascota Benito
+2026-06-23T14:50:10.593-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para userId 1
+2026-06-23T14:50:10.593-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para auth user@mail.com
+2026-06-23T14:50:10.594-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.c.ShelterServiceClientFallback     : Shelter-service no disponible para shelterId 2
+2026-06-23T14:50:10.594-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.StaffServiceClientFallback  : Staff-service no disponible para userId 1
+2026-06-23T14:50:10.595-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T14:50:10.596-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T14:50:10.601-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T14:50:10.607-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T14:50:10.614-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T14:50:10.631-04:00  INFO 2560 --- [adoption-service] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.adoptapp.adoptionservice.controller.AdoptionControllerTest]: AdoptionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-23T14:50:10.690-04:00  INFO 2560 --- [adoption-service] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.adoptapp.adoptionservice.AdoptionServiceApplication for test class com.adoptapp.adoptionservice.controller.AdoptionControllerTest
+2026-06-23T14:50:10.695-04:00  INFO 2560 --- [adoption-service] [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-06-23T14:50:11.776-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Starting AdoptionControllerTest using Java 21.0.11 with PID 2560 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T14:50:11.776-04:00 DEBUG 2560 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:50:11.777-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : The following 1 profile is active: "h2"
+2026-06-23T14:50:11.779-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@15181bcc
+2026-06-23T14:50:12.800-04:00  WARN 2560 --- [adoption-service] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e74e0ab7-ea88-4c06-ac21-97474aeec56a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-23T14:50:12.815-04:00  INFO 2560 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-23T14:50:12.949-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:50:13.129-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-06-23T14:50:13.406-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:50:13.435-04:00 DEBUG 2560 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:50:13.782-04:00  INFO 2560 --- [adoption-service] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-06-23T14:50:13.783-04:00  INFO 2560 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-23T14:50:13.786-04:00  INFO 2560 --- [adoption-service] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-06-23T14:50:13.835-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.controller.AdoptionControllerTest  : Started AdoptionControllerTest in 3.14 seconds (process running for 33.397)
+2026-06-23T14:50:14.185-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T14:50:14.561-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T14:50:14.584-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T14:50:14.974-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#getAdoptionById(Long, Authentication)
+2026-06-23T14:50:14.999-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T14:50:15.031-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T14:50:14.977374100, status=404, error=Not Found, message=Recurso  (truncated)...]
+2026-06-23T14:50:15.053-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T14:50:15.225-04:00 DEBUG 2560 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=null, userId=7]]
+2026-06-23T14:50:15.514-04:00 DEBUG 2560 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.adoptapp.adoptionservice.exception.GlobalExceptionHandler#handleValidation(MethodArgumentNotValidException, HttpServletRequest)
+2026-06-23T14:50:15.519-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T14:50:15.519-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse[timestamp=2026-06-23T14:50:15.516696600, status=400, error=Bad Request, message=Error  (truncated)...]
+2026-06-23T14:50:15.540-04:00 DEBUG 2560 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.adoptapp.adoptionservice.dto.AdoptionResponse> com.adoptapp.adoptionservice.controller.AdoptionController.createAdoption(com.adoptapp.adoptionservice.dto.AdoptionCreateRequest,org.springframework.security.core.Authentication): [Field error in object 'adoptionCreateRequest' on field 'petId': rejected value [null]; codes [NotNull.adoptionCreateRequest.petId,NotNull.petId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adoptionCreateRequest.petId,petId]; arguments []; default message [petId]]; default message [El petId es requerido]] ]
+2026-06-23T14:50:15.589-04:00 DEBUG 2560 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.adoptapp.adoptionservice.controller.AdoptionController#createAdoption(AdoptionCreateRequest, Authentication)
+2026-06-23T14:50:15.590-04:00 DEBUG 2560 --- [adoption-service] [main] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AdoptionCreateRequest[petId=10, userId=null]]
+2026-06-23T14:50:15.598-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-06-23T14:50:15.599-04:00 DEBUG 2560 --- [adoption-service] [main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AdoptionResponse[id=1, userId=7, petId=10, status=PENDING, createdAt=2026-06-21T10:00, updatedAt=nul (truncated)...]
+2026-06-23T14:50:16.947-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T14:50:16.960-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:16.972-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:16.981-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=99
+2026-06-23T14:50:16.981-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion no encontrada: ID=99
+2026-06-23T14:50:16.990-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:17.002-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:17.003-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Usuario no encontrado: ID=1
+2026-06-23T14:50:17.012-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:17.014-04:00  WARN 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Mascota no encontrada: ID=10
+2026-06-23T14:50:17.022-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T14:50:17.032-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:17.043-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T14:50:17.046-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Seguimiento creado para adopcion: mascota=Benito, userId=1, adoptionId=100
+2026-06-23T14:50:17.048-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T14:50:17.066-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T14:50:17.069-04:00 ERROR 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Fallo sincronizando mascota 10 a estado NOT_AVAILABLE para adopcion 100: pet-service no disponible
+2026-06-23T14:50:17.069-04:00 ERROR 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Error al actualizar adopcion: servicio remoto no disponible - No se pudo sincronizar el estado de la mascota 10
+2026-06-23T14:50:17.079-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Actualizando adopcion: ID=100
+2026-06-23T14:50:17.081-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion actualizada exitosamente: ID=100
+2026-06-23T14:50:17.102-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Creando adopcion: userId=1, petId=10
+2026-06-23T14:50:17.104-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion creada exitosamente: ID=100
+2026-06-23T14:50:17.115-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T14:50:17.117-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T14:50:17.130-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Eliminando adopcion: ID=100
+2026-06-23T14:50:17.132-04:00  INFO 2560 --- [adoption-service] [main] c.a.a.service.AdoptionService            : Adopcion eliminada exitosamente: ID=100
+2026-06-23T14:50:17.177-04:00 DEBUG 2560 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@42cc5460, started on Tue Jun 23 14:49:46 CLT 2026
+2026-06-23T14:50:17.204-04:00  INFO 2560 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:50:18.169-04:00 DEBUG 2560 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T14:50:18.180-04:00 DEBUG 2560 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T14:50:18.197-04:00  INFO 2560 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:50:18.217-04:00  INFO 2560 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:50:18.221-04:00 DEBUG 2560 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@15181bcc, started on Tue Jun 23 14:50:11 CLT 2026
+2026-06-23T22:54:04.919-04:00  INFO 33436 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Starting AdoptionServiceApplicationTests using Java 21.0.11 with PID 33436 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\adoption-service)
+2026-06-23T22:54:04.922-04:00 DEBUG 33436 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T22:54:04.923-04:00  INFO 33436 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T22:54:05.017-04:00 DEBUG 33436 --- [adoption-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6d7b2319
+2026-06-23T22:54:07.704-04:00  INFO 33436 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T22:54:08.136-04:00  INFO 33436 --- [adoption-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 412 ms. Found 2 JPA repository interfaces.
+2026-06-23T22:54:08.797-04:00  INFO 33436 --- [adoption-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7ebe399c-483f-3041-8e4d-818deef96bcd
+2026-06-23T22:54:10.360-04:00  INFO 33436 --- [adoption-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T22:54:10.512-04:00  INFO 33436 --- [adoption-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T22:54:10.607-04:00  INFO 33436 --- [adoption-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T22:54:11.231-04:00  INFO 33436 --- [adoption-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T22:54:11.302-04:00  INFO 33436 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T22:54:11.775-04:00  INFO 33436 --- [adoption-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:adoption_db user=SA
+2026-06-23T22:54:11.779-04:00  INFO 33436 --- [adoption-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T22:54:11.835-04:00  WARN 33436 --- [adoption-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T22:54:11.873-04:00  INFO 33436 --- [adoption-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T22:54:13.857-04:00  INFO 33436 --- [adoption-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T22:54:13.931-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T22:54:13.939-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T22:54:13.952-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoption_history (
+        adoption_id bigint not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        action varchar(50) not null,
+        description TEXT,
+        primary key (id)
+    )
+2026-06-23T22:54:13.970-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    create table adoptions (
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        pet_id bigint,
+        updated_at timestamp(6),
+        user_id bigint,
+        status enum ('APPROVED','CANCELLED','PENDING','REJECTED') not null,
+        primary key (id)
+    )
+2026-06-23T22:54:13.974-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    alter table if exists adoption_history 
+       add constraint FKpud0gygbsbx7usaemm8cphw59 
+       foreign key (adoption_id) 
+       references adoptions
+2026-06-23T22:54:14.015-04:00  INFO 33436 --- [adoption-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T22:54:14.823-04:00  WARN 33436 --- [adoption-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T22:54:16.567-04:00  INFO 33436 --- [adoption-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T22:54:16.974-04:00 DEBUG 33436 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T22:54:17.441-04:00 DEBUG 33436 --- [adoption-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /doc/swagger-ui*/*swagger-initializer.js, /doc/swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T22:54:18.085-04:00 DEBUG 33436 --- [adoption-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T22:54:18.170-04:00 DEBUG 33436 --- [adoption-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T22:54:19.903-04:00  INFO 33436 --- [adoption-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T22:54:19.937-04:00  INFO 33436 --- [adoption-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T22:54:20.033-04:00  WARN 33436 --- [adoption-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T22:54:20.087-04:00  INFO 33436 --- [adoption-service] [main] c.a.a.AdoptionServiceApplicationTests    : Started AdoptionServiceApplicationTests in 17.06 seconds (process running for 19.861)
+2026-06-23T22:54:20.873-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        adoptions a1_0
+2026-06-23T22:54:20.951-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T22:54:20.983-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T22:54:20.985-04:00 DEBUG 33436 --- [adoption-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        adoptions
+        (created_at, pet_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+2026-06-23T22:54:21.806-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'user@mail.com': Mensaje
+2026-06-23T22:54:21.941-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.c.PetNotificationClientFallback    : Pet-notification no disponible para 'pet@mail.com': Mensaje
+2026-06-23T22:54:21.944-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.c.FollowUpServiceClientFallback    : Fallback: No se pudo crear seguimiento en followup-service para mascota Benito
+2026-06-23T22:54:21.948-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para userId 1
+2026-06-23T22:54:21.948-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.UserServiceClientFallback   : User-service no disponible para auth user@mail.com
+2026-06-23T22:54:21.948-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.c.ShelterServiceClientFallback     : Shelter-service no disponible para shelterId 2
+2026-06-23T22:54:21.949-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.StaffServiceClientFallback  : Staff-service no disponible para userId 1
+2026-06-23T22:54:21.950-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T22:54:21.950-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T22:54:21.956-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para actualizar estado de petId 10
+2026-06-23T22:54:21.965-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.client.PetServiceClientFallback    : Pet-service no disponible para petId 10
+2026-06-23T22:54:21.969-04:00  WARN 33436 --- [adoption-service] [main] c.a.a.c.UserNotificationClientFallback   : User-notification no disponible para 'adopter@mail.com': Adopcion creada
+2026-06-23T22:54:22.653-04:00 DEBUG 33436 --- [adoption-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@6d7b2319, started on Tue Jun 23 22:54:05 CLT 2026
+2026-06-23T22:54:22.683-04:00  INFO 33436 --- [adoption-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T22:54:23.116-04:00 DEBUG 33436 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoption_history cascade 
+2026-06-23T22:54:23.123-04:00 DEBUG 33436 --- [adoption-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists adoptions cascade 
+2026-06-23T22:54:23.132-04:00  INFO 33436 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T22:54:23.139-04:00  INFO 33436 --- [adoption-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

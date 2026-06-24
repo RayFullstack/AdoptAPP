@@ -467,9 +467,9 @@ DB_PASSWORD=<SUPABASE_PASSWORD>
 
 El perfil Supabase configura HikariCP con `maximum-pool-size: 2` y `minimum-idle: 0` por servicio para evitar agotar las conexiones del pooler.
 
-## OpenAPI y Swagger
+## OpenAPI, Swagger y HATEOAS
 
-Los 10 microservicios incluyen Springdoc OpenAPI. La documentación se consulta directamente en cada puerto:
+Los 10 microservicios incluyen Springdoc OpenAPI. La documentacion se consulta directamente en cada puerto:
 
 ```text
 http://localhost:<PUERTO>/<CONTEXT_PATH>/doc/swagger-ui/index.html
@@ -478,9 +478,27 @@ http://localhost:<PUERTO>/<CONTEXT_PATH>/doc/swagger-ui/index.html
 Ejemplos:
 
 - user-service: `http://localhost:8081/user-app/doc/swagger-ui/index.html`
+- pet-service: `http://localhost:8082/pet-app/doc/swagger-ui/index.html`
 - adoption-service: `http://localhost:8083/adoption-app/doc/swagger-ui/index.html`
 
-Los endpoints protegidos requieren usar el botón **Authorize** con credenciales HTTP Basic.
+Tambien se pueden acceder mediante API Gateway:
+
+```text
+http://localhost:8080/<CONTEXT_PATH>/doc/swagger-ui/index.html
+```
+
+Todos los microservicios tienen configuracion OpenAPI con `basicAuth`, por lo que Swagger UI muestra el boton **Authorize** para probar endpoints protegidos con HTTP Basic.
+
+La documentacion incluye:
+
+- `@Tag` para agrupar endpoints por microservicio.
+- `@Operation` con resumen y descripcion.
+- `@ApiResponses` para documentar respuestas exitosas y errores.
+- DTOs documentados con `@Schema`.
+- `ErrorResponse` documentado desde shared-kernel.
+- Descripcion de respuestas HATEOAS indicando que incluyen enlaces en `_links`.
+
+Los endpoints principales de consulta retornan respuestas con HATEOAS usando `EntityModel` o `CollectionModel`, agregando enlaces como `self`, listados relacionados y acciones disponibles segun el recurso.
 
 ## Seguridad
 
@@ -628,6 +646,15 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Verificación**: los 12 contenedores levantan, las 11 aplicaciones cliente se registran como `UP` y las rutas protegidas responden `401` sin credenciales.
 - **OpenAPI**: Springdoc habilitado en los 10 microservicios con Swagger UI bajo `/doc/swagger-ui/index.html`.
 
+### Documentacion, HATEOAS y Testing (2026-06)
+- **OpenAPI Security**: agregado `basicAuth` en la configuracion OpenAPI de todos los microservicios.
+- **Swagger UI**: endpoints agrupados con `@Tag`, operaciones documentadas con `@Operation` y errores documentados con `ErrorResponse`.
+- **DTOs documentados**: requests y responses principales documentados con `@Schema`.
+- **HATEOAS**: agregado soporte en controllers principales para devolver enlaces `_links` en respuestas de consulta.
+- **Postman por Gateway**: coleccion Postman actualizada para enrutar todas las llamadas mediante `http://localhost:8080`.
+- **Pruebas unitarias**: agregadas pruebas con JUnit y Mockito para services, controllers y client fallbacks.
+- **JaCoCo**: configurado para medir cobertura de pruebas por microservicio.
+
 ## Notas y Limitaciones Conocidas
 
 ### Problemas identificados (pendientes de correccion)
@@ -639,6 +666,9 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Arranque inicial**: JPA, Flyway y Supabase pueden tardar cerca de dos minutos; el Gateway puede responder `503` hasta el siguiente refresco de Eureka.
 - **Build Docker en dos pasos**: los Dockerfile copian JAR desde `target`, por lo que Maven debe ejecutarse antes de construir imágenes.
 - **Feign con URL fija**: Eureka resuelve las rutas del Gateway; las llamadas Feign internas todavía usan URLs configuradas por entorno.
+- **Codigo muerto pendiente de limpieza**: `DonationRequest` ya no se usa porque donation-service separa `DonationCreateRequest` y `DonationUpdateRequest`.
+- **DTOs remotos con campos antiguos**: algunos `PetResponse` en followup-service y health-service aun conservan campos de salud (`vaccinated`, `sterilized`, `diseases`) aunque la salud se maneja en health-service.
+- **Tests duplicados en adoption-service**: existen pruebas de fallbacks especificas y una prueba general `ClientFallbackTest` que cubren parte del mismo comportamiento.
 
 ### Decisiones de diseno
 - **Schema-per-service**: Los microservicios comparten el proyecto PostgreSQL de Supabase, pero cada uno usa un schema aislado.
@@ -653,13 +683,73 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 ### Coleccion Postman
 Archivo `postman-collection.json` en la raiz con todos los endpoints de los 10 servicios. Usa Basic Auth con variables `username` y `password`. URLs base configuradas como variables de coleccion.
 
+La coleccion esta configurada para usar API Gateway como punto de entrada:
+
+```text
+http://localhost:8080
+```
+
+Variables principales:
+
+```text
+username=admin@empresa.com
+password=admin123
+userBaseUrl=http://localhost:8080/user-app
+petBaseUrl=http://localhost:8080/pet-app
+adoptionBaseUrl=http://localhost:8080/adoption-app
+notificationBaseUrl=http://localhost:8080/notification-app
+healthBaseUrl=http://localhost:8080/health-app
+followupBaseUrl=http://localhost:8080/followup-app
+donationBaseUrl=http://localhost:8080/donation-app
+staffBaseUrl=http://localhost:8080/staff-app
+supplyBaseUrl=http://localhost:8080/supply-app
+shelterBaseUrl=http://localhost:8080/shelter-app
+```
+
+Las llamadas fueron verificadas mediante API Gateway con credenciales de administrador y respondieron `200 OK` en los endpoints principales de los 10 microservicios.
+
 ### Comandos cURL
 Ver `test-commands.txt` en la raiz del proyecto para comandos curl de prueba de todos los servicios, organizados por perfil (PostgreSQL y H2).
 
 ### Tests Unitarios
-Todos los servicios incluyen tests de integracion con H2 in-memory (`*ApplicationTests.java`). Ejecutar con:
+Los microservicios incluyen pruebas unitarias organizadas por capa:
+
+```text
+src/test/java/
+|-- service/      # Reglas de negocio con JUnit + Mockito
+|-- controller/   # Pruebas simples de controller con Mockito directo
++-- client/       # Pruebas de fallbacks de Feign clients
+```
+
+Estrategia usada:
+
+- `ServiceTest`: valida reglas de negocio esenciales con repositorios y clients mockeados.
+- `ControllerTest`: valida respuestas del controller usando services mockeados.
+- `ClientFallbackTest`: valida comportamiento de fallbacks cuando un servicio remoto no responde.
+- `ApplicationTests`: valida carga basica del contexto con perfil `h2`.
+
+Ejecutar todos los tests:
+
 ```bash
 .\mvnw.cmd test
+```
+
+Ejecutar tests de un microservicio especifico:
+
+```bash
+.\mvnw.cmd -pl adoption-service test
+```
+
+Ejecutar JaCoCo:
+
+```bash
+.\mvnw.cmd clean test jacoco:report
+```
+
+Los reportes se generan en:
+
+```text
+<microservicio>/target/site/jacoco/index.html
 ```
 
 ### Schema SQL Completo

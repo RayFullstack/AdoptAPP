@@ -1,6 +1,7 @@
 package com.adoptapp.adoptionservice.controller;
 
 import com.adoptapp.adoptionservice.dto.*;
+import com.adoptapp.adoptionservice.service.AdoptionLinkAssembler;
 import com.adoptapp.adoptionservice.service.AdoptionService;
 
 import com.adoptapp.sharedkernel.dto.ErrorResponse;
@@ -13,6 +14,8 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @Tag(name = "Adopciones", description = "Operaciones para gestionar adopciones")
 @RestController
 @RequestMapping("/adoptions")
@@ -29,12 +35,14 @@ import java.util.Optional;
 public class AdoptionController {
 
     private final AdoptionService service;
+    private final AdoptionLinkAssembler linkAssembler;
 
-    public AdoptionController(AdoptionService service) {
+    public AdoptionController(AdoptionService service, AdoptionLinkAssembler linkAssembler) {
         this.service = service;
+        this.linkAssembler = linkAssembler;
     }
 
-    @Operation(summary = "Listar todas las adopciones")
+    @Operation(summary = "Listar todas las adopciones", description = "Devuelve adopciones con enlaces HATEOAS en _links")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopciones listadas correctamente"),
             @ApiResponse(responseCode = "401", description = "No autenticado",
@@ -46,57 +54,75 @@ public class AdoptionController {
     })
     @GetMapping
     @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<List<AdoptionResponse>> getAllAdoptions(Authentication authentication) {
-        return ResponseEntity.ok(toResponseList(getVisibleAdoptions(authentication)));
+    public ResponseEntity<CollectionModel<EntityModel<AdoptionResponse>>> getAllAdoptions(Authentication authentication) {
+        List<EntityModel<AdoptionResponse>> adoptions = getVisibleAdoptions(authentication).stream()
+                .map(this::toResponse)
+                .map(linkAssembler::toModel)
+                .toList();
+
+        CollectionModel<EntityModel<AdoptionResponse>> collection =
+                CollectionModel.of(adoptions);
+
+        collection.add(linkTo(methodOn(AdoptionController.class)
+                .getAllAdoptions(authentication))
+                .withSelfRel());
+
+        return ResponseEntity.ok(collection);
     }
 
 
-    @Operation(summary = "Buscar adopción por ID")
+    @Operation(summary = "Buscar adopcion por ID", description = "Devuelve la adopcion con enlaces HATEOAS en _links")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Adopción encontrada correctamente"),
+            @ApiResponse(responseCode = "200", description = "Adopcion encontrada correctamente"),
             @ApiResponse(responseCode = "401", description = "No autenticado",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopción",
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopcion",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID",
+            @ApiResponse(responseCode = "404", description = "No se encontro la adopcion con ese ID",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('ADOPTER', 'SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<AdoptionResponse> getAdoptionById(
+    public ResponseEntity<EntityModel<AdoptionResponse>> getAdoptionById(
             @PathVariable Long id,
             Authentication authentication) {
 
+        Optional<AdoptionResult> result;
+
         if (hasRole(authentication, "ROLE_ADMIN")) {
-            return toResponseEntity(this.service.getById(id));
-        }
-
-        if (hasRole(authentication, "ROLE_SHELTER_ADMIN")) {
+            result = this.service.getById(id);
+        } else if (hasRole(authentication, "ROLE_SHELTER_ADMIN")) {
             Long shelterId = getShelterIdForAuthenticatedUser(authentication);
-            return toResponseEntity(this.service.getByIdForShelter(id, shelterId));
+            result = this.service.getByIdForShelter(id, shelterId);
+        } else {
+            Long userId = service.getUserIdByEmail(authentication.getName());
+            result = this.service.getByIdForUser(id, userId);
         }
 
-        Long userId = service.getUserIdByEmail(authentication.getName());
-        return toResponseEntity(this.service.getByIdForUser(id, userId));
+        return result
+                .map(this::toResponse)
+                .map(linkAssembler::toModel)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    @Operation(summary = "Buscar adopción por ID incluyendo canceladas")
+    @Operation(summary = "Buscar adopcion por ID incluyendo canceladas", description = "Devuelve la adopcion con enlaces HATEOAS en _links")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Adopción encontrada correctamente"),
+            @ApiResponse(responseCode = "200", description = "Adopcion encontrada correctamente"),
             @ApiResponse(responseCode = "401", description = "No autenticado", content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopción",
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para ver esta adopcion",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "404", description = "Adopción no encontrada",
+            @ApiResponse(responseCode = "404", description = "Adopcion no encontrada",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
     })
     @GetMapping("/admin/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<AdoptionResponse> getByIdIncludingCancelled(
+    public ResponseEntity<EntityModel<AdoptionResponse>> getByIdIncludingCancelled(
             @PathVariable Long id,
             Authentication authentication) {
 
@@ -108,7 +134,7 @@ public class AdoptionController {
         return toResponseEntity(this.service.getByIdIncludingCancelledForShelter(id, shelterId));
     }
 
-    @Operation(summary = "Listar adopciones por status")
+    @Operation(summary = "Listar adopciones por status", description = "Devuelve adopciones con enlaces HATEOAS en _links")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Adopciones listadas correctamente"),
             @ApiResponse(responseCode = "401", description = "No autenticado",
@@ -120,21 +146,31 @@ public class AdoptionController {
     })
     @GetMapping("/admin")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<List<AdoptionResponse>> getAdoptionsByStatusAdmin(
+    public ResponseEntity<CollectionModel<EntityModel<AdoptionResponse>>> getAdoptionsByStatusAdmin(
             @RequestParam(required = false) String status,
             Authentication authentication) {
 
-        return ResponseEntity.ok(toResponseList(getVisibleAdminAdoptions(status, authentication)));
+        List<EntityModel<AdoptionResponse>> adoptions = getVisibleAdminAdoptions(status, authentication).stream()
+                .map(this::toResponse)
+                .map(linkAssembler::toModel)
+                .toList();
+
+        CollectionModel<EntityModel<AdoptionResponse>> collection = CollectionModel.of(adoptions);
+        collection.add(linkTo(methodOn(AdoptionController.class)
+                .getAdoptionsByStatusAdmin(status, authentication))
+                .withSelfRel());
+
+        return ResponseEntity.ok(collection);
     }
 
-    @Operation(summary = "Listar historial de cambios de adopción por ID")
+    @Operation(summary = "Listar historial de cambios de adopcion por ID")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Historial de adopción listado correctamente"),
+            @ApiResponse(responseCode = "200", description = "Historial de adopcion listado correctamente"),
             @ApiResponse(responseCode = "401", description = "No autenticado",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "403", description = "No tienes permisos para ver el historial de cambios de " +
-                    "esta adopción",content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "404", description = "No se encontraron historial para esta adopción",
+                    "esta adopcion",content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(responseCode = "404", description = "No se encontraron historial para esta adopcion",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
@@ -154,18 +190,18 @@ public class AdoptionController {
         return ResponseEntity.ok(service.getHistory(id));
     }
 
-    @Operation(summary = "Crear adopción")
+    @Operation(summary = "Crear adopcion", description = "Crea una adopcion y devuelve enlaces HATEOAS en _links")
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "Adopción creada correctamente"),
-            @ApiResponse(responseCode = "400", description = "Datos inválidos",
+            @ApiResponse(responseCode = "201", description = "Adopcion creada correctamente"),
+            @ApiResponse(responseCode = "400", description = "Datos invalidos",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "401", description = "No autenticado",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para crear esta adopción",
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para crear esta adopcion",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "404", description = "Mascota, usuario o refugio no encontrado",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "409", description = "La adopción no cumple una regla de negocio",
+            @ApiResponse(responseCode = "409", description = "La adopcion no cumple una regla de negocio",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
@@ -174,7 +210,7 @@ public class AdoptionController {
     })
     @PostMapping
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN', 'ADOPTER')")
-    public ResponseEntity<AdoptionResponse> createAdoption(
+    public ResponseEntity<EntityModel<AdoptionResponse>> createAdoption(
             @Valid @RequestBody AdoptionCreateRequest request,
             Authentication authentication) {
 
@@ -182,23 +218,23 @@ public class AdoptionController {
         AdoptionResult result = canCreateWithoutShelterRestriction(authentication)
                 ? this.service.create(command)
                 : this.service.createForShelterAdmin(command, getShelterIdForAuthenticatedUser(authentication));
-        AdoptionResponse response = toResponse(result);
+        EntityModel<AdoptionResponse> response = linkAssembler.toModel(toResponse(result));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @Operation(summary = "Actualizar adopción por ID")
+    @Operation(summary = "Actualizar adopcion por ID", description = "Actualiza una adopcion y devuelve enlaces HATEOAS en _links")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Adopción actualizada correctamente"),
-            @ApiResponse(responseCode = "400", description = "Datos inválidos",
+            @ApiResponse(responseCode = "200", description = "Adopcion actualizada correctamente"),
+            @ApiResponse(responseCode = "400", description = "Datos invalidos",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "401", description = "No autenticado",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para actualizar esta adopción",
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para actualizar esta adopcion",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID",
+            @ApiResponse(responseCode = "404", description = "No se encontro la adopcion con ese ID",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "409", description = "La actualización no cumple una regla de negocio",
+            @ApiResponse(responseCode = "409", description = "La actualizacion no cumple una regla de negocio",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
@@ -207,7 +243,7 @@ public class AdoptionController {
     })
     @PutMapping("/by-id/{id}")
     @PreAuthorize("hasAnyRole('SHELTER_ADMIN', 'ADMIN')")
-    public ResponseEntity<AdoptionResponse> updateAdoptionById(
+    public ResponseEntity<EntityModel<AdoptionResponse>> updateAdoptionById(
             @PathVariable Long id,
             @Valid @RequestBody AdoptionUpdateRequest request,
             Authentication authentication) {
@@ -220,14 +256,14 @@ public class AdoptionController {
         return toResponseEntity(this.service.updateById(id, command));
     }
 
-    @Operation(summary = "Eliminar adopción por ID")
+    @Operation(summary = "Eliminar adopcion por ID")
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Adopción eliminada correctamente"),
+            @ApiResponse(responseCode = "204", description = "Adopcion eliminada correctamente"),
             @ApiResponse(responseCode = "401", description = "No autenticado",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "403", description = "No tienes permisos para eliminar esta adopción",
+            @ApiResponse(responseCode = "403", description = "No tienes permisos para eliminar esta adopcion",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @ApiResponse(responseCode = "404", description = "No se encontró la adopción con ese ID",
+            @ApiResponse(responseCode = "404", description = "No se encontro la adopcion con ese ID",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
@@ -362,9 +398,10 @@ public class AdoptionController {
                 .toList();
     }
 
-    private ResponseEntity<AdoptionResponse> toResponseEntity(Optional<AdoptionResult> result) {
+    private ResponseEntity<EntityModel<AdoptionResponse>> toResponseEntity(Optional<AdoptionResult> result) {
         return result
                 .map(this::toResponse)
+                .map(linkAssembler::toModel)
                 .map(ResponseEntity::ok)
                 .orElse(com.adoptapp.sharedkernel.util.ErrorResponseEntity.notFound("Recurso no encontrado"));
     }
