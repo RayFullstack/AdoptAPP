@@ -180,6 +180,6 @@ class FollowUpServiceTest {
 
     private PetResponse pet() {
         return new PetResponse(10L, "Benito", "Perro", "Samoyedo", 3, "MEDIUM", "Blanco",
-                "AVAILABLE", true, true, null, "Amoroso", 2L);
+                "AVAILABLE", "Amoroso", 2L);
     }
 }
