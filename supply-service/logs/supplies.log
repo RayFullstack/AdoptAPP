@@ -1,19 +1,19 @@
-2026-06-03T16:50:59.760-04:00  INFO 33084 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 33084 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
-2026-06-03T16:50:59.773-04:00 DEBUG 33084 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:50:59.774-04:00  INFO 33084 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
-2026-06-03T16:50:59.826-04:00 DEBUG 33084 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2c16fadb
-2026-06-03T16:51:01.566-04:00  INFO 33084 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:51:01.727-04:00  INFO 33084 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:51:02.373-04:00  INFO 33084 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9277d025-e8c4-3272-8e9f-ef18164f8b6d
-2026-06-03T16:51:04.064-04:00  INFO 33084 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:51:04.290-04:00  INFO 33084 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:51:04.362-04:00  INFO 33084 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:51:04.890-04:00  INFO 33084 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:51:04.952-04:00  INFO 33084 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:51:05.242-04:00  INFO 33084 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
-2026-06-03T16:51:05.246-04:00  INFO 33084 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:51:05.279-04:00  WARN 33084 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:51:05.307-04:00  INFO 33084 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T12:50:22.427-04:00  INFO 12248 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 12248 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
+2026-06-23T12:50:22.436-04:00 DEBUG 12248 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T12:50:22.437-04:00  INFO 12248 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
+2026-06-23T12:50:22.540-04:00 DEBUG 12248 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6421bc7e
+2026-06-23T12:50:24.734-04:00  INFO 12248 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T12:50:25.012-04:00  INFO 12248 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 259 ms. Found 2 JPA repository interfaces.
+2026-06-23T12:50:25.632-04:00  INFO 12248 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebd31025-0152-31bf-8eb3-73d7afcf6b20
+2026-06-23T12:50:26.958-04:00  INFO 12248 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T12:50:27.099-04:00  INFO 12248 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T12:50:27.168-04:00  INFO 12248 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T12:50:27.398-04:00  INFO 12248 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T12:50:27.443-04:00  INFO 12248 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T12:50:27.806-04:00  INFO 12248 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
+2026-06-23T12:50:27.810-04:00  INFO 12248 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T12:50:27.866-04:00  WARN 12248 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T12:50:27.909-04:00  INFO 12248 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -21,12 +21,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:51:06.935-04:00  INFO 33084 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:51:06.964-04:00 DEBUG 33084 --- [supply-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:50:29.177-04:00  INFO 12248 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T12:50:29.201-04:00 DEBUG 12248 --- [supply-service] [main] org.hibernate.SQL                        : 
     drop table if exists supplies cascade 
-2026-06-03T16:51:06.973-04:00 DEBUG 33084 --- [supply-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:50:29.208-04:00 DEBUG 12248 --- [supply-service] [main] org.hibernate.SQL                        : 
     drop table if exists supplies_history cascade 
-2026-06-03T16:51:06.982-04:00 DEBUG 33084 --- [supply-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:50:29.217-04:00 DEBUG 12248 --- [supply-service] [main] org.hibernate.SQL                        : 
     create table supplies (
         minimum_stock integer not null,
         quantity integer not null,
@@ -39,10 +39,10 @@
         supplier_name varchar(200),
         description TEXT,
         category enum ('CLEANING','EQUIPMENT','FOOD','MEDICINE','OTHER','TOYS') not null,
-        status enum ('AVAILABLE','DISCONTINUED','LOW_STOCK','OUT_OF_STOCK') not null,
+        status enum ('AVAILABLE','DISCONTINUED','INACTIVE','LOW_STOCK','OUT_OF_STOCK') not null,
         primary key (id)
     )
-2026-06-03T16:51:07.000-04:00 DEBUG 33084 --- [supply-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:50:29.232-04:00 DEBUG 12248 --- [supply-service] [main] org.hibernate.SQL                        : 
     create table supplies_history (
         new_quantity integer,
         prev_quantity integer,
@@ -58,25 +58,447 @@
         comment TEXT,
         primary key (id)
     )
-2026-06-03T16:51:07.002-04:00 DEBUG 33084 --- [supply-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:50:29.235-04:00 DEBUG 12248 --- [supply-service] [main] org.hibernate.SQL                        : 
     alter table if exists supplies_history 
        add constraint FKad6tppiv1hj44jt755ms946cq 
        foreign key (supply_id) 
        references supplies
-2026-06-03T16:51:07.039-04:00  INFO 33084 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:51:07.662-04:00  WARN 33084 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:51:10.235-04:00  INFO 33084 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:51:10.730-04:00 DEBUG 33084 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:51:11.331-04:00 DEBUG 33084 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:51:12.412-04:00 DEBUG 33084 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:51:12.602-04:00 DEBUG 33084 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:51:14.233-04:00  INFO 33084 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:51:14.364-04:00  INFO 33084 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 16.043 seconds (process running for 17.35)
-2026-06-03T16:51:15.145-04:00 DEBUG 33084 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2c16fadb, started on Wed Jun 03 16:50:59 CLT 2026
-2026-06-03T16:51:15.153-04:00  INFO 33084 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:51:15.153-04:00 DEBUG 33084 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:50:29.262-04:00  INFO 12248 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:50:29.896-04:00  WARN 12248 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T12:50:31.885-04:00  INFO 12248 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T12:50:32.220-04:00 DEBUG 12248 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T12:50:32.526-04:00 DEBUG 12248 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T12:50:33.202-04:00 DEBUG 12248 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T12:50:33.282-04:00 DEBUG 12248 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T12:50:34.988-04:00  INFO 12248 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T12:50:35.010-04:00  INFO 12248 --- [supply-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T12:50:35.073-04:00  WARN 12248 --- [supply-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T12:50:35.114-04:00  INFO 12248 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 14.398 seconds (process running for 21.479)
+2026-06-23T12:50:35.170-04:00 DEBUG 12248 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@6421bc7e, started on Tue Jun 23 12:50:22 CLT 2026
+2026-06-23T12:50:35.177-04:00  INFO 12248 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:50:35.384-04:00 DEBUG 12248 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists supplies cascade 
-2026-06-03T16:51:15.157-04:00 DEBUG 33084 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:50:35.386-04:00 DEBUG 12248 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists supplies_history cascade 
-2026-06-03T16:51:15.159-04:00  INFO 33084 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:51:15.161-04:00  INFO 33084 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T12:50:35.388-04:00  INFO 12248 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T12:50:35.390-04:00  INFO 12248 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:42:38.101-04:00  INFO 21744 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 21744 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
+2026-06-23T13:42:38.105-04:00 DEBUG 21744 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:42:38.106-04:00  INFO 21744 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
+2026-06-23T13:42:38.227-04:00 DEBUG 21744 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3f0751b0
+2026-06-23T13:42:41.249-04:00  INFO 21744 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:42:41.631-04:00  INFO 21744 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 356 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:42:42.482-04:00  INFO 21744 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebd31025-0152-31bf-8eb3-73d7afcf6b20
+2026-06-23T13:42:44.003-04:00  INFO 21744 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:42:44.195-04:00  INFO 21744 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:42:44.296-04:00  INFO 21744 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:42:44.622-04:00  INFO 21744 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:42:44.721-04:00  INFO 21744 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:42:45.343-04:00  INFO 21744 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
+2026-06-23T13:42:45.347-04:00  INFO 21744 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:42:45.415-04:00  WARN 21744 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:42:45.466-04:00  INFO 21744 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:42:47.529-04:00  INFO 21744 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:42:47.566-04:00 DEBUG 21744 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T13:42:47.578-04:00 DEBUG 21744 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T13:42:47.590-04:00 DEBUG 21744 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies (
+        minimum_stock integer not null,
+        quantity integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6) not null,
+        unit varchar(50) not null,
+        name varchar(200) not null,
+        supplier_name varchar(200),
+        description TEXT,
+        category enum ('CLEANING','EQUIPMENT','FOOD','MEDICINE','OTHER','TOYS') not null,
+        status enum ('AVAILABLE','DISCONTINUED','INACTIVE','LOW_STOCK','OUT_OF_STOCK') not null,
+        primary key (id)
+    )
+2026-06-23T13:42:47.618-04:00 DEBUG 21744 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies_history (
+        new_quantity integer,
+        prev_quantity integer,
+        changed_by_user_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        supply_id bigint not null,
+        new_category varchar(20),
+        new_status varchar(20),
+        prev_category varchar(20),
+        prev_status varchar(20),
+        action varchar(50) not null,
+        comment TEXT,
+        primary key (id)
+    )
+2026-06-23T13:42:47.620-04:00 DEBUG 21744 --- [supply-service] [main] org.hibernate.SQL                        : 
+    alter table if exists supplies_history 
+       add constraint FKad6tppiv1hj44jt755ms946cq 
+       foreign key (supply_id) 
+       references supplies
+2026-06-23T13:42:47.663-04:00  INFO 21744 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:42:48.648-04:00  WARN 21744 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:42:51.204-04:00  INFO 21744 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:42:51.709-04:00 DEBUG 21744 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:42:52.388-04:00 DEBUG 21744 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:42:53.583-04:00 DEBUG 21744 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:42:53.766-04:00 DEBUG 21744 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:42:55.908-04:00  INFO 21744 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:42:55.958-04:00  INFO 21744 --- [supply-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:42:56.074-04:00  WARN 21744 --- [supply-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:42:56.149-04:00  INFO 21744 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 20.531 seconds (process running for 29.815)
+2026-06-23T13:42:56.247-04:00 DEBUG 21744 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3f0751b0, started on Tue Jun 23 13:42:38 CLT 2026
+2026-06-23T13:42:56.256-04:00  INFO 21744 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:42:56.643-04:00 DEBUG 21744 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T13:42:56.647-04:00 DEBUG 21744 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T13:42:56.652-04:00  INFO 21744 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:42:56.654-04:00  INFO 21744 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:47:13.739-04:00  INFO 20056 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 20056 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
+2026-06-23T13:47:13.753-04:00 DEBUG 20056 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:47:13.754-04:00  INFO 20056 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
+2026-06-23T13:47:13.814-04:00 DEBUG 20056 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3f0751b0
+2026-06-23T13:47:16.027-04:00  INFO 20056 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:47:16.421-04:00  INFO 20056 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 379 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:47:17.005-04:00  INFO 20056 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebd31025-0152-31bf-8eb3-73d7afcf6b20
+2026-06-23T13:47:18.102-04:00  INFO 20056 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:47:18.201-04:00  INFO 20056 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:47:18.258-04:00  INFO 20056 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:47:18.460-04:00  INFO 20056 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:47:18.509-04:00  INFO 20056 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:47:18.935-04:00  INFO 20056 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
+2026-06-23T13:47:18.939-04:00  INFO 20056 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:47:18.985-04:00  WARN 20056 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:47:19.027-04:00  INFO 20056 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:47:20.314-04:00  INFO 20056 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:47:20.335-04:00 DEBUG 20056 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T13:47:20.341-04:00 DEBUG 20056 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T13:47:20.348-04:00 DEBUG 20056 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies (
+        minimum_stock integer not null,
+        quantity integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6) not null,
+        unit varchar(50) not null,
+        name varchar(200) not null,
+        supplier_name varchar(200),
+        description TEXT,
+        category enum ('CLEANING','EQUIPMENT','FOOD','MEDICINE','OTHER','TOYS') not null,
+        status enum ('AVAILABLE','DISCONTINUED','INACTIVE','LOW_STOCK','OUT_OF_STOCK') not null,
+        primary key (id)
+    )
+2026-06-23T13:47:20.361-04:00 DEBUG 20056 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies_history (
+        new_quantity integer,
+        prev_quantity integer,
+        changed_by_user_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        supply_id bigint not null,
+        new_category varchar(20),
+        new_status varchar(20),
+        prev_category varchar(20),
+        prev_status varchar(20),
+        action varchar(50) not null,
+        comment TEXT,
+        primary key (id)
+    )
+2026-06-23T13:47:20.363-04:00 DEBUG 20056 --- [supply-service] [main] org.hibernate.SQL                        : 
+    alter table if exists supplies_history 
+       add constraint FKad6tppiv1hj44jt755ms946cq 
+       foreign key (supply_id) 
+       references supplies
+2026-06-23T13:47:20.387-04:00  INFO 20056 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:47:20.913-04:00  WARN 20056 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:47:22.251-04:00  INFO 20056 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:47:22.647-04:00 DEBUG 20056 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:47:23.055-04:00 DEBUG 20056 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:47:23.820-04:00 DEBUG 20056 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:47:23.925-04:00 DEBUG 20056 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:47:25.733-04:00  INFO 20056 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:47:25.757-04:00  INFO 20056 --- [supply-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:47:25.858-04:00  WARN 20056 --- [supply-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:47:25.919-04:00  INFO 20056 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 13.976 seconds (process running for 19.991)
+2026-06-23T13:47:26.001-04:00 DEBUG 20056 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3f0751b0, started on Tue Jun 23 13:47:13 CLT 2026
+2026-06-23T13:47:26.011-04:00  INFO 20056 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:47:26.320-04:00 DEBUG 20056 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T13:47:26.323-04:00 DEBUG 20056 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T13:47:26.327-04:00  INFO 20056 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:47:26.329-04:00  INFO 20056 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:54:22.101-04:00  INFO 28580 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 28580 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
+2026-06-23T14:54:22.104-04:00 DEBUG 28580 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:54:22.107-04:00  INFO 28580 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
+2026-06-23T14:54:22.232-04:00 DEBUG 28580 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@73cfafd8
+2026-06-23T14:54:26.114-04:00  INFO 28580 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:54:26.796-04:00  INFO 28580 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 622 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:54:27.799-04:00  INFO 28580 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebd31025-0152-31bf-8eb3-73d7afcf6b20
+2026-06-23T14:54:29.661-04:00  INFO 28580 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:54:29.879-04:00  INFO 28580 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:54:29.979-04:00  INFO 28580 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:54:30.332-04:00  INFO 28580 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:54:30.429-04:00  INFO 28580 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:54:31.251-04:00  INFO 28580 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
+2026-06-23T14:54:31.255-04:00  INFO 28580 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:54:31.331-04:00  WARN 28580 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:54:31.387-04:00  INFO 28580 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:54:33.509-04:00  INFO 28580 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:54:33.546-04:00 DEBUG 28580 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T14:54:33.558-04:00 DEBUG 28580 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T14:54:33.570-04:00 DEBUG 28580 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies (
+        minimum_stock integer not null,
+        quantity integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6) not null,
+        unit varchar(50) not null,
+        name varchar(200) not null,
+        supplier_name varchar(200),
+        description TEXT,
+        category enum ('CLEANING','EQUIPMENT','FOOD','MEDICINE','OTHER','TOYS') not null,
+        status enum ('AVAILABLE','DISCONTINUED','INACTIVE','LOW_STOCK','OUT_OF_STOCK') not null,
+        primary key (id)
+    )
+2026-06-23T14:54:33.598-04:00 DEBUG 28580 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies_history (
+        new_quantity integer,
+        prev_quantity integer,
+        changed_by_user_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        supply_id bigint not null,
+        new_category varchar(20),
+        new_status varchar(20),
+        prev_category varchar(20),
+        prev_status varchar(20),
+        action varchar(50) not null,
+        comment TEXT,
+        primary key (id)
+    )
+2026-06-23T14:54:33.601-04:00 DEBUG 28580 --- [supply-service] [main] org.hibernate.SQL                        : 
+    alter table if exists supplies_history 
+       add constraint FKad6tppiv1hj44jt755ms946cq 
+       foreign key (supply_id) 
+       references supplies
+2026-06-23T14:54:33.657-04:00  INFO 28580 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:54:34.641-04:00  WARN 28580 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:54:37.040-04:00  INFO 28580 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:54:37.469-04:00 DEBUG 28580 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:54:38.006-04:00 DEBUG 28580 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:54:39.351-04:00 DEBUG 28580 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:54:39.524-04:00 DEBUG 28580 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:54:41.620-04:00  INFO 28580 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:54:41.654-04:00  INFO 28580 --- [supply-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:54:41.766-04:00  WARN 28580 --- [supply-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:54:41.830-04:00  INFO 28580 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 22.437 seconds (process running for 33.864)
+2026-06-23T14:54:41.916-04:00 DEBUG 28580 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@73cfafd8, started on Tue Jun 23 14:54:22 CLT 2026
+2026-06-23T14:54:41.926-04:00  INFO 28580 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:54:42.312-04:00 DEBUG 28580 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T14:54:42.316-04:00 DEBUG 28580 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T14:54:42.320-04:00  INFO 28580 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:54:42.321-04:00  INFO 28580 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:59:02.986-04:00  INFO 25540 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 25540 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
+2026-06-23T14:59:02.991-04:00 DEBUG 25540 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:59:02.993-04:00  INFO 25540 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
+2026-06-23T14:59:03.103-04:00 DEBUG 25540 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@73cfafd8
+2026-06-23T14:59:06.083-04:00  INFO 25540 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:59:06.566-04:00  INFO 25540 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 455 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:59:07.439-04:00  INFO 25540 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebd31025-0152-31bf-8eb3-73d7afcf6b20
+2026-06-23T14:59:09.032-04:00  INFO 25540 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:59:09.190-04:00  INFO 25540 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:59:09.284-04:00  INFO 25540 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:59:09.615-04:00  INFO 25540 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:59:09.691-04:00  INFO 25540 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:59:10.385-04:00  INFO 25540 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
+2026-06-23T14:59:10.390-04:00  INFO 25540 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:59:10.464-04:00  WARN 25540 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:59:10.517-04:00  INFO 25540 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:59:12.956-04:00  INFO 25540 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:59:12.993-04:00 DEBUG 25540 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T14:59:13.001-04:00 DEBUG 25540 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T14:59:13.013-04:00 DEBUG 25540 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies (
+        minimum_stock integer not null,
+        quantity integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6) not null,
+        unit varchar(50) not null,
+        name varchar(200) not null,
+        supplier_name varchar(200),
+        description TEXT,
+        category enum ('CLEANING','EQUIPMENT','FOOD','MEDICINE','OTHER','TOYS') not null,
+        status enum ('AVAILABLE','DISCONTINUED','INACTIVE','LOW_STOCK','OUT_OF_STOCK') not null,
+        primary key (id)
+    )
+2026-06-23T14:59:13.040-04:00 DEBUG 25540 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies_history (
+        new_quantity integer,
+        prev_quantity integer,
+        changed_by_user_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        supply_id bigint not null,
+        new_category varchar(20),
+        new_status varchar(20),
+        prev_category varchar(20),
+        prev_status varchar(20),
+        action varchar(50) not null,
+        comment TEXT,
+        primary key (id)
+    )
+2026-06-23T14:59:13.043-04:00 DEBUG 25540 --- [supply-service] [main] org.hibernate.SQL                        : 
+    alter table if exists supplies_history 
+       add constraint FKad6tppiv1hj44jt755ms946cq 
+       foreign key (supply_id) 
+       references supplies
+2026-06-23T14:59:13.086-04:00  INFO 25540 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:59:14.020-04:00  WARN 25540 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:59:16.735-04:00  INFO 25540 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:59:17.263-04:00 DEBUG 25540 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:59:17.902-04:00 DEBUG 25540 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:59:18.895-04:00 DEBUG 25540 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:59:19.015-04:00 DEBUG 25540 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:59:21.003-04:00  INFO 25540 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:59:21.040-04:00  INFO 25540 --- [supply-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:59:21.173-04:00  WARN 25540 --- [supply-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:59:21.262-04:00  INFO 25540 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 20.834 seconds (process running for 30.841)
+2026-06-23T14:59:21.365-04:00 DEBUG 25540 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@73cfafd8, started on Tue Jun 23 14:59:03 CLT 2026
+2026-06-23T14:59:21.380-04:00  INFO 25540 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:59:21.846-04:00 DEBUG 25540 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T14:59:21.850-04:00 DEBUG 25540 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T14:59:21.853-04:00  INFO 25540 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:59:21.856-04:00  INFO 25540 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T15:56:59.215-04:00  INFO 23588 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Starting SupplyServiceApplicationTests using Java 21.0.11 with PID 23588 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\supply-service)
+2026-06-23T15:56:59.221-04:00 DEBUG 23588 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T15:56:59.223-04:00  INFO 23588 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : The following 1 profile is active: "h2"
+2026-06-23T15:56:59.335-04:00 DEBUG 23588 --- [supply-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@1488d1c
+2026-06-23T15:57:02.938-04:00  INFO 23588 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T15:57:03.387-04:00  INFO 23588 --- [supply-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 423 ms. Found 2 JPA repository interfaces.
+2026-06-23T15:57:04.283-04:00  INFO 23588 --- [supply-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ebd31025-0152-31bf-8eb3-73d7afcf6b20
+2026-06-23T15:57:05.987-04:00  INFO 23588 --- [supply-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T15:57:06.189-04:00  INFO 23588 --- [supply-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T15:57:06.283-04:00  INFO 23588 --- [supply-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T15:57:06.589-04:00  INFO 23588 --- [supply-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T15:57:06.662-04:00  INFO 23588 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T15:57:07.427-04:00  INFO 23588 --- [supply-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:supply_db user=SA
+2026-06-23T15:57:07.430-04:00  INFO 23588 --- [supply-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T15:57:07.514-04:00  WARN 23588 --- [supply-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T15:57:07.577-04:00  INFO 23588 --- [supply-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T15:57:09.595-04:00  INFO 23588 --- [supply-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T15:57:09.643-04:00 DEBUG 23588 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T15:57:09.654-04:00 DEBUG 23588 --- [supply-service] [main] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T15:57:09.664-04:00 DEBUG 23588 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies (
+        minimum_stock integer not null,
+        quantity integer not null,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6) not null,
+        unit varchar(50) not null,
+        name varchar(200) not null,
+        supplier_name varchar(200),
+        description TEXT,
+        category enum ('CLEANING','EQUIPMENT','FOOD','MEDICINE','OTHER','TOYS') not null,
+        status enum ('AVAILABLE','DISCONTINUED','INACTIVE','LOW_STOCK','OUT_OF_STOCK') not null,
+        primary key (id)
+    )
+2026-06-23T15:57:09.695-04:00 DEBUG 23588 --- [supply-service] [main] org.hibernate.SQL                        : 
+    create table supplies_history (
+        new_quantity integer,
+        prev_quantity integer,
+        changed_by_user_id bigint,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        supply_id bigint not null,
+        new_category varchar(20),
+        new_status varchar(20),
+        prev_category varchar(20),
+        prev_status varchar(20),
+        action varchar(50) not null,
+        comment TEXT,
+        primary key (id)
+    )
+2026-06-23T15:57:09.697-04:00 DEBUG 23588 --- [supply-service] [main] org.hibernate.SQL                        : 
+    alter table if exists supplies_history 
+       add constraint FKad6tppiv1hj44jt755ms946cq 
+       foreign key (supply_id) 
+       references supplies
+2026-06-23T15:57:09.747-04:00  INFO 23588 --- [supply-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T15:57:10.794-04:00  WARN 23588 --- [supply-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T15:57:13.554-04:00  INFO 23588 --- [supply-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T15:57:14.025-04:00 DEBUG 23588 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 14 mappings in 'requestMappingHandlerMapping'
+2026-06-23T15:57:14.701-04:00 DEBUG 23588 --- [supply-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T15:57:16.014-04:00 DEBUG 23588 --- [supply-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T15:57:16.206-04:00 DEBUG 23588 --- [supply-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T15:57:18.294-04:00  INFO 23588 --- [supply-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T15:57:18.352-04:00  INFO 23588 --- [supply-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T15:57:18.465-04:00  WARN 23588 --- [supply-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T15:57:18.544-04:00  INFO 23588 --- [supply-service] [main] c.a.s.SupplyServiceApplicationTests      : Started SupplyServiceApplicationTests in 22.111 seconds (process running for 33.477)
+2026-06-23T15:57:18.648-04:00 DEBUG 23588 --- [supply-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@1488d1c, started on Tue Jun 23 15:56:59 CLT 2026
+2026-06-23T15:57:18.662-04:00  INFO 23588 --- [supply-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T15:57:19.147-04:00 DEBUG 23588 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies cascade 
+2026-06-23T15:57:19.152-04:00 DEBUG 23588 --- [supply-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists supplies_history cascade 
+2026-06-23T15:57:19.156-04:00  INFO 23588 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T15:57:19.159-04:00  INFO 23588 --- [supply-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

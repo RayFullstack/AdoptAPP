@@ -1,19 +1,19 @@
-2026-06-03T16:27:31.685-04:00  INFO 20432 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 26 with PID 20432 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
-2026-06-03T16:27:31.694-04:00 DEBUG 20432 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:27:31.695-04:00  INFO 20432 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
-2026-06-03T16:27:31.752-04:00 DEBUG 20432 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@247667dd
-2026-06-03T16:27:32.925-04:00  INFO 20432 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:27:33.025-04:00  INFO 20432 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:27:33.399-04:00  INFO 20432 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1bdde886-1ace-3038-94c9-88d5b0d1e9fb
-2026-06-03T16:27:34.321-04:00  INFO 20432 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:27:34.448-04:00  INFO 20432 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:27:34.526-04:00  INFO 20432 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:27:34.985-04:00  INFO 20432 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:27:35.022-04:00  INFO 20432 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:27:35.336-04:00  INFO 20432 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
-2026-06-03T16:27:35.338-04:00  INFO 20432 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:27:35.370-04:00  WARN 20432 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:27:35.405-04:00  INFO 20432 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T10:24:51.079-04:00  INFO 22608 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 22608 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
+2026-06-23T10:24:51.094-04:00 DEBUG 22608 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T10:24:51.098-04:00  INFO 22608 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T10:24:51.216-04:00 DEBUG 22608 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2ab9e43e
+2026-06-23T10:24:54.201-04:00  INFO 22608 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T10:24:54.492-04:00  INFO 22608 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 275 ms. Found 2 JPA repository interfaces.
+2026-06-23T10:24:55.052-04:00  INFO 22608 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a6e2aeea-701b-3143-b0ee-a86f7d4ef5bb
+2026-06-23T10:24:58.140-04:00  INFO 22608 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T10:24:58.336-04:00  INFO 22608 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T10:24:58.424-04:00  INFO 22608 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T10:24:59.116-04:00  INFO 22608 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T10:24:59.189-04:00  INFO 22608 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T10:24:59.886-04:00  INFO 22608 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
+2026-06-23T10:24:59.890-04:00  INFO 22608 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T10:24:59.956-04:00  WARN 22608 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T10:24:59.997-04:00  INFO 22608 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -21,12 +21,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:27:39.241-04:00  INFO 20432 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:27:39.306-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:02.129-04:00  INFO 22608 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T10:25:02.173-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     drop table if exists donation_history cascade 
-2026-06-03T16:27:39.315-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:02.182-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     drop table if exists donations cascade 
-2026-06-03T16:27:39.345-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:02.197-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     create table donation_history (
         new_amount DECIMAL(12,2),
         previous_amount DECIMAL(12,2),
@@ -40,7 +40,7 @@
         comment varchar(255),
         primary key (id)
     )
-2026-06-03T16:27:39.409-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:02.228-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     create table donations (
         amount DECIMAL(12,2) not null,
         created_at timestamp(6),
@@ -53,65 +53,85 @@
         status enum ('CANCELLED','COMPLETED','PENDING') not null,
         primary key (id)
     )
-2026-06-03T16:27:39.413-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:02.233-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     alter table if exists donation_history 
        add constraint FKnnoorfnvw24s69h77jfqw4cg7 
        foreign key (donation_id) 
        references donations
-2026-06-03T16:27:39.477-04:00  INFO 20432 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:27:40.508-04:00  WARN 20432 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:27:44.048-04:00  INFO 20432 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:27:44.268-04:00 DEBUG 20432 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:27:44.604-04:00 DEBUG 20432 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:27:45.166-04:00 DEBUG 20432 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:27:45.233-04:00 DEBUG 20432 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:27:46.598-04:00  INFO 20432 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:27:46.662-04:00  INFO 20432 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 16.525 seconds (process running for 18.1)
-2026-06-03T16:27:46.708-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:02.277-04:00  INFO 22608 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T10:25:02.889-04:00  WARN 22608 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T10:25:04.501-04:00  INFO 22608 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T10:25:04.878-04:00 DEBUG 22608 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T10:25:05.406-04:00 DEBUG 22608 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T10:25:06.218-04:00 DEBUG 22608 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T10:25:06.357-04:00 DEBUG 22608 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T10:25:08.151-04:00  INFO 22608 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T10:25:08.182-04:00  INFO 22608 --- [donation-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T10:25:08.255-04:00  WARN 22608 --- [donation-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T10:25:08.306-04:00  INFO 22608 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 19.127 seconds (process running for 22.496)
+2026-06-23T10:25:08.364-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         donations
         (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:27:46.756-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:08.467-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         donations
         (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:27:46.757-04:00 DEBUG 20432 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T10:25:08.468-04:00 DEBUG 22608 --- [donation-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         donations
         (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:27:47.508-04:00 DEBUG 20432 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@247667dd, started on Wed Jun 03 16:27:31 GMT-04:00 2026
-2026-06-03T16:27:47.518-04:00  INFO 20432 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:27:47.519-04:00 DEBUG 20432 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T10:25:10.414-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T10:25:10.440-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Donación actualizada exitosamente: ID=10
+2026-06-23T10:25:11.259-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T10:25:11.263-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Donación creada exitosamente: ID=10
+2026-06-23T10:25:11.286-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=10
+2026-06-23T10:25:11.288-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Donación marcada como eliminada exitosamente: ID=10
+2026-06-23T10:25:11.292-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=99
+2026-06-23T10:25:11.295-04:00  WARN 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Donación a eliminar no encontrada: ID=99
+2026-06-23T10:25:11.298-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=20
+2026-06-23T10:25:11.300-04:00  WARN 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Donacion ya cancelada: ID=20
+2026-06-23T10:25:11.318-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T10:25:11.319-04:00  WARN 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Refugio no encontrado: ID=2
+2026-06-23T10:25:11.333-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T10:25:11.334-04:00  WARN 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Usuario no encontrado: ID=1
+2026-06-23T10:25:11.414-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=99
+2026-06-23T10:25:11.415-04:00  WARN 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Donación no encontrada: ID=99
+2026-06-23T10:25:11.418-04:00  INFO 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T10:25:11.474-04:00  WARN 22608 --- [donation-service] [main] c.a.d.service.DonationService            : Estado inválido para donación: 'unknown'
+2026-06-23T10:25:11.526-04:00 DEBUG 22608 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2ab9e43e, started on Tue Jun 23 10:24:51 CLT 2026
+2026-06-23T10:25:11.561-04:00  INFO 22608 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T10:25:12.605-04:00 DEBUG 22608 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists donation_history cascade 
-2026-06-03T16:27:47.523-04:00 DEBUG 20432 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T10:25:12.620-04:00 DEBUG 22608 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists donations cascade 
-2026-06-03T16:27:47.525-04:00  INFO 20432 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:27:47.527-04:00  INFO 20432 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-06-03T16:48:55.424-04:00  INFO 19228 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 19228 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
-2026-06-03T16:48:55.426-04:00 DEBUG 19228 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:48:55.426-04:00  INFO 19228 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
-2026-06-03T16:48:55.479-04:00 DEBUG 19228 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2c16fadb
-2026-06-03T16:48:56.768-04:00  INFO 19228 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:48:56.866-04:00  INFO 19228 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:48:57.255-04:00  INFO 19228 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1bdde886-1ace-3038-94c9-88d5b0d1e9fb
-2026-06-03T16:48:58.289-04:00  INFO 19228 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:48:58.395-04:00  INFO 19228 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:48:58.428-04:00  INFO 19228 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:48:58.749-04:00  INFO 19228 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:48:58.789-04:00  INFO 19228 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:48:59.015-04:00  INFO 19228 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
-2026-06-03T16:48:59.020-04:00  INFO 19228 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:48:59.047-04:00  WARN 19228 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:48:59.071-04:00  INFO 19228 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T10:25:12.640-04:00  INFO 22608 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T10:25:12.657-04:00  INFO 22608 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T12:47:06.262-04:00  INFO 6784 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 6784 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
+2026-06-23T12:47:06.264-04:00 DEBUG 6784 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T12:47:06.265-04:00  INFO 6784 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T12:47:06.329-04:00 DEBUG 6784 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2ab9e43e
+2026-06-23T12:47:08.025-04:00  INFO 6784 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T12:47:08.269-04:00  INFO 6784 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 2 JPA repository interfaces.
+2026-06-23T12:47:08.786-04:00  INFO 6784 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a6e2aeea-701b-3143-b0ee-a86f7d4ef5bb
+2026-06-23T12:47:09.793-04:00  INFO 6784 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T12:47:09.894-04:00  INFO 6784 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T12:47:09.946-04:00  INFO 6784 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T12:47:10.322-04:00  INFO 6784 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T12:47:10.362-04:00  INFO 6784 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T12:47:10.718-04:00  INFO 6784 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
+2026-06-23T12:47:10.721-04:00  INFO 6784 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T12:47:10.763-04:00  WARN 6784 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T12:47:10.794-04:00  INFO 6784 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -119,12 +139,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:49:00.068-04:00  INFO 19228 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:49:00.084-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:12.064-04:00  INFO 6784 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T12:47:12.086-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     drop table if exists donation_history cascade 
-2026-06-03T16:49:00.084-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:12.090-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     drop table if exists donations cascade 
-2026-06-03T16:49:00.084-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:12.096-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     create table donation_history (
         new_amount DECIMAL(12,2),
         previous_amount DECIMAL(12,2),
@@ -138,7 +158,7 @@
         comment varchar(255),
         primary key (id)
     )
-2026-06-03T16:49:00.108-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:12.111-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     create table donations (
         amount DECIMAL(12,2) not null,
         created_at timestamp(6),
@@ -151,46 +171,520 @@
         status enum ('CANCELLED','COMPLETED','PENDING') not null,
         primary key (id)
     )
-2026-06-03T16:49:00.111-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:12.113-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     alter table if exists donation_history 
        add constraint FKnnoorfnvw24s69h77jfqw4cg7 
        foreign key (donation_id) 
        references donations
-2026-06-03T16:49:00.129-04:00  INFO 19228 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:49:00.547-04:00  WARN 19228 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:49:02.036-04:00  INFO 19228 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:49:02.316-04:00 DEBUG 19228 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:49:02.731-04:00 DEBUG 19228 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:49:03.550-04:00 DEBUG 19228 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:49:03.687-04:00 DEBUG 19228 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:49:05.413-04:00  INFO 19228 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:49:05.495-04:00  INFO 19228 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 11.528 seconds (process running for 12.802)
-2026-06-03T16:49:05.548-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:12.136-04:00  INFO 6784 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:47:12.626-04:00  WARN 6784 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T12:47:13.900-04:00  INFO 6784 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T12:47:14.232-04:00 DEBUG 6784 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T12:47:14.649-04:00 DEBUG 6784 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T12:47:15.210-04:00 DEBUG 6784 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T12:47:15.346-04:00 DEBUG 6784 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T12:47:17.230-04:00  INFO 6784 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T12:47:17.251-04:00  INFO 6784 --- [donation-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T12:47:17.306-04:00  WARN 6784 --- [donation-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T12:47:17.344-04:00  INFO 6784 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 12.691 seconds (process running for 14.836)
+2026-06-23T12:47:17.386-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         donations
         (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:49:05.625-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:17.451-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         donations
         (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:49:05.632-04:00 DEBUG 19228 --- [donation-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:47:17.452-04:00 DEBUG 6784 --- [donation-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         donations
         (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:49:06.588-04:00 DEBUG 19228 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2c16fadb, started on Wed Jun 03 16:48:55 CLT 2026
-2026-06-03T16:49:06.591-04:00  INFO 19228 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:49:06.591-04:00 DEBUG 19228 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:47:18.964-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T12:47:18.977-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Donación actualizada exitosamente: ID=10
+2026-06-23T12:47:19.270-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T12:47:19.271-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Donación creada exitosamente: ID=10
+2026-06-23T12:47:19.284-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=10
+2026-06-23T12:47:19.285-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Donación marcada como eliminada exitosamente: ID=10
+2026-06-23T12:47:19.287-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=99
+2026-06-23T12:47:19.287-04:00  WARN 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Donación a eliminar no encontrada: ID=99
+2026-06-23T12:47:19.287-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=20
+2026-06-23T12:47:19.287-04:00  WARN 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Donacion ya cancelada: ID=20
+2026-06-23T12:47:19.296-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T12:47:19.298-04:00  WARN 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Refugio no encontrado: ID=2
+2026-06-23T12:47:19.305-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T12:47:19.305-04:00  WARN 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Usuario no encontrado: ID=1
+2026-06-23T12:47:19.344-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=99
+2026-06-23T12:47:19.345-04:00  WARN 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Donación no encontrada: ID=99
+2026-06-23T12:47:19.348-04:00  INFO 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T12:47:19.378-04:00  WARN 6784 --- [donation-service] [main] c.a.d.service.DonationService            : Estado inválido para donación: 'unknown'
+2026-06-23T12:47:19.404-04:00 DEBUG 6784 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2ab9e43e, started on Tue Jun 23 12:47:06 CLT 2026
+2026-06-23T12:47:19.429-04:00  INFO 6784 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:47:19.739-04:00 DEBUG 6784 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists donation_history cascade 
-2026-06-03T16:49:06.591-04:00 DEBUG 19228 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:47:19.745-04:00 DEBUG 6784 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists donations cascade 
-2026-06-03T16:49:06.603-04:00  INFO 19228 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:49:06.606-04:00  INFO 19228 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T12:47:19.751-04:00  INFO 6784 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T12:47:19.756-04:00  INFO 6784 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:38:55.642-04:00  INFO 9312 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 9312 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
+2026-06-23T13:38:55.649-04:00 DEBUG 9312 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:38:55.650-04:00  INFO 9312 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T13:38:55.753-04:00 DEBUG 9312 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3cc548f6
+2026-06-23T13:38:57.866-04:00  INFO 9312 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:38:58.184-04:00  INFO 9312 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 301 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:38:58.864-04:00  INFO 9312 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a6e2aeea-701b-3143-b0ee-a86f7d4ef5bb
+2026-06-23T13:39:00.318-04:00  INFO 9312 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:39:00.490-04:00  INFO 9312 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:39:00.567-04:00  INFO 9312 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:39:00.784-04:00  INFO 9312 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:39:00.849-04:00  INFO 9312 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:39:01.305-04:00  INFO 9312 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
+2026-06-23T13:39:01.309-04:00  INFO 9312 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:39:01.353-04:00  WARN 9312 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:39:01.389-04:00  INFO 9312 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:39:02.840-04:00  INFO 9312 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:39:02.864-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T13:39:02.871-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T13:39:02.878-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donation_history (
+        new_amount DECIMAL(12,2),
+        previous_amount DECIMAL(12,2),
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        donation_id bigint not null,
+        id bigint generated by default as identity,
+        new_status varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T13:39:02.894-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donations (
+        amount DECIMAL(12,2) not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        user_id bigint not null,
+        donor_name varchar(100) not null,
+        description varchar(255) not null,
+        status enum ('CANCELLED','COMPLETED','PENDING') not null,
+        primary key (id)
+    )
+2026-06-23T13:39:02.897-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    alter table if exists donation_history 
+       add constraint FKnnoorfnvw24s69h77jfqw4cg7 
+       foreign key (donation_id) 
+       references donations
+2026-06-23T13:39:02.924-04:00  INFO 9312 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:39:03.532-04:00  WARN 9312 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:39:04.925-04:00  INFO 9312 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:39:05.203-04:00 DEBUG 9312 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:39:05.514-04:00 DEBUG 9312 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:39:06.019-04:00 DEBUG 9312 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:39:06.123-04:00 DEBUG 9312 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:39:07.798-04:00  INFO 9312 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:39:07.821-04:00  INFO 9312 --- [donation-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:39:07.880-04:00  WARN 9312 --- [donation-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:39:07.921-04:00  INFO 9312 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 14.13 seconds (process running for 19.398)
+2026-06-23T13:39:07.975-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:39:08.052-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:39:08.054-04:00 DEBUG 9312 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:39:08.497-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T13:39:08.499-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Donación actualizada exitosamente: ID=10
+2026-06-23T13:39:08.529-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T13:39:08.530-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Donación creada exitosamente: ID=10
+2026-06-23T13:39:08.534-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=10
+2026-06-23T13:39:08.535-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Donación marcada como eliminada exitosamente: ID=10
+2026-06-23T13:39:08.537-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=99
+2026-06-23T13:39:08.537-04:00  WARN 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Donación a eliminar no encontrada: ID=99
+2026-06-23T13:39:08.538-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=20
+2026-06-23T13:39:08.538-04:00  WARN 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Donacion ya cancelada: ID=20
+2026-06-23T13:39:08.543-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T13:39:08.544-04:00  WARN 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Refugio no encontrado: ID=2
+2026-06-23T13:39:08.547-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T13:39:08.547-04:00  WARN 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Usuario no encontrado: ID=1
+2026-06-23T13:39:08.564-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=99
+2026-06-23T13:39:08.565-04:00  WARN 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Donación no encontrada: ID=99
+2026-06-23T13:39:08.565-04:00  INFO 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T13:39:08.581-04:00  WARN 9312 --- [donation-service] [main] c.a.d.service.DonationService            : Estado inválido para donación: 'unknown'
+2026-06-23T13:39:08.600-04:00 DEBUG 9312 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3cc548f6, started on Tue Jun 23 13:38:55 CLT 2026
+2026-06-23T13:39:08.609-04:00  INFO 9312 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:39:08.833-04:00 DEBUG 9312 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T13:39:08.835-04:00 DEBUG 9312 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T13:39:08.839-04:00  INFO 9312 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:39:08.841-04:00  INFO 9312 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:44:40.739-04:00  INFO 30376 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 30376 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
+2026-06-23T13:44:40.745-04:00 DEBUG 30376 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:44:40.747-04:00  INFO 30376 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T13:44:40.820-04:00 DEBUG 30376 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3cc548f6
+2026-06-23T13:44:42.530-04:00  INFO 30376 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:44:42.768-04:00  INFO 30376 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 224 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:44:43.309-04:00  INFO 30376 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a6e2aeea-701b-3143-b0ee-a86f7d4ef5bb
+2026-06-23T13:44:44.372-04:00  INFO 30376 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:44:44.474-04:00  INFO 30376 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:44:44.535-04:00  INFO 30376 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:44:44.729-04:00  INFO 30376 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:44:44.788-04:00  INFO 30376 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:44:45.234-04:00  INFO 30376 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
+2026-06-23T13:44:45.237-04:00  INFO 30376 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:44:45.277-04:00  WARN 30376 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:44:45.305-04:00  INFO 30376 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:44:46.987-04:00  INFO 30376 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:44:47.015-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T13:44:47.023-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T13:44:47.031-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donation_history (
+        new_amount DECIMAL(12,2),
+        previous_amount DECIMAL(12,2),
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        donation_id bigint not null,
+        id bigint generated by default as identity,
+        new_status varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T13:44:47.047-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donations (
+        amount DECIMAL(12,2) not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        user_id bigint not null,
+        donor_name varchar(100) not null,
+        description varchar(255) not null,
+        status enum ('CANCELLED','COMPLETED','PENDING') not null,
+        primary key (id)
+    )
+2026-06-23T13:44:47.049-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    alter table if exists donation_history 
+       add constraint FKnnoorfnvw24s69h77jfqw4cg7 
+       foreign key (donation_id) 
+       references donations
+2026-06-23T13:44:47.076-04:00  INFO 30376 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:44:47.692-04:00  WARN 30376 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:44:49.211-04:00  INFO 30376 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:44:49.526-04:00 DEBUG 30376 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:44:49.869-04:00 DEBUG 30376 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:44:50.363-04:00 DEBUG 30376 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:44:50.462-04:00 DEBUG 30376 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:44:52.007-04:00  INFO 30376 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:44:52.030-04:00  INFO 30376 --- [donation-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:44:52.089-04:00  WARN 30376 --- [donation-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:44:52.128-04:00  INFO 30376 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 13.213 seconds (process running for 18.188)
+2026-06-23T13:44:52.178-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:44:52.245-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:44:52.247-04:00 DEBUG 30376 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:44:52.627-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T13:44:52.630-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Donación actualizada exitosamente: ID=10
+2026-06-23T13:44:52.653-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T13:44:52.654-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Donación creada exitosamente: ID=10
+2026-06-23T13:44:52.659-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=10
+2026-06-23T13:44:52.660-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Donación marcada como eliminada exitosamente: ID=10
+2026-06-23T13:44:52.661-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=99
+2026-06-23T13:44:52.661-04:00  WARN 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Donación a eliminar no encontrada: ID=99
+2026-06-23T13:44:52.662-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=20
+2026-06-23T13:44:52.662-04:00  WARN 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Donacion ya cancelada: ID=20
+2026-06-23T13:44:52.667-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T13:44:52.668-04:00  WARN 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Refugio no encontrado: ID=2
+2026-06-23T13:44:52.671-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T13:44:52.671-04:00  WARN 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Usuario no encontrado: ID=1
+2026-06-23T13:44:52.687-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=99
+2026-06-23T13:44:52.687-04:00  WARN 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Donación no encontrada: ID=99
+2026-06-23T13:44:52.687-04:00  INFO 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T13:44:52.702-04:00  WARN 30376 --- [donation-service] [main] c.a.d.service.DonationService            : Estado inválido para donación: 'unknown'
+2026-06-23T13:44:52.718-04:00 DEBUG 30376 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3cc548f6, started on Tue Jun 23 13:44:40 CLT 2026
+2026-06-23T13:44:52.727-04:00  INFO 30376 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:44:52.944-04:00 DEBUG 30376 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T13:44:52.947-04:00 DEBUG 30376 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T13:44:52.950-04:00  INFO 30376 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:44:52.952-04:00  INFO 30376 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:50:29.937-04:00  INFO 25824 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 25824 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
+2026-06-23T14:50:29.942-04:00 DEBUG 25824 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:50:29.943-04:00  INFO 25824 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T14:50:30.034-04:00 DEBUG 25824 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3cc548f6
+2026-06-23T14:50:33.335-04:00  INFO 25824 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:50:33.766-04:00  INFO 25824 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 405 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:50:34.623-04:00  INFO 25824 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a6e2aeea-701b-3143-b0ee-a86f7d4ef5bb
+2026-06-23T14:50:36.262-04:00  INFO 25824 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:50:36.457-04:00  INFO 25824 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:50:36.570-04:00  INFO 25824 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:50:36.897-04:00  INFO 25824 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:50:36.966-04:00  INFO 25824 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:50:37.625-04:00  INFO 25824 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
+2026-06-23T14:50:37.630-04:00  INFO 25824 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:50:37.690-04:00  WARN 25824 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:50:37.743-04:00  INFO 25824 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:50:39.803-04:00  INFO 25824 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:50:39.843-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T14:50:39.853-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T14:50:39.865-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donation_history (
+        new_amount DECIMAL(12,2),
+        previous_amount DECIMAL(12,2),
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        donation_id bigint not null,
+        id bigint generated by default as identity,
+        new_status varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T14:50:39.888-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donations (
+        amount DECIMAL(12,2) not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        user_id bigint not null,
+        donor_name varchar(100) not null,
+        description varchar(255) not null,
+        status enum ('CANCELLED','COMPLETED','PENDING') not null,
+        primary key (id)
+    )
+2026-06-23T14:50:39.891-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    alter table if exists donation_history 
+       add constraint FKnnoorfnvw24s69h77jfqw4cg7 
+       foreign key (donation_id) 
+       references donations
+2026-06-23T14:50:39.933-04:00  INFO 25824 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:50:40.743-04:00  WARN 25824 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:50:42.923-04:00  INFO 25824 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:50:43.325-04:00 DEBUG 25824 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:50:43.783-04:00 DEBUG 25824 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:50:44.568-04:00 DEBUG 25824 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:50:44.650-04:00 DEBUG 25824 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:50:46.315-04:00  INFO 25824 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:50:46.337-04:00  INFO 25824 --- [donation-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:50:46.398-04:00  WARN 25824 --- [donation-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:50:46.439-04:00  INFO 25824 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 18.656 seconds (process running for 25.175)
+2026-06-23T14:50:46.490-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:50:46.561-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:50:46.563-04:00 DEBUG 25824 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:50:47.017-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T14:50:47.020-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Donación actualizada exitosamente: ID=10
+2026-06-23T14:50:47.043-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T14:50:47.045-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Donación creada exitosamente: ID=10
+2026-06-23T14:50:47.052-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=10
+2026-06-23T14:50:47.053-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Donación marcada como eliminada exitosamente: ID=10
+2026-06-23T14:50:47.054-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=99
+2026-06-23T14:50:47.055-04:00  WARN 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Donación a eliminar no encontrada: ID=99
+2026-06-23T14:50:47.055-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Eliminando donación: ID=20
+2026-06-23T14:50:47.055-04:00  WARN 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Donacion ya cancelada: ID=20
+2026-06-23T14:50:47.061-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T14:50:47.061-04:00  WARN 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Refugio no encontrado: ID=2
+2026-06-23T14:50:47.065-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Creando donación: userId=1, shelterId=2
+2026-06-23T14:50:47.066-04:00  WARN 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Usuario no encontrado: ID=1
+2026-06-23T14:50:47.083-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=99
+2026-06-23T14:50:47.083-04:00  WARN 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Donación no encontrada: ID=99
+2026-06-23T14:50:47.084-04:00  INFO 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Actualizando donación: ID=10
+2026-06-23T14:50:47.101-04:00  WARN 25824 --- [donation-service] [main] c.a.d.service.DonationService            : Estado inválido para donación: 'unknown'
+2026-06-23T14:50:47.120-04:00 DEBUG 25824 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3cc548f6, started on Tue Jun 23 14:50:30 CLT 2026
+2026-06-23T14:50:47.128-04:00  INFO 25824 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:50:47.388-04:00 DEBUG 25824 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T14:50:47.390-04:00 DEBUG 25824 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T14:50:47.394-04:00  INFO 25824 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:50:47.397-04:00  INFO 25824 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T22:54:35.414-04:00  INFO 15424 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Starting DonationServiceApplicationTests using Java 21.0.11 with PID 15424 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\donation-service)
+2026-06-23T22:54:35.417-04:00 DEBUG 15424 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T22:54:35.419-04:00  INFO 15424 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : The following 1 profile is active: "h2"
+2026-06-23T22:54:35.497-04:00 DEBUG 15424 --- [donation-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@54c17a2b
+2026-06-23T22:54:37.657-04:00  INFO 15424 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T22:54:37.935-04:00  INFO 15424 --- [donation-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 259 ms. Found 2 JPA repository interfaces.
+2026-06-23T22:54:38.586-04:00  INFO 15424 --- [donation-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a6e2aeea-701b-3143-b0ee-a86f7d4ef5bb
+2026-06-23T22:54:39.687-04:00  INFO 15424 --- [donation-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T22:54:39.774-04:00  INFO 15424 --- [donation-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T22:54:39.832-04:00  INFO 15424 --- [donation-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T22:54:40.025-04:00  INFO 15424 --- [donation-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T22:54:40.087-04:00  INFO 15424 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T22:54:40.499-04:00  INFO 15424 --- [donation-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:donation_db user=SA
+2026-06-23T22:54:40.502-04:00  INFO 15424 --- [donation-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T22:54:40.541-04:00  WARN 15424 --- [donation-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T22:54:40.576-04:00  INFO 15424 --- [donation-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T22:54:42.063-04:00  INFO 15424 --- [donation-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T22:54:42.088-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T22:54:42.094-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T22:54:42.100-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donation_history (
+        new_amount DECIMAL(12,2),
+        previous_amount DECIMAL(12,2),
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        donation_id bigint not null,
+        id bigint generated by default as identity,
+        new_status varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        comment varchar(255),
+        primary key (id)
+    )
+2026-06-23T22:54:42.116-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    create table donations (
+        amount DECIMAL(12,2) not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        updated_at timestamp(6),
+        user_id bigint not null,
+        donor_name varchar(100) not null,
+        description varchar(255) not null,
+        status enum ('CANCELLED','COMPLETED','PENDING') not null,
+        primary key (id)
+    )
+2026-06-23T22:54:42.119-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    alter table if exists donation_history 
+       add constraint FKnnoorfnvw24s69h77jfqw4cg7 
+       foreign key (donation_id) 
+       references donations
+2026-06-23T22:54:42.145-04:00  INFO 15424 --- [donation-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T22:54:42.868-04:00  WARN 15424 --- [donation-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T22:54:44.519-04:00  INFO 15424 --- [donation-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T22:54:44.815-04:00 DEBUG 15424 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T22:54:45.278-04:00 DEBUG 15424 --- [donation-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T22:54:45.880-04:00 DEBUG 15424 --- [donation-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T22:54:45.971-04:00 DEBUG 15424 --- [donation-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T22:54:47.714-04:00  INFO 15424 --- [donation-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T22:54:47.736-04:00  INFO 15424 --- [donation-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T22:54:47.801-04:00  WARN 15424 --- [donation-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T22:54:47.849-04:00  INFO 15424 --- [donation-service] [main] c.a.d.DonationServiceApplicationTests    : Started DonationServiceApplicationTests in 14.408 seconds (process running for 20.664)
+2026-06-23T22:54:47.903-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T22:54:47.978-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T22:54:47.982-04:00 DEBUG 15424 --- [donation-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        donations
+        (amount, created_at, description, donor_name, shelter_id, status, updated_at, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T22:54:48.034-04:00 DEBUG 15424 --- [donation-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@54c17a2b, started on Tue Jun 23 22:54:35 CLT 2026
+2026-06-23T22:54:48.044-04:00  INFO 15424 --- [donation-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T22:54:48.326-04:00 DEBUG 15424 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donation_history cascade 
+2026-06-23T22:54:48.328-04:00 DEBUG 15424 --- [donation-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists donations cascade 
+2026-06-23T22:54:48.331-04:00  INFO 15424 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T22:54:48.332-04:00  INFO 15424 --- [donation-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

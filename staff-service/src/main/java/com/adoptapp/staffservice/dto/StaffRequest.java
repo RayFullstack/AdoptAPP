@@ -1,5 +1,7 @@
 package com.adoptapp.staffservice.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import com.adoptapp.staffservice.model.StaffPosition;
 import com.adoptapp.staffservice.model.StaffStatus;
 
@@ -9,22 +11,29 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
+@Schema(description = "Datos para crear o actualizar un trabajador")
 public record StaffRequest(
 
         @NotNull(message = "User ID is required")
+        @Schema(description = "ID del usuario asociado", example = "1")
         Long userId,
 
         @NotNull(message = "Shelter ID is required")
+        @Schema(description = "ID del refugio asociado", example = "2")
         Long shelterId,
 
         @NotNull(message = "Position is required")
+        @Schema(description = "Cargo del trabajador", example = "VET")
         StaffPosition position,
 
+        @Schema(description = "Numero de telefono", example = "912345678")
         String phone,
 
         @Email(message = "Email must be valid")
+        @Schema(description = "Correo electronico", example = "usuario@mail.com")
         String email,
 
+        @Schema(description = "Fecha y hora de contratacion", example = "2026-04-21T14:30:00")
         LocalDateTime hireDate,
 
         StaffStatus status

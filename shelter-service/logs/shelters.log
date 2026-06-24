@@ -1,19 +1,19 @@
-2026-06-03T16:50:22.870-04:00  INFO 22616 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Starting ShelterServiceApplicationTests using Java 21.0.11 with PID 22616 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\shelter-service)
-2026-06-03T16:50:22.884-04:00 DEBUG 22616 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-06-03T16:50:22.884-04:00  INFO 22616 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : The following 1 profile is active: "h2"
-2026-06-03T16:50:22.922-04:00 DEBUG 22616 --- [shelter-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@325bb9a6
-2026-06-03T16:50:24.013-04:00  INFO 22616 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-03T16:50:24.129-04:00  INFO 22616 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 2 JPA repository interfaces.
-2026-06-03T16:50:24.591-04:00  INFO 22616 --- [shelter-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b0e8f411-5490-3339-b231-f8ba7e4ab4b0
-2026-06-03T16:50:25.598-04:00  INFO 22616 --- [shelter-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-03T16:50:25.720-04:00  INFO 22616 --- [shelter-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2026-06-03T16:50:25.761-04:00  INFO 22616 --- [shelter-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-03T16:50:26.110-04:00  INFO 22616 --- [shelter-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-03T16:50:26.146-04:00  INFO 22616 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-03T16:50:26.326-04:00  INFO 22616 --- [shelter-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shelter_db user=SA
-2026-06-03T16:50:26.326-04:00  INFO 22616 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-03T16:50:26.353-04:00  WARN 22616 --- [shelter-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-03T16:50:26.376-04:00  INFO 22616 --- [shelter-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-23T12:49:25.562-04:00  INFO 24328 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Starting ShelterServiceApplicationTests using Java 21.0.11 with PID 24328 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\shelter-service)
+2026-06-23T12:49:25.574-04:00 DEBUG 24328 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T12:49:25.580-04:00  INFO 24328 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : The following 1 profile is active: "h2"
+2026-06-23T12:49:25.692-04:00 DEBUG 24328 --- [shelter-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6a1b4854
+2026-06-23T12:49:28.504-04:00  INFO 24328 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T12:49:28.892-04:00  INFO 24328 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 367 ms. Found 2 JPA repository interfaces.
+2026-06-23T12:49:29.720-04:00  INFO 24328 --- [shelter-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8b537c7d-f1c3-3fab-8016-811effe7375c
+2026-06-23T12:49:32.185-04:00  INFO 24328 --- [shelter-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T12:49:32.379-04:00  INFO 24328 --- [shelter-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T12:49:32.463-04:00  INFO 24328 --- [shelter-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T12:49:32.772-04:00  INFO 24328 --- [shelter-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T12:49:32.850-04:00  INFO 24328 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T12:49:33.426-04:00  INFO 24328 --- [shelter-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shelter_db user=SA
+2026-06-23T12:49:33.429-04:00  INFO 24328 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T12:49:33.502-04:00  WARN 24328 --- [shelter-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T12:49:33.559-04:00  INFO 24328 --- [shelter-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -21,12 +21,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-03T16:50:27.286-04:00  INFO 22616 --- [shelter-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-03T16:50:27.302-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:35.531-04:00  INFO 24328 --- [shelter-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T12:49:35.573-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     drop table if exists shelter_history cascade 
-2026-06-03T16:50:27.302-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:35.586-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     drop table if exists shelters cascade 
-2026-06-03T16:50:27.311-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:35.602-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     create table shelter_history (
         new_active boolean,
         previous_active boolean,
@@ -48,7 +48,7 @@
         previous_description TEXT,
         primary key (id)
     )
-2026-06-03T16:50:27.326-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:35.628-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     create table shelters (
         active boolean not null,
         created_at timestamp(6),
@@ -61,51 +61,505 @@
         status enum ('ACTIVE','DELETED','INACTIVE') not null,
         primary key (id)
     )
-2026-06-03T16:50:27.328-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:35.635-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     alter table if exists shelter_history 
        add constraint FKnsc92ajdqv1ppjwhhutb8jxhh 
        foreign key (shelter_id) 
        references shelters
-2026-06-03T16:50:27.345-04:00  INFO 22616 --- [shelter-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:50:27.743-04:00  WARN 22616 --- [shelter-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-03T16:50:29.810-04:00  INFO 22616 --- [shelter-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-03T16:50:30.139-04:00 DEBUG 22616 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2026-06-03T16:50:30.975-04:00 DEBUG 22616 --- [shelter-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2026-06-03T16:50:32.221-04:00 DEBUG 22616 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-06-03T16:50:32.356-04:00 DEBUG 22616 --- [shelter-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-06-03T16:50:34.094-04:00  INFO 22616 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-03T16:50:34.190-04:00  INFO 22616 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Started ShelterServiceApplicationTests in 12.765 seconds (process running for 14.021)
-2026-06-03T16:50:34.899-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:35.674-04:00  INFO 24328 --- [shelter-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:49:36.679-04:00  WARN 24328 --- [shelter-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T12:49:39.145-04:00  INFO 24328 --- [shelter-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T12:49:39.602-04:00 DEBUG 24328 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T12:49:40.230-04:00 DEBUG 24328 --- [shelter-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T12:49:41.312-04:00 DEBUG 24328 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T12:49:41.474-04:00 DEBUG 24328 --- [shelter-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T12:49:43.476-04:00  INFO 24328 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T12:49:43.512-04:00  INFO 24328 --- [shelter-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T12:49:43.620-04:00  WARN 24328 --- [shelter-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T12:49:43.685-04:00  INFO 24328 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Started ShelterServiceApplicationTests in 20.417 seconds (process running for 28.902)
+2026-06-23T12:49:44.602-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     select
         count(*) 
     from
         shelters s1_0
-2026-06-03T16:50:34.984-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:44.715-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         shelters
         (active, created_at, description, email, name, phone, status, updated_at, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:50:35.037-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:44.767-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         shelters
         (active, created_at, description, email, name, phone, status, updated_at, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:50:35.040-04:00 DEBUG 22616 --- [shelter-service] [main] org.hibernate.SQL                        : 
+2026-06-23T12:49:44.770-04:00 DEBUG 24328 --- [shelter-service] [main] org.hibernate.SQL                        : 
     insert 
     into
         shelters
         (active, created_at, description, email, name, phone, status, updated_at, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, default)
-2026-06-03T16:50:35.941-04:00 DEBUG 22616 --- [shelter-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@325bb9a6, started on Wed Jun 03 16:50:22 CLT 2026
-2026-06-03T16:50:35.955-04:00  INFO 22616 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-03T16:50:35.958-04:00 DEBUG 22616 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:49:44.866-04:00 DEBUG 24328 --- [shelter-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@6a1b4854, started on Tue Jun 23 12:49:25 CLT 2026
+2026-06-23T12:49:44.879-04:00  INFO 24328 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T12:49:45.401-04:00 DEBUG 24328 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists shelter_history cascade 
-2026-06-03T16:50:35.958-04:00 DEBUG 22616 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+2026-06-23T12:49:45.405-04:00 DEBUG 24328 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
     drop table if exists shelters cascade 
-2026-06-03T16:50:35.966-04:00  INFO 22616 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-03T16:50:35.968-04:00  INFO 22616 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T12:49:45.410-04:00  INFO 24328 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T12:49:45.412-04:00  INFO 24328 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:41:31.228-04:00  INFO 24564 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Starting ShelterServiceApplicationTests using Java 21.0.11 with PID 24564 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\shelter-service)
+2026-06-23T13:41:31.238-04:00 DEBUG 24564 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:41:31.240-04:00  INFO 24564 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : The following 1 profile is active: "h2"
+2026-06-23T13:41:31.377-04:00 DEBUG 24564 --- [shelter-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@79e33802
+2026-06-23T13:41:34.700-04:00  INFO 24564 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:41:35.150-04:00  INFO 24564 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 420 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:41:36.062-04:00  INFO 24564 --- [shelter-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8b537c7d-f1c3-3fab-8016-811effe7375c
+2026-06-23T13:41:37.712-04:00  INFO 24564 --- [shelter-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:41:37.871-04:00  INFO 24564 --- [shelter-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:41:37.956-04:00  INFO 24564 --- [shelter-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:41:38.246-04:00  INFO 24564 --- [shelter-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:41:38.319-04:00  INFO 24564 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:41:39.005-04:00  INFO 24564 --- [shelter-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shelter_db user=SA
+2026-06-23T13:41:39.010-04:00  INFO 24564 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:41:39.086-04:00  WARN 24564 --- [shelter-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:41:39.144-04:00  INFO 24564 --- [shelter-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:41:41.413-04:00  INFO 24564 --- [shelter-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:41:41.449-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T13:41:41.459-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T13:41:41.473-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelter_history (
+        new_active boolean,
+        previous_active boolean,
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        new_phone varchar(20),
+        new_status varchar(20),
+        previous_phone varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        new_email varchar(100),
+        new_name varchar(100),
+        previous_email varchar(100),
+        previous_name varchar(100),
+        comment varchar(255),
+        new_description TEXT,
+        previous_description TEXT,
+        primary key (id)
+    )
+2026-06-23T13:41:41.499-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelters (
+        active boolean not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        updated_at timestamp(6),
+        phone varchar(20),
+        email varchar(100) not null unique,
+        name varchar(100) not null,
+        description TEXT,
+        status enum ('ACTIVE','DELETED','INACTIVE') not null,
+        primary key (id)
+    )
+2026-06-23T13:41:41.506-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    alter table if exists shelter_history 
+       add constraint FKnsc92ajdqv1ppjwhhutb8jxhh 
+       foreign key (shelter_id) 
+       references shelters
+2026-06-23T13:41:41.551-04:00  INFO 24564 --- [shelter-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:41:42.533-04:00  WARN 24564 --- [shelter-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:41:45.120-04:00  INFO 24564 --- [shelter-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:41:45.649-04:00 DEBUG 24564 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:41:46.251-04:00 DEBUG 24564 --- [shelter-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:41:47.168-04:00 DEBUG 24564 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:41:47.312-04:00 DEBUG 24564 --- [shelter-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:41:49.345-04:00  INFO 24564 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:41:49.382-04:00  INFO 24564 --- [shelter-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:41:49.512-04:00  WARN 24564 --- [shelter-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:41:49.581-04:00  INFO 24564 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Started ShelterServiceApplicationTests in 21.392 seconds (process running for 30.237)
+2026-06-23T13:41:50.541-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        shelters s1_0
+2026-06-23T13:41:50.662-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:41:50.710-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:41:50.714-04:00 DEBUG 24564 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:41:50.804-04:00 DEBUG 24564 --- [shelter-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@79e33802, started on Tue Jun 23 13:41:31 CLT 2026
+2026-06-23T13:41:50.818-04:00  INFO 24564 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:41:51.280-04:00 DEBUG 24564 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T13:41:51.283-04:00 DEBUG 24564 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T13:41:51.288-04:00  INFO 24564 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:41:51.290-04:00  INFO 24564 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T13:46:30.334-04:00  INFO 17156 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Starting ShelterServiceApplicationTests using Java 21.0.11 with PID 17156 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\shelter-service)
+2026-06-23T13:46:30.337-04:00 DEBUG 17156 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T13:46:30.338-04:00  INFO 17156 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : The following 1 profile is active: "h2"
+2026-06-23T13:46:30.466-04:00 DEBUG 17156 --- [shelter-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@79e33802
+2026-06-23T13:46:32.674-04:00  INFO 17156 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T13:46:32.935-04:00  INFO 17156 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 232 ms. Found 2 JPA repository interfaces.
+2026-06-23T13:46:33.484-04:00  INFO 17156 --- [shelter-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8b537c7d-f1c3-3fab-8016-811effe7375c
+2026-06-23T13:46:34.511-04:00  INFO 17156 --- [shelter-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T13:46:34.602-04:00  INFO 17156 --- [shelter-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T13:46:34.645-04:00  INFO 17156 --- [shelter-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T13:46:34.818-04:00  INFO 17156 --- [shelter-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T13:46:34.856-04:00  INFO 17156 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T13:46:35.221-04:00  INFO 17156 --- [shelter-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shelter_db user=SA
+2026-06-23T13:46:35.225-04:00  INFO 17156 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T13:46:35.265-04:00  WARN 17156 --- [shelter-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T13:46:35.294-04:00  INFO 17156 --- [shelter-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T13:46:36.647-04:00  INFO 17156 --- [shelter-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T13:46:36.672-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T13:46:36.678-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T13:46:36.686-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelter_history (
+        new_active boolean,
+        previous_active boolean,
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        new_phone varchar(20),
+        new_status varchar(20),
+        previous_phone varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        new_email varchar(100),
+        new_name varchar(100),
+        previous_email varchar(100),
+        previous_name varchar(100),
+        comment varchar(255),
+        new_description TEXT,
+        previous_description TEXT,
+        primary key (id)
+    )
+2026-06-23T13:46:36.702-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelters (
+        active boolean not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        updated_at timestamp(6),
+        phone varchar(20),
+        email varchar(100) not null unique,
+        name varchar(100) not null,
+        description TEXT,
+        status enum ('ACTIVE','DELETED','INACTIVE') not null,
+        primary key (id)
+    )
+2026-06-23T13:46:36.707-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    alter table if exists shelter_history 
+       add constraint FKnsc92ajdqv1ppjwhhutb8jxhh 
+       foreign key (shelter_id) 
+       references shelters
+2026-06-23T13:46:36.735-04:00  INFO 17156 --- [shelter-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:46:37.436-04:00  WARN 17156 --- [shelter-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T13:46:39.163-04:00  INFO 17156 --- [shelter-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T13:46:39.471-04:00 DEBUG 17156 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T13:46:39.868-04:00 DEBUG 17156 --- [shelter-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T13:46:40.445-04:00 DEBUG 17156 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T13:46:40.522-04:00 DEBUG 17156 --- [shelter-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T13:46:42.154-04:00  INFO 17156 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T13:46:42.178-04:00  INFO 17156 --- [shelter-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T13:46:42.240-04:00  WARN 17156 --- [shelter-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T13:46:42.277-04:00  INFO 17156 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Started ShelterServiceApplicationTests in 13.803 seconds (process running for 19.986)
+2026-06-23T13:46:42.866-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        shelters s1_0
+2026-06-23T13:46:42.930-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:46:42.954-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:46:42.956-04:00 DEBUG 17156 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T13:46:43.014-04:00 DEBUG 17156 --- [shelter-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@79e33802, started on Tue Jun 23 13:46:30 CLT 2026
+2026-06-23T13:46:43.023-04:00  INFO 17156 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T13:46:43.265-04:00 DEBUG 17156 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T13:46:43.268-04:00 DEBUG 17156 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T13:46:43.271-04:00  INFO 17156 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T13:46:43.272-04:00  INFO 17156 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:53:07.003-04:00  INFO 3956 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Starting ShelterServiceApplicationTests using Java 21.0.11 with PID 3956 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\shelter-service)
+2026-06-23T14:53:07.006-04:00 DEBUG 3956 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:53:07.008-04:00  INFO 3956 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : The following 1 profile is active: "h2"
+2026-06-23T14:53:07.115-04:00 DEBUG 3956 --- [shelter-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4d21b505
+2026-06-23T14:53:10.368-04:00  INFO 3956 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:53:10.919-04:00  INFO 3956 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 516 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:53:12.043-04:00  INFO 3956 --- [shelter-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8b537c7d-f1c3-3fab-8016-811effe7375c
+2026-06-23T14:53:14.267-04:00  INFO 3956 --- [shelter-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:53:14.527-04:00  INFO 3956 --- [shelter-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:53:14.640-04:00  INFO 3956 --- [shelter-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:53:15.057-04:00  INFO 3956 --- [shelter-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:53:15.180-04:00  INFO 3956 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:53:15.962-04:00  INFO 3956 --- [shelter-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shelter_db user=SA
+2026-06-23T14:53:15.968-04:00  INFO 3956 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:53:16.055-04:00  WARN 3956 --- [shelter-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:53:16.123-04:00  INFO 3956 --- [shelter-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:53:18.506-04:00  INFO 3956 --- [shelter-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:53:18.549-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T14:53:18.561-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T14:53:18.573-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelter_history (
+        new_active boolean,
+        previous_active boolean,
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        new_phone varchar(20),
+        new_status varchar(20),
+        previous_phone varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        new_email varchar(100),
+        new_name varchar(100),
+        previous_email varchar(100),
+        previous_name varchar(100),
+        comment varchar(255),
+        new_description TEXT,
+        previous_description TEXT,
+        primary key (id)
+    )
+2026-06-23T14:53:18.597-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelters (
+        active boolean not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        updated_at timestamp(6),
+        phone varchar(20),
+        email varchar(100) not null unique,
+        name varchar(100) not null,
+        description TEXT,
+        status enum ('ACTIVE','DELETED','INACTIVE') not null,
+        primary key (id)
+    )
+2026-06-23T14:53:18.604-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    alter table if exists shelter_history 
+       add constraint FKnsc92ajdqv1ppjwhhutb8jxhh 
+       foreign key (shelter_id) 
+       references shelters
+2026-06-23T14:53:18.654-04:00  INFO 3956 --- [shelter-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:53:19.756-04:00  WARN 3956 --- [shelter-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:53:22.346-04:00  INFO 3956 --- [shelter-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:53:22.853-04:00 DEBUG 3956 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:53:23.597-04:00 DEBUG 3956 --- [shelter-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:53:24.814-04:00 DEBUG 3956 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:53:24.958-04:00 DEBUG 3956 --- [shelter-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:53:27.124-04:00  INFO 3956 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:53:27.165-04:00  INFO 3956 --- [shelter-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:53:27.285-04:00  WARN 3956 --- [shelter-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:53:27.358-04:00  INFO 3956 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Started ShelterServiceApplicationTests in 22.876 seconds (process running for 32.765)
+2026-06-23T14:53:28.630-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        shelters s1_0
+2026-06-23T14:53:28.798-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:53:28.857-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:53:28.861-04:00 DEBUG 3956 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:53:28.969-04:00 DEBUG 3956 --- [shelter-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4d21b505, started on Tue Jun 23 14:53:07 CLT 2026
+2026-06-23T14:53:28.990-04:00  INFO 3956 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:53:29.509-04:00 DEBUG 3956 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T14:53:29.512-04:00 DEBUG 3956 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T14:53:29.517-04:00  INFO 3956 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:53:29.519-04:00  INFO 3956 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-23T14:57:53.426-04:00  INFO 28300 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Starting ShelterServiceApplicationTests using Java 21.0.11 with PID 28300 (started by camila in C:\Users\camil\Documents\fullstack1\adoptapp\shelter-service)
+2026-06-23T14:57:53.432-04:00 DEBUG 28300 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-06-23T14:57:53.433-04:00  INFO 28300 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : The following 1 profile is active: "h2"
+2026-06-23T14:57:53.562-04:00 DEBUG 28300 --- [shelter-service] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4d21b505
+2026-06-23T14:57:56.818-04:00  INFO 28300 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-23T14:57:57.308-04:00  INFO 28300 --- [shelter-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 453 ms. Found 2 JPA repository interfaces.
+2026-06-23T14:57:58.403-04:00  INFO 28300 --- [shelter-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8b537c7d-f1c3-3fab-8016-811effe7375c
+2026-06-23T14:58:00.147-04:00  INFO 28300 --- [shelter-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-23T14:58:00.320-04:00  INFO 28300 --- [shelter-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-23T14:58:00.414-04:00  INFO 28300 --- [shelter-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-23T14:58:00.751-04:00  INFO 28300 --- [shelter-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-23T14:58:00.859-04:00  INFO 28300 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-23T14:58:01.579-04:00  INFO 28300 --- [shelter-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shelter_db user=SA
+2026-06-23T14:58:01.586-04:00  INFO 28300 --- [shelter-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-23T14:58:01.665-04:00  WARN 28300 --- [shelter-service] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-23T14:58:01.725-04:00  INFO 28300 --- [shelter-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-23T14:58:04.090-04:00  INFO 28300 --- [shelter-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-23T14:58:04.128-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T14:58:04.139-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T14:58:04.150-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelter_history (
+        new_active boolean,
+        previous_active boolean,
+        changed_at timestamp(6) not null,
+        changed_by_user_id bigint,
+        id bigint generated by default as identity,
+        shelter_id bigint not null,
+        new_phone varchar(20),
+        new_status varchar(20),
+        previous_phone varchar(20),
+        previous_status varchar(20),
+        action varchar(50) not null,
+        new_email varchar(100),
+        new_name varchar(100),
+        previous_email varchar(100),
+        previous_name varchar(100),
+        comment varchar(255),
+        new_description TEXT,
+        previous_description TEXT,
+        primary key (id)
+    )
+2026-06-23T14:58:04.172-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    create table shelters (
+        active boolean not null,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        updated_at timestamp(6),
+        phone varchar(20),
+        email varchar(100) not null unique,
+        name varchar(100) not null,
+        description TEXT,
+        status enum ('ACTIVE','DELETED','INACTIVE') not null,
+        primary key (id)
+    )
+2026-06-23T14:58:04.179-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    alter table if exists shelter_history 
+       add constraint FKnsc92ajdqv1ppjwhhutb8jxhh 
+       foreign key (shelter_id) 
+       references shelters
+2026-06-23T14:58:04.234-04:00  INFO 28300 --- [shelter-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:58:05.424-04:00  WARN 28300 --- [shelter-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-23T14:58:08.006-04:00  INFO 28300 --- [shelter-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-23T14:58:08.437-04:00 DEBUG 28300 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2026-06-23T14:58:08.996-04:00 DEBUG 28300 --- [shelter-service] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-06-23T14:58:09.946-04:00 DEBUG 28300 --- [shelter-service] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-06-23T14:58:10.082-04:00 DEBUG 28300 --- [shelter-service] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-06-23T14:58:12.257-04:00  INFO 28300 --- [shelter-service] [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-23T14:58:12.327-04:00  INFO 28300 --- [shelter-service] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-23T14:58:12.460-04:00  WARN 28300 --- [shelter-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-23T14:58:12.550-04:00  INFO 28300 --- [shelter-service] [main] c.a.s.ShelterServiceApplicationTests     : Started ShelterServiceApplicationTests in 21.857 seconds (process running for 31.139)
+2026-06-23T14:58:13.603-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        shelters s1_0
+2026-06-23T14:58:13.725-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:58:13.780-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:58:13.783-04:00 DEBUG 28300 --- [shelter-service] [main] org.hibernate.SQL                        : 
+    insert 
+    into
+        shelters
+        (active, created_at, description, email, name, phone, status, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-06-23T14:58:13.874-04:00 DEBUG 28300 --- [shelter-service] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@4d21b505, started on Tue Jun 23 14:57:53 CLT 2026
+2026-06-23T14:58:13.889-04:00  INFO 28300 --- [shelter-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-23T14:58:14.395-04:00 DEBUG 28300 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelter_history cascade 
+2026-06-23T14:58:14.398-04:00 DEBUG 28300 --- [shelter-service] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists shelters cascade 
+2026-06-23T14:58:14.405-04:00  INFO 28300 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-23T14:58:14.407-04:00  INFO 28300 --- [shelter-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
