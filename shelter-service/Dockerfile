@@ -1,10 +1,18 @@
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+
+WORKDIR /workspace
+
+COPY . .
+
+RUN mvn -pl shelter-service -am package -DskipTests -B
+
 FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
 RUN useradd --system --no-create-home appuser
 
-COPY shelter-service/target/shelter-service-*.jar app.jar
+COPY --from=build /workspace/shelter-service/target/shelter-service-*.jar app.jar
 
 USER appuser
 
