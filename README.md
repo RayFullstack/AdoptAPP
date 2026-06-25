@@ -33,7 +33,7 @@ adoptapp/
 | **Spring Boot 3.4.5** | Framework |
 | **Spring Cloud 2024.0.0** | OpenFeign, Gateway, LoadBalancer y Eureka |
 | **Spring Data JPA** | Acceso a datos con relaciones |
-| **Supabase PostgreSQL / H2** | Base de datos online por schemas / tests y desarrollo |
+| **Neon PostgreSQL / H2** | Base de datos online por schemas / tests y desarrollo |
 | **Spring Cloud Gateway** | Punto de entrada único con rutas `lb://` |
 | **Netflix Eureka** | Registro y descubrimiento de servicios |
 | **Docker Compose** | Construcción y ejecución de los 12 componentes |
@@ -64,7 +64,7 @@ adoptapp/
 
 API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER, VET, ADMIN.
 
-**Base de datos**: Supabase PostgreSQL, schema `users_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `users_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/users`):
 
@@ -86,7 +86,7 @@ API CRUD para gestionar usuarios con 5 roles: ADOPTER, SHELTER_ADMIN, VOLUNTEER,
 
 API CRUD para gestionar mascotas. La informacion clinica no se almacena en pet-service; se consulta y administra desde health-service.
 
-**Base de datos**: Supabase PostgreSQL, schema `pet_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `pet_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/pets`):
 
@@ -111,7 +111,7 @@ API CRUD para gestionar mascotas. La informacion clinica no se almacena en pet-s
 
 API para gestionar adopciones. Crea solicitudes en estado `PENDING`, valida usuario, mascota, refugio y disponibilidad, y sincroniza el estado de la mascota con pet-service al aprobar o cancelar.
 
-**Base de datos**: Supabase PostgreSQL, schema `adoption_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `adoption_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/adoptions`):
 
@@ -136,7 +136,7 @@ API para gestionar adopciones. Crea solicitudes en estado `PENDING`, valida usua
 
 API para gestionar notificaciones. Almacena notificaciones con tipos categorizados vía `@ManyToOne(NotificationType)` y usa soft delete con estado `ARCHIVED`.
 
-**Base de datos**: Supabase PostgreSQL, schema `notification_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `notification_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/notifications`):
 
@@ -166,7 +166,7 @@ API para gestionar notificaciones. Almacena notificaciones con tipos categorizad
 
 API para gestionar registros clínicos de mascotas con historial de cambios. VET, SHELTER_ADMIN, ADMIN tienen acceso de escritura.
 
-**Base de datos**: Supabase PostgreSQL, schema `health_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `health_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/health`):
 
@@ -190,7 +190,7 @@ API para gestionar registros clínicos de mascotas con historial de cambios. VET
 
 API para gestionar seguimientos post-adopción.
 
-**Base de datos**: Supabase PostgreSQL, schema `followup_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `followup_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/followups`):
 
@@ -207,7 +207,7 @@ API para gestionar seguimientos post-adopción.
 
 API para gestionar donaciones. Verifica existencia de usuario y refugio vía Feign antes de crear.
 
-**Base de datos**: Supabase PostgreSQL, schema `donation_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `donation_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/donations`):
 
@@ -229,7 +229,7 @@ API para gestionar donaciones. Verifica existencia de usuario y refugio vía Fei
 
 API para gestionar personal de refugios.
 
-**Base de datos**: Supabase PostgreSQL, schema `staff_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `staff_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/staff`):
 
@@ -253,7 +253,7 @@ API para gestionar personal de refugios.
 
 API para gestionar insumos de refugios.
 
-**Base de datos**: Supabase PostgreSQL, schema `supply_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `supply_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/supplies`):
 
@@ -277,7 +277,7 @@ API para gestionar insumos de refugios.
 
 API para gestionar refugios.
 
-**Base de datos**: Supabase PostgreSQL, schema `shelter_service` (o H2 con perfil `h2`)
+**Base de datos**: Neon PostgreSQL, schema `shelter_service` (o H2 con perfil `h2`)
 
 **Endpoints** (`/shelters`):
 
@@ -368,7 +368,7 @@ El Gateway reenvía el encabezado `Authorization`; cada microservicio continúa 
 
 `compose.yml` levanta 12 contenedores. Eureka incluye un healthcheck contra `/actuator/health`; los demás componentes esperan `service_healthy` antes de comenzar. Las dependencias adicionales usan `service_started`.
 
-Los servicios pueden tardar cerca de dos minutos en iniciar mientras Flyway, JPA y Supabase se estabilizan. Durante ese periodo el Gateway puede responder temporalmente `503`; una vez actualizado el registro, una ruta protegida sin credenciales debe responder `401`.
+Los servicios pueden tardar cerca de dos minutos en iniciar mientras Flyway, JPA y Neon se estabilizan. Durante ese periodo el Gateway puede responder temporalmente `503`; una vez actualizado el registro, una ruta protegida sin credenciales debe responder `401`.
 
 ## Cómo ejecutar
 
@@ -381,14 +381,14 @@ Los servicios pueden tardar cerca de dos minutos en iniciar mientras Flyway, JPA
 
 Este paso es obligatorio antes de construir las imágenes porque los Dockerfile copian los JAR desde `target/`.
 
-### Variables para Supabase
+### Variables para Neon
 
 Crear un archivo `.env` en la raíz. Está ignorado por Git y no debe incluirse en commits:
 
 ```env
-DB_URL=jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&prepareThreshold=0
-DB_USER=postgres.<PROJECT_REF>
-DB_PASSWORD=<SUPABASE_PASSWORD>
+DB_URL=jdbc:postgresql://<NEON_HOST>/<NEON_DATABASE>?sslmode=require&channelBinding=require
+DB_USER=<NEON_USER>
+DB_PASSWORD=<NEON_PASSWORD>
 ```
 
 Cada contenedor recibe su propio `DB_SCHEMA`. Flyway crea y migra automáticamente los schemas `users_service`, `pet_service`, `adoption_service`, `notification_service`, `health_service`, `followup_service`, `donation_service`, `staff_service`, `supply_service` y `shelter_service`.
@@ -422,7 +422,7 @@ docker compose up -d --build --force-recreate
 Cada servicio necesita su propia terminal:
 
 ```bash
-# Perfil Supabase (default)
+# Perfil Neon (default)
 cd donation-service
 .\mvnw.cmd spring-boot:run
 
@@ -454,18 +454,18 @@ Para ejecución manual, iniciar primero `eureka-server`, después los microservi
 
 | Perfil | Base de datos | Flyway | Uso |
 |---|---|---|---|
-| `supabase` (default) | Supabase PostgreSQL | habilitado | Ejecución principal |
+| `neon` (default) | Neon PostgreSQL | habilitado | Ejecución principal |
 | `h2` | H2 en memoria | deshabilitado | Desarrollo |
 | `postgres` | PostgreSQL local | habilitado | Desarrollo local opcional |
 
 Variables de entorno requeridas (via `.env`):
 ```env
-DB_URL=jdbc:postgresql://<SUPABASE_POOLER>:6543/postgres?sslmode=require&prepareThreshold=0
-DB_USER=postgres.<PROJECT_REF>
-DB_PASSWORD=<SUPABASE_PASSWORD>
+DB_URL=jdbc:postgresql://<NEON_HOST>/<NEON_DATABASE>?sslmode=require&channelBinding=require
+DB_USER=<NEON_USER>
+DB_PASSWORD=<NEON_PASSWORD>
 ```
 
-El perfil Supabase configura HikariCP con `maximum-pool-size: 2` y `minimum-idle: 0` por servicio para evitar agotar las conexiones del pooler.
+El perfil Neon configura HikariCP con `maximum-pool-size: 2` y `minimum-idle: 0` por servicio para controlar el uso de conexiones.
 
 ## OpenAPI, Swagger y HATEOAS
 
@@ -515,7 +515,7 @@ Los endpoints principales de consulta retornan respuestas con HATEOAS usando `En
 - **GlobalExceptionHandler**: Manejo centralizado de excepciones en los 10 servicios con respuestas seguras (no expone stack traces)
 - **Structured logging**: Todos los métodos de notification-service incluyen logging estructurado con requestId
 - **Enum validation**: Todos los `Enum.valueOf()` protegidos con try/catch para evitar 500 por valores inválidos
-- **HikariCP pool size**: 2 conexiones máximas y 0 conexiones mínimas por servicio en el perfil Supabase
+- **HikariCP pool size**: 2 conexiones máximas y 0 conexiones mínimas por servicio en el perfil Neon
 - **Shared DTO**: `UserAuthResponse` centralizado en `shared-kernel` para eliminar duplicación entre 9 servicios
 
 ## Patrones del Proyecto
@@ -564,7 +564,7 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Entity-Migration Alignment**: Correcciones en `User.email`, `UserPhone.number`, `UserAddress.homeNumber`, `Donation` fields
 - **Flyway Repair**: `flyway.repair-on-migrate=true` habilitado para reparar checksums automaticamente
 - **Schema Isolation**: `flyway.create-schemas=true` para crear automáticamente un schema por microservicio
-- **Supabase PostgreSQL**: conexión mediante transaction pooler en puerto 6543, SSL y `prepareThreshold=0`
+- **Neon PostgreSQL**: conexión mediante conexion PostgreSQL remota con SSL
 
 ### CI/CD
 - Pipeline GitHub Actions en `.github/workflows/build.yml`
@@ -613,7 +613,7 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Structured Logging**: Todos los métodos de notification-service incluyen logging con campos estructurados
 - **Enum Validation**: filtros con valores de enum invalidos responden 400 Bad Request en todos los servicios principales
 - **Shared DTO**: `UserAuthResponse` movido a shared-kernel; 9 servicios actualizados para usar DTO centralizado
-- **HikariCP Pool**: `maximum-pool-size: 2` y `minimum-idle: 0` en todos los perfiles Supabase
+- **HikariCP Pool**: `maximum-pool-size: 2` y `minimum-idle: 0` en todos los perfiles Neon
 - **Database Fixes**:
   - `V3__add_foreign_keys_to_donations.sql` en donation-service
   - `V3__add_unique_constraint_pet_id.sql` en health-service
@@ -636,8 +636,8 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Filtros invalidos**: filtros por estado invalidos devuelven 400 Bad Request.
 - **Endpoints internos**: rutas `/internal/**` usadas para validaciones entre servicios protegidas con rol `ADMIN`.
 
-### Supabase, Docker y Service Discovery (2026-06)
-- **Supabase**: migración desde PostgreSQL local a un proyecto online con 10 schemas aislados.
+### Neon, Docker y Service Discovery (2026-06)
+- **Neon**: migración desde PostgreSQL local a un proyecto online con 10 schemas aislados.
 - **Transaction pooler**: conexión por puerto 6543 con SSL y `prepareThreshold=0`.
 - **Docker**: Dockerfile con Java 21 y usuario sin privilegios para cada componente; orquestación central en `compose.yml`.
 - **Eureka Server**: registro en puerto 8761, healthcheck de Actuator y espera mediante `service_healthy`.
@@ -663,7 +663,7 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Sin paginacion**: Los endpoints `GET /resource` retornan listas completas sin paginacion.
 - **Rutas no RESTful**: Se usa `/resource/by-id/{id}` en lugar del estandar REST `/resource/{id}`.
 - **HTTP Basic Auth**: Sin JWT/OAuth2. Credenciales enviadas en Base64 en cada request.
-- **Arranque inicial**: JPA, Flyway y Supabase pueden tardar cerca de dos minutos; el Gateway puede responder `503` hasta el siguiente refresco de Eureka.
+- **Arranque inicial**: JPA, Flyway y Neon pueden tardar cerca de dos minutos; el Gateway puede responder `503` hasta el siguiente refresco de Eureka.
 - **Build Docker en dos pasos**: los Dockerfile copian JAR desde `target`, por lo que Maven debe ejecutarse antes de construir imágenes.
 - **Feign con URL fija**: Eureka resuelve las rutas del Gateway; las llamadas Feign internas todavía usan URLs configuradas por entorno.
 - **Codigo muerto pendiente de limpieza**: `DonationRequest` ya no se usa porque donation-service separa `DonationCreateRequest` y `DonationUpdateRequest`.
@@ -671,12 +671,12 @@ Request (validacion) → Command (servicio) → Result (servicio) → Response (
 - **Tests duplicados en adoption-service**: existen pruebas de fallbacks especificas y una prueba general `ClientFallbackTest` que cubren parte del mismo comportamiento.
 
 ### Decisiones de diseno
-- **Schema-per-service**: Los microservicios comparten el proyecto PostgreSQL de Supabase, pero cada uno usa un schema aislado.
+- **Schema-per-service**: Los microservicios comparten el proyecto PostgreSQL de Neon, pero cada uno usa un schema aislado.
 - **Feign sincrono**: Comunicacion entre servicios via OpenFeign con fallbacks y circuit breakers.
 - **API Gateway**: Punto de entrada en el puerto 8080 con rutas `lb://` resueltas mediante Eureka. Los puertos directos se mantienen expuestos para desarrollo.
 - **Eureka**: Los 10 microservicios y el Gateway se registran por IP dentro de la red de Docker.
 - **Shared Kernel**: `UserAuthResponse` centralizado para evitar duplicación de DTOs de autenticación. Excepciones compartidas (`BusinessException`, `ForbiddenException`, `UnauthorizedException`, `ValidationException`, `ResourceNotFoundException`, `RemoteServiceException`) y `ErrorResponseFactory` para respuestas consistentes.
-- **HikariCP pool**: 2 conexiones máximas por servicio para respetar los límites del pooler de Supabase.
+- **HikariCP pool**: 2 conexiones máximas por servicio para respetar los límites del pooler de Neon.
 
 ## Testing
 

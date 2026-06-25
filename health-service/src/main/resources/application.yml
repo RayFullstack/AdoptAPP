@@ -5,14 +5,14 @@ server:
 
 spring:
   profiles:
-    default: supabase
+    default: neon
   config:
     import: optional:file:.env[.properties],optional:file:../.env[.properties]
   application:
     name: health-service
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:health_db}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/health_db}
     driver-class-name: org.postgresql.Driver
     username: ${DB_USER}
     password: ${DB_PASSWORD}
